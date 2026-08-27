@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandhini Sivakumar - Resume</title>
+    <style>
+        :root {
+            --text-main: #111;
+            --text-muted: #555;
+            --font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .contact-info {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            border-bottom: 2px solid #222;
+            padding-bottom: 15px;
+        }
+        .contact-info a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .section-item {
+            margin-bottom: 20px;
+        }
+        .section-item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        .section-item-sub {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        ul {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        
+        /* ATS Optimization & Print Styles */
+        @media print { 
+            @page { margin: 15mm; } 
+            header, footer { display: none; }
+            body { padding: 0; }
+        }
+        
+        /* Screen only button */
+        @media screen {
+            .print-btn {
+                display: block;
+                width: max-content;
+                margin: 0 auto 30px auto;
+                padding: 10px 20px;
+                background-color: #222;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-family: inherit;
+                font-size: 1rem;
+            }
+            .print-btn:hover { background-color: #444; }
+        }
+        @media print { .print-btn { display: none; } }
+    </style>
+</head>
+<body>
+    
+    <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+    <header>
+        <h1>Nandhini Sivakumar</h1>
+        <div class="contact-info">
+            Bookkeeping Accountant<br>
+            8754739332 | nandhinisiva299@gmail.com | 
+            <a href="https://linkedin.com/in/nandhini-sivakumar-1a2406321">linkedin.com/in/nandhini-sivakumar-1a2406321</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Summary</h2>
+            <p>Bachelor of Commerce student with an 8.5 CGPA and four months of research experience analyzing MSME financial data, seeking a Bookkeeping Accountant role to apply accounting and analytical skills.</p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="section-item">
+                <div class="section-item-header">
+                    <span>Bharathiyar University</span>
+                    <span>Currently Pursuing</span>
+                </div>
+                <div class="section-item-sub">Bachelor of Commerce (Professional Accounting)</div>
+                <ul>
+                    <li><strong>CGPA:</strong> 8.5 out of 10</li>
+                    <li>Scored 100 out of 100 in Commerce, Class XI.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="section-item">
+                <div class="section-item-header">
+                    <span>Digital and Platform Based Entrepreneurship in the Era of Artificial Intelligence</span>
+                    <span>Four Months</span>
+                </div>
+                <div class="section-item-sub">Bharathiyar University | Academic Research Project (Two Member Team)</div>
+                <ul>
+                    <li>Analyzed Udyam Portal and MSME data over four months with a two-member team to study entrepreneurial growth trends.</li>
+                    <li>Prepared statistical analysis, charts, and graphs to interpret AI-driven business model adoption among digital enterprises.</li>
+                    <li>Conducted descriptive research on the impact of Artificial Intelligence on digital and platform-based entrepreneurship.</li>
+                    <li>Explored AI-driven business models and digital transformation strategies within platform-based enterprises.</li>
+                    <li>Interpreted research findings to draw conclusions on how digital platforms influence entrepreneurial growth in the MSME sector.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li><strong>Software:</strong> Microsoft Excel, Microsoft Word, Microsoft PowerPoint</li>
+                <li><strong>Accounting and Analysis:</strong> Financial Accounting, Research and Data Analysis, AI Applications in Business, Digital Entrepreneurship</li>
+                <li><strong>Core Competencies:</strong> Leadership, Teamwork, Communication, Analytical Thinking, Problem Solving, Time Management, Adaptability, Presentation Skills</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Certifications & Achievements</h2>
+            <ul>
+                <li>Received Gold Medal of Excellence in Commerce Olympiad.</li>
+                <li>Awarded Mahatma Gandhi Merit Scholarship.</li>
+                <li>Served as House Captain and represented school as French Representative.</li>
+                <li>Entrepreneurship, Coursera (In Progress).</li>
+                <li>Graphic Designing, NPTEL (In Progress).</li>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>
