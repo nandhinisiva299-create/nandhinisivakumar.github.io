@@ -237,6 +237,48 @@
             40%, 100% { transform: rotate(30deg) translateX(150%); }
         }
 
+        /* Aceternity & Magic UI 3D Card Parallax & Glare Effects */
+        .card-3d-wrapper {
+            perspective: 1200px;
+        }
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+            will-change: transform;
+            border-radius: 1.5rem;
+        }
+        .card-3d:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 200, 66, 0.3);
+            border-color: rgba(245, 200, 66, 0.7);
+        }
+        .card-3d-img-box {
+            transform-style: preserve-3d;
+            overflow: hidden;
+            border-radius: 1.25rem;
+        }
+        .card-3d-img {
+            transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s ease;
+            transform: translateZ(15px);
+        }
+        .card-3d:hover .card-3d-img {
+            transform: translateZ(35px) scale(1.08);
+            filter: brightness(1.12);
+        }
+        .card-3d-badge {
+            transform: translateZ(55px);
+            transition: transform 0.35s ease;
+        }
+        .card-3d:hover .card-3d-badge {
+            transform: translateZ(75px) scale(1.06);
+        }
+        .card-3d-content {
+            transform: translateZ(40px);
+            transition: transform 0.35s ease;
+        }
+        .card-3d:hover .card-3d-content {
+            transform: translateZ(60px);
+        }
+
         /* Hero Name Typography & Kinetic Entrance */
         .hero-name-container {
             position: relative;
@@ -455,6 +497,7 @@
                 <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span> ProtoSem
             </a>
             <a href="#skills" class="text-gray-300 hover:text-pink-300 transition-colors">Skills</a>
+            <a href="#creations" class="text-gray-300 hover:text-yellow-300 transition-colors">Creations</a>
             <a href="#blog" class="text-gray-300 hover:text-yellow-300 transition-colors">Field Notes</a>
             <button onclick="openEditorModal('profile')" class="px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 hover:bg-yellow-400/20 transition-all flex items-center gap-1 font-mono text-xs font-semibold">
                 <span>✏️ Edit</span>
@@ -707,6 +750,161 @@
             </p>
             <div id="skills-container" class="flex flex-wrap gap-3.5">
                 <!-- Dynamically rendered / editable skills -->
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 3D CREATIVE SHOWCASE & VISUAL GALLERY (PHOTOGRAPHY, DESIGN, BAKING) -->
+        <!-- ========================================================================= -->
+        <section id="creations" class="glass rounded-3xl p-8 md:p-10 border border-white/10 relative overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-yellow-400/20 to-pink-500/20 border border-yellow-400/40 text-yellow-300 text-xs font-mono font-semibold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span> 3D VISUAL SHOWCASE
+                </div>
+                <span class="text-xs font-mono text-gray-400">INTERACTIVE 3D PARALLAX & DEPTH</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-yellow-300 via-pink-400 to-sky-300 bg-clip-text text-transparent font-serif">
+                        Creative Passions in 3D
+                    </h2>
+                    <p class="text-gray-300 text-sm md:text-base mt-1">
+                        Move your mouse across the cards to experience multi-layered 3D depth, parallax projection, and light glares.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 card-3d-wrapper">
+                
+                <!-- CARD 1: PHOTOGRAPHY & VISUAL COMPOSITION -->
+                <div onclick="open3DLightbox('photo')" data-tilt data-tilt-max="14" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-glare="true" data-tilt-max-glare="0.25" class="card-3d glass p-5 md:p-6 border border-white/15 bg-slate-950/70 cursor-pointer group">
+                    <div class="card-3d-img-box relative h-56 md:h-64 w-full mb-5 overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=85" alt="Photography & Visual Composition" class="card-3d-img w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        
+                        <!-- Floating 3D Badge -->
+                        <div class="card-3d-badge absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-yellow-400/90 text-slate-950 font-bold text-xs font-mono shadow-[0_0_15px_rgba(245,200,66,0.6)] flex items-center gap-1.5">
+                            <span>📸</span> Photography
+                        </div>
+
+                        <div class="card-3d-badge absolute bottom-3.5 right-3.5 px-3 py-1 rounded-full glass border border-white/20 text-white text-[11px] font-mono flex items-center gap-1">
+                            <span>🔍 Click 3D Preview</span>
+                        </div>
+                    </div>
+
+                    <div class="card-3d-content space-y-2.5">
+                        <h3 class="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors font-serif flex items-center justify-between">
+                            <span>Visual Composition & Photography</span>
+                            <span class="text-yellow-400 text-sm group-hover:translate-x-1 transition-transform">→</span>
+                        </h3>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Mastering optical framing, atmospheric lighting, and high-impact still life to tell authentic visual stories through the camera lens.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-yellow-300">#GoldenHour</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#DepthOfField</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#VisualStorytelling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: GRAPHIC DESIGNING & BRANDING -->
+                <div onclick="open3DLightbox('design')" data-tilt data-tilt-max="14" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-glare="true" data-tilt-max-glare="0.25" class="card-3d glass p-5 md:p-6 border border-white/15 bg-slate-950/70 cursor-pointer group">
+                    <div class="card-3d-img-box relative h-56 md:h-64 w-full mb-5 overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1000&q=85" alt="Graphic Designing & Brand Identity" class="card-3d-img w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        
+                        <!-- Floating 3D Badge -->
+                        <div class="card-3d-badge absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-pink-500/90 text-white font-bold text-xs font-mono shadow-[0_0_15px_rgba(244,114,182,0.6)] flex items-center gap-1.5">
+                            <span>🎨</span> Graphic Design (NPTEL)
+                        </div>
+
+                        <div class="card-3d-badge absolute bottom-3.5 right-3.5 px-3 py-1 rounded-full glass border border-white/20 text-white text-[11px] font-mono flex items-center gap-1">
+                            <span>🔍 Click 3D Preview</span>
+                        </div>
+                    </div>
+
+                    <div class="card-3d-content space-y-2.5">
+                        <h3 class="text-xl font-bold text-white group-hover:text-pink-300 transition-colors font-serif flex items-center justify-between">
+                            <span>3D Graphic Design & Visual Identity</span>
+                            <span class="text-pink-400 text-sm group-hover:translate-x-1 transition-transform">→</span>
+                        </h3>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Certified in Graphic Design by NPTEL — crafting bold typography, dynamic digital posters, vector layouts, and coherent brand identities.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-pink-300">#BrandIdentity</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#NPTELCertified</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#Typography</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: ARTISANAL BAKING & PASTRY -->
+                <div onclick="open3DLightbox('baking')" data-tilt data-tilt-max="14" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-glare="true" data-tilt-max-glare="0.25" class="card-3d glass p-5 md:p-6 border border-white/15 bg-slate-950/70 cursor-pointer group">
+                    <div class="card-3d-img-box relative h-56 md:h-64 w-full mb-5 overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85" alt="Artisanal Baking & Pastry Arts" class="card-3d-img w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        
+                        <!-- Floating 3D Badge -->
+                        <div class="card-3d-badge absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-amber-400/90 text-slate-950 font-bold text-xs font-mono shadow-[0_0_15px_rgba(251,191,36,0.6)] flex items-center gap-1.5">
+                            <span>🧁</span> Artisanal Baking
+                        </div>
+
+                        <div class="card-3d-badge absolute bottom-3.5 right-3.5 px-3 py-1 rounded-full glass border border-white/20 text-white text-[11px] font-mono flex items-center gap-1">
+                            <span>🔍 Click 3D Preview</span>
+                        </div>
+                    </div>
+
+                    <div class="card-3d-content space-y-2.5">
+                        <h3 class="text-xl font-bold text-white group-hover:text-amber-300 transition-colors font-serif flex items-center justify-between">
+                            <span>Handcrafted Confections & Pastry Arts</span>
+                            <span class="text-amber-400 text-sm group-hover:translate-x-1 transition-transform">→</span>
+                        </h3>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Combining baking chemistry, precise measurements, and artistic plating to craft layered gourmet cakes, delicate pastries, and festive confections.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-amber-300">#GourmetPastry</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#CulinaryChemistry</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#ArtisanalCakes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4: PROTOSEM AI & HARDWARE PROTOTYPING -->
+                <div onclick="open3DLightbox('protosem')" data-tilt data-tilt-max="14" data-tilt-speed="400" data-tilt-perspective="1000" data-tilt-glare="true" data-tilt-max-glare="0.25" class="card-3d glass p-5 md:p-6 border border-white/15 bg-slate-950/70 cursor-pointer group">
+                    <div class="card-3d-img-box relative h-56 md:h-64 w-full mb-5 overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85" alt="ProtoSem AI & Smart Prototyping" class="card-3d-img w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        
+                        <!-- Floating 3D Badge -->
+                        <div class="card-3d-badge absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-sky-400/90 text-slate-950 font-bold text-xs font-mono shadow-[0_0_15px_rgba(56,189,248,0.6)] flex items-center gap-1.5">
+                            <span>⚡</span> ProtoSem Innovation
+                        </div>
+
+                        <div class="card-3d-badge absolute bottom-3.5 right-3.5 px-3 py-1 rounded-full glass border border-white/20 text-white text-[11px] font-mono flex items-center gap-1">
+                            <span>🔍 Click 3D Preview</span>
+                        </div>
+                    </div>
+
+                    <div class="card-3d-content space-y-2.5">
+                        <h3 class="text-xl font-bold text-white group-hover:text-sky-300 transition-colors font-serif flex items-center justify-between">
+                            <span>Phygital Commerce & AI Prototyping</span>
+                            <span class="text-sky-400 text-sm group-hover:translate-x-1 transition-transform">→</span>
+                        </h3>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+                            Translating commerce logic into connected retail prototypes, smart IoT sensor networks, and automated financial intelligence dashboards.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-sky-300">#PhygitalRetail</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#IoTSystems</span>
+                            <span class="px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] font-mono text-gray-300">#RapidPrototyping</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -987,6 +1185,22 @@
                     Close Preview
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- 3D CREATIVE IMAGE LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 hidden" onclick="close3DLightbox()">
+        <div class="glass max-w-2xl w-full rounded-3xl p-6 md:p-8 border border-yellow-400/40 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="close3DLightbox()" class="absolute top-4 right-4 text-gray-400 hover:text-white glass rounded-full w-9 h-9 flex items-center justify-center z-20">✕</button>
+            <div class="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden mb-5 border border-white/10 shadow-2xl">
+                <img id="lightbox-img" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/80 border border-yellow-400/50 text-yellow-300 font-mono text-xs font-bold" id="lightbox-tag">
+                    📸 Showcase
+                </div>
+            </div>
+            <h3 id="lightbox-title" class="text-2xl font-bold font-serif text-white mb-2">Title</h3>
+            <p id="lightbox-desc" class="text-gray-300 text-sm leading-relaxed mb-4">Description</p>
+            <div id="lightbox-tags" class="flex flex-wrap gap-2 pt-2 border-t border-white/10"></div>
         </div>
     </div>
 
@@ -1713,6 +1927,64 @@
                 scrollTopBtn.classList.remove('visible');
             }
         });
+
+        // =========================================================================
+        // 9. 3D CREATIVE SHOWCASE LIGHTBOX
+        // =========================================================================
+        const SHOWCASE_DATA = {
+            photo: {
+                img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=90",
+                tag: "📸 Visual Photography",
+                title: "Visual Composition & Atmospheric Still Life",
+                desc: "Capturing organic moments with golden-hour warmth, depth of field, and meticulous optical framing to reveal emotional texture and visual harmony.",
+                tags: ["#GoldenHour", "#Composition", "#AtmosphericDepth", "#VisualNarrative"]
+            },
+            design: {
+                img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=90",
+                tag: "🎨 Graphic Design (NPTEL)",
+                title: "3D Brand Identity & Kinetic Typography",
+                desc: "Certified through NPTEL with distinction in Graphic Design — applying typographic hierarchy, color theory, and vector geometry to construct impactful brand identities.",
+                tags: ["#BrandIdentity", "#Typography", "#NPTELCertified", "#DigitalArt"]
+            },
+            baking: {
+                img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=90",
+                tag: "🧁 Artisanal Baking",
+                title: "Handcrafted Gourmet Pastries & Confectionery",
+                desc: "Where culinary chemistry meets design aesthetics. Balancing ratios, temperature, and delicate textures to create sculpted multi-tiered cakes, French pastries, and festive confectionery.",
+                tags: ["#GourmetPastry", "#CulinaryChemistry", "#AestheticPlating", "#LayeredCakes"]
+            },
+            protosem: {
+                img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90",
+                tag: "⚡ PRICE ProtoSem Trainee",
+                title: "Phygital Retail & AI Hardware Prototypes",
+                desc: "Constructing tangible intelligent commerce solutions by marrying financial analytics with AI micro-controllers, IoT sensors, and rapid prototyping workflows.",
+                tags: ["#PhygitalCommerce", "#AIAnalytics", "#IoTSensors", "#ProtoSem"]
+            }
+        };
+
+        function open3DLightbox(key) {
+            const data = SHOWCASE_DATA[key];
+            if (!data) return;
+            document.getElementById('lightbox-img').src = data.img;
+            document.getElementById('lightbox-tag').innerText = data.tag;
+            document.getElementById('lightbox-title').innerText = data.title;
+            document.getElementById('lightbox-desc').innerText = data.desc;
+            
+            const tagsBox = document.getElementById('lightbox-tags');
+            tagsBox.innerHTML = '';
+            data.tags.forEach(t => {
+                const tagEl = document.createElement('span');
+                tagEl.className = "px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-yellow-300";
+                tagEl.innerText = t;
+                tagsBox.appendChild(tagEl);
+            });
+
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function close3DLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
 
         // Initial Data Load
         applyProfileData();
