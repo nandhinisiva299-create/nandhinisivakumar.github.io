@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Week — Where the Prototype Began | Nandhini Sivakumar</title>
+    <meta name="description" content="Five days. New faces. Unfamiliar challenges. A mindset quietly taking shape. The Zero Week story from PRICE ProtoSem.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .blob {
+            position: fixed;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .blob-1 {
+            top: -10%; left: -10%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, #f5c842, #e6a817);
+            animation: floatBlob 16s ease-in-out infinite alternate;
+        }
+        .blob-2 {
+            bottom: 0; right: -10%;
+            width: 40vw; height: 40vw;
+            background: radial-gradient(circle, #f472b6, #db2777);
+            animation: floatBlob 20s ease-in-out infinite alternate-reverse;
+        }
+        .blob-3 {
+            top: 40%; left: 30%;
+            width: 30vw; height: 30vw;
+            background: radial-gradient(circle, #38bdf8, #0369a1);
+            animation: floatBlob 24s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatBlob {
+            0% { transform: translate(0,0) scale(1); }
+            100% { transform: translate(30px,-50px) scale(1.08); }
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        }
+
+        /* Blog Typography */
+        .prose-blog {
+            color: #cbd5e1;
+            line-height: 1.85;
+            font-size: 1.05rem;
+        }
+        .prose-blog p { margin-bottom: 1.4rem; }
+        .prose-blog strong { color: #f1f5f9; font-weight: 600; }
+        .prose-blog em { color: #fbbf24; font-style: italic; }
+        .prose-blog hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 2.5rem 0;
+        }
+
+        /* Pull quote / section separator */
+        .pull-quote {
+            border-left: 3px solid #f472b6;
+            padding: 1rem 1.5rem;
+            background: rgba(244,114,182,0.05);
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #f1f5f9;
+            font-style: italic;
+            line-height: 1.65;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            margin-top: 2.5rem;
+        }
+        .section-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            letter-spacing: 0.08em;
+        }
+
+        .tag-gold { background: rgba(245,200,66,0.15); color: #fbbf24; border: 1px solid rgba(245,200,66,0.3); }
+        .tag-pink { background: rgba(244,114,182,0.15); color: #f472b6; border: 1px solid rgba(244,114,182,0.3); }
+        .tag-blue { background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); }
+        .tag-purple { background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
+        .tag-rose { background: rgba(251,113,133,0.15); color: #fb7185; border: 1px solid rgba(251,113,133,0.3); }
+
+        /* Five-day grid */
+        .day-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        .day-card:hover {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(244,114,182,0.35);
+            transform: translateY(-3px);
+        }
+
+        /* Ending coda */
+        .coda {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(245,200,66,0.04);
+            border: 1px solid rgba(245,200,66,0.15);
+            border-radius: 24px;
+            margin-top: 3rem;
+        }
+
+        /* Reading progress bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #f5c842, #f472b6, #38bdf8);
+            z-index: 9999;
+            transition: width 0.1s ease;
+            width: 0%;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+    <!-- Progress bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Top Nav -->
+    <nav class="sticky top-3 z-50 max-w-3xl mx-auto px-4 mt-3">
+        <div class="glass rounded-full px-5 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-gray-300 hover:text-yellow-300 transition-colors text-sm font-medium">
+                <span>←</span> <span>Back to Portfolio</span>
+            </a>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                <span class="text-xs font-mono text-gray-400 uppercase tracking-wider">PROTOSEM FIELD NOTES</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Article -->
+    <article class="relative z-10 max-w-3xl mx-auto px-4 py-12">
+
+        <!-- Article Header -->
+        <header class="mb-12">
+            <!-- Meta tags -->
+            <div class="flex flex-wrap items-center gap-2 mb-6">
+                <span class="section-num tag-gold">ZERO WEEK</span>
+                <span class="section-num tag-pink">PRICE PROTOSEM</span>
+                <span class="section-num tag-blue">2026</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 bg-gradient-to-r from-yellow-300 via-pink-400 to-sky-300 text-transparent bg-clip-text">
+                Zero Week
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 font-light italic mb-8" style="font-family:'Playfair Display',serif;">
+                Where the Prototype Began
+            </p>
+
+            <!-- Lede -->
+            <div class="glass rounded-2xl p-6 md:p-8 border-l-4 border-yellow-400">
+                <p class="text-lg text-gray-200 leading-relaxed font-medium">
+                    <span class="text-yellow-300 font-bold">Five days.</span> New faces. Unfamiliar challenges. A mindset quietly taking shape.
+                </p>
+            </div>
+
+            <!-- Five-Day Summary Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-8">
+                <div class="day-card text-center">
+                    <div class="text-yellow-400 font-mono text-xs font-bold mb-1">DAY 01</div>
+                    <div class="text-white font-serif font-semibold text-sm">ENTER</div>
+                    <div class="text-gray-500 text-xs mt-1">Strangers → Team</div>
+                </div>
+                <div class="day-card text-center">
+                    <div class="text-pink-400 font-mono text-xs font-bold mb-1">DAY 02</div>
+                    <div class="text-white font-serif font-semibold text-sm">DISCOVER</div>
+                    <div class="text-gray-500 text-xs mt-1">Self-awareness</div>
+                </div>
+                <div class="day-card text-center">
+                    <div class="text-sky-400 font-mono text-xs font-bold mb-1">DAY 03</div>
+                    <div class="text-white font-serif font-semibold text-sm">BUILD</div>
+                    <div class="text-gray-500 text-xs mt-1">Chaos → Collab</div>
+                </div>
+                <div class="day-card text-center">
+                    <div class="text-purple-400 font-mono text-xs font-bold mb-1">DAY 04</div>
+                    <div class="text-white font-serif font-semibold text-sm">CREATE</div>
+                    <div class="text-gray-500 text-xs mt-1">AI & Prompting</div>
+                </div>
+                <div class="day-card text-center col-span-2 sm:col-span-1">
+                    <div class="text-rose-400 font-mono text-xs font-bold mb-1">DAY 05</div>
+                    <div class="text-white font-serif font-semibold text-sm">INSPIRE</div>
+                    <div class="text-gray-500 text-xs mt-1">Industry lens</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Body -->
+        <div class="prose-blog">
+
+            <p>Every beginning carries a certain uncertainty. You walk into a room not knowing who you will meet, what you will create, or how much the experience will change you.</p>
+
+            <p>For us, <strong>PRICE ProtoSem began exactly there.</strong></p>
+
+            <p>It was not simply the beginning of a programme. It was the beginning of a shift—from learning concepts to experiencing them, from working individually to thinking collectively, and from having answers to learning how to ask better questions.</p>
+
+            <hr>
+
+            <!-- DAY 01 -->
+            <div class="section-header">
+                <span class="section-num tag-gold">01</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">ENTER</h2>
+            </div>
+            <h3 class="text-lg text-yellow-300 italic mb-4" style="font-family:'Playfair Display',serif;">A Room Full of Strangers</h3>
+
+            <p>The first day began with unfamiliar faces, awkward glances and quiet tables.</p>
+            <p>But unfamiliarity did not last long.</p>
+            <p>Introductions became conversations. Conversations revealed strengths. And strengths slowly became the foundation for collaboration. Before we knew it, the room had moved from a collection of individuals to a space filled with possibilities.</p>
+            <p>The first lesson was subtle but powerful:</p>
+
+            <div class="pull-quote">
+                Sometimes, the best ideas begin with people you have never met before.
+            </div>
+
+            <hr>
+
+            <!-- DAY 02 -->
+            <div class="section-header">
+                <span class="section-num tag-pink">02</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">DISCOVER</h2>
+            </div>
+            <h3 class="text-lg text-pink-300 italic mb-4" style="font-family:'Playfair Display',serif;">Understanding Ourselves Before Building Together</h3>
+
+            <p>Before we could understand the people around us, we had to understand ourselves.</p>
+            <p>Through the <strong>16Personalities assessment</strong>, we explored our working styles, strengths and blind spots. The experience became more meaningful when we connected those traits to stories that reflected our individual motivations.</p>
+            <p>The self-pitch pushed that reflection one step further.</p>
+            <p>Standing up and presenting ourselves was not merely an introduction—it was an exercise in understanding <strong>who we are, what we bring to the table, and how we choose to be seen.</strong></p>
+            <p>The LinkedIn onboarding session extended that idea into the professional world, reminding us that personal development and professional identity are deeply connected.</p>
+
+            <div class="pull-quote" style="border-left-color: #f472b6;">
+                Knowing yourself is the first prototype you ever build.
+            </div>
+
+            <hr>
+
+            <!-- DAY 03 -->
+            <div class="section-header">
+                <span class="section-num tag-blue">03</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">BUILD</h2>
+            </div>
+            <h3 class="text-lg text-sky-300 italic mb-4" style="font-family:'Playfair Display',serif;">When Chaos Became Collaboration</h3>
+
+            <p>Then came spaghetti, marshmallows, thread and tape.</p>
+            <p>It sounded simple.</p>
+            <p><em>It wasn't.</em></p>
+            <p>The challenge was never really about constructing the tallest or most perfect tower. It was about experimenting under pressure, communicating quickly, adapting when things failed and understanding how a team behaves when time is limited.</p>
+            <p>Plans changed. Structures collapsed. Ideas competed.</p>
+            <p>And somewhere between the chaos and the laughter, we discovered something important:</p>
+
+            <div class="pull-quote" style="border-left-color: #38bdf8;">
+                A team isn't created simply by putting people together. It is built through interaction, friction, trust and shared problem-solving.
+            </div>
+
+            <p>The tower may have been temporary.</p>
+            <p><strong>The lesson wasn't.</strong></p>
+
+            <hr>
+
+            <!-- DAY 04 -->
+            <div class="section-header">
+                <span class="section-num tag-purple">04</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">CREATE</h2>
+            </div>
+            <h3 class="text-lg text-purple-300 italic mb-4" style="font-family:'Playfair Display',serif;">From Knowing to Making</h3>
+
+            <p>The next shift was from consuming knowledge to creating with it.</p>
+            <p>Our exploration of <strong>AI and prompting</strong> introduced a different way of thinking. Instead of treating technology as a magic answer machine, we began to see it as a collaborative partner—one that responds to the quality of our questions, instructions and iterations.</p>
+            <p>It was an introduction to the <strong>input → output → refinement</strong> mindset.</p>
+            <p>The takeaway was simple:</p>
+
+            <div class="pull-quote" style="border-left-color: #a78bfa;">
+                Technology becomes powerful when human curiosity knows how to direct it.
+            </div>
+
+            <hr>
+
+            <!-- DAY 05 -->
+            <div class="section-header">
+                <span class="section-num tag-rose">05</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">INSPIRE</h2>
+            </div>
+            <h3 class="text-lg text-rose-300 italic mb-4" style="font-family:'Playfair Display',serif;">Looking Beyond the Classroom</h3>
+
+            <p>By Day 5, the lens widened.</p>
+            <p>The <strong>PRICE Inauguration</strong> marked an important transition: from student activities towards industry-oriented thinking. The central idea was that retail is not simply about selling products—it is about designing meaningful, comprehensive human experiences. The week also introduced the PAFE framework as a way of elevating our perspective towards real-world industry standards.</p>
+            <p>The entrepreneurial sessions carried that perspective further.</p>
+            <p>We heard real journeys of people who started somewhere, kept learning and continued moving forward. From <strong>Ramakrishna Muthu of Thulasi Pharmacy</strong>, whose journey moved from Medical Representative to Entrepreneur to Managing Director, to <strong>Swathi of A Toddler Thing</strong>, whose story demonstrated the power of action and execution, the message was clear: entrepreneurship rarely begins with a perfect plan.</p>
+
+            <div class="pull-quote" style="border-left-color: #fb7185;">
+                Every founder started somewhere.
+            </div>
+
+            <hr>
+
+            <!-- THE FIVE-DAY SHIFT SUMMARY -->
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 mt-4">The Five-Day Shift</h2>
+
+            <div class="grid sm:grid-cols-1 gap-3 my-6">
+                <div class="day-card flex items-start gap-4">
+                    <span class="section-num tag-gold shrink-0 mt-0.5">ENTER</span>
+                    <p class="text-gray-300 text-sm m-0">We stepped into a new world as strangers.</p>
+                </div>
+                <div class="day-card flex items-start gap-4">
+                    <span class="section-num tag-pink shrink-0 mt-0.5">DISCOVER</span>
+                    <p class="text-gray-300 text-sm m-0">We understood ourselves and learned to articulate our strengths.</p>
+                </div>
+                <div class="day-card flex items-start gap-4">
+                    <span class="section-num tag-blue shrink-0 mt-0.5">BUILD</span>
+                    <p class="text-gray-300 text-sm m-0">We learned that teams are shaped through interaction and experimentation.</p>
+                </div>
+                <div class="day-card flex items-start gap-4">
+                    <span class="section-num tag-purple shrink-0 mt-0.5">CREATE</span>
+                    <p class="text-gray-300 text-sm m-0">We discovered how technology can amplify the way we think and execute.</p>
+                </div>
+                <div class="day-card flex items-start gap-4">
+                    <span class="section-num tag-rose shrink-0 mt-0.5">INSPIRE</span>
+                    <p class="text-gray-300 text-sm m-0">We looked beyond ourselves and into the wider entrepreneurial ecosystem.</p>
+                </div>
+            </div>
+
+            <p>But perhaps the most valuable changes were the ones that could not be measured.</p>
+            <p>We learned that different perspectives are not obstacles—they are useful.</p>
+            <p>We learned that ideas do not have to work perfectly the first time. They need to be built, tested and adapted.</p>
+            <p>We learned that a functional team is created through friction, communication and shared experiences.</p>
+            <p>We learned that technology can fundamentally change how we approach problems.</p>
+            <p>And we learned that entrepreneurship is not simply a designation or career path.</p>
+
+            <div class="pull-quote">
+                It is a continuous journey of learning, experimenting and moving forward.
+            </div>
+        </div>
+
+        <!-- Closing Coda -->
+        <div class="coda">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-300 via-pink-400 to-sky-300 text-transparent bg-clip-text">
+                The Beginning, Not The End
+            </h2>
+            <p class="text-gray-300 leading-relaxed max-w-lg mx-auto mb-6">
+                Looking back, <strong class="text-white">Zero Week was never about having everything figured out.</strong>
+                It was about stepping into uncertainty and being willing to explore it.
+                It was about meeting strangers who could become collaborators.
+                It was about discovering ourselves before attempting to build something for others.
+            </p>
+            <div class="glass rounded-xl p-5 max-w-md mx-auto border border-yellow-400/20">
+                <p class="text-yellow-200 font-serif italic text-lg leading-relaxed mb-2">
+                    "The first week wasn't about having all the answers. It was about learning how to ask better questions."
+                </p>
+                <p class="text-gray-400 text-sm">The prototype has only just begun. And perhaps, so have we.</p>
+            </div>
+        </div>
+
+        <!-- Bottom Nav -->
+        <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-2 glass px-5 py-3 rounded-full text-gray-300 hover:text-yellow-300 transition-colors text-sm font-medium">
+                ← Back to Portfolio
+            </a>
+            <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-500">
+                <span>NANDHINI SIVAKUMAR</span>
+                <span>·</span>
+                <span>PRICE PROTOSEM 2026</span>
+                <span>·</span>
+                <a href="index.html#protosem" class="text-pink-400 hover:text-yellow-300 transition-colors">ALL 21 WEEKS (W00–W20) →</a>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const article = document.querySelector('article');
+            const scrollTop = window.scrollY;
+            const docHeight = article.offsetHeight + article.offsetTop - window.innerHeight;
+            const progress = Math.min((scrollTop / docHeight) * 100, 100);
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+    </script>
+</body>
+</html>
