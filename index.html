@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandhini Sivakumar | Portfolio & PRICE ProtoSem</title>
+    <meta name="description" content="Nandhini Sivakumar — Innovation Engineer Trainee at PRICE ProtoSem, B.Com PA Scholar, Visual Artist & Bookkeeping Accountant. Explore the 21-week ProtoSem journey from Zero Week to Launch.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #0b1120; 
+            color: #f8fafc;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Particle Canvas Background */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Glowing Aurora Blobs */
+        .blob {
+            position: fixed;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        .blob-1 {
+            top: -12%; left: -10%;
+            width: 55vw; height: 55vw;
+            background: radial-gradient(circle, rgba(245, 200, 66, 0.8), rgba(230, 168, 23, 0.4), transparent 70%);
+            animation: floatAurora1 18s ease-in-out infinite alternate;
+        }
+        .blob-2 {
+            bottom: -5%; right: -10%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.8), rgba(219, 39, 119, 0.4), transparent 70%);
+            animation: floatAurora2 22s ease-in-out infinite alternate;
+        }
+        .blob-3 {
+            top: 38%; left: 25%;
+            width: 40vw; height: 40vw;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.6), rgba(3, 105, 161, 0.3), transparent 70%);
+            animation: floatAurora3 26s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatAurora1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, -40px) scale(1.12); }
+        }
+        @keyframes floatAurora2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-40px, -60px) scale(1.08); }
+        }
+        @keyframes floatAurora3 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(0.95); }
+        }
+
+        /* Glassmorphism & Specular Borders */
+        .glass {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Interactive Spotlight Cards */
+        .spotlight-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.25rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(600px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(245, 200, 66, 0.12), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .spotlight-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: radial-gradient(400px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(244, 114, 182, 0.6), transparent 50%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .spotlight-card:hover::before,
+        .spotlight-card:hover::after {
+            opacity: 1;
+        }
+        .spotlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 114, 182, 0.15);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* Neon & Shimmer Text */
+        .neon-glow {
+            animation: neonPulse 6s ease-in-out infinite alternate;
+        }
+        @keyframes neonPulse {
+            0% {
+                text-shadow: 0 0 12px rgba(245, 200, 66, 0.45), 0 0 25px rgba(245, 200, 66, 0.2);
+            }
+            50% {
+                text-shadow: 0 0 14px rgba(244, 114, 182, 0.5), 0 0 28px rgba(244, 114, 182, 0.2);
+            }
+            100% {
+                text-shadow: 0 0 12px rgba(56, 189, 248, 0.45), 0 0 25px rgba(56, 189, 248, 0.2);
+            }
+        }
+        .neon-subtle {
+            text-shadow: 0 0 12px rgba(244, 114, 182, 0.5), 0 0 24px rgba(245, 200, 66, 0.25);
+        }
+
+        /* Shimmering Badge Animation */
+        .shimmer-badge {
+            background: linear-gradient(90deg, rgba(245, 200, 66, 0.15), rgba(244, 114, 182, 0.25), rgba(56, 189, 248, 0.2), rgba(245, 200, 66, 0.15));
+            background-size: 300% 100%;
+            animation: shimmerMove 6s linear infinite;
+        }
+        @keyframes shimmerMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        /* Active Phase Tab */
+        .phase-tab {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .phase-tab.active {
+            background: linear-gradient(135deg, rgba(245, 200, 66, 0.3), rgba(244, 114, 182, 0.35));
+            border-color: rgba(245, 200, 66, 0.8);
+            color: #ffffff;
+            box-shadow: 0 0 22px rgba(245, 200, 66, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        /* Zero Week Card Highlighting */
+        .zero-week-card {
+            background: linear-gradient(145deg, rgba(245, 200, 66, 0.08), rgba(244, 114, 182, 0.06), rgba(15, 23, 42, 0.8)) !important;
+            border: 1px solid rgba(245, 200, 66, 0.4) !important;
+            box-shadow: 0 0 25px rgba(245, 200, 66, 0.15);
+        }
+        .zero-week-card:hover {
+            border-color: rgba(245, 200, 66, 0.8) !important;
+            box-shadow: 0 16px 36px -10px rgba(245, 200, 66, 0.3), 0 0 25px rgba(244, 114, 182, 0.3) !important;
+        }
+
+        /* Magnetic Button Transition */
+        .magnetic {
+            display: inline-block;
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Scroll Progress Circular Button */
+        #scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #scroll-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        /* Edit Mode Trigger FAB (Bottom-Left) */
+        #edit-mode-fab {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 50;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Top Admin Bar when Visual Edit is On */
+        #edit-toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid #f5c842;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        #edit-toolbar.active {
+            transform: translateY(0);
+        }
+
+        /* Editable highlight borders when edit mode is active */
+        body.edit-mode-active [data-editable] {
+            outline: 2px dashed rgba(245, 200, 66, 0.6);
+            outline-offset: 4px;
+            cursor: text;
+            border-radius: 4px;
+            background: rgba(245, 200, 66, 0.05);
+        }
+        body.edit-mode-active [data-editable]:hover {
+            outline-color: #f472b6;
+            background: rgba(244, 114, 182, 0.1);
+        }
+
+        /* Custom Scrollbar for Modal */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(245, 200, 66, 0.3);
+            border-radius: 3px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col items-center p-4 md:p-8 selection:bg-pink-500 selection:text-white">
+
+    <!-- Interactive Canvas Particles -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Aurora Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Top Admin Bar (Shown during In-line Edit Mode) -->
+    <div id="edit-toolbar" class="px-4 py-3 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-ping"></span>
+            <span class="font-bold text-yellow-300">LIVE EDIT MODE ACTIVE</span>
+            <span class="text-gray-400 hidden sm:inline">— Click on any highlighted text to edit directly</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="openEditorModal('weeks')" class="px-3 py-1.5 rounded-lg bg-pink-500/20 text-pink-300 border border-pink-500/40 hover:bg-pink-500/30">
+                ⚙️ Manage Weeks
+            </button>
+            <button onclick="saveAllInLineEdits()" class="px-3.5 py-1.5 rounded-lg bg-yellow-400 text-slate-950 font-bold hover:bg-yellow-300 shadow-[0_0_15px_rgba(245,200,66,0.4)]">
+                💾 Save Edits
+            </button>
+            <button onclick="publishEditsToGitHub()" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 font-bold hover:opacity-90 shadow-[0_0_15px_rgba(16,185,129,0.4)] flex items-center gap-1">
+                <span>🚀 Push Live</span>
+            </button>
+            <button onclick="toggleVisualEditMode(false)" class="px-2.5 py-1.5 rounded-lg glass text-gray-400 hover:text-white">
+                ✕ Exit
+            </button>
+        </div>
+    </div>
+
+    <!-- Top Sticky Navigation -->
+    <nav class="sticky top-4 z-50 glass rounded-full px-6 py-3 mb-6 flex items-center justify-between gap-4 max-w-4xl w-full border border-white/10 shadow-2xl transition-all duration-300">
+        <a href="#" class="font-serif font-bold text-xl bg-gradient-to-r from-yellow-300 via-pink-400 to-sky-300 text-transparent bg-clip-text hover:scale-105 transition-transform">NS.</a>
+        <div class="flex items-center gap-2 md:gap-5 text-xs md:text-sm font-medium">
+            <a href="#about" class="text-gray-300 hover:text-yellow-300 transition-colors">About</a>
+            <a href="#experience" class="text-gray-300 hover:text-yellow-300 transition-colors">Academics</a>
+            <a href="#protosem" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-pink-500/20 to-yellow-500/20 text-pink-300 border border-pink-500/40 hover:bg-pink-500/30 transition-all font-semibold flex items-center gap-1.5 shadow-[0_0_15px_rgba(244,114,182,0.25)]">
+                <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span> ProtoSem
+            </a>
+            <a href="#skills" class="text-gray-300 hover:text-pink-300 transition-colors">Skills</a>
+            <a href="#blog" class="text-gray-300 hover:text-yellow-300 transition-colors">Field Notes</a>
+            <button onclick="openEditorModal('profile')" class="px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 hover:bg-yellow-400/20 transition-all flex items-center gap-1 font-mono text-xs font-semibold">
+                <span>✏️ Edit</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="w-full max-w-4xl z-10 space-y-12">
+        
+        <!-- Hero Section -->
+        <header id="about" data-tilt data-tilt-max="4" data-tilt-speed="500" data-tilt-glare="true" data-tilt-max-glare="0.12" class="glass rounded-3xl p-8 md:p-14 text-center relative overflow-hidden transition-all duration-300 border border-white/15">
+            <div class="relative inline-block mb-6 group">
+                <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-sky-400 opacity-70 blur-md group-hover:opacity-100 transition duration-500"></div>
+                <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=f5c842&color=fff&size=256" alt="Nandhini Sivakumar" class="relative rounded-full w-32 h-32 md:w-36 md:h-36 object-cover shadow-2xl border-4 border-slate-900">
+            </div>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full shimmer-badge border border-yellow-400/40 text-yellow-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+                <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
+            </div>
+
+            <h1 id="profile-name" data-editable="name" class="neon-glow text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-yellow-300 via-pink-400 to-rose-400 text-transparent bg-clip-text tracking-wide">
+                Nandhini Sivakumar
+            </h1>
+            
+            <p class="text-lg md:text-2xl text-gray-300 font-light mb-8 h-8 flex items-center justify-center">
+                <span id="typed"></span>
+            </p>
+            
+            <div class="flex flex-wrap justify-center items-center gap-4">
+                <a href="#protosem" class="magnetic px-7 py-3.5 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-yellow-500 text-white font-semibold shadow-lg hover:shadow-[0_0_30px_rgba(244,114,182,0.7)] transition-all flex items-center gap-2">
+                    <span>⚡ Explore ProtoSem (21 Wks)</span>
+                </a>
+                <a href="zero-week.html" class="magnetic px-7 py-3.5 rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 font-bold shadow-lg hover:shadow-[0_0_30px_rgba(245,200,66,0.7)] transition-all flex items-center gap-2">
+                    <span>📖 Read Zero Week Story</span>
+                </a>
+                <a href="resume.html" class="magnetic px-6 py-3.5 rounded-full glass border border-white/20 text-gray-200 font-semibold hover:bg-white/10 transition-colors">
+                    ATS Resume
+                </a>
+                <a id="profile-email-btn" href="mailto:nandhinisiva299@gmail.com" class="magnetic px-6 py-3.5 rounded-full glass border border-pink-400/30 text-pink-200 font-semibold hover:bg-pink-500/10 transition-colors">
+                    Let's Connect
+                </a>
+            </div>
+        </header>
+
+        <!-- Current Focus & Academics Section -->
+        <section id="experience" class="glass rounded-3xl p-8 md:p-10 border border-white/10">
+            <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+                <h2 class="text-2xl md:text-3xl font-semibold flex items-center gap-3">
+                    <span class="text-yellow-400">✨</span> <span class="neon-subtle">Experience & Academics</span>
+                </h2>
+                <span id="academic-cgpa-pill" data-editable="cgpa_pill" class="text-xs font-mono text-gray-400 border border-white/10 px-3.5 py-1 rounded-full bg-white/5">B.Com (PA) • CGPA 8.5</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="spotlight-card p-6 md:p-8">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-medium text-yellow-300 font-serif">Academic Excellence</h3>
+                            <span id="academic-cgpa-badge" data-editable="cgpa" class="text-xs px-2.5 py-1 rounded-full bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 font-mono font-semibold">8.5 CGPA</span>
+                        </div>
+                        <p id="academic-desc" data-editable="academic_desc" class="text-gray-300 leading-relaxed text-sm md:text-base">
+                            Currently pursuing a <strong>Bachelor of Commerce (Professional Accounting)</strong> at <em>Bharathiyar University</em> (Kumaraguru College). <br><br>
+                            Honored with the <strong>Mahatma Gandhi Merit Scholarship</strong> and a <strong>Gold Medal of Excellence</strong> in the Commerce Olympiad.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="spotlight-card p-6 md:p-8">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-medium text-pink-300 font-serif">Research & Data Analysis</h3>
+                            <span id="research-duration" data-editable="research_duration" class="text-xs px-2.5 py-1 rounded-full bg-pink-400/10 text-pink-300 border border-pink-400/30 font-mono font-semibold">4 Months</span>
+                        </div>
+                        <p id="research-desc" data-editable="research_desc" class="text-gray-300 leading-relaxed text-sm md:text-base">
+                            Conducted descriptive research analyzing <strong>MSME financial data & Udyam Portal statistics</strong> on AI-driven business models and digital platform entrepreneurship. Skilled in converting raw financial data into actionable insights and strategic graphs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- PROTOSEM DEDICATED SECTION (WEEK 00 TO WEEK 20 ARCHIVE) -->
+        <!-- ========================================================================= -->
+        <section id="protosem" class="glass rounded-3xl p-8 md:p-12 relative overflow-hidden border-2 border-pink-500/30 shadow-2xl">
+            
+            <!-- Section Header & Intro -->
+            <div class="mb-10">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-pink-500/20 to-yellow-500/20 border border-pink-400/40 text-pink-300 text-xs font-mono font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span> PRICE PROTOSEM
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-mono text-gray-400 tracking-wider">ZERO WEEK + FOUR PHASES • 21 WEEKS TOTAL</span>
+                        <button onclick="openEditorModal('weeks')" class="text-xs px-2 py-0.5 rounded border border-yellow-400/40 text-yellow-300 hover:bg-yellow-400/10 font-mono">
+                            ✏️ Edit Weeks
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold bg-gradient-to-r from-yellow-300 via-pink-400 to-sky-300 text-transparent bg-clip-text font-serif">
+                            PRICE ProtoSem Journey
+                        </h2>
+                        <p class="text-base md:text-lg text-pink-200 font-medium mt-1">
+                            Innovation Engineer Trainee • <span class="text-gray-300 font-light">Industry-Integrated Innovation Programme</span>
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <a href="zero-week.html" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-yellow-400/20 to-pink-500/20 border border-yellow-400/40 text-yellow-200 text-xs font-semibold hover:bg-yellow-400/30 transition-all">
+                            <span>📖 Read Zero Week (Week 0)</span>
+                            <span class="text-xs">→</span>
+                        </a>
+                        <a href="download.pdf" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl glass border border-sky-400/40 text-sky-200 text-xs font-semibold hover:bg-sky-500/20 transition-all">
+                            <span>📄 PDF Guide</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Descriptive summary -->
+                <div class="glass p-6 rounded-2xl border-l-4 border-pink-400 space-y-3 mt-6">
+                    <p id="protosem-summary-1" data-editable="protosem_summary_1" class="text-gray-200 leading-relaxed text-sm md:text-base">
+                        Selected for a <strong>21-week industry-integrated innovation programme</strong> starting from <strong>Zero Week</strong> (Foundation & Mindset Shift) through 20 structured weeks of problem exploration, AI analytics, IoT prototyping, and entrepreneurship.
+                    </p>
+                    <p id="protosem-summary-2" data-editable="protosem_summary_2" class="text-gray-400 leading-relaxed text-sm">
+                        Transforming classroom commerce foundations into real-world phygital retail and intelligent business prototypes.
+                    </p>
+                </div>
+
+                <!-- Discipline Tags -->
+                <div class="mt-6">
+                    <div class="text-xs font-mono uppercase text-gray-400 tracking-wider mb-3">Programme Disciplines & Focus Areas:</div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-yellow-400/40 text-yellow-200 shadow-sm flex items-center gap-1.5">
+                            <span class="text-yellow-400">🌱</span> Zero Week Mindset & Collaboration
+                        </span>
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-pink-400/40 text-pink-200 shadow-sm flex items-center gap-1.5">
+                            <span class="text-pink-400">🛍️</span> Phygital Retail & Intelligent Commerce
+                        </span>
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-sky-400/40 text-sky-200 shadow-sm flex items-center gap-1.5">
+                            <span class="text-sky-400">⚡</span> AI & Analytics
+                        </span>
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-purple-400/40 text-purple-200 shadow-sm flex items-center gap-1.5">
+                            <span class="text-purple-400">📡</span> Intelligent Systems & IoT
+                        </span>
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-rose-400/40 text-rose-200 shadow-sm flex items-center gap-1.5">
+                            <span class="text-rose-400">🚀</span> Prototyping & Entrepreneurship
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Programme Visual Progress Indicator (Updated to start from 00) -->
+                <div class="mt-8 pt-6 border-t border-white/10">
+                    <div class="flex items-center justify-between text-xs font-mono text-gray-400 mb-2">
+                        <span>PROGRAMME TIMELINE</span>
+                        <span class="text-yellow-300 font-semibold">21 WEEKS (ZERO WEEK TO WEEK 20)</span>
+                    </div>
+                    <div class="relative flex items-center justify-between w-full py-3">
+                        <div class="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-yellow-400 via-pink-400 to-sky-400 opacity-40 rounded-full"></div>
+                        
+                        <!-- Week 00 Node -->
+                        <div class="relative z-10 flex flex-col items-center cursor-pointer group" onclick="filterPhase(0)">
+                            <span class="w-8 h-8 rounded-full bg-slate-900 border-2 border-yellow-400 text-yellow-300 text-xs font-mono font-bold flex items-center justify-center shadow-[0_0_15px_rgba(245,200,66,0.6)] group-hover:scale-110 transition-transform">00</span>
+                            <span class="text-[10px] font-mono text-yellow-300 font-semibold mt-1">Zero Week</span>
+                        </div>
+                        
+                        <!-- Phase 1 Node -->
+                        <div class="relative z-10 flex flex-col items-center cursor-pointer group" onclick="filterPhase(1)">
+                            <span class="w-7 h-7 rounded-full bg-slate-900 border-2 border-yellow-400/70 text-yellow-200 text-[10px] font-mono font-bold flex items-center justify-center group-hover:scale-110 transition-transform">05</span>
+                            <span class="text-[9px] font-mono text-gray-400 mt-1">Phase 1</span>
+                        </div>
+                        
+                        <!-- Phase 2 Node -->
+                        <div class="relative z-10 flex flex-col items-center cursor-pointer group" onclick="filterPhase(2)">
+                            <span class="w-7 h-7 rounded-full bg-slate-900 border-2 border-pink-400/70 text-pink-300 text-[10px] font-mono font-bold flex items-center justify-center group-hover:scale-110 transition-transform">10</span>
+                            <span class="text-[9px] font-mono text-gray-400 mt-1">Phase 2</span>
+                        </div>
+                        
+                        <!-- Phase 3 Node -->
+                        <div class="relative z-10 flex flex-col items-center cursor-pointer group" onclick="filterPhase(3)">
+                            <span class="w-7 h-7 rounded-full bg-slate-900 border-2 border-pink-400/70 text-pink-300 text-[10px] font-mono font-bold flex items-center justify-center group-hover:scale-110 transition-transform">15</span>
+                            <span class="text-[9px] font-mono text-gray-400 mt-1">Phase 3</span>
+                        </div>
+                        
+                        <!-- Launch Node -->
+                        <div class="relative z-10 flex flex-col items-center cursor-pointer group" onclick="filterPhase(4)">
+                            <span class="w-8 h-8 rounded-full bg-slate-900 border-2 border-sky-400 text-sky-300 text-xs font-mono font-bold flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.5)] group-hover:scale-110 transition-transform">20</span>
+                            <span class="text-[10px] font-mono text-sky-300 font-semibold mt-1">Launch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase Filter Navigation Tabs (Includes Phase 00 Zero Week) -->
+            <div class="flex flex-wrap items-center gap-2 p-1.5 glass rounded-2xl border border-white/10 mb-8">
+                <button onclick="filterPhase('all')" id="tab-all" class="phase-tab active px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold transition-all">
+                    All Weeks (00–20)
+                </button>
+                <button onclick="filterPhase(0)" id="tab-0" class="phase-tab px-3.5 py-2 rounded-xl text-xs md:text-sm font-medium text-yellow-300 hover:text-white transition-all flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse"></span> Zero Week <span class="text-xs text-yellow-400/80 font-mono">(Foundation)</span>
+                </button>
+                <button onclick="filterPhase(1)" id="tab-1" class="phase-tab px-3.5 py-2 rounded-xl text-xs md:text-sm font-medium text-gray-300 hover:text-white transition-all">
+                    Phase 01 <span class="text-xs text-gray-400 opacity-70">(W 01–05)</span>
+                </button>
+                <button onclick="filterPhase(2)" id="tab-2" class="phase-tab px-3.5 py-2 rounded-xl text-xs md:text-sm font-medium text-gray-300 hover:text-white transition-all">
+                    Phase 02 <span class="text-xs text-gray-400 opacity-70">(W 06–10)</span>
+                </button>
+                <button onclick="filterPhase(3)" id="tab-3" class="phase-tab px-3.5 py-2 rounded-xl text-xs md:text-sm font-medium text-gray-300 hover:text-white transition-all">
+                    Phase 03 <span class="text-xs text-gray-400 opacity-70">(W 11–15)</span>
+                </button>
+                <button onclick="filterPhase(4)" id="tab-4" class="phase-tab px-3.5 py-2 rounded-xl text-xs md:text-sm font-medium text-gray-300 hover:text-white transition-all">
+                    Phase 04 <span class="text-xs text-gray-400 opacity-70">(W 16–20)</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Week Cards Grid -->
+            <div id="weeks-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-5 gap-3.5 md:gap-4">
+                <!-- Dynamically rendered via JS -->
+            </div>
+
+            <!-- Bottom Note -->
+            <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-mono">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+                    <span>Zero Week story is live! Click any card to explore field notes.</span>
+                </div>
+                <span>21 STORIES • ONE CONTINUOUS JOURNEY</span>
+            </div>
+        </section>
+
+        <!-- Skills & Certifications -->
+        <section id="skills" class="glass rounded-3xl p-8 md:p-10 border border-white/10">
+            <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+                <h2 class="text-2xl md:text-3xl font-semibold flex items-center gap-3">
+                    <span class="text-pink-400">🚀</span> <span class="neon-subtle">Skills & Certifications</span>
+                </h2>
+                <button onclick="openEditorModal('skills')" class="text-xs px-2 py-0.5 rounded border border-pink-400/40 text-pink-300 hover:bg-pink-400/10 font-mono">
+                    ✏️ Edit Skills
+                </button>
+            </div>
+            <p class="text-gray-300 leading-relaxed mb-8 text-sm md:text-base">
+                Blending a strong analytical foundation in bookkeeping and financial research with a creative flair for graphic design and data visualization.
+            </p>
+            <div id="skills-container" class="flex flex-wrap gap-3.5">
+                <!-- Dynamically rendered / editable skills -->
+            </div>
+        </section>
+
+        <!-- Blog / Field Notes Section -->
+        <section id="blog" class="glass rounded-3xl p-8 md:p-10 border border-white/10">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
+                <h2 class="text-2xl md:text-3xl font-semibold flex items-center gap-3">
+                    <span class="text-yellow-400">✍️</span> <span class="neon-subtle">Field Notes & Blog</span>
+                </h2>
+                <span class="text-xs font-mono text-gray-400 border border-white/10 px-3.5 py-1 rounded-full bg-white/5">PROTOSEM STORIES</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Zero Week Featured Blog Card -->
+                <a href="zero-week.html" class="spotlight-card rounded-2xl p-6 flex flex-col gap-4 group no-underline cursor-pointer border border-yellow-400/30 hover:border-yellow-400/60 shadow-lg">
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/15 border border-yellow-400/40 text-yellow-300 text-xs font-mono font-semibold">
+                                <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span> ZERO WEEK • INAUGURAL STORY
+                            </div>
+                            <span class="text-gray-400 group-hover:text-yellow-300 group-hover:translate-x-1.5 transition-all text-lg">→</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors mb-2 font-serif">
+                                Zero Week — Where the Prototype Began
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed line-clamp-3">
+                                Five days. New faces. Unfamiliar challenges. A mindset quietly taking shape. Every beginning carries a certain uncertainty. For us, PRICE ProtoSem began exactly there...
+                            </p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
+                            <span>PRICE PROTOSEM · 5-DAY IMMERSION</span>
+                            <span class="text-pink-400 group-hover:text-yellow-300 transition-colors font-semibold flex items-center gap-1">
+                                READ STORY <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Coming Soon Card -->
+                <div class="spotlight-card rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-3 opacity-75">
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="text-4xl mb-2">📖</div>
+                        <h3 class="text-lg font-semibold text-gray-200 font-serif">Phase 01 Stories Under Development</h3>
+                        <p class="text-gray-400 text-sm max-w-xs mt-1">Weekly field notes, empathy mappings, and problem statement discoveries will be documented here as we build.</p>
+                        <button onclick="openEditorModal('weeks')" class="text-xs font-mono text-yellow-300 border border-yellow-400/30 px-3 py-1 rounded-full mt-4 bg-yellow-400/10 hover:bg-yellow-400/20 transition-colors">
+                            + Update / Publish Story
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-400 py-8 border-t border-white/10">
+            <div class="flex justify-center flex-wrap gap-6 mb-6 text-sm">
+                <a id="profile-linkedin-link" href="https://linkedin.com/in/nandhini-sivakumar-1a2406321" target="_blank" class="hover:text-yellow-400 transition-colors font-medium">LinkedIn</a>
+                <a id="profile-email-link" href="mailto:nandhinisiva299@gmail.com" class="hover:text-pink-400 transition-colors font-medium">Email</a>
+                <a href="zero-week.html" class="hover:text-yellow-300 transition-colors font-medium">Zero Week Story</a>
+                <a href="download.pdf" target="_blank" class="hover:text-sky-300 transition-colors font-medium">PDF Guide</a>
+                <a href="resume.html" class="hover:text-yellow-300 transition-colors font-medium">ATS Resume</a>
+                <button onclick="openEditorModal('profile')" class="text-yellow-300 hover:underline font-mono text-xs">⚙️ Settings & Edit</button>
+            </div>
+            <p class="text-xs md:text-sm text-gray-500">&copy; 2026 Nandhini Sivakumar. Powered by Innovation & Design.</p>
+        </footer>
+    </main>
+
+    <!-- Floating Edit Mode Trigger Button (Bottom Left) -->
+    <div id="edit-mode-fab" class="flex items-center gap-2">
+        <button onclick="toggleVisualEditMode()" class="glass rounded-full px-4 py-2.5 border border-yellow-400/40 text-yellow-300 text-xs font-mono font-semibold shadow-[0_0_20px_rgba(245,200,66,0.3)] hover:scale-105 hover:bg-yellow-400/20 transition-all flex items-center gap-2">
+            <span>✏️ Edit Portfolio</span>
+        </button>
+    </div>
+
+    <!-- Scroll to Top Circular Progress Button -->
+    <div id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="cursor-pointer group glass rounded-full p-3 border border-pink-400/40 shadow-[0_0_20px_rgba(244,114,182,0.4)] hover:scale-110 transition-all">
+        <svg class="w-6 h-6 text-yellow-300 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PORTFOLIO EDIT & ADMIN MANAGER MODAL -->
+    <!-- ========================================================================= -->
+    <div id="editor-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass max-w-2xl w-full rounded-3xl p-6 md:p-8 border border-yellow-400/40 shadow-2xl relative max-h-[90vh] flex flex-col">
+            
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">✏️</span>
+                    <div>
+                        <h3 class="text-xl font-bold font-serif text-white">Portfolio Content Manager</h3>
+                        <p class="text-xs text-gray-400 font-mono">Edit information, ProtoSem weeks, skills & deploy live</p>
+                    </div>
+                </div>
+                <button onclick="closeEditorModal()" class="text-gray-400 hover:text-white p-2 rounded-lg hover:bg-white/10">✕</button>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex items-center gap-2 border-b border-white/10 pb-3 mb-4 overflow-x-auto text-xs font-mono">
+                <button onclick="switchEditorTab('profile')" id="tab-btn-profile" class="px-3 py-1.5 rounded-lg bg-yellow-400/20 text-yellow-300 border border-yellow-400/40 font-semibold">
+                    👤 Profile & Bio
+                </button>
+                <button onclick="switchEditorTab('weeks')" id="tab-btn-weeks" class="px-3 py-1.5 rounded-lg glass text-gray-300 hover:text-white">
+                    🚀 ProtoSem Weeks (00–20)
+                </button>
+                <button onclick="switchEditorTab('skills')" id="tab-btn-skills" class="px-3 py-1.5 rounded-lg glass text-gray-300 hover:text-white">
+                    💡 Skills
+                </button>
+                <button onclick="switchEditorTab('deploy')" id="tab-btn-deploy" class="px-3 py-1.5 rounded-lg glass text-emerald-300 hover:text-white border border-emerald-400/30">
+                    ☁️ Live GitHub Sync
+                </button>
+            </div>
+
+            <!-- Modal Body (Scrollable) -->
+            <div class="overflow-y-auto custom-scroll flex-1 pr-2 space-y-4 text-sm">
+                
+                <!-- TAB 1: PROFILE & ACADEMICS -->
+                <div id="tab-panel-profile" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1">Full Name</label>
+                        <input id="edit-input-name" type="text" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2.5 text-white focus:border-yellow-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1">Top Role Badge</label>
+                        <input id="edit-input-role-badge" type="text" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2.5 text-white focus:border-yellow-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1">Email Address</label>
+                        <input id="edit-input-email" type="email" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2.5 text-white focus:border-yellow-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1">LinkedIn URL</label>
+                        <input id="edit-input-linkedin" type="url" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2.5 text-white focus:border-yellow-400 focus:outline-none">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">CGPA</label>
+                            <input id="edit-input-cgpa" type="text" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2.5 text-white focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Research Duration</label>
+                            <input id="edit-input-research-duration" type="text" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2.5 text-white focus:border-yellow-400 focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1">Academic Summary</label>
+                        <textarea id="edit-input-academic-desc" rows="3" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2 text-white focus:border-yellow-400 focus:outline-none text-xs leading-relaxed"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-400 mb-1">Research & Data Analysis Summary</label>
+                        <textarea id="edit-input-research-desc" rows="3" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-4 py-2 text-white focus:border-yellow-400 focus:outline-none text-xs leading-relaxed"></textarea>
+                    </div>
+                </div>
+
+                <!-- TAB 2: PROTOSEM WEEKS (00-20) -->
+                <div id="tab-panel-weeks" class="space-y-4 hidden">
+                    <div class="flex items-center gap-3">
+                        <label class="text-xs font-mono text-gray-400">Select Week to Edit:</label>
+                        <select id="edit-week-select" onchange="loadWeekToEditor(this.value)" class="flex-1 bg-slate-900 border border-yellow-400/40 rounded-xl px-3 py-2 text-yellow-300 font-mono text-xs focus:outline-none">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="glass p-4 rounded-2xl border border-white/10 space-y-3">
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Week Label / Number</label>
+                            <input id="edit-week-label" type="text" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-white font-mono text-xs focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Week Title / Topic</label>
+                            <input id="edit-week-title" type="text" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-white text-xs focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Status Badge Text</label>
+                            <div class="flex gap-2">
+                                <input id="edit-week-status" type="text" class="flex-1 bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-white font-mono text-xs focus:border-yellow-400 focus:outline-none">
+                                <button type="button" onclick="document.getElementById('edit-week-status').value = 'STORY PUBLISHED'" class="px-2 py-1 glass rounded-lg text-[10px] text-yellow-300 font-mono">Published</button>
+                                <button type="button" onclick="document.getElementById('edit-week-status').value = 'FIELD NOTES IN PROGRESS'" class="px-2 py-1 glass rounded-lg text-[10px] text-pink-300 font-mono">In Progress</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Story URL / Link (e.g. zero-week.html)</label>
+                            <input id="edit-week-slug" type="text" class="w-full bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-white font-mono text-xs focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <button onclick="saveCurrentWeekEdits()" class="w-full py-2 bg-yellow-400/20 text-yellow-300 border border-yellow-400/40 rounded-xl font-mono text-xs font-bold hover:bg-yellow-400/30 transition-colors">
+                            💾 Update This Week
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAB 3: SKILLS -->
+                <div id="tab-panel-skills" class="space-y-4 hidden">
+                    <div class="flex items-center gap-2">
+                        <input id="new-skill-input" type="text" placeholder="e.g. 🤖 Prompt Engineering" class="flex-1 bg-slate-900/80 border border-white/15 rounded-xl px-3 py-2 text-white text-xs focus:border-yellow-400 focus:outline-none">
+                        <button onclick="addNewSkill()" class="px-4 py-2 rounded-xl bg-pink-500 text-white font-semibold text-xs hover:bg-pink-600">
+                            + Add Skill
+                        </button>
+                    </div>
+                    <div id="edit-skills-list" class="flex flex-wrap gap-2 p-3 glass rounded-xl">
+                        <!-- Skills tags with delete buttons rendered here -->
+                    </div>
+                </div>
+
+                <!-- TAB 4: LIVE GITHUB SYNC -->
+                <div id="tab-panel-deploy" class="space-y-4 hidden">
+                    <div class="glass p-4 rounded-2xl border border-emerald-400/30 bg-emerald-950/10 space-y-3">
+                        <div class="flex items-center gap-2 text-emerald-300 font-bold font-mono text-sm">
+                            <span>🚀 One-Click Deploy to GitHub Pages</span>
+                        </div>
+                        <p class="text-gray-300 text-xs leading-relaxed">
+                            Publish all your edits directly to your live portfolio website across your GitHub Pages repositories in one click!
+                        </p>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">GitHub Personal Access Token</label>
+                            <input id="github-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" class="w-full bg-slate-900 border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:border-emerald-400 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-1">Target Repositories</label>
+                            <div class="text-xs font-mono text-gray-400 bg-slate-900/60 p-2.5 rounded-xl border border-white/10 space-y-1">
+                                <div>• nandhinisiva299-create/nandhinisiva299-create.github.io</div>
+                                <div>• nandhinisiva299-create/nandhinisivakumar.github.io</div>
+                            </div>
+                        </div>
+                        <button onclick="publishEditsToGitHub()" id="deploy-action-btn" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 text-slate-950 font-bold hover:opacity-90 transition-opacity shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2">
+                            <span>🚀 Push & Publish Live Now</span>
+                        </button>
+                        <div id="deploy-log" class="hidden text-[11px] font-mono p-3 bg-slate-950 rounded-xl border border-white/10 max-h-36 overflow-y-auto text-gray-300 space-y-1"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="border-t border-white/10 pt-4 mt-4 flex items-center justify-between gap-3">
+                <button onclick="resetPortfolioDefaults()" class="text-xs font-mono text-rose-400 hover:underline">
+                    ↺ Reset to Defaults
+                </button>
+                <div class="flex items-center gap-2">
+                    <button onclick="closeEditorModal()" class="px-4 py-2 rounded-xl glass text-xs font-mono text-gray-300 hover:text-white">
+                        Cancel
+                    </button>
+                    <button onclick="saveModalChanges()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-500 text-slate-950 font-bold text-xs hover:shadow-[0_0_20px_rgba(245,200,66,0.5)] transition-all">
+                        💾 Save Changes
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Week Preview Modal (Viewer) -->
+    <div id="week-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+        <div class="glass max-w-md w-full rounded-3xl p-6 md:p-8 border border-pink-400/40 shadow-2xl relative text-center">
+            <div id="modal-phase" class="text-xs font-mono uppercase text-yellow-400 font-semibold mb-2 tracking-wider">PHASE 00 • ZERO WEEK</div>
+            <h3 id="modal-week" class="text-3xl font-bold font-serif bg-gradient-to-r from-yellow-300 to-pink-400 text-transparent bg-clip-text mb-3">ZERO WEEK</h3>
+            <div id="modal-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/40 text-yellow-300 text-xs font-mono font-medium mb-6">
+                <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> STORY AVAILABLE
+            </div>
+            <p id="modal-desc" class="text-gray-300 text-sm leading-relaxed mb-6">
+                Explore the five-day transformative immersion that kicked off the ProtoSem programme: from team formation to AI prompting and industry inspiration.
+            </p>
+            <div class="flex flex-col gap-3">
+                <a id="modal-action-btn" href="zero-week.html" class="w-full py-3.5 rounded-full bg-gradient-to-r from-yellow-400 to-pink-500 text-slate-950 font-bold hover:shadow-[0_0_25px_rgba(244,114,182,0.6)] transition-all flex items-center justify-center gap-2">
+                    <span>Read Full Story →</span>
+                </a>
+                <button onclick="closeModal()" class="w-full py-2.5 rounded-full glass text-gray-400 hover:text-white text-xs font-mono transition-colors">
+                    Close Preview
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-msg" class="fixed top-6 right-6 z-50 glass px-5 py-3 rounded-2xl border border-yellow-400/40 text-yellow-300 font-mono text-xs shadow-2xl transition-all duration-300 transform translate-x-32 opacity-0 pointer-events-none flex items-center gap-2">
+        <span id="toast-icon">✨</span>
+        <span id="toast-text">Changes saved!</span>
+    </div>
+
+    <script>
+        // =========================================================================
+        // 1. DEFAULT DATA & STORAGE SYSTEM
+        // =========================================================================
+        const DEFAULT_DATA = {
+            profile: {
+                name: "Nandhini Sivakumar",
+                role_badge: "✨ Innovation Engineer Trainee • PRICE ProtoSem",
+                email: "nandhinisiva299@gmail.com",
+                linkedin: "https://linkedin.com/in/nandhini-sivakumar-1a2406321",
+                cgpa: "8.5 CGPA",
+                cgpa_pill: "B.Com (PA) • CGPA 8.5",
+                research_duration: "4 Months",
+                academic_desc: "Currently pursuing a <strong>Bachelor of Commerce (Professional Accounting)</strong> at <em>Bharathiyar University</em> (Kumaraguru College). <br><br>Honored with the <strong>Mahatma Gandhi Merit Scholarship</strong> and a <strong>Gold Medal of Excellence</strong> in the Commerce Olympiad.",
+                research_desc: "Conducted descriptive research analyzing <strong>MSME financial data & Udyam Portal statistics</strong> on AI-driven business models and digital platform entrepreneurship. Skilled in converting raw financial data into actionable insights and strategic graphs.",
+                protosem_summary_1: "Selected for a <strong>21-week industry-integrated innovation programme</strong> starting from <strong>Zero Week</strong> (Foundation & Mindset Shift) through 20 structured weeks of problem exploration, AI analytics, IoT prototyping, and entrepreneurship.",
+                protosem_summary_2: "Transforming classroom commerce foundations into real-world phygital retail and intelligent business prototypes."
+            },
+            skills: [
+                "📊 Financial Accounting",
+                "📸 Photography & Visual Composition",
+                "🎨 Graphic Designing (NPTEL)",
+                "📈 Data Analysis (Excel)",
+                "🤖 AI in Business",
+                "💡 Entrepreneurship (Coursera)",
+                "👥 Team Leadership & Adaptability"
+            ],
+            weeks: [
+                { week: 0, phase: 0, label: "ZERO WEEK", title: "Where the Prototype Began", status: "STORY PUBLISHED", slug: "zero-week.html", isPublished: true },
+                { week: 1, phase: 1, label: "WEEK 01", title: "Empathy & Immersion", status: "FIELD NOTES IN PROGRESS", slug: "week-01", isPublished: false },
+                { week: 2, phase: 1, label: "WEEK 02", title: "Problem Definition", status: "FIELD NOTES IN PROGRESS", slug: "week-02", isPublished: false },
+                { week: 3, phase: 1, label: "WEEK 03", title: "Ideation & Synthesis", status: "FIELD NOTES IN PROGRESS", slug: "week-03", isPublished: false },
+                { week: 4, phase: 1, label: "WEEK 04", title: "Low-Fidelity Prototyping", status: "FIELD NOTES IN PROGRESS", slug: "week-04", isPublished: false },
+                { week: 5, phase: 1, label: "WEEK 05", title: "Phase 1 Gate Review", status: "FIELD NOTES IN PROGRESS", slug: "week-05", isPublished: false },
+                { week: 6, phase: 2, label: "WEEK 06", title: "Architecture & Data Flows", status: "FIELD NOTES IN PROGRESS", slug: "week-06", isPublished: false },
+                { week: 7, phase: 2, label: "WEEK 07", title: "AI Analytics Integration", status: "FIELD NOTES IN PROGRESS", slug: "week-07", isPublished: false },
+                { week: 8, phase: 2, label: "WEEK 08", title: "Intelligent Systems & Sensors", status: "FIELD NOTES IN PROGRESS", slug: "week-08", isPublished: false },
+                { week: 9, phase: 2, label: "WEEK 09", title: "Iterative Testing", status: "FIELD NOTES IN PROGRESS", slug: "week-09", isPublished: false },
+                { week: 10, phase: 2, label: "WEEK 10", title: "Mid-Term Milestone", status: "FIELD NOTES IN PROGRESS", slug: "week-10", isPublished: false },
+                { week: 11, phase: 3, label: "WEEK 11", title: "High-Fidelity Engineering", status: "FIELD NOTES IN PROGRESS", slug: "week-11", isPublished: false },
+                { week: 12, phase: 3, label: "WEEK 12", title: "IoT & Hardware Prototyping", status: "FIELD NOTES IN PROGRESS", slug: "week-12", isPublished: false },
+                { week: 13, phase: 3, label: "WEEK 13", title: "User Feedback Cycles", status: "FIELD NOTES IN PROGRESS", slug: "week-13", isPublished: false },
+                { week: 14, phase: 3, label: "WEEK 14", title: "Commercial Viability", status: "FIELD NOTES IN PROGRESS", slug: "week-14", isPublished: false },
+                { week: 15, phase: 3, label: "WEEK 15", title: "Phase 3 Pre-Validation", status: "FIELD NOTES IN PROGRESS", slug: "week-15", isPublished: false },
+                { week: 16, phase: 4, label: "WEEK 16", title: "Deployment & Packaging", status: "FIELD NOTES IN PROGRESS", slug: "week-16", isPublished: false },
+                { week: 17, phase: 4, label: "WEEK 17", title: "Business Model Canvas", status: "FIELD NOTES IN PROGRESS", slug: "week-17", isPublished: false },
+                { week: 18, phase: 4, label: "WEEK 18", title: "Investor & Industry Pitch", status: "FIELD NOTES IN PROGRESS", slug: "week-18", isPublished: false },
+                { week: 19, phase: 4, label: "WEEK 19", title: "Final Polish & Review", status: "FIELD NOTES IN PROGRESS", slug: "week-19", isPublished: false },
+                { week: 20, phase: 4, label: "WEEK 20", title: "Grand Demo & Launch", status: "FIELD NOTES IN PROGRESS", slug: "week-20", isPublished: false }
+            ]
+        };
+
+        function getStoredData() {
+            try {
+                const saved = localStorage.getItem('nandhini_portfolio_data');
+                return saved ? JSON.parse(saved) : DEFAULT_DATA;
+            } catch (e) {
+                return DEFAULT_DATA;
+            }
+        }
+
+        function saveStoredData(data) {
+            localStorage.setItem('nandhini_portfolio_data', JSON.stringify(data));
+        }
+
+        let siteData = getStoredData();
+
+        // =========================================================================
+        // 2. RENDER SYSTEM
+        // =========================================================================
+        function applyProfileData() {
+            const p = siteData.profile;
+            if (p.name) document.getElementById('profile-name').innerText = p.name;
+            if (p.role_badge) document.getElementById('profile-role-badge').innerText = p.role_badge;
+            if (p.email) {
+                document.getElementById('profile-email-btn').href = `mailto:${p.email}`;
+                document.getElementById('profile-email-link').href = `mailto:${p.email}`;
+            }
+            if (p.linkedin) document.getElementById('profile-linkedin-link').href = p.linkedin;
+            if (p.cgpa) document.getElementById('academic-cgpa-badge').innerText = p.cgpa;
+            if (p.cgpa_pill) document.getElementById('academic-cgpa-pill').innerText = p.cgpa_pill;
+            if (p.academic_desc) document.getElementById('academic-desc').innerHTML = p.academic_desc;
+            if (p.research_duration) document.getElementById('research-duration').innerText = p.research_duration;
+            if (p.research_desc) document.getElementById('research-desc').innerHTML = p.research_desc;
+            if (p.protosem_summary_1) document.getElementById('protosem-summary-1').innerHTML = p.protosem_summary_1;
+            if (p.protosem_summary_2) document.getElementById('protosem-summary-2').innerHTML = p.protosem_summary_2;
+        }
+
+        function renderSkills() {
+            const container = document.getElementById('skills-container');
+            container.innerHTML = '';
+            siteData.skills.forEach(skill => {
+                const pill = document.createElement('span');
+                pill.className = "px-5 py-2.5 rounded-full glass text-sm font-medium border border-white/20 text-gray-200 shadow-sm hover:scale-105 transition-transform cursor-pointer";
+                pill.innerText = skill;
+                container.appendChild(pill);
+            });
+        }
+
+        function renderWeeks(phaseFilter = 'all') {
+            const container = document.getElementById('weeks-container');
+            container.innerHTML = '';
+
+            const filtered = phaseFilter === 'all' 
+                ? siteData.weeks 
+                : siteData.weeks.filter(w => w.phase === phaseFilter);
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                
+                if (item.week === 0) {
+                    card.className = "spotlight-card zero-week-card rounded-2xl p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden";
+                    card.innerHTML = `
+                        <div class="relative z-10 flex flex-col h-full justify-between">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md border border-yellow-400 bg-yellow-400/20 text-yellow-300 font-bold flex items-center gap-1 shadow-sm">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span> PHASE 00
+                                </span>
+                                <span class="text-xs text-yellow-300 group-hover:translate-x-1 transition-transform font-bold">
+                                    READ →
+                                </span>
+                            </div>
+                            <div>
+                                <div class="text-lg md:text-xl font-bold font-serif text-white group-hover:text-yellow-300 transition-colors">
+                                    ${item.label}
+                                </div>
+                                <div class="text-[11px] font-mono text-yellow-300/90 mt-1 tracking-wider uppercase font-semibold">
+                                    ✨ ${item.status}
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-2 border-t border-yellow-400/20 flex items-center justify-between text-[9px] font-mono text-yellow-200/70">
+                                <span>FOUNDATION</span>
+                                <span class="text-yellow-300 font-bold group-hover:underline">OPEN STORY</span>
+                            </div>
+                        </div>
+                    `;
+                    card.onclick = () => window.location.href = item.slug || 'zero-week.html';
+                } else {
+                    card.className = "spotlight-card rounded-2xl p-4 md:p-5 flex flex-col justify-between cursor-pointer group relative overflow-hidden";
+                    
+                    const phaseColor = item.phase === 1 ? 'text-yellow-400 border-yellow-400/30' :
+                                       item.phase === 2 ? 'text-pink-400 border-pink-400/30' :
+                                       item.phase === 3 ? 'text-sky-400 border-sky-400/30' : 'text-purple-400 border-purple-400/30';
+
+                    const isPub = item.status.toLowerCase().includes('published');
+
+                    card.innerHTML = `
+                        <div class="relative z-10 flex flex-col h-full justify-between">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded-md border ${phaseColor} bg-white/5">
+                                    P0${item.phase}
+                                </span>
+                                <span class="text-xs text-gray-500 group-hover:text-pink-300 group-hover:translate-x-0.5 transition-all">
+                                    →
+                                </span>
+                            </div>
+                            <div>
+                                <div class="text-lg md:text-xl font-bold font-serif text-white group-hover:text-yellow-300 transition-colors">
+                                    ${item.label}
+                                </div>
+                                <div class="text-[10px] font-mono ${isPub ? 'text-yellow-300 font-semibold' : 'text-pink-300/80'} mt-1 tracking-wider uppercase">
+                                    ${item.status}
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-2 border-t border-white/5 flex items-center justify-between text-[9px] font-mono text-gray-500">
+                                <span>STORY #${item.week < 10 ? '0' + item.week : item.week}</span>
+                                <span class="group-hover:text-yellow-400 transition-colors">EXPLORE</span>
+                            </div>
+                        </div>
+                    `;
+                    card.onclick = () => openWeekModal(item);
+                }
+
+                container.appendChild(card);
+            });
+            updateSpotlights();
+        }
+
+        function filterPhase(phase) {
+            document.querySelectorAll('.phase-tab').forEach(tab => tab.classList.remove('active'));
+            if (phase === 'all') {
+                document.getElementById('tab-all').classList.add('active');
+            } else {
+                const targetTab = document.getElementById(`tab-${phase}`);
+                if (targetTab) targetTab.classList.add('active');
+            }
+            renderWeeks(phase);
+        }
+
+        function openWeekModal(item) {
+            const modalPhase = document.getElementById('modal-phase');
+            const modalWeek = document.getElementById('modal-week');
+            const modalBadge = document.getElementById('modal-badge');
+            const modalDesc = document.getElementById('modal-desc');
+            const actionBtn = document.getElementById('modal-action-btn');
+
+            if (item.week === 0) {
+                modalPhase.innerText = `PHASE 00 • FOUNDATION IMMERSION`;
+                modalWeek.innerText = item.label;
+                modalBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> STORY AVAILABLE`;
+                modalDesc.innerText = `Explore the five-day transformative immersion that kicked off the ProtoSem programme: from team formation to AI prompting and industry inspiration.`;
+                actionBtn.href = `zero-week.html`;
+                actionBtn.innerHTML = `<span>Read Zero Week Story →</span>`;
+            } else {
+                modalPhase.innerText = `PHASE 0${item.phase} • PROTOSEM JOURNEY`;
+                modalWeek.innerText = `${item.label} — ${item.title || 'Field Notes'}`;
+                const isPub = item.status && item.status.includes('PUBLISHED');
+                modalBadge.innerHTML = `<span class="w-2 h-2 rounded-full ${isPub ? 'bg-yellow-400' : 'bg-pink-400'} animate-pulse"></span> ${item.status}`;
+                modalDesc.innerText = isPub ? `Field notes and prototypes for this week are published. Click below to explore!` : `Detailed documentation, problem statements, customer empathy maps, and technical prototype logs for this phase are actively being archived.`;
+                actionBtn.href = item.slug || `zero-week.html`;
+                actionBtn.innerHTML = isPub ? `<span>Read Published Notes →</span>` : `<span>Explore Zero Week in the Meantime →</span>`;
+            }
+
+            document.getElementById('week-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('week-modal').classList.add('hidden');
+        }
+
+        // =========================================================================
+        // 3. EDIT & ADMIN MODAL LOGIC
+        // =========================================================================
+        function openEditorModal(activeTab = 'profile') {
+            document.getElementById('editor-modal').classList.remove('hidden');
+            
+            // Populate profile fields
+            const p = siteData.profile;
+            document.getElementById('edit-input-name').value = p.name || '';
+            document.getElementById('edit-input-role-badge').value = p.role_badge || '';
+            document.getElementById('edit-input-email').value = p.email || '';
+            document.getElementById('edit-input-linkedin').value = p.linkedin || '';
+            document.getElementById('edit-input-cgpa').value = p.cgpa || '';
+            document.getElementById('edit-input-research-duration').value = p.research_duration || '';
+            document.getElementById('edit-input-academic-desc').value = p.academic_desc || '';
+            document.getElementById('edit-input-research-desc').value = p.research_desc || '';
+
+            // Populate weeks select dropdown
+            const weekSelect = document.getElementById('edit-week-select');
+            weekSelect.innerHTML = '';
+            siteData.weeks.forEach(w => {
+                const opt = document.createElement('option');
+                opt.value = w.week;
+                opt.innerText = `${w.label} — ${w.title || ''} (${w.status})`;
+                weekSelect.appendChild(opt);
+            });
+            if (siteData.weeks.length > 0) loadWeekToEditor(siteData.weeks[0].week);
+
+            // Render skills editor list
+            renderSkillsEditor();
+
+            switchEditorTab(activeTab);
+        }
+
+        function closeEditorModal() {
+            document.getElementById('editor-modal').classList.add('hidden');
+        }
+
+        function switchEditorTab(tabId) {
+            ['profile', 'weeks', 'skills', 'deploy'].forEach(t => {
+                const panel = document.getElementById(`tab-panel-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (panel) panel.classList.toggle('hidden', t !== tabId);
+                if (btn) {
+                    btn.classList.toggle('bg-yellow-400/20', t === tabId);
+                    btn.classList.toggle('text-yellow-300', t === tabId);
+                    btn.classList.toggle('border-yellow-400/40', t === tabId);
+                    btn.classList.toggle('font-semibold', t === tabId);
+                }
+            });
+        }
+
+        function loadWeekToEditor(weekNum) {
+            const w = siteData.weeks.find(x => x.week == weekNum);
+            if (!w) return;
+            document.getElementById('edit-week-label').value = w.label;
+            document.getElementById('edit-week-title').value = w.title || '';
+            document.getElementById('edit-week-status').value = w.status;
+            document.getElementById('edit-week-slug').value = w.slug || '';
+        }
+
+        function saveCurrentWeekEdits() {
+            const weekNum = document.getElementById('edit-week-select').value;
+            const w = siteData.weeks.find(x => x.week == weekNum);
+            if (!w) return;
+            w.label = document.getElementById('edit-week-label').value;
+            w.title = document.getElementById('edit-week-title').value;
+            w.status = document.getElementById('edit-week-status').value;
+            w.slug = document.getElementById('edit-week-slug').value;
+            w.isPublished = w.status.toLowerCase().includes('published');
+            
+            saveStoredData(siteData);
+            renderWeeks();
+            showToast(`Updated ${w.label}!`);
+        }
+
+        function renderSkillsEditor() {
+            const list = document.getElementById('edit-skills-list');
+            list.innerHTML = '';
+            siteData.skills.forEach((skill, idx) => {
+                const tag = document.createElement('span');
+                tag.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full glass border border-white/20 text-xs text-white";
+                tag.innerHTML = `<span>${skill}</span> <button onclick="removeSkill(${idx})" class="text-rose-400 hover:text-rose-300 ml-1">✕</button>`;
+                list.appendChild(tag);
+            });
+        }
+
+        function addNewSkill() {
+            const input = document.getElementById('new-skill-input');
+            const val = input.value.trim();
+            if (!val) return;
+            siteData.skills.push(val);
+            input.value = '';
+            renderSkillsEditor();
+            renderSkills();
+            saveStoredData(siteData);
+        }
+
+        function removeSkill(idx) {
+            siteData.skills.splice(idx, 1);
+            renderSkillsEditor();
+            renderSkills();
+            saveStoredData(siteData);
+        }
+
+        function saveModalChanges() {
+            // Save profile fields
+            siteData.profile.name = document.getElementById('edit-input-name').value;
+            siteData.profile.role_badge = document.getElementById('edit-input-role-badge').value;
+            siteData.profile.email = document.getElementById('edit-input-email').value;
+            siteData.profile.linkedin = document.getElementById('edit-input-linkedin').value;
+            siteData.profile.cgpa = document.getElementById('edit-input-cgpa').value;
+            siteData.profile.cgpa_pill = `B.Com (PA) • ${siteData.profile.cgpa}`;
+            siteData.profile.research_duration = document.getElementById('edit-input-research-duration').value;
+            siteData.profile.academic_desc = document.getElementById('edit-input-academic-desc').value;
+            siteData.profile.research_desc = document.getElementById('edit-input-research-desc').value;
+
+            saveStoredData(siteData);
+            applyProfileData();
+            renderSkills();
+            renderWeeks();
+            closeEditorModal();
+            showToast("Portfolio changes saved successfully!");
+        }
+
+        function resetPortfolioDefaults() {
+            if (confirm("Reset all customizations back to initial defaults?")) {
+                localStorage.removeItem('nandhini_portfolio_data');
+                siteData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+                applyProfileData();
+                renderSkills();
+                renderWeeks();
+                closeEditorModal();
+                showToast("Reset to defaults.");
+            }
+        }
+
+        // =========================================================================
+        // 4. VISUAL IN-LINE EDIT MODE
+        // =========================================================================
+        let isVisualEdit = false;
+
+        function toggleVisualEditMode(forceState = null) {
+            isVisualEdit = forceState !== null ? forceState : !isVisualEdit;
+            document.body.classList.toggle('edit-mode-active', isVisualEdit);
+            document.getElementById('edit-toolbar').classList.toggle('active', isVisualEdit);
+
+            document.querySelectorAll('[data-editable]').forEach(el => {
+                el.contentEditable = isVisualEdit ? "true" : "false";
+            });
+
+            if (isVisualEdit) {
+                showToast("Visual edit mode enabled. Click on text to edit!");
+            }
+        }
+
+        function saveAllInLineEdits() {
+            document.querySelectorAll('[data-editable]').forEach(el => {
+                const key = el.getAttribute('data-editable');
+                if (siteData.profile[key] !== undefined) {
+                    siteData.profile[key] = el.innerText;
+                }
+            });
+            saveStoredData(siteData);
+            showToast("All in-line edits saved!");
+            toggleVisualEditMode(false);
+        }
+
+        // =========================================================================
+        // 5. GITHUB PAGES ONE-CLICK DEPLOYER
+        // =========================================================================
+        async function publishEditsToGitHub() {
+            const token = document.getElementById('github-token-input').value.trim();
+            if (!token) {
+                alert("Please enter your GitHub Personal Access Token.");
+                return;
+            }
+
+            const deployBtn = document.getElementById('deploy-action-btn');
+            const logBox = document.getElementById('deploy-log');
+            logBox.classList.remove('hidden');
+            logBox.innerHTML = `<div>⏳ Generating updated portfolio build...</div>`;
+
+            const repos = [
+                "nandhinisiva299-create/nandhinisiva299-create.github.io",
+                "nandhinisiva299-create/nandhinisivakumar.github.io"
+            ];
+
+            try {
+                // Generate current HTML string with updated data
+                const currentHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+                const utf8Bytes = new TextEncoder().encode(currentHtml);
+                let binaryStr = "";
+                for (let i = 0; i < utf8Bytes.length; i++) {
+                    binaryStr += String.fromCharCode(utf8Bytes[i]);
+                }
+                const base64Html = btoa(binaryStr);
+
+                for (const repo of repos) {
+                    logBox.innerHTML += `<div>📡 Connecting to ${repo}...</div>`;
+                    
+                    // 1. Get SHA of index.html
+                    let sha = null;
+                    try {
+                        const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/index.html`, {
+                            headers: { 'Authorization': `token ${token}` }
+                        });
+                        if (getRes.ok) {
+                            const data = await getRes.json();
+                            sha = data.sha;
+                        }
+                    } catch (e) {}
+
+                    // 2. Put file
+                    const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/index.html`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            message: "Update portfolio content via Live In-App Editor",
+                            content: base64Html,
+                            sha: sha,
+                            branch: "main"
+                        })
+                    });
+
+                    if (putRes.ok) {
+                        logBox.innerHTML += `<div class="text-emerald-400">✅ Successfully pushed to ${repo}!</div>`;
+                    } else {
+                        const errData = await putRes.json();
+                        logBox.innerHTML += `<div class="text-rose-400">❌ Error on ${repo}: ${errData.message}</div>`;
+                    }
+                }
+
+                logBox.innerHTML += `<div class="text-yellow-300 font-bold mt-2">🎉 Live deployment complete! Refresh in ~30s.</div>`;
+                showToast("🚀 Successfully deployed to GitHub Pages!");
+            } catch (err) {
+                logBox.innerHTML += `<div class="text-rose-400">❌ Deployment failed: ${err.message}</div>`;
+            }
+        }
+
+        // =========================================================================
+        // 6. TOAST NOTIFICATIONS
+        // =========================================================================
+        function showToast(text, icon = "✨") {
+            const toast = document.getElementById('toast-msg');
+            document.getElementById('toast-text').innerText = text;
+            document.getElementById('toast-icon').innerText = icon;
+            toast.classList.remove('opacity-0', 'translate-x-32', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-x-32', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // =========================================================================
+        // 7. KEYBOARD SHORTCUTS & INIT
+        // =========================================================================
+        window.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') {
+                e.preventDefault();
+                toggleVisualEditMode();
+            }
+            if (e.key === 'Escape') {
+                closeEditorModal();
+                closeModal();
+            }
+        });
+
+        // Initialize Typed.js
+        new Typed('#typed', {
+            strings: [
+                'Innovation Engineer Trainee',
+                'PRICE ProtoSem Fellow',
+                'Zero Week to Week 20 Explorer',
+                'Passionate Photographer & Visual Artist',
+                'B.Com PA Scholar (CGPA 8.5)'
+            ],
+            typeSpeed: 45,
+            backSpeed: 25,
+            loop: true
+        });
+
+        // =========================================================================
+        // 8. CANVAS PARTICLES & SPOTLIGHTS
+        // =========================================================================
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 120 };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.8;
+                this.speedX = (Math.random() - 0.5) * 0.6;
+                this.speedY = (Math.random() - 0.5) * 0.6;
+                this.color = Math.random() > 0.5 ? 'rgba(245, 200, 66, ' : 'rgba(244, 114, 182, ';
+                this.alpha = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius) {
+                        let force = (mouse.radius - distance) / mouse.radius;
+                        this.x -= (dx / distance) * force * 2;
+                        this.y -= (dy / distance) * force * 2;
+                    }
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color + this.alpha + ')';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 18000);
+            for (let i = 0; i < Math.min(count, 70); i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function connectParticles() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let dx = particles[a].x - particles[b].x;
+                    let dy = particles[a].y - particles[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 100) {
+                        let opacity = 1 - (distance / 100);
+                        ctx.strokeStyle = `rgba(245, 200, 66, ${opacity * 0.15})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            connectParticles();
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        function updateSpotlights() {
+            document.querySelectorAll('.spotlight-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
+
+        // Magnetic Buttons
+        document.querySelectorAll('.magnetic').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = `translate(0px, 0px)`;
+            });
+        });
+
+        // Scroll to top
+        const scrollTopBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Initial Data Load
+        applyProfileData();
+        renderSkills();
+        renderWeeks('all');
+    </script>
+</body>
+</html>
