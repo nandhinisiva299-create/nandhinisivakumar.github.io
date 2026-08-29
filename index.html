@@ -16,7 +16,7 @@
             scroll-behavior: smooth;
         }
         body {
-            background-color: #0b1120; 
+            background-color: #030712; /* shadcn deep zinc */
             color: #f8fafc;
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
@@ -29,73 +29,140 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* Particle Canvas Background */
+        /* ========================================================================= */
+        /* ACETERNITY & MAGIC UI INSPIRED BACKGROUND SYSTEM */
+        /* ========================================================================= */
+        
+        /* Magic UI Dot Matrix Grid */
+        .magic-dot-grid {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 28px 28px;
+            mask-image: radial-gradient(ellipse at 50% 30%, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 40%, transparent 80%);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Aceternity Lamp Light Beams Effect */
+        .lamp-cone-left {
+            position: absolute;
+            top: -15%;
+            left: 50%;
+            transform: translateX(-100%) rotate(25deg);
+            width: 35rem;
+            height: 25rem;
+            background: conic-gradient(from 90deg at 50% 50%, #f5c842, #f472b6, transparent 60%);
+            filter: blur(80px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 1;
+            animation: lampPulse 8s ease-in-out infinite alternate;
+        }
+        .lamp-cone-right {
+            position: absolute;
+            top: -15%;
+            left: 50%;
+            transform: rotate(-25deg);
+            width: 35rem;
+            height: 25rem;
+            background: conic-gradient(from 270deg at 50% 50%, #38bdf8, #f472b6, transparent 60%);
+            filter: blur(80px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 1;
+            animation: lampPulse 8s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes lampPulse {
+            0% { opacity: 0.2; transform: scale(0.95); }
+            100% { opacity: 0.35; transform: scale(1.08); }
+        }
+
+        /* Interactive Particle & Meteor Canvas */
         #particle-canvas {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Glowing Aurora Blobs */
+        /* Ambient Aurora Blobs */
         .blob {
             position: fixed;
-            filter: blur(120px);
+            filter: blur(130px);
             z-index: 0;
-            opacity: 0.5;
+            opacity: 0.4;
             pointer-events: none;
             border-radius: 50%;
         }
         .blob-1 {
-            top: -12%; left: -10%;
-            width: 55vw; height: 55vw;
-            background: radial-gradient(circle, rgba(245, 200, 66, 0.8), rgba(230, 168, 23, 0.4), transparent 70%);
-            animation: floatAurora1 18s ease-in-out infinite alternate;
+            top: -10%; left: -10%;
+            width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(245, 200, 66, 0.7), transparent 70%);
+            animation: floatBlob 20s ease-in-out infinite alternate;
         }
         .blob-2 {
-            bottom: -5%; right: -10%;
-            width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(244, 114, 182, 0.8), rgba(219, 39, 119, 0.4), transparent 70%);
-            animation: floatAurora2 22s ease-in-out infinite alternate;
-        }
-        .blob-3 {
-            top: 38%; left: 25%;
-            width: 40vw; height: 40vw;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.6), rgba(3, 105, 161, 0.3), transparent 70%);
-            animation: floatAurora3 26s ease-in-out infinite alternate;
+            bottom: -10%; right: -10%;
+            width: 45vw; height: 45vw;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.7), transparent 70%);
+            animation: floatBlob 24s ease-in-out infinite alternate-reverse;
         }
 
-        @keyframes floatAurora1 {
+        @keyframes floatBlob {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, -40px) scale(1.12); }
-        }
-        @keyframes floatAurora2 {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-40px, -60px) scale(1.08); }
-        }
-        @keyframes floatAurora3 {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 50px) scale(0.95); }
+            100% { transform: translate(40px, -40px) scale(1.1); }
         }
 
-        /* Glassmorphism & Specular Borders */
+        /* ========================================================================= */
+        /* SHADCN + MAGIC UI GLASSMORPHISM & MOVING BORDER BEAMS */
+        /* ========================================================================= */
+        
         .glass {
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
-        /* Interactive Spotlight Cards */
+        /* Magic UI BorderBeam Animated Card */
+        .border-beam-card {
+            position: relative;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(16px);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.7);
+        }
+        .border-beam-card::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, #f5c842 60deg, #f472b6 120deg, transparent 180deg, #38bdf8 240deg, transparent 360deg);
+            border-radius: inherit;
+            z-index: 0;
+            opacity: 0.5;
+            animation: borderBeamRotate 7s linear infinite;
+            pointer-events: none;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            padding: 1.5px;
+        }
+        @keyframes borderBeamRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Aceternity Spotlight Card */
         .spotlight-card {
             position: relative;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 1.25rem;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -105,9 +172,9 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(600px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(245, 200, 66, 0.12), transparent 40%);
+            background: radial-gradient(500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(245, 200, 66, 0.12), transparent 45%);
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease;
             pointer-events: none;
             z-index: 1;
         }
@@ -117,12 +184,12 @@
             top: 0; left: 0; right: 0; bottom: 0;
             border-radius: inherit;
             padding: 1px;
-            background: radial-gradient(400px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(244, 114, 182, 0.6), transparent 50%);
+            background: radial-gradient(350px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(244, 114, 182, 0.7), transparent 50%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.35s ease;
             pointer-events: none;
             z-index: 2;
         }
@@ -131,12 +198,46 @@
             opacity: 1;
         }
         .spotlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(244, 114, 182, 0.15);
-            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(244, 114, 182, 0.15);
+            background: rgba(30, 41, 59, 0.4);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
-        /* Hero Name Typography & Kinetic Entrance Effects */
+        /* Magic UI Shiny Text Badge */
+        .shiny-badge {
+            position: relative;
+            background: linear-gradient(110deg, rgba(255,255,255,0.05) 0%, rgba(245,200,66,0.15) 35%, rgba(244,114,182,0.2) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: shinyMove 4s linear infinite;
+            border: 1px solid rgba(245, 200, 66, 0.35);
+        }
+        @keyframes shinyMove {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Magic UI Shimmer Button */
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(60deg, transparent 35%, rgba(255,255,255,0.3) 50%, transparent 65%);
+            transform: rotate(30deg) translateX(-100%);
+            animation: shimmerSweep 5s infinite;
+        }
+        @keyframes shimmerSweep {
+            0% { transform: rotate(30deg) translateX(-150%); }
+            40%, 100% { transform: rotate(30deg) translateX(150%); }
+        }
+
+        /* Hero Name Typography & Kinetic Entrance */
         .hero-name-container {
             position: relative;
             display: inline-block;
@@ -201,14 +302,11 @@
             filter: drop-shadow(0 0 14px rgba(245, 200, 66, 0.85)) drop-shadow(0 0 25px rgba(244, 114, 182, 0.7));
         }
 
-        /* Luminous Aura behind name */
         .hero-name-aura {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 110%;
-            height: 140%;
+            width: 110%; height: 140%;
             background: radial-gradient(ellipse at center, rgba(245, 200, 66, 0.22) 0%, rgba(244, 114, 182, 0.15) 45%, rgba(56, 189, 248, 0.08) 70%, transparent 80%);
             filter: blur(28px);
             pointer-events: none;
@@ -218,36 +316,6 @@
         @keyframes auraBreathe {
             0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.6; }
             100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.95; }
-        }
-
-        /* Neon & Shimmer Text */
-        .neon-glow {
-            animation: neonPulse 6s ease-in-out infinite alternate;
-        }
-        @keyframes neonPulse {
-            0% {
-                text-shadow: 0 0 12px rgba(245, 200, 66, 0.45), 0 0 25px rgba(245, 200, 66, 0.2);
-            }
-            50% {
-                text-shadow: 0 0 14px rgba(244, 114, 182, 0.5), 0 0 28px rgba(244, 114, 182, 0.2);
-            }
-            100% {
-                text-shadow: 0 0 12px rgba(56, 189, 248, 0.45), 0 0 25px rgba(56, 189, 248, 0.2);
-            }
-        }
-        .neon-subtle {
-            text-shadow: 0 0 12px rgba(244, 114, 182, 0.5), 0 0 24px rgba(245, 200, 66, 0.25);
-        }
-
-        /* Shimmering Badge Animation */
-        .shimmer-badge {
-            background: linear-gradient(90deg, rgba(245, 200, 66, 0.15), rgba(244, 114, 182, 0.25), rgba(56, 189, 248, 0.2), rgba(245, 200, 66, 0.15));
-            background-size: 300% 100%;
-            animation: shimmerMove 6s linear infinite;
-        }
-        @keyframes shimmerMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
         }
 
         /* Active Phase Tab */
@@ -263,13 +331,13 @@
 
         /* Zero Week Card Highlighting */
         .zero-week-card {
-            background: linear-gradient(145deg, rgba(245, 200, 66, 0.08), rgba(244, 114, 182, 0.06), rgba(15, 23, 42, 0.8)) !important;
-            border: 1px solid rgba(245, 200, 66, 0.4) !important;
-            box-shadow: 0 0 25px rgba(245, 200, 66, 0.15);
+            background: linear-gradient(145deg, rgba(245, 200, 66, 0.1), rgba(244, 114, 182, 0.08), rgba(15, 23, 42, 0.85)) !important;
+            border: 1px solid rgba(245, 200, 66, 0.5) !important;
+            box-shadow: 0 0 25px rgba(245, 200, 66, 0.2);
         }
         .zero-week-card:hover {
-            border-color: rgba(245, 200, 66, 0.8) !important;
-            box-shadow: 0 16px 36px -10px rgba(245, 200, 66, 0.3), 0 0 25px rgba(244, 114, 182, 0.3) !important;
+            border-color: rgba(245, 200, 66, 0.9) !important;
+            box-shadow: 0 16px 36px -10px rgba(245, 200, 66, 0.35), 0 0 25px rgba(244, 114, 182, 0.35) !important;
         }
 
         /* Magnetic Button Transition */
@@ -281,8 +349,7 @@
         /* Scroll Progress Circular Button */
         #scroll-to-top {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 2rem; right: 2rem;
             z-index: 50;
             opacity: 0;
             pointer-events: none;
@@ -295,23 +362,20 @@
             transform: translateY(0);
         }
 
-        /* Edit Mode Trigger FAB (Bottom-Left) */
+        /* Edit Mode Trigger FAB */
         #edit-mode-fab {
             position: fixed;
-            bottom: 2rem;
-            left: 2rem;
+            bottom: 2rem; left: 2rem;
             z-index: 50;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Top Admin Bar when Visual Edit is On */
+        /* Top Admin Bar */
         #edit-toolbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(3, 7, 18, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 2px solid #f5c842;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
@@ -322,7 +386,6 @@
             transform: translateY(0);
         }
 
-        /* Editable highlight borders when edit mode is active */
         body.edit-mode-active [data-editable] {
             outline: 2px dashed rgba(245, 200, 66, 0.6);
             outline-offset: 4px;
@@ -335,28 +398,29 @@
             background: rgba(244, 114, 182, 0.1);
         }
 
-        /* Custom Scrollbar for Modal */
-        .custom-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
         .custom-scroll::-webkit-scrollbar-thumb {
             background: rgba(245, 200, 66, 0.3);
             border-radius: 3px;
         }
-        .custom-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col items-center p-4 md:p-8 selection:bg-pink-500 selection:text-white">
 
+    <!-- Magic UI Dot Matrix Grid Overlay -->
+    <div class="magic-dot-grid"></div>
+
+    <!-- Aceternity Lamp Light Beams Header Effect -->
+    <div class="lamp-cone-left"></div>
+    <div class="lamp-cone-right"></div>
+
     <!-- Interactive Canvas Particles -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Aurora Background Blobs -->
+    <!-- Aurora Ambient Blobs -->
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
 
     <!-- Top Admin Bar (Shown during In-line Edit Mode) -->
     <div id="edit-toolbar" class="px-4 py-3 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
@@ -381,7 +445,7 @@
         </div>
     </div>
 
-    <!-- Top Sticky Navigation -->
+    <!-- Top Sticky Navigation (shadcn/ui style) -->
     <nav class="sticky top-4 z-50 glass rounded-full px-6 py-3 mb-6 flex items-center justify-between gap-4 max-w-4xl w-full border border-white/10 shadow-2xl transition-all duration-300">
         <a href="#" class="font-serif font-bold text-xl bg-gradient-to-r from-yellow-300 via-pink-400 to-sky-300 text-transparent bg-clip-text hover:scale-105 transition-transform">NS.</a>
         <div class="flex items-center gap-2 md:gap-5 text-xs md:text-sm font-medium">
@@ -400,49 +464,51 @@
 
     <main class="w-full max-w-4xl z-10 space-y-12">
         
-        <!-- Hero Section -->
-        <header id="about" data-tilt data-tilt-max="4" data-tilt-speed="500" data-tilt-glare="true" data-tilt-max-glare="0.12" class="glass rounded-3xl p-8 md:p-14 text-center relative overflow-hidden transition-all duration-300 border border-white/15">
-            <div class="relative inline-block mb-6 group">
-                <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-sky-400 opacity-70 blur-md group-hover:opacity-100 transition duration-500"></div>
-                <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=f5c842&color=fff&size=256" alt="Nandhini Sivakumar" class="relative rounded-full w-32 h-32 md:w-36 md:h-36 object-cover shadow-2xl border-4 border-slate-900">
-            </div>
-            
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full shimmer-badge border border-yellow-400/40 text-yellow-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-                <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
-            </div>
+        <!-- Hero Section (Magic UI BorderBeam & Aceternity Spotlight) -->
+        <header id="about" data-tilt data-tilt-max="4" data-tilt-speed="500" data-tilt-glare="true" data-tilt-max-glare="0.12" class="border-beam-card p-8 md:p-14 text-center relative overflow-hidden transition-all duration-300">
+            <div class="relative z-10">
+                <div class="relative inline-block mb-6 group">
+                    <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-sky-400 opacity-70 blur-md group-hover:opacity-100 transition duration-500"></div>
+                    <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=f5c842&color=fff&size=256" alt="Nandhini Sivakumar" class="relative rounded-full w-32 h-32 md:w-36 md:h-36 object-cover shadow-2xl border-4 border-slate-900">
+                </div>
+                
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full shiny-badge text-yellow-300 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+                    <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
+                </div>
 
-            <div class="hero-name-container">
-                <div class="hero-name-aura"></div>
-                <h1 id="profile-name" data-editable="name" class="hero-name text-4xl md:text-6xl font-bold tracking-wide">
-                    Nandhini Sivakumar
-                </h1>
-            </div>
-            
-            <p class="text-lg md:text-2xl text-gray-300 font-light mb-8 h-8 flex items-center justify-center">
-                <span id="typed"></span>
-            </p>
-            
-            <div class="flex flex-wrap justify-center items-center gap-4">
-                <a href="#protosem" class="magnetic px-7 py-3.5 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-yellow-500 text-white font-semibold shadow-lg hover:shadow-[0_0_30px_rgba(244,114,182,0.7)] transition-all flex items-center gap-2">
-                    <span>⚡ Explore ProtoSem (21 Wks)</span>
-                </a>
-                <a href="zero-week.html" class="magnetic px-7 py-3.5 rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 font-bold shadow-lg hover:shadow-[0_0_30px_rgba(245,200,66,0.7)] transition-all flex items-center gap-2">
-                    <span>📖 Read Zero Week Story</span>
-                </a>
-                <a href="resume.html" class="magnetic px-6 py-3.5 rounded-full glass border border-white/20 text-gray-200 font-semibold hover:bg-white/10 transition-colors">
-                    ATS Resume
-                </a>
-                <a id="profile-email-btn" href="mailto:nandhinisiva299@gmail.com" class="magnetic px-6 py-3.5 rounded-full glass border border-pink-400/30 text-pink-200 font-semibold hover:bg-pink-500/10 transition-colors">
-                    Let's Connect
-                </a>
+                <div class="hero-name-container">
+                    <div class="hero-name-aura"></div>
+                    <h1 id="profile-name" data-editable="name" class="hero-name text-4xl md:text-6xl font-bold tracking-wide">
+                        Nandhini Sivakumar
+                    </h1>
+                </div>
+                
+                <p class="text-lg md:text-2xl text-gray-300 font-light mb-8 h-8 flex items-center justify-center font-serif italic">
+                    <span id="typed"></span>
+                </p>
+                
+                <div class="flex flex-wrap justify-center items-center gap-4">
+                    <a href="#protosem" class="magnetic shimmer-btn px-7 py-3.5 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-yellow-500 text-white font-semibold shadow-lg hover:shadow-[0_0_30px_rgba(244,114,182,0.7)] transition-all flex items-center gap-2">
+                        <span>⚡ Explore ProtoSem (21 Wks)</span>
+                    </a>
+                    <a href="zero-week.html" class="magnetic shimmer-btn px-7 py-3.5 rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 font-bold shadow-lg hover:shadow-[0_0_30px_rgba(245,200,66,0.7)] transition-all flex items-center gap-2">
+                        <span>📖 Read Zero Week Story</span>
+                    </a>
+                    <a href="resume.html" class="magnetic px-6 py-3.5 rounded-full glass border border-white/20 text-gray-200 font-semibold hover:bg-white/10 transition-colors">
+                        ATS Resume
+                    </a>
+                    <a id="profile-email-btn" href="mailto:nandhinisiva299@gmail.com" class="magnetic px-6 py-3.5 rounded-full glass border border-pink-400/30 text-pink-200 font-semibold hover:bg-pink-500/10 transition-colors">
+                        Let's Connect
+                    </a>
+                </div>
             </div>
         </header>
 
-        <!-- Current Focus & Academics Section -->
+        <!-- Current Focus & Academics Section (Aceternity Bento Grid) -->
         <section id="experience" class="glass rounded-3xl p-8 md:p-10 border border-white/10">
             <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
                 <h2 class="text-2xl md:text-3xl font-semibold flex items-center gap-3">
-                    <span class="text-yellow-400">✨</span> <span class="neon-subtle">Experience & Academics</span>
+                    <span class="text-yellow-400">✨</span> <span class="bg-gradient-to-r from-yellow-300 via-pink-300 to-sky-300 bg-clip-text text-transparent font-serif">Experience & Academics</span>
                 </h2>
                 <span id="academic-cgpa-pill" data-editable="cgpa_pill" class="text-xs font-mono text-gray-400 border border-white/10 px-3.5 py-1 rounded-full bg-white/5">B.Com (PA) • CGPA 8.5</span>
             </div>
@@ -488,7 +554,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-mono text-gray-400 tracking-wider">ZERO WEEK + FOUR PHASES • 21 WEEKS TOTAL</span>
-                        <button onclick="openEditorModal('weeks')" class="text-xs px-2 py-0.5 rounded border border-yellow-400/40 text-yellow-300 hover:bg-yellow-400/10 font-mono">
+                        <button onclick="openEditorModal('weeks')" class="text-xs px-2.5 py-1 rounded-lg border border-yellow-400/40 text-yellow-300 hover:bg-yellow-400/10 font-mono">
                             ✏️ Edit Weeks
                         </button>
                     </div>
@@ -525,23 +591,23 @@
                     </p>
                 </div>
 
-                <!-- Discipline Tags -->
+                <!-- Discipline Tags (Bento Chips) -->
                 <div class="mt-6">
                     <div class="text-xs font-mono uppercase text-gray-400 tracking-wider mb-3">Programme Disciplines & Focus Areas:</div>
                     <div class="flex flex-wrap gap-2.5">
-                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-yellow-400/40 text-yellow-200 shadow-sm flex items-center gap-1.5">
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-yellow-400/40 text-yellow-200 shadow-sm flex items-center gap-1.5 hover:scale-105 transition-transform">
                             <span class="text-yellow-400">🌱</span> Zero Week Mindset & Collaboration
                         </span>
-                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-pink-400/40 text-pink-200 shadow-sm flex items-center gap-1.5">
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-pink-400/40 text-pink-200 shadow-sm flex items-center gap-1.5 hover:scale-105 transition-transform">
                             <span class="text-pink-400">🛍️</span> Phygital Retail & Intelligent Commerce
                         </span>
-                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-sky-400/40 text-sky-200 shadow-sm flex items-center gap-1.5">
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-sky-400/40 text-sky-200 shadow-sm flex items-center gap-1.5 hover:scale-105 transition-transform">
                             <span class="text-sky-400">⚡</span> AI & Analytics
                         </span>
-                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-purple-400/40 text-purple-200 shadow-sm flex items-center gap-1.5">
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-purple-400/40 text-purple-200 shadow-sm flex items-center gap-1.5 hover:scale-105 transition-transform">
                             <span class="text-purple-400">📡</span> Intelligent Systems & IoT
                         </span>
-                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-rose-400/40 text-rose-200 shadow-sm flex items-center gap-1.5">
+                        <span class="px-4 py-2 rounded-xl glass text-xs font-semibold border border-rose-400/40 text-rose-200 shadow-sm flex items-center gap-1.5 hover:scale-105 transition-transform">
                             <span class="text-rose-400">🚀</span> Prototyping & Entrepreneurship
                         </span>
                     </div>
@@ -626,13 +692,13 @@
             </div>
         </section>
 
-        <!-- Skills & Certifications -->
+        <!-- Skills & Certifications (Bento Grid) -->
         <section id="skills" class="glass rounded-3xl p-8 md:p-10 border border-white/10">
             <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
                 <h2 class="text-2xl md:text-3xl font-semibold flex items-center gap-3">
-                    <span class="text-pink-400">🚀</span> <span class="neon-subtle">Skills & Certifications</span>
+                    <span class="text-pink-400">🚀</span> <span class="bg-gradient-to-r from-pink-300 to-yellow-300 bg-clip-text text-transparent font-serif">Skills & Certifications</span>
                 </h2>
-                <button onclick="openEditorModal('skills')" class="text-xs px-2 py-0.5 rounded border border-pink-400/40 text-pink-300 hover:bg-pink-400/10 font-mono">
+                <button onclick="openEditorModal('skills')" class="text-xs px-2.5 py-1 rounded-lg border border-pink-400/40 text-pink-300 hover:bg-pink-400/10 font-mono">
                     ✏️ Edit Skills
                 </button>
             </div>
@@ -648,7 +714,7 @@
         <section id="blog" class="glass rounded-3xl p-8 md:p-10 border border-white/10">
             <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
                 <h2 class="text-2xl md:text-3xl font-semibold flex items-center gap-3">
-                    <span class="text-yellow-400">✍️</span> <span class="neon-subtle">Field Notes & Blog</span>
+                    <span class="text-yellow-400">✍️</span> <span class="bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent font-serif">Field Notes & Blog</span>
                 </h2>
                 <span class="text-xs font-mono text-gray-400 border border-white/10 px-3.5 py-1 rounded-full bg-white/5">PROTOSEM STORIES</span>
             </div>
@@ -723,7 +789,7 @@
     </div>
 
     <!-- ========================================================================= -->
-    <!-- PORTFOLIO EDIT & ADMIN MANAGER MODAL -->
+    <!-- PORTFOLIO EDIT & ADMIN MANAGER MODAL (shadcn styled) -->
     <!-- ========================================================================= -->
     <div id="editor-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 hidden">
         <div class="glass max-w-2xl w-full rounded-3xl p-6 md:p-8 border border-yellow-400/40 shadow-2xl relative max-h-[90vh] flex flex-col">
@@ -937,6 +1003,7 @@
         const DEFAULT_DATA = {
             profile: {
                 name: "Nandhini Sivakumar",
+                font_family: "'Cinzel', 'Playfair Display', serif",
                 role_badge: "✨ Innovation Engineer Trainee • PRICE ProtoSem",
                 email: "nandhinisiva299@gmail.com",
                 linkedin: "https://linkedin.com/in/nandhini-sivakumar-1a2406321",
@@ -1050,7 +1117,7 @@
             container.innerHTML = '';
             siteData.skills.forEach(skill => {
                 const pill = document.createElement('span');
-                pill.className = "px-5 py-2.5 rounded-full glass text-sm font-medium border border-white/20 text-gray-200 shadow-sm hover:scale-105 transition-transform cursor-pointer";
+                pill.className = "px-5 py-2.5 rounded-full glass text-sm font-medium border border-white/20 text-gray-200 shadow-sm hover:scale-105 hover:border-pink-400/50 hover:text-white transition-all cursor-pointer";
                 pill.innerText = skill;
                 container.appendChild(pill);
             });
@@ -1101,7 +1168,7 @@
                                        item.phase === 2 ? 'text-pink-400 border-pink-400/30' :
                                        item.phase === 3 ? 'text-sky-400 border-sky-400/30' : 'text-purple-400 border-purple-400/30';
 
-                    const isPub = item.status.toLowerCase().includes('published');
+                    const isPub = item.status && item.status.toLowerCase().includes('published');
 
                     card.innerHTML = `
                         <div class="relative z-10 flex flex-col h-full justify-between">
@@ -1369,7 +1436,6 @@
             ];
 
             try {
-                // Generate current HTML string with updated data
                 const currentHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
                 const utf8Bytes = new TextEncoder().encode(currentHtml);
                 let binaryStr = "";
@@ -1381,7 +1447,6 @@
                 for (const repo of repos) {
                     logBox.innerHTML += `<div>📡 Connecting to ${repo}...</div>`;
                     
-                    // 1. Get SHA of index.html
                     let sha = null;
                     try {
                         const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/index.html`, {
@@ -1393,7 +1458,6 @@
                         }
                     } catch (e) {}
 
-                    // 2. Put file
                     const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/index.html`, {
                         method: 'PUT',
                         headers: {
@@ -1465,11 +1529,12 @@
         });
 
         // =========================================================================
-        // 8. CANVAS PARTICLES & SPOTLIGHTS
+        // 8. ACETERNITY & MAGIC UI CANVAS PARTICLES & METEORS
         // =========================================================================
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
+        let meteors = [];
         let mouse = { x: null, y: null, radius: 120 };
 
         function resizeCanvas() {
@@ -1493,8 +1558,8 @@
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 0.8;
-                this.speedX = (Math.random() - 0.5) * 0.6;
-                this.speedY = (Math.random() - 0.5) * 0.6;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
                 this.color = Math.random() > 0.5 ? 'rgba(245, 200, 66, ' : 'rgba(244, 114, 182, ';
                 this.alpha = Math.random() * 0.5 + 0.2;
             }
@@ -1526,11 +1591,51 @@
             }
         }
 
+        class Meteor {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width + 200;
+                this.y = Math.random() * -100;
+                this.length = Math.random() * 80 + 40;
+                this.speed = Math.random() * 4 + 3;
+                this.angle = Math.PI / 4; // 45 degrees
+                this.alpha = Math.random() * 0.4 + 0.2;
+            }
+            update() {
+                this.x -= this.speed * Math.cos(this.angle);
+                this.y += this.speed * Math.sin(this.angle);
+                if (this.y > canvas.height + 100 || this.x < -100) {
+                    this.reset();
+                }
+            }
+            draw() {
+                const tailX = this.x + this.length * Math.cos(this.angle);
+                const tailY = this.y - this.length * Math.sin(this.angle);
+                const grad = ctx.createLinearGradient(this.x, this.y, tailX, tailY);
+                grad.addColorStop(0, `rgba(245, 200, 66, ${this.alpha})`);
+                grad.addColorStop(0.5, `rgba(244, 114, 182, ${this.alpha * 0.6})`);
+                grad.addColorStop(1, 'transparent');
+
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(tailX, tailY);
+                ctx.stroke();
+            }
+        }
+
         function initParticles() {
             particles = [];
+            meteors = [];
             const count = Math.floor((canvas.width * canvas.height) / 18000);
             for (let i = 0; i < Math.min(count, 70); i++) {
                 particles.push(new Particle());
+            }
+            for (let i = 0; i < 4; i++) {
+                meteors.push(new Meteor());
             }
         }
         initParticles();
@@ -1557,6 +1662,14 @@
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw & update meteors
+            for (let i = 0; i < meteors.length; i++) {
+                meteors[i].update();
+                meteors[i].draw();
+            }
+
+            // Draw & update particles
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
