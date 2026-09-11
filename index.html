@@ -56,12 +56,24 @@
         }
 
         body {
-            background-color: #030712;
+            background: radial-gradient(circle at 20% 20%, #0d081a 0%, #080614 35%, #04030a 70%, #020205 100%);
             color: #f1f5f9;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             selection-background-color: #f472b6;
             selection-color: #ffffff;
+            transition: background 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Atmospheric Background Themes */
+        body.theme-golden {
+            background: radial-gradient(circle at 20% 15%, #241407 0%, #150a04 35%, #0a0402 70%, #030201 100%) !important;
+        }
+        body.theme-artistic {
+            background: radial-gradient(circle at 20% 20%, #200824 0%, #130517 40%, #09020d 75%, #030105 100%) !important;
+        }
+        body.theme-emerald {
+            background: radial-gradient(circle at 20% 20%, #051a14 0%, #030f0c 40%, #020806 75%, #010302 100%) !important;
         }
 
         /* Ambient Fluid Aurora Backgrounds */
@@ -76,7 +88,7 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(120px);
-            opacity: 0.35;
+            opacity: 0.38;
             will-change: transform;
         }
         .aurora-1 {
@@ -84,7 +96,7 @@
             left: -10%;
             width: 55vw;
             height: 55vw;
-            background: radial-gradient(circle, rgba(245, 200, 66, 0.8), rgba(244, 114, 182, 0.4), transparent 70%);
+            background: radial-gradient(circle, rgba(245, 200, 66, 0.85), rgba(244, 114, 182, 0.45), transparent 70%);
             animation: orbFloat1 22s ease-in-out infinite alternate;
         }
         .aurora-2 {
@@ -92,7 +104,7 @@
             right: -10%;
             width: 50vw;
             height: 50vw;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.7), rgba(168, 85, 247, 0.4), transparent 70%);
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.75), rgba(168, 85, 247, 0.45), transparent 70%);
             animation: orbFloat2 26s ease-in-out infinite alternate;
         }
         .aurora-3 {
@@ -100,7 +112,7 @@
             left: 25%;
             width: 40vw;
             height: 40vw;
-            background: radial-gradient(circle, rgba(244, 114, 182, 0.6), rgba(52, 211, 153, 0.2), transparent 70%);
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.65), rgba(251, 146, 60, 0.35), transparent 70%);
             animation: orbFloat3 18s ease-in-out infinite alternate;
         }
 
@@ -115,6 +127,120 @@
         @keyframes orbFloat3 {
             0% { transform: translate(0, 0) scale(1); }
             100% { transform: translate(50px, -70px) scale(0.92); }
+        }
+
+        /* Floating Passion & Craft Backdrop System */
+        .craft-floating-backdrop {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .floating-craft-card {
+            position: absolute;
+            pointer-events: auto;
+            border-radius: 1.25rem;
+            padding: 0.6rem;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 200, 66, 0.12);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.38;
+            cursor: pointer;
+            will-change: transform, opacity;
+        }
+
+        .floating-craft-card:hover {
+            opacity: 0.95;
+            transform: scale(1.12) translateY(-8px) rotate(0deg) !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 200, 66, 0.4);
+            border-color: rgba(245, 200, 66, 0.8);
+            z-index: 20;
+        }
+
+        .craft-card-1 {
+            top: 10%;
+            left: 2%;
+            width: 175px;
+            animation: floatDrift1 20s ease-in-out infinite alternate;
+            transform: rotate(-6deg);
+        }
+
+        .craft-card-2 {
+            top: 20%;
+            right: 2%;
+            width: 185px;
+            animation: floatDrift2 24s ease-in-out infinite alternate;
+            transform: rotate(5deg);
+        }
+
+        .craft-card-3 {
+            top: 55%;
+            left: 1.5%;
+            width: 170px;
+            animation: floatDrift3 22s ease-in-out infinite alternate;
+            transform: rotate(4deg);
+        }
+
+        .craft-card-4 {
+            top: 68%;
+            right: 2%;
+            width: 180px;
+            animation: floatDrift4 26s ease-in-out infinite alternate;
+            transform: rotate(-5deg);
+        }
+
+        @keyframes floatDrift1 {
+            0% { transform: translate(0, 0) rotate(-6deg); }
+            50% { transform: translate(25px, 35px) rotate(-3deg); }
+            100% { transform: translate(-15px, 60px) rotate(-8deg); }
+        }
+
+        @keyframes floatDrift2 {
+            0% { transform: translate(0, 0) rotate(5deg); }
+            50% { transform: translate(-30px, 45px) rotate(2deg); }
+            100% { transform: translate(15px, 70px) rotate(7deg); }
+        }
+
+        @keyframes floatDrift3 {
+            0% { transform: translate(0, 0) rotate(4deg); }
+            50% { transform: translate(20px, -40px) rotate(7deg); }
+            100% { transform: translate(-25px, -20px) rotate(1deg); }
+        }
+
+        @keyframes floatDrift4 {
+            0% { transform: translate(0, 0) rotate(-5deg); }
+            50% { transform: translate(-25px, -35px) rotate(-2deg); }
+            100% { transform: translate(20px, -60px) rotate(-7deg); }
+        }
+
+        /* Floating Craft Ambient Badges */
+        .craft-badge-glow {
+            position: absolute;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(245, 200, 66, 0.25);
+            pointer-events: auto;
+            opacity: 0.4;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .craft-badge-glow:hover {
+            opacity: 1;
+            transform: scale(1.3) !important;
+            box-shadow: 0 0 30px rgba(245, 200, 66, 0.7);
         }
 
         /* Dot Grid Matrix Overlay */
@@ -372,7 +498,56 @@
     <!-- Aceternity Lamp Glow -->
     <div class="lamp-glow"></div>
 
-    <!-- Interactive Canvas Constellation & Meteors -->
+    <!-- Floating Ambient Craft & Passion Backdrop -->
+    <div class="craft-floating-backdrop hidden xl:block" id="craft-backdrop">
+        <!-- Card 1: Photography Golden Hour (Top Left) -->
+        <div class="floating-craft-card craft-card-1 group" onclick="open3DLightbox('photo')">
+            <div class="relative h-24 w-full rounded-lg overflow-hidden mb-1.5 shadow-md">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=400&q=80" alt="Photography" class="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500">
+                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/75 text-[9px] font-mono text-brand-gold font-bold">📸 Photo</span>
+            </div>
+            <div class="text-[11px] font-bold text-white group-hover:text-brand-gold transition-colors font-serif truncate">Golden Hour Still Life</div>
+            <div class="text-[9px] font-mono text-gray-400">Optical Framing • 50mm</div>
+        </div>
+
+        <!-- Card 2: Artisanal Baking Confectionery (Top Right) -->
+        <div class="floating-craft-card craft-card-2 group" onclick="open3DLightbox('baking')">
+            <div class="relative h-24 w-full rounded-lg overflow-hidden mb-1.5 shadow-md">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80" alt="Baking" class="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500">
+                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/75 text-[9px] font-mono text-amber-300 font-bold">🧁 Baking</span>
+            </div>
+            <div class="text-[11px] font-bold text-white group-hover:text-amber-300 transition-colors font-serif truncate">French Patisserie</div>
+            <div class="text-[9px] font-mono text-gray-400">Layered Cakes • Plating</div>
+        </div>
+
+        <!-- Card 3: NPTEL Graphic Design (Mid Left) -->
+        <div class="floating-craft-card craft-card-3 group" onclick="open3DLightbox('design')">
+            <div class="relative h-24 w-full rounded-lg overflow-hidden mb-1.5 shadow-md">
+                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=400&q=80" alt="Design" class="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500">
+                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/75 text-[9px] font-mono text-brand-pink font-bold">🎨 Design</span>
+            </div>
+            <div class="text-[11px] font-bold text-white group-hover:text-brand-pink transition-colors font-serif truncate">3D Brand Identity</div>
+            <div class="text-[9px] font-mono text-gray-400">NPTEL Distinction</div>
+        </div>
+
+        <!-- Card 4: PRICE ProtoSem AI Hardware (Mid Right) -->
+        <div class="floating-craft-card craft-card-4 group" onclick="open3DLightbox('protosem')">
+            <div class="relative h-24 w-full rounded-lg overflow-hidden mb-1.5 shadow-md">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="ProtoSem" class="w-full h-full object-cover group-hover:scale-115 transition-transform duration-500">
+                <span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-black/75 text-[9px] font-mono text-brand-sky font-bold">⚡ ProtoSem</span>
+            </div>
+            <div class="text-[11px] font-bold text-white group-hover:text-brand-sky transition-colors font-serif truncate">Phygital Retail AI</div>
+            <div class="text-[9px] font-mono text-gray-400">IoT & Smart Commerce</div>
+        </div>
+
+        <!-- Floating Ambient Passion Spheres -->
+        <div class="craft-badge-glow" style="top: 38%; left: 4%; animation: floatDrift1 16s ease-in-out infinite alternate;" onclick="open3DLightbox('photo')" title="Passionate Photography">📷</div>
+        <div class="craft-badge-glow" style="top: 48%; right: 4%; animation: floatDrift3 18s ease-in-out infinite alternate;" onclick="open3DLightbox('baking')" title="Artisanal Baking">🧁</div>
+        <div class="craft-badge-glow" style="top: 82%; left: 5%; animation: floatDrift2 20s ease-in-out infinite alternate;" onclick="open3DLightbox('design')" title="Graphic Designing">🎨</div>
+        <div class="craft-badge-glow" style="top: 86%; right: 5%; animation: floatDrift4 22s ease-in-out infinite alternate;" onclick="open3DLightbox('protosem')" title="Innovation Engineering">⚡</div>
+    </div>
+
+    <!-- Interactive Canvas Constellation, Bokeh & Meteors -->
     <canvas id="canvas-particles" class="fixed inset-0 pointer-events-none z-[1] w-full h-full"></canvas>
 
     <!-- Top Reading / Scroll Progress Bar -->
@@ -421,8 +596,13 @@
             <a href="resume.html" class="px-2.5 py-1 text-gray-300 hover:text-brand-sky transition-colors font-mono text-xs">Resume</a>
         </div>
 
-        <!-- Controls (Sound & Editor) -->
+        <!-- Controls (Theme, Sound & Editor) -->
         <div class="flex items-center gap-2">
+            <!-- Theme Switcher -->
+            <button onclick="cycleTheme()" class="px-3 py-1 rounded-full glass-panel-subtle text-xs font-mono text-brand-gold border border-white/10 hover:border-brand-gold/40 hover:bg-brand-gold/15 transition-all flex items-center gap-1.5" title="Switch Atmospheric Background Theme">
+                <span id="theme-icon">🌌</span>
+                <span class="hidden sm:inline font-bold" id="theme-label">Theme</span>
+            </button>
             <!-- Audio Synthesis Toggle -->
             <button id="sound-toggle-btn" onclick="toggleSound()" class="p-2 rounded-full glass-panel-subtle text-gray-400 hover:text-brand-gold border border-white/10 transition-all" title="Toggle UI Sound Effects">
                 <span id="sound-icon">🔊</span>
@@ -1671,15 +1851,57 @@
             }
         }
 
+        class BokehOrb {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.radius = Math.random() * 35 + 15;
+                this.speedX = (Math.random() - 0.5) * 0.2;
+                this.speedY = (Math.random() - 0.5) * 0.2;
+                this.color = Math.random() > 0.5 ? 'rgba(245, 200, 66, ' : 'rgba(244, 114, 182, ';
+                this.alpha = Math.random() * 0.08 + 0.03;
+                this.pulseSpeed = Math.random() * 0.02 + 0.01;
+                this.pulse = 0;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.pulse += this.pulseSpeed;
+
+                if (this.x > canvas.width + 50) this.x = -50;
+                else if (this.x < -50) this.x = canvas.width + 50;
+                if (this.y > canvas.height + 50) this.y = -50;
+                else if (this.y < -50) this.y = canvas.height + 50;
+            }
+            draw() {
+                const currentRadius = this.radius + Math.sin(this.pulse) * 6;
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, currentRadius);
+                grad.addColorStop(0, this.color + (this.alpha * 1.5) + ')');
+                grad.addColorStop(0.6, this.color + (this.alpha * 0.5) + ')');
+                grad.addColorStop(1, 'transparent');
+
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentRadius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        let bokehOrbs = [];
+
         function initParticleCanvas() {
             particles = [];
             meteors = [];
+            bokehOrbs = [];
             const count = Math.floor((canvas.width * canvas.height) / 20000);
-            for (let i = 0; i < Math.min(count, 70); i++) {
+            for (let i = 0; i < Math.min(count, 65); i++) {
                 particles.push(new Particle());
             }
             for (let i = 0; i < 4; i++) {
                 meteors.push(new Meteor());
+            }
+            for (let i = 0; i < 12; i++) {
+                bokehOrbs.push(new BokehOrb());
             }
         }
         initParticleCanvas();
@@ -1706,10 +1928,20 @@
 
         function animateCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw warm bokeh circles
+            for (let i = 0; i < bokehOrbs.length; i++) {
+                bokehOrbs[i].update();
+                bokehOrbs[i].draw();
+            }
+
+            // Draw meteors
             for (let i = 0; i < meteors.length; i++) {
                 meteors[i].update();
                 meteors[i].draw();
             }
+
+            // Draw particles & connections
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
@@ -2185,7 +2417,51 @@
             loop: true
         });
 
+        // =========================================================================
+        // 9. BACKGROUND THEME SWITCHER
+        // =========================================================================
+        const THEMES = [
+            { id: 'cosmic', name: 'Cosmic Obsidian', icon: '🌌', class: '' },
+            { id: 'golden', name: 'Golden Hour & Baking', icon: '🌅', class: 'theme-golden' },
+            { id: 'artistic', name: 'Artistic Violet', icon: '🔮', class: 'theme-artistic' },
+            { id: 'emerald', name: 'Emerald Innovation', icon: '🍃', class: 'theme-emerald' }
+        ];
+        let currentThemeIndex = 0;
+
+        function applyTheme(idx) {
+            currentThemeIndex = idx % THEMES.length;
+            const theme = THEMES[currentThemeIndex];
+            
+            // Remove all theme classes
+            THEMES.forEach(t => {
+                if (t.class) document.body.classList.remove(t.class);
+            });
+            if (theme.class) {
+                document.body.classList.add(theme.class);
+            }
+
+            document.getElementById('theme-icon').innerText = theme.icon;
+            document.getElementById('theme-label').innerText = theme.name.split(' ')[0];
+            localStorage.setItem('ns_theme_preference', theme.id);
+        }
+
+        function cycleTheme() {
+            playSynthSound('bubble');
+            const nextIdx = (currentThemeIndex + 1) % THEMES.length;
+            applyTheme(nextIdx);
+            showToast(`Theme: ${THEMES[nextIdx].name}`, THEMES[nextIdx].icon);
+        }
+
+        function initSavedTheme() {
+            const saved = localStorage.getItem('ns_theme_preference');
+            if (saved) {
+                const idx = THEMES.findIndex(t => t.id === saved);
+                if (idx !== -1) applyTheme(idx);
+            }
+        }
+
         // Initialize Application
+        initSavedTheme();
         applyProfileData();
         renderSkills();
         renderWeeks('all');
