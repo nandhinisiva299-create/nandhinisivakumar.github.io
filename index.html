@@ -677,9 +677,15 @@
                 </div>
 
                 <!-- Top Dynamic Role Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-gold/20 via-brand-pink/20 to-brand-sky/20 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-semibold tracking-wide mb-4 shadow-[0_0_20px_rgba(245,200,66,0.25)]">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-gold/20 via-brand-pink/20 to-brand-sky/20 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-semibold tracking-wide mb-3 shadow-[0_0_20px_rgba(245,200,66,0.25)]">
                     <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
                     <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
+                </div>
+
+                <!-- Core Life Mantra Tagline -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-gold/15 via-brand-pink/15 to-brand-sky/15 border border-brand-gold/35 text-brand-gold text-xs sm:text-sm font-serif italic mb-4 shadow-sm">
+                    <span class="text-brand-pink text-sm">🌱</span>
+                    <span id="hero-mantra" data-editable="mantra">"Growing through every experience"</span>
                 </div>
 
                 <!-- Kinetic Staggered Name -->
@@ -688,6 +694,22 @@
                         <!-- Kinetic characters rendered via JS -->
                         Nandhini Sivakumar
                     </h1>
+                </div>
+
+                <!-- Inspiring Leadership Quote Card (Indra Nooyi) -->
+                <div class="glass-panel p-4 sm:p-5 rounded-2xl border border-brand-gold/40 relative overflow-hidden my-4 max-w-xl w-full text-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] group hover:border-brand-gold/80 transition-all">
+                    <div class="absolute -top-6 -left-4 text-7xl text-brand-gold/10 font-serif select-none pointer-events-none group-hover:text-brand-gold/20 transition-colors">“</div>
+                    <div class="relative z-10 space-y-1.5">
+                        <p id="hero-quote-text" data-editable="quote_text" class="text-base sm:text-lg font-bold font-serif bg-gradient-to-r from-white via-amber-200 to-brand-gold text-transparent bg-clip-text italic leading-snug">
+                            "Whatever you do, throw yourself into it."
+                        </p>
+                        <div class="flex items-center justify-center gap-2 text-xs font-mono text-brand-pink font-semibold">
+                            <span class="w-4 h-[1px] bg-brand-pink/50"></span>
+                            <span id="hero-quote-author" data-editable="quote_author" class="tracking-wider uppercase">Indra Nooyi</span>
+                            <span class="text-gray-400 font-normal hidden sm:inline">• Global Leader</span>
+                            <span class="w-4 h-[1px] bg-brand-pink/50"></span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Dynamic Typed Subtitle -->
@@ -1346,6 +1368,25 @@
                         </select>
                     </div>
 
+                    <!-- Mantra & Inspiring Quote Option -->
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-3">
+                        <label class="block text-xs font-mono text-brand-gold font-bold">✨ Guiding Mantras & Inspiring Quotes</label>
+                        <div>
+                            <label class="block text-[11px] font-mono text-gray-400 mb-1">Personal Mantra</label>
+                            <input id="edit-input-mantra" type="text" class="w-full bg-slate-900 border border-white/20 rounded-xl px-3 py-2 text-white font-serif italic text-xs focus:border-brand-gold focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="col-span-2">
+                                <label class="block text-[11px] font-mono text-gray-400 mb-1">Quote Text</label>
+                                <input id="edit-input-quote-text" type="text" class="w-full bg-slate-900 border border-white/20 rounded-xl px-3 py-2 text-white font-serif italic text-xs focus:border-brand-gold focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-mono text-gray-400 mb-1">Quote Author</label>
+                                <input id="edit-input-quote-author" type="text" class="w-full bg-slate-900 border border-white/20 rounded-xl px-3 py-2 text-brand-pink font-mono text-xs focus:border-brand-pink focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
                     <div>
                         <label class="block text-xs font-mono text-gray-400 mb-1">Full Name</label>
                         <input id="edit-input-name" type="text" class="w-full bg-slate-900/90 border border-white/15 rounded-xl px-4 py-2.5 text-white focus:border-brand-gold focus:outline-none">
@@ -1497,6 +1538,9 @@
         const DEFAULT_DATA = {
             profile: {
                 name: "Nandhini Sivakumar",
+                mantra: "Growing through every experience",
+                quote_text: "Whatever you do, throw yourself into it.",
+                quote_author: "Indra Nooyi",
                 avatar_url: "https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=0f172a&color=f5c842&size=256&bold=true",
                 role_badge: "✨ Innovation Engineer Trainee • PRICE ProtoSem",
                 email: "nandhinisiva299@gmail.com",
@@ -1662,6 +1706,14 @@
             if (avatarEl) {
                 avatarEl.src = p.avatar_url || DEFAULT_DATA.profile.avatar_url;
             }
+
+            // Set Mantra & Quotes
+            const mantraEl = document.getElementById('hero-mantra');
+            if (mantraEl) mantraEl.innerText = `"${p.mantra || DEFAULT_DATA.profile.mantra}"`;
+            const quoteTextEl = document.getElementById('hero-quote-text');
+            if (quoteTextEl) quoteTextEl.innerText = `"${p.quote_text || DEFAULT_DATA.profile.quote_text}"`;
+            const quoteAuthorEl = document.getElementById('hero-quote-author');
+            if (quoteAuthorEl) quoteAuthorEl.innerText = p.quote_author || DEFAULT_DATA.profile.quote_author;
 
             document.getElementById('profile-role-badge').innerHTML = p.role_badge;
             document.getElementById('academic-cgpa-pill').innerHTML = p.cgpa_pill;
@@ -2129,6 +2181,10 @@
             document.getElementById('edit-input-avatar').value = data.profile.avatar_url || '';
             document.getElementById('edit-avatar-preview').src = avatarVal;
 
+            document.getElementById('edit-input-mantra').value = data.profile.mantra || DEFAULT_DATA.profile.mantra;
+            document.getElementById('edit-input-quote-text').value = data.profile.quote_text || DEFAULT_DATA.profile.quote_text;
+            document.getElementById('edit-input-quote-author').value = data.profile.quote_author || DEFAULT_DATA.profile.quote_author;
+
             document.getElementById('edit-input-name').value = data.profile.name || '';
             document.getElementById('edit-input-role-badge').value = data.profile.role_badge || '';
             document.getElementById('edit-input-email').value = data.profile.email || '';
@@ -2244,6 +2300,9 @@
             playSynthSound('success');
             const data = getPortfolioData();
             data.profile.name = document.getElementById('edit-input-name').value.trim();
+            data.profile.mantra = document.getElementById('edit-input-mantra').value.trim() || DEFAULT_DATA.profile.mantra;
+            data.profile.quote_text = document.getElementById('edit-input-quote-text').value.trim() || DEFAULT_DATA.profile.quote_text;
+            data.profile.quote_author = document.getElementById('edit-input-quote-author').value.trim() || DEFAULT_DATA.profile.quote_author;
             data.profile.avatar_url = document.getElementById('edit-input-avatar').value.trim() || data.profile.avatar_url || DEFAULT_DATA.profile.avatar_url;
             data.profile.role_badge = document.getElementById('edit-input-role-badge').value.trim();
             data.profile.email = document.getElementById('edit-input-email').value.trim();
@@ -2453,14 +2512,16 @@
         // Initialize Typed.js
         new Typed('#typed', {
             strings: [
-                'Innovation Engineer Trainee',
-                'PRICE ProtoSem Fellow',
-                'Zero Week to Week 20 Explorer',
+                'Growing through every experience 🌱',
+                '“Whatever you do, throw yourself into it.” — Indra Nooyi',
+                'Innovation Engineer Trainee • PRICE ProtoSem',
+                'PRICE ProtoSem Fellow (21 Weeks)',
                 'Visual Photographer & Graphic Designer',
+                'Artisanal Baking & Pastry Arts',
                 'B.Com PA Scholar (CGPA 8.5)'
             ],
-            typeSpeed: 45,
-            backSpeed: 25,
+            typeSpeed: 40,
+            backSpeed: 20,
             loop: true
         });
 
