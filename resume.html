@@ -128,9 +128,61 @@
                 padding-bottom: 4px !important;
             }
         }
+        /* Cinematic Photography & Artisanal Baking Visual Backdrop */
+        .photo-baking-backdrop {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .photo-bg-layer, .baking-bg-layer {
+            position: absolute;
+            inset: -4%;
+            width: 108%;
+            height: 108%;
+            background-size: cover;
+            background-position: center 25%;
+            opacity: 0.12;
+            filter: saturate(1.15) contrast(1.1) brightness(0.75);
+            will-change: transform;
+        }
+        .photo-bg-layer {
+            background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2000&q=85');
+            animation: slowPanPhoto 32s ease-in-out infinite alternate;
+        }
+        .baking-bg-layer {
+            background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=85');
+            opacity: 0.10;
+            animation: slowPanBaking 38s ease-in-out infinite alternate;
+            mix-blend-mode: screen;
+        }
+        @keyframes slowPanPhoto {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.06) translate(-20px, 20px); }
+            100% { transform: scale(1.03) translate(15px, -15px); }
+        }
+        @keyframes slowPanBaking {
+            0% { transform: scale(1.04) translate(15px, -10px); }
+            50% { transform: scale(1) translate(-15px, 25px); }
+            100% { transform: scale(1.08) translate(20px, 10px); }
+        }
+        .backdrop-dark-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(13, 8, 26, 0.75) 0%, rgba(8, 6, 20, 0.90) 55%, rgba(3, 7, 18, 0.98) 100%);
+            mix-blend-mode: multiply;
+        }
     </style>
 </head>
 <body class="relative min-h-screen p-4 sm:p-8 flex flex-col items-center">
+
+    <!-- Dedicated Photography & Artisanal Baking Backdrop -->
+    <div class="photo-baking-backdrop no-print">
+        <div class="photo-bg-layer"></div>
+        <div class="baking-bg-layer"></div>
+        <div class="backdrop-dark-overlay"></div>
+    </div>
 
     <!-- Ambient Aurora -->
     <div class="aurora-bg">
