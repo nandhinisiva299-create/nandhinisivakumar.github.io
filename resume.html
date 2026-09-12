@@ -277,6 +277,163 @@
             100% { transform: translate(-35px, 45px) scale(0.88); }
         }
 
+        /* Celestial Cosmic Space & Planets System */
+        .space-planets-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .cosmic-nebula-glow {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 55% 45% at 85% 15%, rgba(229, 169, 80, 0.14) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 15% 75%, rgba(217, 125, 100, 0.12) 0%, transparent 60%);
+            mix-blend-mode: screen;
+            animation: nebulaBreathe 20s ease-in-out infinite alternate;
+        }
+        @keyframes nebulaBreathe {
+            0% { opacity: 0.6; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1.03); }
+        }
+        .celestial-planet-ringed {
+            position: absolute;
+            top: 6%;
+            right: 3%;
+            width: 170px;
+            height: 170px;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -45px), calc(var(--bg-mouse-y, 0) * -45px), 0);
+            animation: planetFloat1 24s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 25px rgba(229, 169, 80, 0.35));
+        }
+        @media (min-width: 768px) {
+            .celestial-planet-ringed { width: 220px; height: 220px; top: 7%; right: 4%; }
+        }
+        .planet-sphere-ringed {
+            position: absolute;
+            inset: 22%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 32% 28%, #ffe8b3 0%, #e5a950 35%, #9b5a23 70%, #1c0a03 100%);
+            box-shadow: 
+                inset -16px -16px 30px rgba(10, 4, 1, 0.95),
+                inset 5px 5px 12px rgba(255, 240, 200, 0.6),
+                0 0 35px rgba(229, 169, 80, 0.4);
+            overflow: hidden;
+            z-index: 2;
+        }
+        .planet-rings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 210%;
+            height: 210%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotateX(74deg) rotateY(-14deg) rotateZ(-22deg);
+            background: radial-gradient(
+                ellipse at center,
+                transparent 45%,
+                rgba(229, 169, 80, 0.5) 47%,
+                rgba(255, 220, 140, 0.85) 53%,
+                transparent 54%,
+                rgba(217, 125, 100, 0.55) 56%,
+                rgba(205, 153, 110, 0.75) 62%,
+                rgba(140, 83, 43, 0.35) 67%,
+                transparent 69%
+            );
+            filter: drop-shadow(0 0 12px rgba(229, 169, 80, 0.4));
+            z-index: 3;
+            pointer-events: none;
+        }
+        .orbiting-moon-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 280%;
+            height: 130%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(-18deg);
+            border: 1px dashed rgba(229, 169, 80, 0.18);
+            animation: slowSpinMoon 22s linear infinite;
+        }
+        .orbiting-moon {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ffe3a0;
+            box-shadow: 0 0 10px #ffe3a0, 0 0 20px rgba(229, 169, 80, 0.8);
+            transform: translate(-50%, -50%);
+        }
+        @keyframes slowSpinMoon {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .celestial-planet-terrestrial {
+            position: absolute;
+            bottom: 14%;
+            left: 2%;
+            width: 110px;
+            height: 110px;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 35px), calc(var(--bg-mouse-y, 0) * 35px), 0);
+            animation: planetFloat2 28s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(217, 125, 100, 0.3));
+        }
+        @media (min-width: 768px) {
+            .celestial-planet-terrestrial { width: 145px; height: 145px; bottom: 18%; left: 3.5%; }
+        }
+        .planet-sphere-terrestrial {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 68% 26%, #f3e4d7 0%, #cd996e 35%, #543118 70%, #0d0703 100%);
+            box-shadow: 
+                inset 14px -14px 25px rgba(10, 4, 1, 0.95),
+                inset -4px 4px 10px rgba(243, 228, 215, 0.6),
+                0 0 25px rgba(217, 125, 100, 0.3);
+            overflow: hidden;
+        }
+        .astrolabe-orbit {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(229, 169, 80, 0.12);
+            pointer-events: none;
+        }
+        .astrolabe-orbit-1 {
+            width: 75vw; height: 75vw;
+            top: -15vw; right: -15vw;
+            border-style: dashed;
+            animation: slowRotateRays 140s linear infinite;
+        }
+        .celestial-dwarf-star {
+            position: absolute;
+            top: 42%; left: 7%;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff3d1 20%, #e5a950 60%, transparent 80%);
+            box-shadow: 0 0 16px rgba(245, 200, 66, 0.8), 0 0 32px rgba(229, 169, 80, 0.4);
+            animation: starPulse 6s ease-in-out infinite alternate;
+        }
+        @keyframes starPulse {
+            0% { transform: scale(0.85); opacity: 0.7; }
+            100% { transform: scale(1.25); opacity: 1; }
+        }
+        @keyframes planetFloat1 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-16px) rotate(1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes planetFloat2 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(14px) rotate(-1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
         /* Appearance Effects */
         .reveal-on-scroll {
             opacity: 0;
@@ -331,6 +488,23 @@
         <div class="bokeh-disc bokeh-disc-1"></div>
         <div class="bokeh-disc bokeh-disc-2"></div>
         <div class="bokeh-disc bokeh-disc-3"></div>
+    </div>
+
+    <!-- Cosmic Celestial Planetary & Space System -->
+    <div class="space-planets-container no-print">
+        <div class="cosmic-nebula-glow"></div>
+        <div class="astrolabe-orbit astrolabe-orbit-1"></div>
+        <div class="celestial-planet-ringed">
+            <div class="planet-sphere-ringed"></div>
+            <div class="planet-rings"></div>
+            <div class="orbiting-moon-orbit">
+                <div class="orbiting-moon"></div>
+            </div>
+        </div>
+        <div class="celestial-planet-terrestrial">
+            <div class="planet-sphere-terrestrial"></div>
+        </div>
+        <div class="celestial-dwarf-star"></div>
     </div>
 
     <!-- Ambient Aurora -->
