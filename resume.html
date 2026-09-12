@@ -19,12 +19,26 @@
             theme: {
                 extend: {
                     colors: {
+                        espresso: {
+                            50: '#faf5f0',
+                            100: '#f3e4d7',
+                            200: '#e2bda0',
+                            300: '#cd996e',
+                            400: '#aa7043',
+                            500: '#7d4d29',
+                            600: '#543118',
+                            700: '#3b2110',
+                            800: '#2a170b',
+                            850: '#201208',
+                            900: '#180d06',
+                            950: '#0d0703'
+                        },
                         brand: {
-                            gold: '#f5c842',
-                            pink: '#f472b6',
-                            sky: '#38bdf8',
-                            emerald: '#34d399',
-                            dark: '#030712'
+                            gold: '#e5a950',
+                            pink: '#d97d64',
+                            sky: '#cd996e',
+                            emerald: '#7da06d',
+                            dark: '#0d0703'
                         }
                     },
                     fontFamily: {
@@ -46,12 +60,12 @@
         }
 
         body {
-            background: radial-gradient(circle at 20% 15%, #241407 0%, #170b04 35%, #0d0603 70%, #050201 100%);
-            color: #f8fafc;
+            background: radial-gradient(circle at 50% 15%, #2a170a 0%, #1a0e06 35%, #100803 70%, #080402 100%);
+            color: #fdfbf7;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            selection-background-color: #f5c842;
-            selection-color: #050201;
+            selection-background-color: #e5a950;
+            selection-color: #0d0703;
         }
 
         /* Ambient Background */
@@ -71,29 +85,29 @@
         .aurora-1 {
             top: -10%; left: -10%;
             width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(245, 200, 66, 0.7), transparent 70%);
+            background: radial-gradient(circle, rgba(229, 169, 80, 0.65), transparent 70%);
         }
         .aurora-2 {
             bottom: -10%; right: -10%;
             width: 45vw; height: 45vw;
-            background: radial-gradient(circle, rgba(244, 114, 182, 0.5), transparent 70%);
+            background: radial-gradient(circle, rgba(217, 125, 100, 0.45), transparent 70%);
         }
 
         .dot-matrix {
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+            background-image: radial-gradient(rgba(229, 169, 80, 0.1) 1.2px, transparent 1.2px);
             background-size: 24px 24px;
             pointer-events: none;
             z-index: 1;
         }
 
         .glass-panel {
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(24, 13, 7, 0.72);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(229, 169, 80, 0.14);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(245, 200, 150, 0.08);
         }
 
         /* ATS Print Optimization Styles */
@@ -145,8 +159,8 @@
             height: 108%;
             background-size: cover;
             background-position: center 25%;
-            opacity: 0.12;
-            filter: saturate(1.15) contrast(1.1) brightness(0.75);
+            opacity: 0.36;
+            filter: saturate(1.18) contrast(1.1) brightness(0.85) sepia(0.25);
             will-change: transform;
         }
         .photo-bg-layer {
@@ -155,7 +169,7 @@
         }
         .baking-bg-layer {
             background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=85');
-            opacity: 0.10;
+            opacity: 0.32;
             animation: slowPanBaking 38s ease-in-out infinite alternate;
             mix-blend-mode: screen;
         }
@@ -172,7 +186,7 @@
         .backdrop-dark-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 30%, rgba(13, 8, 26, 0.75) 0%, rgba(8, 6, 20, 0.90) 55%, rgba(3, 7, 18, 0.98) 100%);
+            background: radial-gradient(circle at 50% 25%, rgba(28, 15, 8, 0.50) 0%, rgba(18, 10, 5, 0.70) 50%, rgba(10, 5, 2, 0.86) 100%);
             mix-blend-mode: multiply;
         }
     </style>
