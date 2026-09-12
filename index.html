@@ -317,6 +317,255 @@
             0% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(50px, -40px) scale(1.18); }
             100% { transform: translate(-35px, 45px) scale(0.88); }
+        /* ========================================================================= */
+        /* CELESTIAL COSMIC SPACE & PLANETS SYSTEM                                   */
+        /* ========================================================================= */
+        .space-planets-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Deep Cosmic Nebula Clouds */
+        .cosmic-nebula-glow {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 55% 45% at 85% 15%, rgba(229, 169, 80, 0.14) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 15% 75%, rgba(217, 125, 100, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(140, 83, 43, 0.08) 0%, transparent 70%);
+            mix-blend-mode: screen;
+            animation: nebulaBreathe 20s ease-in-out infinite alternate;
+        }
+        @keyframes nebulaBreathe {
+            0% { opacity: 0.6; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1.03); }
+        }
+
+        /* 1. Major Ringed Celestial Planet (Golden Gas Giant - Kepler/Saturn Class) */
+        .celestial-planet-ringed {
+            position: absolute;
+            top: 5%;
+            right: 2%;
+            width: 175px;
+            height: 175px;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -45px), calc(var(--bg-mouse-y, 0) * -45px), 0);
+            animation: planetFloat1 24s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 25px rgba(229, 169, 80, 0.35));
+        }
+        @media (min-width: 768px) {
+            .celestial-planet-ringed {
+                width: 230px;
+                height: 230px;
+                top: 7%;
+                right: 4%;
+            }
+        }
+        .planet-sphere-ringed {
+            position: absolute;
+            inset: 22%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 32% 28%, #ffe8b3 0%, #e5a950 35%, #9b5a23 70%, #1c0a03 100%);
+            box-shadow: 
+                inset -16px -16px 30px rgba(10, 4, 1, 0.95),
+                inset 5px 5px 12px rgba(255, 240, 200, 0.6),
+                0 0 35px rgba(229, 169, 80, 0.4);
+            overflow: hidden;
+            z-index: 2;
+        }
+        /* Atmosphere & storm bands */
+        .planet-sphere-ringed::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                172deg,
+                rgba(255, 255, 255, 0.08) 0px,
+                rgba(255, 255, 255, 0.08) 4px,
+                transparent 4px,
+                transparent 12px,
+                rgba(80, 35, 10, 0.15) 12px,
+                rgba(80, 35, 10, 0.15) 16px,
+                transparent 16px,
+                transparent 22px
+            );
+            border-radius: 50%;
+            mix-blend-mode: overlay;
+        }
+        /* Shadow cast by rings across planet body */
+        .planet-sphere-ringed::after {
+            content: '';
+            position: absolute;
+            top: 48%;
+            left: -10%;
+            right: -10%;
+            height: 18%;
+            background: linear-gradient(to bottom, rgba(12, 5, 2, 0.85), transparent);
+            transform: rotate(-16deg);
+        }
+        /* Planetary Rings */
+        .planet-rings {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 210%;
+            height: 210%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotateX(74deg) rotateY(-14deg) rotateZ(-22deg);
+            background: radial-gradient(
+                ellipse at center,
+                transparent 45%,
+                rgba(229, 169, 80, 0.5) 47%,
+                rgba(255, 220, 140, 0.85) 53%,
+                transparent 54%,
+                rgba(217, 125, 100, 0.55) 56%,
+                rgba(205, 153, 110, 0.75) 62%,
+                rgba(140, 83, 43, 0.35) 67%,
+                transparent 69%
+            );
+            filter: drop-shadow(0 0 12px rgba(229, 169, 80, 0.4));
+            z-index: 3;
+            pointer-events: none;
+        }
+        /* Orbiting Moonlet */
+        .orbiting-moon-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 280%;
+            height: 130%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(-18deg);
+            border: 1px dashed rgba(229, 169, 80, 0.18);
+            animation: slowSpinMoon 22s linear infinite;
+        }
+        .orbiting-moon {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ffe3a0;
+            box-shadow: 0 0 10px #ffe3a0, 0 0 20px rgba(229, 169, 80, 0.8);
+            transform: translate(-50%, -50%);
+        }
+        @keyframes slowSpinMoon {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* 2. Secondary Terrestrial Planet / Crescent Moon (Terracotta Warm Exoplanet) */
+        .celestial-planet-terrestrial {
+            position: absolute;
+            bottom: 14%;
+            left: 2%;
+            width: 110px;
+            height: 110px;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 35px), calc(var(--bg-mouse-y, 0) * 35px), 0);
+            animation: planetFloat2 28s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(217, 125, 100, 0.3));
+        }
+        @media (min-width: 768px) {
+            .celestial-planet-terrestrial {
+                width: 145px;
+                height: 145px;
+                bottom: 18%;
+                left: 3.5%;
+            }
+        }
+        .planet-sphere-terrestrial {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 68% 26%, #f3e4d7 0%, #cd996e 35%, #543118 70%, #0d0703 100%);
+            box-shadow: 
+                inset 14px -14px 25px rgba(10, 4, 1, 0.95),
+                inset -4px 4px 10px rgba(243, 228, 215, 0.6),
+                0 0 25px rgba(217, 125, 100, 0.3);
+            overflow: hidden;
+        }
+        /* Subtle Cratered Surface Texture */
+        .planet-sphere-terrestrial::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 45% 35%, rgba(0,0,0,0.2) 6px, transparent 7px),
+                radial-gradient(circle at 65% 55%, rgba(0,0,0,0.25) 10px, transparent 11px),
+                radial-gradient(circle at 30% 65%, rgba(0,0,0,0.18) 8px, transparent 9px);
+            border-radius: 50%;
+            opacity: 0.65;
+        }
+
+        /* 3. Astrolabe Celestial Orbit Circles */
+        .astrolabe-orbit {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(229, 169, 80, 0.12);
+            pointer-events: none;
+        }
+        .astrolabe-orbit-1 {
+            width: 75vw;
+            height: 75vw;
+            top: -15vw;
+            right: -15vw;
+            border-style: dashed;
+            animation: slowRotateRays 140s linear infinite;
+        }
+        .astrolabe-orbit-2 {
+            width: 60vw;
+            height: 60vw;
+            bottom: -10vw;
+            left: -10vw;
+            border-color: rgba(217, 125, 100, 0.10);
+            animation: slowRotateRays 110s linear infinite reverse;
+        }
+
+        /* 4. Distant Glowing Stars / Celestial Dwarfs */
+        .celestial-dwarf-star {
+            position: absolute;
+            top: 42%;
+            left: 7%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff3d1 20%, #e5a950 60%, transparent 80%);
+            box-shadow: 0 0 16px rgba(245, 200, 66, 0.8), 0 0 32px rgba(229, 169, 80, 0.4);
+            animation: starPulse 6s ease-in-out infinite alternate;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -15px), calc(var(--bg-mouse-y, 0) * -15px), 0);
+        }
+        .celestial-dwarf-star-2 {
+            position: absolute;
+            top: 70%;
+            right: 11%;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 20%, #d97d64 65%, transparent 80%);
+            box-shadow: 0 0 14px rgba(217, 125, 100, 0.8);
+            animation: starPulse 8s ease-in-out infinite alternate-reverse;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 20px), calc(var(--bg-mouse-y, 0) * 20px), 0);
+        }
+        @keyframes starPulse {
+            0% { transform: scale(0.85); opacity: 0.7; }
+            100% { transform: scale(1.25); opacity: 1; }
+        }
+        @keyframes planetFloat1 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-16px) rotate(1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes planetFloat2 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(14px) rotate(-1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
         }
 
         /* ========================================================================= */
@@ -673,6 +922,34 @@
         <div class="bokeh-disc bokeh-disc-3"></div>
     </div>
 
+    <!-- Cosmic Celestial Planetary & Space System -->
+    <div class="space-planets-container">
+        <!-- Deep Space Cosmic Nebula Clouds -->
+        <div class="cosmic-nebula-glow"></div>
+
+        <!-- Astrolabe Celestial Orbit Tracks -->
+        <div class="astrolabe-orbit astrolabe-orbit-1"></div>
+        <div class="astrolabe-orbit astrolabe-orbit-2"></div>
+
+        <!-- Major Planet: Golden Ringed Celestial Giant (Kepler/Saturn-Class) -->
+        <div class="celestial-planet-ringed" id="planet-major">
+            <div class="planet-sphere-ringed"></div>
+            <div class="planet-rings"></div>
+            <div class="orbiting-moon-orbit">
+                <div class="orbiting-moon"></div>
+            </div>
+        </div>
+
+        <!-- Secondary Planet: Warm Terracotta Crescent Exoplanet -->
+        <div class="celestial-planet-terrestrial" id="planet-minor">
+            <div class="planet-sphere-terrestrial"></div>
+        </div>
+
+        <!-- Distant Pulsing Celestial Stars -->
+        <div class="celestial-dwarf-star"></div>
+        <div class="celestial-dwarf-star-2"></div>
+    </div>
+
     <!-- Ambient Aurora Layers -->
     <div class="aurora-bg">
         <div class="aurora-orb aurora-1"></div>
@@ -761,87 +1038,137 @@
     <main class="w-full max-w-4xl z-10 space-y-12 pb-20">
         
         <!-- HERO SECTION (Border Beam + Aceternity Spotlight + 3D Tilt) -->
-        <header id="about" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="true" data-tilt-max-glare="0.12" class="border-beam-box p-8 sm:p-12 md:p-16 text-center relative overflow-hidden transition-all duration-300 reveal-on-scroll">
-            <div class="relative z-10 flex flex-col items-center">
+        <header id="about" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="true" data-tilt-max-glare="0.12" class="border-beam-box p-6 sm:p-10 md:p-12 relative overflow-hidden transition-all duration-300 reveal-on-scroll">
+            <div class="relative z-10">
                 
                 <!-- Hidden Avatar File Input -->
                 <input type="file" id="avatar-file-input" accept="image/*" class="hidden" onchange="handleAvatarFileUpload(event)">
 
-                <!-- Avatar with Multi-layer Glowing Ring & Change Photo Hover -->
-                <div class="relative inline-block mb-6 group cursor-pointer" onclick="triggerAvatarUpload(event)">
-                    <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-brand-gold via-brand-pink to-brand-sky opacity-75 blur-lg group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
-                    <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=0f172a&color=f5c842&size=256&bold=true" alt="Nandhini Sivakumar" class="relative rounded-full w-28 h-28 sm:w-36 sm:h-36 object-cover shadow-2xl border-4 border-slate-950">
-                    
-                    <!-- Hover "Change Photo" Overlay -->
-                    <div class="absolute inset-0 rounded-full bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-mono font-bold z-10 backdrop-blur-[2px]">
-                        <span class="text-base">📷</span>
-                        <span>Change Photo</span>
-                    </div>
+                <!-- 2-Column Responsive Split Grid: Quotes on Left, Profile on Right -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
 
-                    <!-- Active Status Indicator -->
-                    <div class="absolute bottom-1 right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-slate-950 flex items-center justify-center text-[10px] text-slate-950 font-bold shadow-lg z-20" title="Active Fellow">
-                        ✓
-                    </div>
-                </div>
-
-                <!-- Top Dynamic Role Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-gold/20 via-brand-pink/20 to-brand-sky/20 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-semibold tracking-wide mb-3 shadow-[0_0_20px_rgba(245,200,66,0.25)]">
-                    <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
-                    <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
-                </div>
-
-                <!-- Core Life Mantra Tagline -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-gold/15 via-brand-pink/15 to-brand-sky/15 border border-brand-gold/35 text-brand-gold text-xs sm:text-sm font-serif italic mb-4 shadow-sm">
-                    <span class="text-brand-pink text-sm">🌱</span>
-                    <span id="hero-mantra" data-editable="mantra">"Growing through every experience"</span>
-                </div>
-
-                <!-- Kinetic Staggered Name -->
-                <div class="relative inline-block mb-3">
-                    <h1 id="profile-name" data-editable="name" class="font-display font-black text-4xl sm:text-6xl md:text-7xl tracking-tight leading-tight">
-                        <!-- Kinetic characters rendered via JS -->
-                        Nandhini Sivakumar
-                    </h1>
-                </div>
-
-                <!-- Inspiring Leadership Quote Card (Indra Nooyi) -->
-                <div class="glass-panel p-4 sm:p-5 rounded-2xl border border-brand-gold/40 relative overflow-hidden my-4 max-w-xl w-full text-center shadow-[0_10px_30px_rgba(0,0,0,0.5)] group hover:border-brand-gold/80 transition-all">
-                    <div class="absolute -top-6 -left-4 text-7xl text-brand-gold/10 font-serif select-none pointer-events-none group-hover:text-brand-gold/20 transition-colors">“</div>
-                    <div class="relative z-10 space-y-1.5">
-                        <p id="hero-quote-text" data-editable="quote_text" class="text-base sm:text-lg font-bold font-serif bg-gradient-to-r from-white via-amber-200 to-brand-gold text-transparent bg-clip-text italic leading-snug">
-                            "Whatever you do, throw yourself into it."
-                        </p>
-                        <div class="flex items-center justify-center gap-2 text-xs font-mono text-brand-pink font-semibold">
-                            <span class="w-4 h-[1px] bg-brand-pink/50"></span>
-                            <span id="hero-quote-author" data-editable="quote_author" class="tracking-wider uppercase">Indra Nooyi</span>
-                            <span class="text-gray-400 font-normal hidden sm:inline">• Global Leader</span>
-                            <span class="w-4 h-[1px] bg-brand-pink/50"></span>
+                    <!-- ========================================================= -->
+                    <!-- LEFT SIDE: LEADERSHIP QUOTES, PHILOSOPHY & MANTRA         -->
+                    <!-- ========================================================= -->
+                    <div class="md:col-span-6 lg:col-span-6 flex flex-col items-start text-left space-y-5 reveal-slide-left stagger-1">
+                        
+                        <!-- Guiding Philosophy Section Header -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-brand-gold/20 via-brand-pink/20 to-brand-sky/20 border border-brand-gold/40 text-brand-gold text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
+                            <span>✦ GUIDING PHILOSOPHY & MINDSET</span>
                         </div>
+
+                        <!-- Core Life Mantra Tagline -->
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/5 border border-brand-gold/35 text-brand-gold text-sm sm:text-base font-serif italic shadow-sm hover:border-brand-gold/60 transition-colors">
+                            <span class="text-brand-pink text-base">🌱</span>
+                            <span id="hero-mantra" data-editable="mantra">"Growing through every experience"</span>
+                        </div>
+
+                        <!-- Inspiring Leadership Quote Card (Indra Nooyi) -->
+                        <div class="glass-panel p-5 sm:p-6 rounded-2xl border-2 border-brand-gold/50 relative overflow-hidden w-full text-left shadow-[0_15px_35px_rgba(0,0,0,0.6)] group hover:border-brand-gold/90 transition-all">
+                            <!-- Large decorative ambient quotation mark -->
+                            <div class="absolute -top-6 -left-3 text-7xl text-brand-gold/15 font-serif select-none pointer-events-none group-hover:text-brand-gold/25 transition-colors">“</div>
+                            
+                            <div class="relative z-10 space-y-3">
+                                <div class="text-[10px] font-mono uppercase text-brand-gold/80 tracking-widest font-semibold flex items-center gap-1.5">
+                                    <span>LEADERSHIP ANCHOR</span>
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                                </div>
+                                
+                                <p id="hero-quote-text" data-editable="quote_text" class="text-lg sm:text-xl md:text-2xl font-bold font-serif bg-gradient-to-r from-white via-amber-100 to-brand-gold text-transparent bg-clip-text italic leading-snug">
+                                    "Whatever you do, throw yourself into it."
+                                </p>
+                                
+                                <div class="flex items-center gap-2 text-xs font-mono text-brand-pink font-semibold pt-2 border-t border-white/10">
+                                    <span class="w-4 h-[1px] bg-brand-pink/50"></span>
+                                    <span id="hero-quote-author" data-editable="quote_author" class="tracking-wider uppercase">Indra Nooyi</span>
+                                    <span class="text-gray-400 font-normal hidden sm:inline">• Global Leader & Mentor</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Typed Subtitle Stream -->
+                        <div class="w-full glass-panel-subtle p-3.5 rounded-xl border border-white/10 flex items-center gap-2.5 text-xs sm:text-sm text-gray-300 font-serif italic">
+                            <span class="text-brand-gold text-base font-normal">✦</span>
+                            <span id="typed"></span>
+                        </div>
+
+                        <!-- Reflective Subtext Note -->
+                        <p class="text-xs sm:text-sm text-gray-400 font-light leading-relaxed">
+                            Fusing classical commerce accounting discipline with creative visual storytelling and rapid phygital prototypes.
+                        </p>
                     </div>
+
+                    <!-- ========================================================= -->
+                    <!-- RIGHT SIDE: PROFILE AVATAR, NAME, BADGE & ACTION BUTTONS   -->
+                    <!-- ========================================================= -->
+                    <div class="md:col-span-6 lg:col-span-6 flex flex-col items-center md:items-end text-center md:text-right space-y-5 reveal-slide-right stagger-2">
+                        
+                        <!-- Avatar with Multi-layer Glowing Ring, Planetary Halo & Hover Upload -->
+                        <div class="relative inline-block group cursor-pointer" onclick="triggerAvatarUpload(event)">
+                            <!-- Outer cosmic glow flare -->
+                            <div class="absolute -inset-3 rounded-full bg-gradient-to-r from-brand-gold via-brand-pink to-brand-sky opacity-75 blur-xl group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
+                            
+                            <!-- Avatar Planetary Orbital Ring -->
+                            <div class="absolute -inset-4 rounded-full border border-brand-gold/30 pointer-events-none group-hover:scale-105 transition-transform" style="transform: rotate(25deg);">
+                                <span class="absolute -top-1 left-1/2 w-2.5 h-2.5 rounded-full bg-brand-gold shadow-[0_0_8px_#ffd89b]"></span>
+                            </div>
+
+                            <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=0f172a&color=f5c842&size=256&bold=true" alt="Nandhini Sivakumar" class="relative rounded-full w-28 h-28 sm:w-36 sm:h-36 object-cover shadow-2xl border-4 border-slate-950">
+                            
+                            <!-- Hover "Change Photo" Overlay -->
+                            <div class="absolute inset-0 rounded-full bg-black/65 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-mono font-bold z-10 backdrop-blur-[2px]">
+                                <span class="text-base">📷</span>
+                                <span>Change Photo</span>
+                            </div>
+
+                            <!-- Active Status Indicator -->
+                            <div class="absolute bottom-1 right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-slate-950 flex items-center justify-center text-[10px] text-slate-950 font-bold shadow-lg z-20" title="Active Fellow">
+                                ✓
+                            </div>
+                        </div>
+
+                        <!-- Top Dynamic Role Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-brand-gold/20 via-brand-pink/20 to-brand-sky/20 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-semibold tracking-wide shadow-[0_0_20px_rgba(245,200,66,0.25)]">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold animate-ping"></span>
+                            <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
+                        </div>
+
+                        <!-- Kinetic Staggered Name -->
+                        <div class="relative inline-block">
+                            <h1 id="profile-name" data-editable="name" class="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
+                                <!-- Kinetic characters rendered via JS -->
+                                Nandhini Sivakumar
+                            </h1>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-gray-300 font-mono">
+                            B.Com (PA) Scholar • Visual Photographer • PRICE ProtoSem Fellow
+                        </p>
+
+                        <!-- Core Call to Action Buttons -->
+                        <div class="flex flex-wrap justify-center md:justify-end items-center gap-2.5 sm:gap-3 w-full pt-2">
+                            <a href="#protosem" class="btn-shimmer px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-pink via-rose-500 to-brand-gold text-white font-bold text-xs sm:text-sm shadow-[0_0_25px_rgba(244,114,182,0.5)] hover:scale-105 hover:shadow-[0_0_35px_rgba(244,114,182,0.8)] transition-all flex items-center gap-1.5">
+                                <span>⚡ Explore ProtoSem</span>
+                            </a>
+                            <a href="zero-week.html" class="btn-shimmer px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-gold to-amber-500 text-slate-950 font-extrabold text-xs sm:text-sm shadow-[0_0_25px_rgba(245,200,66,0.5)] hover:scale-105 hover:shadow-[0_0_35px_rgba(245,200,66,0.8)] transition-all flex items-center gap-1.5">
+                                <span>📖 Zero Week</span>
+                            </a>
+                            <a href="resume.html" class="px-4 py-2.5 rounded-full glass-panel border border-white/20 text-gray-200 font-semibold text-xs sm:text-sm hover:bg-white/10 hover:border-brand-sky/60 hover:text-white transition-all flex items-center gap-1">
+                                <span>📄 Resume</span>
+                            </a>
+                            <a id="profile-email-btn" href="mailto:nandhinisiva299@gmail.com" class="px-4 py-2.5 rounded-full glass-panel border border-brand-pink/40 text-brand-pink font-semibold text-xs sm:text-sm hover:bg-brand-pink/15 transition-all flex items-center gap-1">
+                                <span>💬 Connect</span>
+                            </a>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <!-- Dynamic Typed Subtitle -->
-                <p class="text-base sm:text-xl md:text-2xl text-gray-300 font-light mb-8 h-8 flex items-center justify-center font-serif italic">
-                    <span id="typed"></span>
-                </p>
-
-                <!-- Core Call to Action Buttons -->
-                <div class="flex flex-wrap justify-center items-center gap-3.5 sm:gap-4 w-full">
-                    <a href="#protosem" class="btn-shimmer px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-pink via-rose-500 to-brand-gold text-white font-bold text-sm shadow-[0_0_25px_rgba(244,114,182,0.5)] hover:scale-105 hover:shadow-[0_0_35px_rgba(244,114,182,0.8)] transition-all flex items-center gap-2">
-                        <span>⚡ Explore ProtoSem (21 Wks)</span>
-                    </a>
-                    <a href="zero-week.html" class="btn-shimmer px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-gold to-amber-500 text-slate-950 font-extrabold text-sm shadow-[0_0_25px_rgba(245,200,66,0.5)] hover:scale-105 hover:shadow-[0_0_35px_rgba(245,200,66,0.8)] transition-all flex items-center gap-2">
-                        <span>📖 Read Zero Week Story</span>
-                    </a>
-                    <a href="resume.html" class="px-6 py-3.5 rounded-full glass-panel border border-white/20 text-gray-200 font-semibold text-sm hover:bg-white/10 hover:border-brand-sky/60 hover:text-white transition-all flex items-center gap-1.5">
-                        <span>📄 ATS Resume</span>
-                    </a>
-                    <a id="profile-email-btn" href="mailto:nandhinisiva299@gmail.com" class="px-6 py-3.5 rounded-full glass-panel border border-brand-pink/40 text-brand-pink font-semibold text-sm hover:bg-brand-pink/15 transition-all flex items-center gap-1.5">
-                        <span>💬 Let's Connect</span>
-                    </a>
-                </div>
-
-                <!-- Quick Highlight Metric Cards -->
+                <!-- ========================================================= -->
+                <!-- BOTTOM OF HERO: QUICK HIGHLIGHT METRIC CARDS              -->
+                <!-- ========================================================= -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mt-10 pt-8 border-t border-white/10 text-left font-mono">
                     <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-gold/30 reveal-scale stagger-1">
                         <div class="text-xs text-gray-400">ACADEMICS</div>
@@ -1950,12 +2277,35 @@
             }
         }
 
+        class TwinklingStar {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.6 + 0.4;
+                this.baseAlpha = Math.random() * 0.65 + 0.25;
+                this.twinkleSpeed = Math.random() * 0.04 + 0.012;
+                this.phase = Math.random() * Math.PI * 2;
+            }
+            update() {
+                this.phase += this.twinkleSpeed;
+            }
+            draw() {
+                const alpha = this.baseAlpha * (0.45 + 0.55 * Math.sin(this.phase));
+                ctx.fillStyle = `rgba(255, 245, 220, ${alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
         let bokehOrbs = [];
+        let celestialStars = [];
 
         function initParticleCanvas() {
             particles = [];
             meteors = [];
             bokehOrbs = [];
+            celestialStars = [];
             const count = Math.floor((canvas.width * canvas.height) / 18000);
             for (let i = 0; i < Math.min(count, 70); i++) {
                 particles.push(new Particle());
@@ -1965,6 +2315,9 @@
             }
             for (let i = 0; i < 14; i++) {
                 bokehOrbs.push(new BokehOrb());
+            }
+            for (let i = 0; i < 50; i++) {
+                celestialStars.push(new TwinklingStar());
             }
         }
         initParticleCanvas();
@@ -1997,6 +2350,12 @@
             currentBgMouseY += (targetBgMouseY - currentBgMouseY) * 0.05;
             document.documentElement.style.setProperty('--bg-mouse-x', currentBgMouseX.toFixed(4));
             document.documentElement.style.setProperty('--bg-mouse-y', currentBgMouseY.toFixed(4));
+
+            // Draw twinkling celestial stars
+            for (let i = 0; i < celestialStars.length; i++) {
+                celestialStars[i].update();
+                celestialStars[i].draw();
+            }
 
             // Draw warm bokeh circles
             for (let i = 0; i < bokehOrbs.length; i++) {
