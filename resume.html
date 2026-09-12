@@ -119,8 +119,13 @@
                 padding: 0 !important;
                 margin: 0 !important;
             }
-            .aurora-bg, .dot-matrix, nav, .no-print, header .btn-group {
+            .aurora-bg, .dot-matrix, nav, .no-print, header .btn-group, .warm-light-bloom, .warm-sunbeam-rays, .ambient-bokeh-cluster {
                 display: none !important;
+            }
+            .reveal-on-scroll, .reveal-scale {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
             }
             .glass-panel {
                 background: #ffffff !important;
@@ -189,6 +194,123 @@
             background: radial-gradient(circle at 50% 25%, rgba(28, 15, 8, 0.50) 0%, rgba(18, 10, 5, 0.70) 50%, rgba(10, 5, 2, 0.86) 100%);
             mix-blend-mode: multiply;
         }
+
+        /* Multi-Plane Mouse Parallax */
+        .photo-bg-layer, .baking-bg-layer {
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -30px), calc(var(--bg-mouse-y, 0) * -30px), 0);
+        }
+
+        /* Warm Light Bloom & Ambient Sunbeam Flare */
+        .warm-light-bloom {
+            position: fixed;
+            top: -15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 125vw;
+            height: 80vh;
+            background: radial-gradient(ellipse at 50% 25%, rgba(229, 169, 80, 0.28) 0%, rgba(217, 125, 100, 0.14) 40%, rgba(140, 83, 43, 0.05) 70%, transparent 85%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            animation: sunbeamPulse 14s ease-in-out infinite alternate;
+        }
+        .warm-sunbeam-rays {
+            position: fixed;
+            inset: -30%;
+            width: 160%;
+            height: 160%;
+            background: conic-gradient(from 45deg at 50% 35%, transparent 0deg, rgba(229, 169, 80, 0.07) 25deg, transparent 55deg, rgba(217, 125, 100, 0.05) 115deg, transparent 145deg, rgba(229, 169, 80, 0.06) 215deg, transparent 245deg, rgba(205, 153, 110, 0.05) 305deg, transparent 360deg);
+            filter: blur(55px);
+            pointer-events: none;
+            z-index: 0;
+            animation: slowRotateRays 65s linear infinite;
+            mix-blend-mode: screen;
+        }
+        @keyframes sunbeamPulse {
+            0% { opacity: 0.55; transform: translateX(-50%) scale(0.95) rotate(-2deg); }
+            50% { opacity: 0.90; transform: translateX(-50%) scale(1.05) rotate(1deg); }
+            100% { opacity: 0.65; transform: translateX(-50%) scale(0.98) rotate(2deg); }
+        }
+        @keyframes slowRotateRays {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Ambient Floating Bokeh Glow Clusters */
+        .ambient-bokeh-cluster {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bokeh-disc {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(45px);
+            opacity: 0.24;
+            animation: bokehDrift 18s ease-in-out infinite alternate;
+        }
+        .bokeh-disc-1 {
+            width: 320px; height: 320px;
+            top: 20%; left: 8%;
+            background: radial-gradient(circle, rgba(229, 169, 80, 0.75), transparent 70%);
+            animation-duration: 22s;
+        }
+        .bokeh-disc-2 {
+            width: 360px; height: 360px;
+            top: 55%; right: 10%;
+            background: radial-gradient(circle, rgba(217, 125, 100, 0.65), transparent 70%);
+            animation-duration: 26s;
+            animation-delay: -6s;
+        }
+        .bokeh-disc-3 {
+            width: 250px; height: 250px;
+            bottom: 12%; left: 28%;
+            background: radial-gradient(circle, rgba(205, 153, 110, 0.6), transparent 70%);
+            animation-duration: 18s;
+            animation-delay: -10s;
+        }
+        @keyframes bokehDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, -40px) scale(1.18); }
+            100% { transform: translate(-35px, 45px) scale(0.88); }
+        }
+
+        /* Appearance Effects */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            filter: blur(8px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform, filter;
+        }
+        .reveal-on-scroll.is-revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.94) translateY(24px);
+            filter: blur(6px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform, filter;
+        }
+        .reveal-scale.is-revealed {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0px);
+        }
+        .stagger-1 { transition-delay: 0.08s; }
+        .stagger-2 { transition-delay: 0.16s; }
+        .stagger-3 { transition-delay: 0.24s; }
+        .stagger-4 { transition-delay: 0.32s; }
+        .stagger-5 { transition-delay: 0.40s; }
     </style>
 </head>
 <body class="relative min-h-screen p-4 sm:p-8 flex flex-col items-center">
@@ -198,6 +320,17 @@
         <div class="photo-bg-layer"></div>
         <div class="baking-bg-layer"></div>
         <div class="backdrop-dark-overlay"></div>
+    </div>
+
+    <!-- Warm Light Bloom & Ambient Optical Sunbeam Flare -->
+    <div class="warm-light-bloom no-print"></div>
+    <div class="warm-sunbeam-rays no-print"></div>
+
+    <!-- Floating Ambient Bokeh Discs -->
+    <div class="ambient-bokeh-cluster no-print">
+        <div class="bokeh-disc bokeh-disc-1"></div>
+        <div class="bokeh-disc bokeh-disc-2"></div>
+        <div class="bokeh-disc bokeh-disc-3"></div>
     </div>
 
     <!-- Ambient Aurora -->
@@ -225,7 +358,7 @@
     </nav>
 
     <!-- Main Resume Container -->
-    <main class="glass-panel max-w-4xl w-full rounded-3xl p-6 sm:p-12 z-10 space-y-8 border border-white/10 relative">
+    <main class="glass-panel max-w-4xl w-full rounded-3xl p-6 sm:p-12 z-10 space-y-8 border border-white/10 relative reveal-scale">
 
         <!-- Resume Header -->
         <header class="border-b border-white/10 pb-6 print-border-b">
@@ -249,7 +382,7 @@
         </header>
 
         <!-- Executive Summary -->
-        <section>
+        <section class="reveal-on-scroll stagger-1">
             <h2 class="text-sm font-mono uppercase font-bold text-brand-gold tracking-wider mb-2 flex items-center gap-2 print-section-header">
                 <span>01.</span> PROFESSIONAL SUMMARY
             </h2>
@@ -259,7 +392,7 @@
         </section>
 
         <!-- Education -->
-        <section>
+        <section class="reveal-on-scroll stagger-2">
             <h2 class="text-sm font-mono uppercase font-bold text-brand-gold tracking-wider mb-4 flex items-center gap-2 print-section-header">
                 <span>02.</span> EDUCATION & ACADEMIC HONOURS
             </h2>
@@ -280,7 +413,7 @@
         </section>
 
         <!-- Research & Programmes -->
-        <section>
+        <section class="reveal-on-scroll stagger-3">
             <h2 class="text-sm font-mono uppercase font-bold text-brand-gold tracking-wider mb-4 flex items-center gap-2 print-section-header">
                 <span>03.</span> INNOVATION PROGRAMME & RESEARCH
             </h2>
@@ -316,7 +449,7 @@
         </section>
 
         <!-- Technical & Core Skills -->
-        <section>
+        <section class="reveal-on-scroll stagger-4">
             <h2 class="text-sm font-mono uppercase font-bold text-brand-gold tracking-wider mb-4 flex items-center gap-2 print-section-header">
                 <span>04.</span> SKILLS & COMPETENCIES
             </h2>
@@ -337,7 +470,7 @@
         </section>
 
         <!-- Certifications & Awards -->
-        <section>
+        <section class="reveal-on-scroll stagger-5">
             <h2 class="text-sm font-mono uppercase font-bold text-brand-gold tracking-wider mb-3 flex items-center gap-2 print-section-header">
                 <span>05.</span> CERTIFICATIONS & ACHIEVEMENTS
             </h2>
@@ -352,5 +485,35 @@
 
     </main>
 
+    <script>
+        // Mouse Parallax for Background
+        let targetBgMouseX = 0, targetBgMouseY = 0;
+        let currentBgMouseX = 0, currentBgMouseY = 0;
+        window.addEventListener('mousemove', (e) => {
+            targetBgMouseX = (e.clientX / window.innerWidth) - 0.5;
+            targetBgMouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+        function animateParallax() {
+            currentBgMouseX += (targetBgMouseX - currentBgMouseX) * 0.05;
+            currentBgMouseY += (targetBgMouseY - currentBgMouseY) * 0.05;
+            document.documentElement.style.setProperty('--bg-mouse-x', currentBgMouseX.toFixed(4));
+            document.documentElement.style.setProperty('--bg-mouse-y', currentBgMouseY.toFixed(4));
+            requestAnimationFrame(animateParallax);
+        }
+        animateParallax();
+
+        // Scroll Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-revealed');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+        document.querySelectorAll('.reveal-on-scroll, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
 </body>
 </html>
