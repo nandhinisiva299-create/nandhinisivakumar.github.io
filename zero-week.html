@@ -155,7 +155,7 @@
             border-radius: 9999px;
         }
 
-        /* Cinematic Photography & Artisanal Baking Visual Backdrop */
+        /* Cinematic Handheld Photography Visual Backdrop (Solo Layer) */
         .photo-baking-backdrop {
             position: fixed;
             inset: 0;
@@ -163,47 +163,32 @@
             z-index: 0;
             overflow: hidden;
         }
-        .photo-bg-layer, .baking-bg-layer {
+        .photo-bg-layer {
             position: absolute;
             inset: -4%;
             width: 108%;
             height: 108%;
             background-size: cover;
             background-position: center 25%;
-            opacity: 0.36;
-            filter: saturate(1.18) contrast(1.1) brightness(0.85) sepia(0.25);
-            will-change: transform;
-        }
-        .photo-bg-layer {
             background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2000&q=85');
+            opacity: 0.44;
+            filter: saturate(1.24) contrast(1.12) brightness(0.90) sepia(0.20);
             animation: slowPanPhoto 32s ease-in-out infinite alternate;
-        }
-        .baking-bg-layer {
-            background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=85');
-            opacity: 0.32;
-            animation: slowPanBaking 38s ease-in-out infinite alternate;
-            mix-blend-mode: screen;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -30px), calc(var(--bg-mouse-y, 0) * -30px), 0);
+            transition: opacity 0.8s ease, filter 0.8s ease, transform 0.15s ease-out;
+            will-change: transform, opacity;
+            pointer-events: none;
         }
         @keyframes slowPanPhoto {
             0% { transform: scale(1) translate(0, 0); }
             50% { transform: scale(1.06) translate(-20px, 20px); }
             100% { transform: scale(1.03) translate(15px, -15px); }
         }
-        @keyframes slowPanBaking {
-            0% { transform: scale(1.04) translate(15px, -10px); }
-            50% { transform: scale(1) translate(-15px, 25px); }
-            100% { transform: scale(1.08) translate(20px, 10px); }
-        }
         .backdrop-dark-overlay {
             position: absolute;
             inset: 0;
             background: radial-gradient(circle at 50% 25%, rgba(28, 15, 8, 0.50) 0%, rgba(18, 10, 5, 0.70) 50%, rgba(10, 5, 2, 0.86) 100%);
             mix-blend-mode: multiply;
-        }
-
-        /* Multi-Plane Mouse Parallax */
-        .photo-bg-layer, .baking-bg-layer {
-            transform: translate3d(calc(var(--bg-mouse-x, 0) * -30px), calc(var(--bg-mouse-y, 0) * -30px), 0);
         }
 
         /* Warm Light Bloom & Ambient Sunbeam Flare */
@@ -439,6 +424,136 @@
             50% { transform: translateY(14px) rotate(-1.5deg); }
             100% { transform: translateY(0) rotate(0deg); }
         }
+        /* Small Celestial Background Planets */
+        .celestial-small-planet-1 {
+            position: absolute;
+            top: 18%;
+            left: 7%;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #f7f1e5 0%, #c4b5a2 42%, #544436 80%, #1e150f 100%);
+            box-shadow: 0 0 20px rgba(247, 241, 229, 0.45), inset -4px -4px 10px rgba(0, 0, 0, 0.85);
+            animation: smallPlanetFloat1 18s ease-in-out infinite alternate;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .celestial-small-planet-2 {
+            position: absolute;
+            top: 50%;
+            right: 6%;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ff8566 0%, #d45136 38%, #852614 75%, #2d0b05 100%);
+            box-shadow: 0 0 22px rgba(212, 81, 54, 0.55), inset -5px -5px 12px rgba(0, 0, 0, 0.88);
+            animation: smallPlanetFloat2 24s ease-in-out infinite alternate;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .celestial-small-planet-3 {
+            position: absolute;
+            top: 72%;
+            left: 12%;
+            width: 38px;
+            height: 38px;
+            animation: smallPlanetFloat3 21s ease-in-out infinite alternate;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0);
+            pointer-events: none;
+            z-index: 2;
+        }
+        .celestial-small-planet-3 .small-sphere {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #ffeed1 0%, #e5a950 45%, #8a5716 80%, #291802 100%);
+            box-shadow: 0 0 18px rgba(229, 169, 80, 0.55), inset -3px -3px 8px rgba(0, 0, 0, 0.8);
+        }
+        .celestial-small-planet-3 .small-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 66px;
+            height: 18px;
+            margin-left: -33px;
+            margin-top: -9px;
+            border-radius: 50%;
+            border: 2px solid rgba(245, 200, 66, 0.70);
+            box-shadow: 0 0 10px rgba(245, 200, 66, 0.4);
+            transform: rotate(-30deg);
+            pointer-events: none;
+        }
+        .celestial-small-planet-4 {
+            position: absolute;
+            top: 14%;
+            right: 22%;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #cbf5f8 0%, #38bdf8 42%, #0369a1 78%, #082f49 100%);
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.6), inset -3px -3px 8px rgba(0, 0, 0, 0.85);
+            animation: smallPlanetFloat4 16s ease-in-out infinite alternate;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes smallPlanetFloat1 {
+            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(0) rotate(0deg); }
+            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(-14px) rotate(2deg); }
+            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(0) rotate(0deg); }
+        }
+        @keyframes smallPlanetFloat2 {
+            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(0) rotate(0deg); }
+            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(16px) rotate(-2deg); }
+            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(0) rotate(0deg); }
+        }
+        @keyframes smallPlanetFloat3 {
+            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0) translateY(0); }
+            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0) translateY(-12px); }
+            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0) translateY(0); }
+        }
+        @keyframes smallPlanetFloat4 {
+            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0) translateY(0); }
+            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0) translateY(11px); }
+            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0) translateY(0); }
+        }
+
+        /* Celestial Quote Shimmer Font Effects */
+        .quote-shimmer-text {
+            background: linear-gradient(
+                110deg,
+                #ffffff 0%,
+                #fff3d1 18%,
+                #f5c842 38%,
+                #ffd89b 52%,
+                #f472b6 72%,
+                #fef3c7 88%,
+                #ffffff 100%
+            );
+            background-size: 240% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: quoteFontShimmer 8s ease-in-out infinite alternate;
+            filter: drop-shadow(0 2px 14px rgba(245, 200, 66, 0.40)) drop-shadow(0 0 28px rgba(244, 114, 182, 0.20));
+            letter-spacing: -0.01em;
+            transition: filter 0.4s ease;
+            display: inline-block;
+        }
+        .quote-shimmer-text:hover {
+            filter: drop-shadow(0 2px 20px rgba(245, 200, 66, 0.70)) drop-shadow(0 0 36px rgba(244, 114, 182, 0.40));
+        }
+        @keyframes quoteFontShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
         /* Appearance Effects */
         .reveal-on-scroll {
@@ -478,10 +593,9 @@
 </head>
 <body class="relative min-h-screen">
 
-    <!-- Dedicated Photography & Artisanal Baking Backdrop -->
+    <!-- Dedicated Photography Solo Backdrop -->
     <div class="photo-baking-backdrop">
         <div class="photo-bg-layer"></div>
-        <div class="baking-bg-layer"></div>
         <div class="backdrop-dark-overlay"></div>
     </div>
 
@@ -510,6 +624,16 @@
         <div class="celestial-planet-terrestrial">
             <div class="planet-sphere-terrestrial"></div>
         </div>
+
+        <!-- Small Background Celestial Planets & Exoplanet Moons -->
+        <div class="celestial-small-planet-1" title="Lunar Crescent Moonlet"></div>
+        <div class="celestial-small-planet-2" title="Rust Terrestrial Dwarf"></div>
+        <div class="celestial-small-planet-3" title="Golden Ringed Exoplanet">
+            <div class="small-sphere"></div>
+            <div class="small-ring"></div>
+        </div>
+        <div class="celestial-small-planet-4" title="Azure Crystal Exoplanet"></div>
+
         <div class="celestial-dwarf-star"></div>
     </div>
 
@@ -699,7 +823,7 @@
                 Looking back, <strong class="text-white">Zero Week was never about having everything figured out.</strong> It was about stepping into uncertainty, meeting collaborators, and building the mindset to turn questions into prototypes.
             </p>
             <div class="glass-panel-subtle p-4 rounded-xl border border-brand-gold/30 max-w-md mx-auto">
-                <p class="text-brand-gold font-serif italic text-base sm:text-lg">
+                <p class="quote-shimmer-text font-serif italic text-base sm:text-lg">
                     "The first week wasn't about having all the answers. It was about learning how to ask better questions."
                 </p>
             </div>
