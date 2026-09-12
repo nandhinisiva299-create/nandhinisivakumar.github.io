@@ -184,24 +184,27 @@
         }
         .photo-bg-layer, .baking-bg-layer {
             position: absolute;
-            inset: -4%;
-            width: 108%;
-            height: 108%;
+            inset: -8%;
+            width: 116%;
+            height: 116%;
             background-size: cover;
             background-position: center 25%;
             opacity: 0.36;
-            filter: saturate(1.18) contrast(1.1) brightness(0.85) sepia(0.25);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            filter: saturate(1.2) contrast(1.12) brightness(0.88) sepia(0.22);
+            transition: opacity 0.8s ease, filter 0.8s ease, transform 0.15s ease-out;
             will-change: transform, opacity;
+            pointer-events: none;
         }
         .photo-bg-layer {
             background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2000&q=85');
-            animation: slowPanPhoto 32s ease-in-out infinite alternate;
+            animation: slowPanPhoto 30s ease-in-out infinite alternate;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -32px), calc(var(--bg-mouse-y, 0) * -32px), 0);
         }
         .baking-bg-layer {
             background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=85');
             opacity: 0.32;
-            animation: slowPanBaking 38s ease-in-out infinite alternate;
+            animation: slowPanBaking 36s ease-in-out infinite alternate;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 26px), calc(var(--bg-mouse-y, 0) * 26px), 0);
             mix-blend-mode: screen;
         }
 
@@ -235,8 +238,176 @@
         .backdrop-dark-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 25%, rgba(28, 15, 8, 0.50) 0%, rgba(18, 10, 5, 0.70) 50%, rgba(10, 5, 2, 0.86) 100%);
+            background: radial-gradient(circle at 50% 25%, rgba(28, 15, 8, 0.48) 0%, rgba(18, 10, 5, 0.68) 50%, rgba(10, 5, 2, 0.85) 100%);
             mix-blend-mode: multiply;
+        }
+
+        /* Warm Light Bloom & Ambient Sunbeam Rays */
+        .warm-light-bloom {
+            position: fixed;
+            top: -20vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 125vw;
+            height: 80vh;
+            background: radial-gradient(ellipse at 50% 25%, rgba(229, 169, 80, 0.28) 0%, rgba(217, 125, 100, 0.14) 40%, rgba(140, 83, 43, 0.05) 70%, transparent 85%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            animation: sunbeamPulse 14s ease-in-out infinite alternate;
+        }
+        .warm-sunbeam-rays {
+            position: fixed;
+            inset: -30%;
+            width: 160%;
+            height: 160%;
+            background: conic-gradient(from 45deg at 50% 35%, transparent 0deg, rgba(229, 169, 80, 0.07) 25deg, transparent 55deg, rgba(217, 125, 100, 0.05) 115deg, transparent 145deg, rgba(229, 169, 80, 0.06) 215deg, transparent 245deg, rgba(205, 153, 110, 0.05) 305deg, transparent 360deg);
+            filter: blur(55px);
+            pointer-events: none;
+            z-index: 0;
+            animation: slowRotateRays 65s linear infinite;
+            mix-blend-mode: screen;
+        }
+        @keyframes sunbeamPulse {
+            0% { opacity: 0.55; transform: translateX(-50%) scale(0.95) rotate(-2deg); }
+            50% { opacity: 0.90; transform: translateX(-50%) scale(1.05) rotate(1deg); }
+            100% { opacity: 0.65; transform: translateX(-50%) scale(0.98) rotate(2deg); }
+        }
+        @keyframes slowRotateRays {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Ambient Floating Bokeh Glow Clusters */
+        .ambient-bokeh-cluster {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bokeh-disc {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(45px);
+            opacity: 0.24;
+            animation: bokehDrift 18s ease-in-out infinite alternate;
+        }
+        .bokeh-disc-1 {
+            width: 320px; height: 320px;
+            top: 20%; left: 8%;
+            background: radial-gradient(circle, rgba(229, 169, 80, 0.75), transparent 70%);
+            animation-duration: 22s;
+        }
+        .bokeh-disc-2 {
+            width: 360px; height: 360px;
+            top: 55%; right: 10%;
+            background: radial-gradient(circle, rgba(217, 125, 100, 0.65), transparent 70%);
+            animation-duration: 26s;
+            animation-delay: -6s;
+        }
+        .bokeh-disc-3 {
+            width: 250px; height: 250px;
+            bottom: 12%; left: 28%;
+            background: radial-gradient(circle, rgba(205, 153, 110, 0.6), transparent 70%);
+            animation-duration: 18s;
+            animation-delay: -10s;
+        }
+        @keyframes bokehDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, -40px) scale(1.18); }
+            100% { transform: translate(-35px, 45px) scale(0.88); }
+        }
+
+        /* ========================================================================= */
+        /* EFFECTS OF APPEARANCE (SCROLL REVEAL & STAGGERED ENTRANCES)               */
+        /* ========================================================================= */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(32px) scale(0.98);
+            filter: blur(8px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform, filter;
+        }
+        .reveal-on-scroll.is-revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92) translateY(24px);
+            filter: blur(6px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform, filter;
+        }
+        .reveal-scale.is-revealed {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0px);
+        }
+
+        .reveal-slide-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            filter: blur(6px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform, filter;
+        }
+        .reveal-slide-left.is-revealed {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0px);
+        }
+
+        .reveal-slide-right {
+            opacity: 0;
+            transform: translateX(40px);
+            filter: blur(6px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform, filter;
+        }
+        .reveal-slide-right.is-revealed {
+            opacity: 1;
+            transform: translateX(0);
+            filter: blur(0px);
+        }
+
+        /* Stagger Delays */
+        .stagger-1 { transition-delay: 0.08s; }
+        .stagger-2 { transition-delay: 0.16s; }
+        .stagger-3 { transition-delay: 0.24s; }
+        .stagger-4 { transition-delay: 0.32s; }
+        .stagger-5 { transition-delay: 0.40s; }
+        .stagger-6 { transition-delay: 0.48s; }
+
+        /* Card Entrance Glow Flare */
+        .is-revealed.glass-panel {
+            animation: cardRevealGlow 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes cardRevealGlow {
+            0% { box-shadow: 0 0 0 rgba(229, 169, 80, 0); }
+            45% { box-shadow: 0 0 35px rgba(229, 169, 80, 0.3), 0 20px 50px rgba(0, 0, 0, 0.6); }
+            100% { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(245, 200, 150, 0.08); }
+        }
+
+        /* Animated Section Heading Shimmer */
+        .heading-shimmer {
+            background-size: 200% auto;
+            animation: headingTextShimmer 6s ease-in-out infinite alternate;
+        }
+        @keyframes headingTextShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         /* Dot Grid Matrix Overlay */
@@ -491,6 +662,17 @@
         <div class="backdrop-dark-overlay"></div>
     </div>
 
+    <!-- Warm Light Bloom & Ambient Optical Sunbeam Flare -->
+    <div class="warm-light-bloom"></div>
+    <div class="warm-sunbeam-rays"></div>
+
+    <!-- Floating Ambient Bokeh Discs -->
+    <div class="ambient-bokeh-cluster">
+        <div class="bokeh-disc bokeh-disc-1"></div>
+        <div class="bokeh-disc bokeh-disc-2"></div>
+        <div class="bokeh-disc bokeh-disc-3"></div>
+    </div>
+
     <!-- Ambient Aurora Layers -->
     <div class="aurora-bg">
         <div class="aurora-orb aurora-1"></div>
@@ -579,7 +761,7 @@
     <main class="w-full max-w-4xl z-10 space-y-12 pb-20">
         
         <!-- HERO SECTION (Border Beam + Aceternity Spotlight + 3D Tilt) -->
-        <header id="about" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="true" data-tilt-max-glare="0.12" class="border-beam-box p-8 sm:p-12 md:p-16 text-center relative overflow-hidden transition-all duration-300">
+        <header id="about" data-tilt data-tilt-max="5" data-tilt-speed="600" data-tilt-glare="true" data-tilt-max-glare="0.12" class="border-beam-box p-8 sm:p-12 md:p-16 text-center relative overflow-hidden transition-all duration-300 reveal-on-scroll">
             <div class="relative z-10 flex flex-col items-center">
                 
                 <!-- Hidden Avatar File Input -->
@@ -661,22 +843,22 @@
 
                 <!-- Quick Highlight Metric Cards -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mt-10 pt-8 border-t border-white/10 text-left font-mono">
-                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-gold/30">
+                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-gold/30 reveal-scale stagger-1">
                         <div class="text-xs text-gray-400">ACADEMICS</div>
                         <div class="text-lg font-bold text-brand-gold">8.5 CGPA</div>
                         <div class="text-[11px] text-gray-400">B.Com (PA) Scholar</div>
                     </div>
-                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-pink/30">
+                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-pink/30 reveal-scale stagger-2">
                         <div class="text-xs text-gray-400">PROGRAMME</div>
                         <div class="text-lg font-bold text-brand-pink">21 Weeks</div>
                         <div class="text-[11px] text-gray-400">Zero Week to Launch</div>
                     </div>
-                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-sky/30">
+                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-sky/30 reveal-scale stagger-3">
                         <div class="text-xs text-gray-400">HONOURS</div>
                         <div class="text-lg font-bold text-brand-sky">Gold Medal</div>
                         <div class="text-[11px] text-gray-400">Commerce Olympiad</div>
                     </div>
-                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-emerald/30">
+                    <div class="glass-panel-subtle p-3.5 rounded-2xl border border-brand-emerald/30 reveal-scale stagger-4">
                         <div class="text-xs text-gray-400">RESEARCH</div>
                         <div class="text-lg font-bold text-brand-emerald">MSME & AI</div>
                         <div class="text-[11px] text-gray-400">Data Analytics</div>
@@ -689,7 +871,7 @@
 
 
         <!-- ACADEMICS & RESEARCH BENTO SECTION -->
-        <section id="academics" class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10">
+        <section id="academics" class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10 reveal-on-scroll">
             <div class="flex items-center justify-between mb-8 flex-wrap gap-2">
                 <div class="flex items-center gap-3">
                     <span class="text-2xl text-brand-gold">🎓</span>
@@ -707,7 +889,7 @@
 
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Academic Excellence Card -->
-                <div class="spotlight-box p-6 sm:p-8">
+                <div class="spotlight-box p-6 sm:p-8 reveal-slide-left stagger-1">
                     <div class="relative z-10 space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="text-xl font-bold text-brand-gold font-serif flex items-center gap-2">
@@ -729,7 +911,7 @@
                 </div>
 
                 <!-- Research & Data Analysis Card -->
-                <div class="spotlight-box p-6 sm:p-8">
+                <div class="spotlight-box p-6 sm:p-8 reveal-slide-right stagger-2">
                     <div class="relative z-10 space-y-4">
                         <div class="flex items-center justify-between">
                             <h3 class="text-xl font-bold text-brand-pink font-serif flex items-center gap-2">
@@ -755,7 +937,7 @@
         <!-- ========================================================================= -->
         <!-- PROTOSEM 21-WEEK INTERACTIVE ROADMAP (WEEKS 00 TO 20) -->
         <!-- ========================================================================= -->
-        <section id="protosem" class="glass-panel rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden border-2 border-brand-pink/40 shadow-2xl">
+        <section id="protosem" class="glass-panel rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden border-2 border-brand-pink/40 shadow-2xl reveal-on-scroll">
             
             <!-- Glow background orb -->
             <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-brand-pink/20 blur-[100px] pointer-events-none"></div>
@@ -913,7 +1095,7 @@
         </section>
 
         <!-- SKILLS & COMPETENCIES SECTION -->
-        <section id="skills" class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10">
+        <section id="skills" class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10 reveal-on-scroll">
             <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
                 <div class="flex items-center gap-3">
                     <span class="text-2xl text-brand-pink">⚡</span>
@@ -935,7 +1117,7 @@
         </section>
 
         <!-- FIELD NOTES & ESSAY SECTION -->
-        <section id="blog" class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10">
+        <section id="blog" class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10 reveal-on-scroll">
             <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
                 <div class="flex items-center gap-3">
                     <span class="text-2xl text-brand-gold">✍️</span>
@@ -951,7 +1133,7 @@
 
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Zero Week Featured Blog Card -->
-                <a href="zero-week.html" class="spotlight-box p-6 flex flex-col gap-4 group no-underline border border-brand-gold/40 hover:border-brand-gold/80 shadow-xl">
+                <a href="zero-week.html" class="spotlight-box p-6 flex flex-col gap-4 group no-underline border border-brand-gold/40 hover:border-brand-gold/80 shadow-xl reveal-slide-left stagger-1">
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="flex items-center justify-between mb-3">
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs font-mono font-bold">
@@ -978,7 +1160,7 @@
                 </a>
 
                 <!-- Upcoming Sprint Notes Card -->
-                <div class="spotlight-box p-6 flex flex-col items-center justify-center text-center gap-3 opacity-80">
+                <div class="spotlight-box p-6 flex flex-col items-center justify-center text-center gap-3 opacity-80 reveal-slide-right stagger-2">
                     <div class="relative z-10 flex flex-col items-center">
                         <div class="text-4xl mb-2">📖</div>
                         <h3 class="text-lg font-bold text-gray-200 font-serif">Phase 01 Field Notes in Progress</h3>
@@ -994,7 +1176,7 @@
         </section>
 
         <!-- FOOTER -->
-        <footer class="text-center text-gray-400 py-10 border-t border-white/10 space-y-4">
+        <footer class="text-center text-gray-400 py-10 border-t border-white/10 space-y-4 reveal-on-scroll">
             <div class="flex justify-center flex-wrap gap-5 text-sm font-medium">
                 <a id="profile-linkedin-link" href="https://linkedin.com/in/nandhini-sivakumar-1a2406321" target="_blank" class="hover:text-brand-gold transition-colors">LinkedIn</a>
                 <a id="profile-email-link" href="mailto:nandhinisiva299@gmail.com" class="hover:text-brand-pink transition-colors">Email</a>
@@ -1499,13 +1681,18 @@
             if (!container) return;
             container.innerHTML = '';
 
-            data.skills.forEach(skill => {
+            data.skills.forEach((skill, idx) => {
                 const el = document.createElement('span');
-                el.className = "px-4 py-2.5 rounded-xl glass-panel text-xs sm:text-sm font-semibold border border-white/10 text-gray-200 hover:border-brand-pink hover:text-white hover:scale-105 transition-all flex items-center gap-1.5 cursor-default shadow-sm";
+                const staggerClass = `stagger-${(idx % 6) + 1}`;
+                el.className = `px-4 py-2.5 rounded-xl glass-panel text-xs sm:text-sm font-semibold border border-white/10 text-gray-200 hover:border-brand-pink hover:text-white hover:scale-105 transition-all flex items-center gap-1.5 cursor-default shadow-sm reveal-scale ${staggerClass}`;
                 el.innerText = skill;
                 el.addEventListener('mouseenter', () => playSynthSound('hover'));
                 container.appendChild(el);
             });
+
+            if (window.revealObserver) {
+                container.querySelectorAll('.reveal-scale').forEach(el => window.revealObserver.observe(el));
+            }
         }
 
         function renderWeeks(filterPhaseVal = 'all') {
@@ -1519,11 +1706,12 @@
                 return w.phase === parseInt(filterPhaseVal);
             });
 
-            filtered.forEach(w => {
+            filtered.forEach((w, idx) => {
                 const card = document.createElement('div');
                 const isZero = w.week === 0;
+                const staggerClass = `stagger-${(idx % 4) + 1}`;
                 
-                card.className = `spotlight-box p-4 rounded-2xl flex flex-col justify-between cursor-pointer transition-all duration-300 min-h-[140px] group ${
+                card.className = `spotlight-box p-4 rounded-2xl flex flex-col justify-between cursor-pointer transition-all duration-300 min-h-[140px] group reveal-scale ${staggerClass} ${
                     isZero ? 'zero-week-card' : ''
                 }`;
                 
@@ -1562,6 +1750,9 @@
             });
 
             updateSpotlightListeners();
+            if (window.revealObserver) {
+                container.querySelectorAll('.reveal-scale').forEach(el => window.revealObserver.observe(el));
+            }
         }
 
         function filterPhase(phaseVal) {
@@ -1618,7 +1809,11 @@
         const ctx = canvas.getContext('2d');
         let particles = [];
         let meteors = [];
-        let mousePos = { x: null, y: null, radius: 120 };
+        let mousePos = { x: null, y: null, radius: 140 };
+
+        // Mouse Parallax Damping Engine
+        let targetBgMouseX = 0, targetBgMouseY = 0;
+        let currentBgMouseX = 0, currentBgMouseY = 0;
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
@@ -1630,25 +1825,33 @@
         window.addEventListener('mousemove', (e) => {
             mousePos.x = e.x;
             mousePos.y = e.y;
+            targetBgMouseX = (e.clientX / window.innerWidth) - 0.5;
+            targetBgMouseY = (e.clientY / window.innerHeight) - 0.5;
         });
         window.addEventListener('mouseout', () => {
             mousePos.x = null;
             mousePos.y = null;
+            targetBgMouseX = 0;
+            targetBgMouseY = 0;
         });
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.8;
-                this.speedX = (Math.random() - 0.5) * 0.4;
-                this.speedY = (Math.random() - 0.5) * 0.4;
-                this.color = Math.random() > 0.5 ? 'rgba(245, 200, 66, ' : 'rgba(244, 114, 182, ';
-                this.alpha = Math.random() * 0.5 + 0.2;
+                this.size = Math.random() * 2.2 + 0.8;
+                this.speedX = (Math.random() - 0.5) * 0.35;
+                this.speedY = (Math.random() - 0.5) * 0.35;
+                const palette = ['rgba(229, 169, 80, ', 'rgba(217, 125, 100, ', 'rgba(205, 153, 110, ', 'rgba(243, 228, 215, '];
+                this.color = palette[Math.floor(Math.random() * palette.length)];
+                this.alpha = Math.random() * 0.55 + 0.2;
+                this.driftAngle = Math.random() * Math.PI * 2;
+                this.driftSpeed = Math.random() * 0.02 + 0.005;
             }
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
+                this.driftAngle += this.driftSpeed;
+                this.x += this.speedX + Math.sin(this.driftAngle) * 0.25;
+                this.y += this.speedY + Math.cos(this.driftAngle) * 0.25;
 
                 if (this.x > canvas.width) this.x = 0;
                 else if (this.x < 0) this.x = canvas.width;
@@ -1661,8 +1864,8 @@
                     let distance = Math.sqrt(dx * dx + dy * dy);
                     if (distance < mousePos.radius) {
                         let force = (mousePos.radius - distance) / mousePos.radius;
-                        this.x -= (dx / distance) * force * 2.5;
-                        this.y -= (dy / distance) * force * 2.5;
+                        this.x -= (dx / distance) * force * 3;
+                        this.y -= (dy / distance) * force * 3;
                     }
                 }
             }
@@ -1681,10 +1884,10 @@
             reset() {
                 this.x = Math.random() * canvas.width + 300;
                 this.y = Math.random() * -100;
-                this.length = Math.random() * 90 + 40;
-                this.speed = Math.random() * 5 + 3;
+                this.length = Math.random() * 95 + 45;
+                this.speed = Math.random() * 4.5 + 2.5;
                 this.angle = Math.PI / 4;
-                this.alpha = Math.random() * 0.4 + 0.2;
+                this.alpha = Math.random() * 0.35 + 0.2;
             }
             update() {
                 this.x -= this.speed * Math.cos(this.angle);
@@ -1697,12 +1900,12 @@
                 const tailX = this.x + this.length * Math.cos(this.angle);
                 const tailY = this.y - this.length * Math.sin(this.angle);
                 const grad = ctx.createLinearGradient(this.x, this.y, tailX, tailY);
-                grad.addColorStop(0, `rgba(245, 200, 66, ${this.alpha})`);
-                grad.addColorStop(0.5, `rgba(244, 114, 182, ${this.alpha * 0.6})`);
+                grad.addColorStop(0, `rgba(229, 169, 80, ${this.alpha})`);
+                grad.addColorStop(0.5, `rgba(217, 125, 100, ${this.alpha * 0.6})`);
                 grad.addColorStop(1, 'transparent');
 
                 ctx.strokeStyle = grad;
-                ctx.lineWidth = 1.5;
+                ctx.lineWidth = 1.6;
                 ctx.beginPath();
                 ctx.moveTo(this.x, this.y);
                 ctx.lineTo(tailX, tailY);
@@ -1714,26 +1917,27 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.radius = Math.random() * 35 + 15;
-                this.speedX = (Math.random() - 0.5) * 0.2;
-                this.speedY = (Math.random() - 0.5) * 0.2;
-                this.color = Math.random() > 0.5 ? 'rgba(245, 200, 66, ' : 'rgba(244, 114, 182, ';
-                this.alpha = Math.random() * 0.08 + 0.03;
+                this.radius = Math.random() * 40 + 18;
+                this.speedX = (Math.random() - 0.5) * 0.22;
+                this.speedY = (Math.random() - 0.5) * 0.22;
+                const palette = ['rgba(229, 169, 80, ', 'rgba(217, 125, 100, ', 'rgba(205, 153, 110, '];
+                this.color = palette[Math.floor(Math.random() * palette.length)];
+                this.alpha = Math.random() * 0.09 + 0.035;
                 this.pulseSpeed = Math.random() * 0.02 + 0.01;
-                this.pulse = 0;
+                this.pulse = Math.random() * Math.PI * 2;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 this.pulse += this.pulseSpeed;
 
-                if (this.x > canvas.width + 50) this.x = -50;
-                else if (this.x < -50) this.x = canvas.width + 50;
-                if (this.y > canvas.height + 50) this.y = -50;
-                else if (this.y < -50) this.y = canvas.height + 50;
+                if (this.x > canvas.width + 60) this.x = -60;
+                else if (this.x < -60) this.x = canvas.width + 60;
+                if (this.y > canvas.height + 60) this.y = -60;
+                else if (this.y < -60) this.y = canvas.height + 60;
             }
             draw() {
-                const currentRadius = this.radius + Math.sin(this.pulse) * 6;
+                const currentRadius = this.radius + Math.sin(this.pulse) * 8;
                 const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, currentRadius);
                 grad.addColorStop(0, this.color + (this.alpha * 1.5) + ')');
                 grad.addColorStop(0.6, this.color + (this.alpha * 0.5) + ')');
@@ -1752,14 +1956,14 @@
             particles = [];
             meteors = [];
             bokehOrbs = [];
-            const count = Math.floor((canvas.width * canvas.height) / 20000);
-            for (let i = 0; i < Math.min(count, 65); i++) {
+            const count = Math.floor((canvas.width * canvas.height) / 18000);
+            for (let i = 0; i < Math.min(count, 70); i++) {
                 particles.push(new Particle());
             }
             for (let i = 0; i < 4; i++) {
                 meteors.push(new Meteor());
             }
-            for (let i = 0; i < 12; i++) {
+            for (let i = 0; i < 14; i++) {
                 bokehOrbs.push(new BokehOrb());
             }
         }
@@ -1772,10 +1976,10 @@
                     let dy = particles[a].y - particles[b].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 100) {
-                        let opacity = 1 - (distance / 100);
-                        ctx.strokeStyle = `rgba(245, 200, 66, ${opacity * 0.12})`;
-                        ctx.lineWidth = 0.5;
+                    if (distance < 95) {
+                        let opacity = 1 - (distance / 95);
+                        ctx.strokeStyle = `rgba(229, 169, 80, ${opacity * 0.14})`;
+                        ctx.lineWidth = 0.6;
                         ctx.beginPath();
                         ctx.moveTo(particles[a].x, particles[a].y);
                         ctx.lineTo(particles[b].x, particles[b].y);
@@ -1788,6 +1992,12 @@
         function animateCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
+            // Smooth background parallax update
+            currentBgMouseX += (targetBgMouseX - currentBgMouseX) * 0.05;
+            currentBgMouseY += (targetBgMouseY - currentBgMouseY) * 0.05;
+            document.documentElement.style.setProperty('--bg-mouse-x', currentBgMouseX.toFixed(4));
+            document.documentElement.style.setProperty('--bg-mouse-y', currentBgMouseY.toFixed(4));
+
             // Draw warm bokeh circles
             for (let i = 0; i < bokehOrbs.length; i++) {
                 bokehOrbs[i].update();
@@ -1809,6 +2019,27 @@
             requestAnimationFrame(animateCanvas);
         }
         animateCanvas();
+
+        // Appearance Effects: Scroll Reveal Engine
+        function initScrollReveal() {
+            const observerOptions = {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-revealed');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll, .reveal-scale, .reveal-slide-left, .reveal-slide-right').forEach(el => {
+                revealObserver.observe(el);
+            });
+            window.revealObserver = revealObserver;
+        }
 
         // Scroll Progress & Top Button
         const scrollBar = document.getElementById('scroll-progress-bar');
@@ -2393,6 +2624,7 @@
         applyProfileData();
         renderSkills();
         renderWeeks('all');
+        initScrollReveal();
     </script>
 </body>
 </html>
