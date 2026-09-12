@@ -19,16 +19,30 @@
             theme: {
                 extend: {
                     colors: {
+                        espresso: {
+                            50: '#faf5f0',
+                            100: '#f3e4d7',
+                            200: '#e2bda0',
+                            300: '#cd996e',
+                            400: '#aa7043',
+                            500: '#7d4d29',
+                            600: '#543118',
+                            700: '#3b2110',
+                            800: '#2a170b',
+                            850: '#201208',
+                            900: '#180d06',
+                            950: '#0d0703'
+                        },
                         brand: {
-                            gold: '#f5c842',
-                            pink: '#f472b6',
-                            rose: '#fb7185',
-                            sky: '#38bdf8',
-                            cyan: '#06b6d4',
-                            violet: '#a855f7',
-                            emerald: '#34d399',
-                            dark: '#030712',
-                            card: 'rgba(15, 23, 42, 0.65)'
+                            gold: '#e5a950',
+                            pink: '#d97d64',
+                            rose: '#c76b58',
+                            sky: '#cd996e',
+                            cyan: '#b08968',
+                            violet: '#a47148',
+                            emerald: '#7da06d',
+                            dark: '#0d0703',
+                            card: 'rgba(24, 13, 7, 0.72)'
                         }
                     },
                     fontFamily: {
@@ -84,27 +98,27 @@
         }
 
         body {
-            background: radial-gradient(circle at 20% 15%, #241407 0%, #170b04 35%, #0d0603 70%, #050201 100%);
-            color: #f8fafc;
+            background: radial-gradient(circle at 50% 15%, #2a170a 0%, #1a0e06 35%, #100803 70%, #080402 100%);
+            color: #fdfbf7;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            selection-background-color: #f5c842;
-            selection-color: #050201;
+            selection-background-color: #e5a950;
+            selection-color: #0d0703;
             transition: background 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Atmospheric Background Themes */
+        /* Atmospheric Warm Espresso Background Themes */
         body.theme-golden {
-            background: radial-gradient(circle at 20% 15%, #241407 0%, #170b04 35%, #0d0603 70%, #050201 100%) !important;
+            background: radial-gradient(circle at 50% 15%, #2a170a 0%, #1a0e06 35%, #100803 70%, #080402 100%) !important;
         }
         body.theme-cosmic {
-            background: radial-gradient(circle at 20% 20%, #0d081a 0%, #080614 35%, #04030a 70%, #020205 100%) !important;
+            background: radial-gradient(circle at 50% 20%, #1f120a 0%, #140b06 35%, #0c0704 70%, #050201 100%) !important;
         }
         body.theme-artistic {
-            background: radial-gradient(circle at 20% 20%, #200824 0%, #130517 40%, #09020d 75%, #030105 100%) !important;
+            background: radial-gradient(circle at 50% 20%, #2b150c 0%, #1c0d07 40%, #100704 75%, #080302 100%) !important;
         }
         body.theme-emerald {
-            background: radial-gradient(circle at 20% 20%, #051a14 0%, #030f0c 40%, #020806 75%, #010302 100%) !important;
+            background: radial-gradient(circle at 50% 20%, #1f1b0c 0%, #141108 40%, #0c0a04 75%, #050402 100%) !important;
         }
 
         /* Ambient Fluid Aurora Backgrounds */
@@ -119,7 +133,7 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(120px);
-            opacity: 0.38;
+            opacity: 0.32;
             will-change: transform;
         }
         .aurora-1 {
@@ -127,7 +141,7 @@
             left: -10%;
             width: 55vw;
             height: 55vw;
-            background: radial-gradient(circle, rgba(245, 200, 66, 0.85), rgba(244, 114, 182, 0.45), transparent 70%);
+            background: radial-gradient(circle, rgba(229, 169, 80, 0.65), rgba(217, 125, 100, 0.35), transparent 70%);
             animation: orbFloat1 22s ease-in-out infinite alternate;
         }
         .aurora-2 {
@@ -135,7 +149,7 @@
             right: -10%;
             width: 50vw;
             height: 50vw;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.75), rgba(168, 85, 247, 0.45), transparent 70%);
+            background: radial-gradient(circle, rgba(140, 83, 43, 0.6), rgba(84, 49, 24, 0.4), transparent 70%);
             animation: orbFloat2 26s ease-in-out infinite alternate;
         }
         .aurora-3 {
@@ -143,7 +157,7 @@
             left: 25%;
             width: 40vw;
             height: 40vw;
-            background: radial-gradient(circle, rgba(244, 114, 182, 0.65), rgba(251, 146, 60, 0.35), transparent 70%);
+            background: radial-gradient(circle, rgba(205, 153, 110, 0.45), rgba(229, 169, 80, 0.25), transparent 70%);
             animation: orbFloat3 18s ease-in-out infinite alternate;
         }
 
@@ -175,8 +189,8 @@
             height: 108%;
             background-size: cover;
             background-position: center 25%;
-            opacity: 0.16;
-            filter: saturate(1.15) contrast(1.1) brightness(0.75);
+            opacity: 0.36;
+            filter: saturate(1.18) contrast(1.1) brightness(0.85) sepia(0.25);
             transition: opacity 0.8s ease, transform 0.8s ease;
             will-change: transform, opacity;
         }
@@ -186,25 +200,25 @@
         }
         .baking-bg-layer {
             background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=2000&q=85');
-            opacity: 0.14;
+            opacity: 0.32;
             animation: slowPanBaking 38s ease-in-out infinite alternate;
             mix-blend-mode: screen;
         }
 
         body.theme-golden .photo-bg-layer {
-            opacity: 0.22;
+            opacity: 0.40;
         }
         body.theme-golden .baking-bg-layer {
-            opacity: 0.30;
-            filter: saturate(1.3) contrast(1.15) brightness(0.95);
+            opacity: 0.36;
+            filter: saturate(1.25) contrast(1.15) brightness(0.92) sepia(0.2);
         }
         body.theme-artistic .photo-bg-layer {
-            opacity: 0.20;
-            filter: hue-rotate(25deg) saturate(1.2);
+            opacity: 0.38;
+            filter: saturate(1.2) sepia(0.35);
         }
         body.theme-emerald .photo-bg-layer {
-            opacity: 0.18;
-            filter: hue-rotate(-30deg) saturate(1.1);
+            opacity: 0.36;
+            filter: saturate(1.15) sepia(0.15);
         }
 
         @keyframes slowPanPhoto {
@@ -221,71 +235,15 @@
         .backdrop-dark-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 30%, rgba(13, 8, 26, 0.72) 0%, rgba(8, 6, 20, 0.88) 55%, rgba(3, 7, 18, 0.97) 100%);
+            background: radial-gradient(circle at 50% 25%, rgba(28, 15, 8, 0.50) 0%, rgba(18, 10, 5, 0.70) 50%, rgba(10, 5, 2, 0.86) 100%);
             mix-blend-mode: multiply;
-        }
-
-        /* Sliding Marquee Carousel for Baking & Photography */
-        .marquee-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-        }
-
-        .marquee-track {
-            display: flex;
-            gap: 1.25rem;
-            width: max-content;
-            animation: marqueeSlide 40s linear infinite;
-        }
-
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes marqueeSlide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .slide-card {
-            position: relative;
-            width: 270px;
-            height: 185px;
-            border-radius: 1.25rem;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-            cursor: pointer;
-            background: rgba(15, 23, 42, 0.7);
-        }
-
-        .slide-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .slide-card:hover {
-            transform: translateY(-6px) scale(1.03);
-            border-color: rgba(245, 200, 66, 0.6);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 200, 66, 0.25);
-        }
-
-        .slide-card:hover img {
-            transform: scale(1.1);
         }
 
         /* Dot Grid Matrix Overlay */
         .dot-matrix {
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+            background-image: radial-gradient(rgba(229, 169, 80, 0.12) 1.2px, transparent 1.2px);
             background-size: 24px 24px;
             mask-image: radial-gradient(ellipse at 50% 30%, black 50%, transparent 85%);
             -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 50%, transparent 85%);
@@ -302,7 +260,7 @@
             width: 90%;
             max-width: 900px;
             height: 350px;
-            background: radial-gradient(ellipse at 50% 0%, rgba(245, 200, 66, 0.25) 0%, rgba(244, 114, 182, 0.15) 40%, rgba(56, 189, 248, 0.05) 70%, transparent 80%);
+            background: radial-gradient(ellipse at 50% 0%, rgba(229, 169, 80, 0.28) 0%, rgba(199, 107, 88, 0.16) 40%, rgba(125, 77, 41, 0.08) 70%, transparent 80%);
             filter: blur(50px);
             pointer-events: none;
             z-index: 1;
@@ -315,36 +273,36 @@
 
         /* Glassmorphism Classes */
         .glass-panel {
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(24, 13, 7, 0.72);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.09);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(229, 169, 80, 0.14);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(245, 200, 150, 0.08);
         }
         .glass-panel-subtle {
-            background: rgba(15, 23, 42, 0.45);
+            background: rgba(26, 15, 8, 0.52);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(229, 169, 80, 0.1);
         }
 
         /* Magic UI Border Beam Card */
         .border-beam-box {
             position: relative;
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(24, 13, 7, 0.78);
             backdrop-filter: blur(24px);
             border-radius: 1.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(229, 169, 80, 0.18);
             overflow: hidden;
         }
         .border-beam-box::before {
             content: '';
             position: absolute;
             inset: -2px;
-            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, #f5c842 50deg, #f472b6 110deg, transparent 180deg, #38bdf8 240deg, #34d399 300deg, transparent 360deg);
+            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, #e5a950 50deg, #d97d64 110deg, transparent 180deg, #b08968 240deg, #6f9260 300deg, transparent 360deg);
             border-radius: inherit;
             z-index: 0;
-            opacity: 0.65;
+            opacity: 0.7;
             animation: rotateConic 8s linear infinite;
             pointer-events: none;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -360,9 +318,9 @@
         /* Spotlight Interactive Cards */
         .spotlight-box {
             position: relative;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(24, 13, 7, 0.68);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(229, 169, 80, 0.12);
             border-radius: 1.25rem;
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
             overflow: hidden;
@@ -371,7 +329,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(450px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(245, 200, 66, 0.15), rgba(244, 114, 182, 0.08) 35%, transparent 60%);
+            background: radial-gradient(450px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(229, 169, 80, 0.18), rgba(217, 125, 100, 0.08) 35%, transparent 60%);
             opacity: 0;
             transition: opacity 0.3s ease;
             pointer-events: none;
@@ -383,7 +341,7 @@
             inset: 0;
             border-radius: inherit;
             padding: 1px;
-            background: radial-gradient(350px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(245, 200, 66, 0.8), rgba(244, 114, 182, 0.6), transparent 60%);
+            background: radial-gradient(350px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(229, 169, 80, 0.8), rgba(217, 125, 100, 0.6), transparent 60%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -398,8 +356,8 @@
         }
         .spotlight-box:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(245, 200, 66, 0.15);
-            border-color: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(229, 169, 80, 0.18);
+            border-color: rgba(229, 169, 80, 0.35);
         }
 
         /* Kinetic Staggered Name Entrance */
@@ -467,20 +425,20 @@
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-track { background: #0d0703; }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #f5c842, #f472b6);
+            background: linear-gradient(to bottom, #e5a950, #d97d64);
             border-radius: 9999px;
-            border: 2px solid #030712;
+            border: 2px solid #0d0703;
         }
-        ::-webkit-scrollbar-thumb:hover { background: #f5c842; }
+        ::-webkit-scrollbar-thumb:hover { background: #e5a950; }
 
         /* Sound Wave Animation */
         .sound-wave span {
             display: inline-block;
             width: 2.5px;
             height: 12px;
-            background-color: #f5c842;
+            background-color: #e5a950;
             border-radius: 9999px;
             animation: soundWave 1.2s ease-in-out infinite alternate;
         }
@@ -494,17 +452,17 @@
 
         /* Active Phase Tab */
         .phase-tab.active {
-            background: linear-gradient(135deg, rgba(245, 200, 66, 0.25), rgba(244, 114, 182, 0.3));
-            border-color: rgba(245, 200, 66, 0.8);
+            background: linear-gradient(135deg, rgba(229, 169, 80, 0.3), rgba(217, 125, 100, 0.25));
+            border-color: rgba(229, 169, 80, 0.85);
             color: #ffffff;
-            box-shadow: 0 0 20px rgba(245, 200, 66, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 20px rgba(229, 169, 80, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
 
         /* Zero Week Card Highlight */
         .zero-week-card {
-            background: linear-gradient(145deg, rgba(245, 200, 66, 0.15), rgba(244, 114, 182, 0.12), rgba(15, 23, 42, 0.9)) !important;
-            border: 1px solid rgba(245, 200, 66, 0.6) !important;
-            box-shadow: 0 0 30px rgba(245, 200, 66, 0.25);
+            background: linear-gradient(145deg, rgba(229, 169, 80, 0.18), rgba(217, 125, 100, 0.12), rgba(24, 13, 7, 0.92)) !important;
+            border: 1px solid rgba(229, 169, 80, 0.6) !important;
+            box-shadow: 0 0 30px rgba(229, 169, 80, 0.25);
         }
 
         /* Edit Mode Styles */
@@ -598,8 +556,8 @@
         <div class="flex items-center gap-1.5 sm:gap-2">
             <!-- Theme Switcher -->
             <button onclick="cycleTheme()" class="px-2.5 sm:px-3 py-1 rounded-full glass-panel-subtle text-xs font-mono text-brand-gold border border-white/10 hover:border-brand-gold/40 hover:bg-brand-gold/15 transition-all flex items-center gap-1" title="Switch Background Color Palette">
-                <span id="theme-icon">🌅</span>
-                <span class="hidden md:inline font-bold" id="theme-label">Golden</span>
+                <span id="theme-icon">☕</span>
+                <span class="hidden md:inline font-bold" id="theme-label">Espresso</span>
             </button>
             <!-- Font Switcher -->
             <button onclick="cycleFontTheme()" class="px-2.5 sm:px-3 py-1 rounded-full glass-panel-subtle text-xs font-mono text-brand-pink border border-white/10 hover:border-brand-pink/40 hover:bg-brand-pink/15 transition-all flex items-center gap-1" title="Switch Headline Font Style">
@@ -728,162 +686,7 @@
             </div>
         </header>
 
-        <!-- SLIDING IMAGES MARQUEE (BAKING & PHOTOGRAPHY SHOWCASE) -->
-        <section class="w-full relative overflow-hidden py-1">
-            <div class="flex items-center justify-between mb-4 px-3">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl">📸</span>
-                    <span class="text-xs font-mono text-brand-gold font-bold tracking-wider uppercase">Visual Reel • Baking & Photography</span>
-                </div>
-                <span class="text-[11px] font-mono text-gray-400 hidden sm:inline">Hover to pause • Continuous reel</span>
-            </div>
 
-            <div class="marquee-container group">
-                <div class="marquee-track">
-                    <!-- SET 1 -->
-                    <!-- Slide 1: Taking Photography in Golden Hour -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=85" alt="Taking Photography" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-brand-gold text-slate-950 text-[10px] font-mono font-bold mb-1">📸 Photography</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">50mm Optical Framing</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Golden hour still life</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2: Handcrafted French Patisserie -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="Artisanal Baking" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-mono font-bold mb-1">🧁 Baking</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">French Patisserie & Plating</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Piping cream & berry tarts</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3: Hand-kneading Artisan Dough -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=85" alt="Sourdough Baking" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-amber-300 text-slate-950 text-[10px] font-mono font-bold mb-1">🥖 Sourdough</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Flour Dust & Dough Craft</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Handcrafted fermentation</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4: Camera Lens & Shutter Capture -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=85" alt="Camera Capture" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-brand-sky text-slate-950 text-[10px] font-mono font-bold mb-1">📷 Camera</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Viewfinder Storytelling</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Natural ambient bokeh</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5: Gourmet Cake Decorating -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=85" alt="Gourmet Cake" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-rose-400 text-slate-950 text-[10px] font-mono font-bold mb-1">🎂 Confectionery</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Layered Gourmet Cakes</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Chocolate & berry ganache</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 6: Golden Flaky Croissant Baking -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=85" alt="Croissants" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-mono font-bold mb-1">🥐 Pastry</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Viennoiserie & Lamination</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Golden buttery crust</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 7: Sunset Portrait & Landscape Lens -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=85" alt="Sunset Photography" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-brand-pink text-slate-950 text-[10px] font-mono font-bold mb-1">🌅 Lighting</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Atmospheric Light Play</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Depth of field balance</p>
-                        </div>
-                    </div>
-
-                    <!-- SET 2 (Duplicate for Seamless Loop) -->
-                    <!-- Slide 1 Dup -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=85" alt="Taking Photography" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-brand-gold text-slate-950 text-[10px] font-mono font-bold mb-1">📸 Photography</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">50mm Optical Framing</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Golden hour still life</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 Dup -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85" alt="Artisanal Baking" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-mono font-bold mb-1">🧁 Baking</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">French Patisserie & Plating</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Piping cream & berry tarts</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 Dup -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=85" alt="Sourdough Baking" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-amber-300 text-slate-950 text-[10px] font-mono font-bold mb-1">🥖 Sourdough</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Flour Dust & Dough Craft</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Handcrafted fermentation</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 Dup -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=85" alt="Camera Capture" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-brand-sky text-slate-950 text-[10px] font-mono font-bold mb-1">📷 Camera</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Viewfinder Storytelling</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Natural ambient bokeh</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5 Dup -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=800&q=85" alt="Gourmet Cake" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-rose-400 text-slate-950 text-[10px] font-mono font-bold mb-1">🎂 Confectionery</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Layered Gourmet Cakes</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Chocolate & berry ganache</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 6 Dup -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=85" alt="Croissants" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-amber-400 text-slate-950 text-[10px] font-mono font-bold mb-1">🥐 Pastry</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Viennoiserie & Lamination</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Golden buttery crust</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 7 Dup -->
-                    <div class="slide-card group/card">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=85" alt="Sunset Photography" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-3.5">
-                            <span class="inline-block self-start px-2 py-0.5 rounded-full bg-brand-pink text-slate-950 text-[10px] font-mono font-bold mb-1">🌅 Lighting</span>
-                            <h4 class="text-xs font-bold text-white font-serif truncate">Atmospheric Light Play</h4>
-                            <p class="text-[10px] text-gray-300 font-mono">Depth of field balance</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- ACADEMICS & RESEARCH BENTO SECTION -->
         <section id="academics" class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10">
@@ -2485,10 +2288,10 @@
         // 9. BACKGROUND THEME SWITCHER
         // =========================================================================
         const THEMES = [
-            { id: 'golden', name: 'Golden Hour & Espresso', icon: '🌅', class: 'theme-golden' },
-            { id: 'cosmic', name: 'Cosmic Obsidian', icon: '🌌', class: 'theme-cosmic' },
-            { id: 'artistic', name: 'Artistic Violet', icon: '🔮', class: 'theme-artistic' },
-            { id: 'emerald', name: 'Emerald Innovation', icon: '🍃', class: 'theme-emerald' }
+            { id: 'golden', name: 'Warm Espresso Minimal', icon: '☕', class: 'theme-golden' },
+            { id: 'cosmic', name: 'Dark Mocha Roast', icon: '🌰', class: 'theme-cosmic' },
+            { id: 'artistic', name: 'Warm Terracotta Amber', icon: '🍂', class: 'theme-artistic' },
+            { id: 'emerald', name: 'Botanical Olive Hazelnut', icon: '🌿', class: 'theme-emerald' }
         ];
         let currentThemeIndex = 0;
 
@@ -2525,7 +2328,7 @@
                     return;
                 }
             }
-            applyTheme(0); // 🌅 Golden Hour & Espresso as primary default
+            applyTheme(0); // ☕ Warm Espresso Minimal as primary default
         }
 
         // =========================================================================
