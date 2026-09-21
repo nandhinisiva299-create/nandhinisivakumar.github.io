@@ -299,14 +299,16 @@
             0% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(50px, -40px) scale(1.18); }
             100% { transform: translate(-35px, 45px) scale(0.88); }
+        }
+
         /* ========================================================================= */
-        /* CELESTIAL COSMIC SPACE & PLANETS SYSTEM                                   */
+        /* CELESTIAL COSMIC SPACE & SATURN PLANETS SYSTEM                           */
         /* ========================================================================= */
         .space-planets-container {
             position: fixed;
             inset: 0;
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
             overflow: hidden;
         }
 
@@ -315,180 +317,23 @@
             position: absolute;
             inset: 0;
             background: 
-                radial-gradient(ellipse 55% 45% at 85% 15%, rgba(229, 169, 80, 0.14) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 40% at 15% 75%, rgba(217, 125, 100, 0.12) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(140, 83, 43, 0.08) 0%, transparent 70%);
+                radial-gradient(ellipse 55% 45% at 85% 15%, rgba(229, 169, 80, 0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 12% 75%, rgba(217, 125, 100, 0.16) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(140, 83, 43, 0.10) 0%, transparent 70%),
+                radial-gradient(circle at 80% 85%, rgba(168, 85, 247, 0.10) 0%, transparent 50%);
             mix-blend-mode: screen;
             animation: nebulaBreathe 20s ease-in-out infinite alternate;
         }
         @keyframes nebulaBreathe {
-            0% { opacity: 0.6; transform: scale(0.98); }
+            0% { opacity: 0.65; transform: scale(0.98); }
             100% { opacity: 1; transform: scale(1.03); }
         }
 
-        /* 1. Major Ringed Celestial Planet (Golden Gas Giant - Kepler/Saturn Class) */
-        .celestial-planet-ringed {
-            position: absolute;
-            top: 5%;
-            right: 2%;
-            width: 175px;
-            height: 175px;
-            will-change: transform;
-            transform: translate3d(calc(var(--bg-mouse-x, 0) * -45px), calc(var(--bg-mouse-y, 0) * -45px), 0);
-            animation: planetFloat1 24s ease-in-out infinite alternate;
-            filter: drop-shadow(0 0 25px rgba(229, 169, 80, 0.35));
-        }
-        @media (min-width: 768px) {
-            .celestial-planet-ringed {
-                width: 230px;
-                height: 230px;
-                top: 7%;
-                right: 4%;
-            }
-        }
-        .planet-sphere-ringed {
-            position: absolute;
-            inset: 22%;
-            border-radius: 50%;
-            background: radial-gradient(circle at 32% 28%, #ffe8b3 0%, #e5a950 35%, #9b5a23 70%, #1c0a03 100%);
-            box-shadow: 
-                inset -16px -16px 30px rgba(10, 4, 1, 0.95),
-                inset 5px 5px 12px rgba(255, 240, 200, 0.6),
-                0 0 35px rgba(229, 169, 80, 0.4);
-            overflow: hidden;
-            z-index: 2;
-        }
-        /* Atmosphere & storm bands */
-        .planet-sphere-ringed::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                172deg,
-                rgba(255, 255, 255, 0.08) 0px,
-                rgba(255, 255, 255, 0.08) 4px,
-                transparent 4px,
-                transparent 12px,
-                rgba(80, 35, 10, 0.15) 12px,
-                rgba(80, 35, 10, 0.15) 16px,
-                transparent 16px,
-                transparent 22px
-            );
-            border-radius: 50%;
-            mix-blend-mode: overlay;
-        }
-        /* Shadow cast by rings across planet body */
-        .planet-sphere-ringed::after {
-            content: '';
-            position: absolute;
-            top: 48%;
-            left: -10%;
-            right: -10%;
-            height: 18%;
-            background: linear-gradient(to bottom, rgba(12, 5, 2, 0.85), transparent);
-            transform: rotate(-16deg);
-        }
-        /* Planetary Rings */
-        .planet-rings {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 210%;
-            height: 210%;
-            border-radius: 50%;
-            transform: translate(-50%, -50%) rotateX(74deg) rotateY(-14deg) rotateZ(-22deg);
-            background: radial-gradient(
-                ellipse at center,
-                transparent 45%,
-                rgba(229, 169, 80, 0.5) 47%,
-                rgba(255, 220, 140, 0.85) 53%,
-                transparent 54%,
-                rgba(217, 125, 100, 0.55) 56%,
-                rgba(205, 153, 110, 0.75) 62%,
-                rgba(140, 83, 43, 0.35) 67%,
-                transparent 69%
-            );
-            filter: drop-shadow(0 0 12px rgba(229, 169, 80, 0.4));
-            z-index: 3;
-            pointer-events: none;
-        }
-        /* Orbiting Moonlet */
-        .orbiting-moon-orbit {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 280%;
-            height: 130%;
-            border-radius: 50%;
-            transform: translate(-50%, -50%) rotate(-18deg);
-            border: 1px dashed rgba(229, 169, 80, 0.18);
-            animation: slowSpinMoon 22s linear infinite;
-        }
-        .orbiting-moon {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #ffe3a0;
-            box-shadow: 0 0 10px #ffe3a0, 0 0 20px rgba(229, 169, 80, 0.8);
-            transform: translate(-50%, -50%);
-        }
-        @keyframes slowSpinMoon {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* 2. Secondary Terrestrial Planet / Crescent Moon (Terracotta Warm Exoplanet) */
-        .celestial-planet-terrestrial {
-            position: absolute;
-            bottom: 14%;
-            left: 2%;
-            width: 110px;
-            height: 110px;
-            will-change: transform;
-            transform: translate3d(calc(var(--bg-mouse-x, 0) * 35px), calc(var(--bg-mouse-y, 0) * 35px), 0);
-            animation: planetFloat2 28s ease-in-out infinite alternate;
-            filter: drop-shadow(0 0 20px rgba(217, 125, 100, 0.3));
-        }
-        @media (min-width: 768px) {
-            .celestial-planet-terrestrial {
-                width: 145px;
-                height: 145px;
-                bottom: 18%;
-                left: 3.5%;
-            }
-        }
-        .planet-sphere-terrestrial {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle at 68% 26%, #f3e4d7 0%, #cd996e 35%, #543118 70%, #0d0703 100%);
-            box-shadow: 
-                inset 14px -14px 25px rgba(10, 4, 1, 0.95),
-                inset -4px 4px 10px rgba(243, 228, 215, 0.6),
-                0 0 25px rgba(217, 125, 100, 0.3);
-            overflow: hidden;
-        }
-        /* Subtle Cratered Surface Texture */
-        .planet-sphere-terrestrial::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: 
-                radial-gradient(circle at 45% 35%, rgba(0,0,0,0.2) 6px, transparent 7px),
-                radial-gradient(circle at 65% 55%, rgba(0,0,0,0.25) 10px, transparent 11px),
-                radial-gradient(circle at 30% 65%, rgba(0,0,0,0.18) 8px, transparent 9px);
-            border-radius: 50%;
-            opacity: 0.65;
-        }
-
-        /* 3. Astrolabe Celestial Orbit Circles */
+        /* Astrolabe Celestial Orbit Tracks */
         .astrolabe-orbit {
             position: absolute;
             border-radius: 50%;
-            border: 1px solid rgba(229, 169, 80, 0.12);
+            border: 1px solid rgba(229, 169, 80, 0.14);
             pointer-events: none;
         }
         .astrolabe-orbit-1 {
@@ -504,58 +349,391 @@
             height: 60vw;
             bottom: -10vw;
             left: -10vw;
-            border-color: rgba(217, 125, 100, 0.10);
+            border-color: rgba(217, 125, 100, 0.12);
             animation: slowRotateRays 110s linear infinite reverse;
         }
 
-        /* 4. Distant Glowing Stars / Celestial Dwarfs */
-        .celestial-dwarf-star {
+        /* ------------------------------------------------------------------------- */
+        /* DETAILED MINI SATURNS WITH REALISTIC TILTED MULTI-LAYER RINGS             */
+        /* ------------------------------------------------------------------------- */
+
+        .saturn-planet {
             position: absolute;
-            top: 42%;
-            left: 7%;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #fff3d1 20%, #e5a950 60%, transparent 80%);
-            box-shadow: 0 0 16px rgba(245, 200, 66, 0.8), 0 0 32px rgba(229, 169, 80, 0.4);
-            animation: starPulse 6s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 2;
             will-change: transform;
-            transform: translate3d(calc(var(--bg-mouse-x, 0) * -15px), calc(var(--bg-mouse-y, 0) * -15px), 0);
         }
-        .celestial-dwarf-star-2 {
+
+        /* 1. Golden Saturn (Kepler-Class Giant — Upper Right) */
+        .saturn-gold {
+            top: 5%;
+            right: 2.5%;
+            width: 140px;
+            height: 140px;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -45px), calc(var(--bg-mouse-y, 0) * -45px), 0);
+            animation: saturnFloat1 24s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 28px rgba(255, 200, 60, 0.5));
+        }
+        @media (min-width: 768px) {
+            .saturn-gold {
+                width: 185px;
+                height: 185px;
+                top: 6%;
+                right: 4%;
+            }
+        }
+        .saturn-gold .saturn-body {
             position: absolute;
-            top: 70%;
-            right: 11%;
-            width: 14px;
-            height: 14px;
+            top: 50%;
+            left: 50%;
+            width: 52%;
+            height: 52%;
+            transform: translate(-50%, -50%);
             border-radius: 50%;
-            background: radial-gradient(circle, #ffffff 20%, #d97d64 65%, transparent 80%);
-            box-shadow: 0 0 14px rgba(217, 125, 100, 0.8);
-            animation: starPulse 8s ease-in-out infinite alternate-reverse;
-            will-change: transform;
-            transform: translate3d(calc(var(--bg-mouse-x, 0) * 20px), calc(var(--bg-mouse-y, 0) * 20px), 0);
+            background: radial-gradient(circle at 35% 30%, #fff7d6 0%, #f5c842 32%, #ba7325 68%, #241103 100%);
+            box-shadow: 
+                inset -14px -14px 25px rgba(10, 4, 1, 0.95),
+                inset 5px 5px 12px rgba(255, 245, 210, 0.75),
+                0 0 32px rgba(245, 200, 66, 0.45);
+            overflow: hidden;
+            z-index: 2;
         }
-        @keyframes starPulse {
-            0% { transform: scale(0.85); opacity: 0.7; }
-            100% { transform: scale(1.25); opacity: 1; }
+        .saturn-gold .saturn-body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                170deg,
+                rgba(255, 255, 255, 0.12) 0px,
+                rgba(255, 255, 255, 0.12) 3px,
+                transparent 3px,
+                transparent 9px,
+                rgba(90, 40, 10, 0.22) 9px,
+                rgba(90, 40, 10, 0.22) 13px,
+                transparent 13px,
+                transparent 18px
+            );
+            border-radius: 50%;
+            mix-blend-mode: overlay;
         }
-        @keyframes planetFloat1 {
+        .saturn-gold .saturn-body::after {
+            content: '';
+            position: absolute;
+            top: 46%;
+            left: -15%;
+            right: -15%;
+            height: 20%;
+            background: linear-gradient(to bottom, rgba(10, 4, 1, 0.9), transparent);
+            transform: rotate(-18deg);
+        }
+        .saturn-gold .saturn-rings-disk {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 225%;
+            height: 225%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotateX(72deg) rotateY(-12deg) rotateZ(-24deg);
+            background: radial-gradient(
+                ellipse at center,
+                transparent 42%,
+                rgba(229, 169, 80, 0.4) 44%,
+                rgba(255, 230, 140, 0.95) 50%,
+                rgba(245, 190, 60, 0.85) 53%,
+                rgba(20, 10, 3, 0.75) 54.5%,
+                rgba(255, 205, 90, 0.9) 56.5%,
+                rgba(217, 125, 100, 0.65) 63%,
+                rgba(140, 83, 43, 0.35) 67%,
+                transparent 69%
+            );
+            filter: drop-shadow(0 0 16px rgba(255, 215, 64, 0.55));
+            z-index: 3;
+            pointer-events: none;
+        }
+        .saturn-orbit-track {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 290%;
+            height: 145%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            border: 1px dashed rgba(255, 215, 64, 0.25);
+            animation: spinMoonlet 24s linear infinite;
+            pointer-events: none;
+        }
+        .saturn-orbit-moon {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fff9e6;
+            box-shadow: 0 0 10px #ffe57f, 0 0 20px rgba(255, 215, 64, 0.9);
+            transform: translate(-50%, -50%);
+        }
+
+        /* 2. Copper/Terracotta Mini Saturn (Mid-Left Floating) */
+        .saturn-copper {
+            top: 36%;
+            left: 2%;
+            width: 86px;
+            height: 86px;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 32px), calc(var(--bg-mouse-y, 0) * 32px), 0);
+            animation: saturnFloat2 26s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(230, 110, 80, 0.5));
+        }
+        .saturn-copper .saturn-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 48%;
+            height: 48%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #ffd4bf 0%, #e06d53 40%, #7c2b18 78%, #200804 100%);
+            box-shadow: 
+                inset -9px -9px 16px rgba(10, 3, 1, 0.95),
+                inset 3px 3px 8px rgba(255, 220, 200, 0.65),
+                0 0 24px rgba(224, 109, 83, 0.5);
+            overflow: hidden;
+            z-index: 2;
+        }
+        .saturn-copper .saturn-rings-disk {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 235%;
+            height: 235%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotateX(68deg) rotateY(18deg) rotateZ(32deg);
+            background: radial-gradient(
+                ellipse at center,
+                transparent 42%,
+                rgba(240, 140, 100, 0.45) 45%,
+                rgba(255, 185, 150, 0.95) 53%,
+                rgba(25, 8, 4, 0.65) 55%,
+                rgba(224, 109, 83, 0.85) 58%,
+                rgba(150, 60, 40, 0.4) 66%,
+                transparent 68%
+            );
+            filter: drop-shadow(0 0 12px rgba(240, 130, 90, 0.5));
+            z-index: 3;
+        }
+
+        /* 3. Amethyst / Lilac Mini Saturn (Lower-Right) */
+        .saturn-violet {
+            top: 72%;
+            right: 2.5%;
+            width: 76px;
+            height: 76px;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -28px), calc(var(--bg-mouse-y, 0) * -28px), 0);
+            animation: saturnFloat3 20s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 22px rgba(192, 132, 252, 0.55));
+        }
+        .saturn-violet .saturn-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #f5ebff 0%, #c084fc 42%, #6b21a8 78%, #1e0533 100%);
+            box-shadow: 
+                inset -8px -8px 15px rgba(15, 2, 28, 0.95),
+                inset 3px 3px 7px rgba(245, 230, 255, 0.7),
+                0 0 24px rgba(192, 132, 252, 0.5);
+            overflow: hidden;
+            z-index: 2;
+        }
+        .saturn-violet .saturn-rings-disk {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 230%;
+            height: 230%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotateX(70deg) rotateY(-22deg) rotateZ(-40deg);
+            background: radial-gradient(
+                ellipse at center,
+                transparent 42%,
+                rgba(216, 180, 254, 0.45) 45%,
+                rgba(235, 215, 255, 0.95) 52%,
+                rgba(35, 10, 52, 0.65) 54%,
+                rgba(192, 132, 252, 0.9) 58%,
+                rgba(147, 51, 234, 0.4) 67%,
+                transparent 69%
+            );
+            filter: drop-shadow(0 0 14px rgba(192, 132, 252, 0.65));
+            z-index: 3;
+        }
+
+        /* 4. Aquamarine Ice Giant Saturn (Lower-Left) */
+        .saturn-cyan {
+            top: 83%;
+            left: 4.5%;
+            width: 62px;
+            height: 62px;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 22px), calc(var(--bg-mouse-y, 0) * 22px), 0);
+            animation: saturnFloat4 18s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.6));
+        }
+        .saturn-cyan .saturn-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #e0f2fe 0%, #38bdf8 42%, #0284c7 75%, #082f49 100%);
+            box-shadow: 
+                inset -7px -7px 13px rgba(3, 20, 35, 0.95),
+                inset 2px 2px 7px rgba(224, 242, 254, 0.75),
+                0 0 22px rgba(56, 189, 248, 0.55);
+            overflow: hidden;
+            z-index: 2;
+        }
+        .saturn-cyan .saturn-rings-disk {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 225%;
+            height: 225%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotateX(75deg) rotateY(15deg) rotateZ(15deg);
+            background: radial-gradient(
+                ellipse at center,
+                transparent 43%,
+                rgba(125, 211, 252, 0.45) 46%,
+                rgba(195, 235, 255, 0.95) 53%,
+                rgba(56, 189, 248, 0.8) 58%,
+                rgba(3, 105, 161, 0.35) 66%,
+                transparent 68%
+            );
+            filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.55));
+            z-index: 3;
+        }
+
+        /* 5. Petite Honey Saturn (Top Left) */
+        .saturn-petite-gold {
+            top: 13%;
+            left: 8%;
+            width: 50px;
+            height: 50px;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0);
+            animation: saturnFloat1 25s ease-in-out infinite alternate reverse;
+            filter: drop-shadow(0 0 16px rgba(255, 215, 64, 0.5));
+        }
+        .saturn-petite-gold .saturn-body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #fff7d6 0%, #ffd15c 45%, #996417 80%, #291802 100%);
+            box-shadow: 0 0 16px rgba(255, 215, 64, 0.45), inset -5px -5px 9px rgba(0,0,0,0.85);
+            z-index: 2;
+        }
+        .saturn-petite-gold .saturn-rings-disk {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 235%;
+            height: 235%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotateX(72deg) rotateY(-18deg) rotateZ(-30deg);
+            background: radial-gradient(
+                ellipse at center,
+                transparent 43%,
+                rgba(255, 220, 110, 0.9) 52%,
+                rgba(230, 150, 40, 0.65) 62%,
+                transparent 67%
+            );
+            z-index: 3;
+        }
+
+        @keyframes saturnFloat1 {
             0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-16px) rotate(1.5deg); }
+            50% { transform: translateY(-16px) rotate(1.8deg); }
             100% { transform: translateY(0) rotate(0deg); }
         }
-        /* ========================================================================= */
-        /* SMALL CELESTIAL BACKGROUND PLANETS & DWARF MOONS                          */
-        /* ========================================================================= */
+        @keyframes saturnFloat2 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(14px) rotate(-1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes saturnFloat3 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes saturnFloat4 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(10px) rotate(-2deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        @keyframes spinMoonlet {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* ------------------------------------------------------------------------- */
+        /* TERRESTRIAL CRATERED EXOPLANETS & LUNAR MOONS                             */
+        /* ------------------------------------------------------------------------- */
+        .celestial-planet-terrestrial {
+            position: absolute;
+            bottom: 16%;
+            left: 2%;
+            width: 95px;
+            height: 95px;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 35px), calc(var(--bg-mouse-y, 0) * 35px), 0);
+            animation: planetFloat2 28s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 22px rgba(217, 125, 100, 0.4));
+            pointer-events: none;
+            z-index: 2;
+        }
+        .planet-sphere-terrestrial {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 68% 26%, #f3e4d7 0%, #cd996e 35%, #543118 70%, #0d0703 100%);
+            box-shadow: 
+                inset 14px -14px 25px rgba(10, 4, 1, 0.95),
+                inset -4px 4px 10px rgba(243, 228, 215, 0.6),
+                0 0 25px rgba(217, 125, 100, 0.3);
+            overflow: hidden;
+        }
+        .planet-sphere-terrestrial::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 45% 35%, rgba(0,0,0,0.2) 6px, transparent 7px),
+                radial-gradient(circle at 65% 55%, rgba(0,0,0,0.25) 10px, transparent 11px),
+                radial-gradient(circle at 30% 65%, rgba(0,0,0,0.18) 8px, transparent 9px);
+            border-radius: 50%;
+            opacity: 0.65;
+        }
+        @keyframes planetFloat2 {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(14px) rotate(-1.5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
         .celestial-small-planet-1 {
             position: absolute;
-            top: 18%;
-            left: 7%;
-            width: 44px;
-            height: 44px;
+            top: 25%;
+            right: 8%;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: radial-gradient(circle at 35% 30%, #f7f1e5 0%, #c4b5a2 42%, #544436 80%, #1e150f 100%);
-            box-shadow: 0 0 20px rgba(247, 241, 229, 0.45), inset -4px -4px 10px rgba(0, 0, 0, 0.85), inset 2px 2px 6px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 22px rgba(247, 241, 229, 0.5), inset -4px -4px 10px rgba(0, 0, 0, 0.85);
             animation: smallPlanetFloat1 18s ease-in-out infinite alternate;
             will-change: transform;
             transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0);
@@ -564,87 +742,126 @@
         }
         .celestial-small-planet-2 {
             position: absolute;
-            top: 50%;
-            right: 6%;
-            width: 50px;
-            height: 50px;
+            top: 54%;
+            right: 5%;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: radial-gradient(circle at 30% 30%, #ff8566 0%, #d45136 38%, #852614 75%, #2d0b05 100%);
-            box-shadow: 0 0 22px rgba(212, 81, 54, 0.55), inset -5px -5px 12px rgba(0, 0, 0, 0.88), inset 3px 3px 8px rgba(255, 175, 150, 0.5);
+            box-shadow: 0 0 24px rgba(212, 81, 54, 0.6), inset -5px -5px 12px rgba(0, 0, 0, 0.88);
             animation: smallPlanetFloat2 24s ease-in-out infinite alternate;
             will-change: transform;
             transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0);
             pointer-events: none;
             z-index: 2;
         }
-        .celestial-small-planet-3 {
+        @keyframes smallPlanetFloat1 {
+            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(0); }
+            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(-14px); }
+            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(0); }
+        }
+        @keyframes smallPlanetFloat2 {
+            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(0); }
+            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(16px); }
+            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(0); }
+        }
+
+        /* ------------------------------------------------------------------------- */
+        /* LUMINOUS 4-POINTED CROSS SPARKLE STARS & CELESTIAL DWARFS                 */
+        /* ------------------------------------------------------------------------- */
+        .cosmic-sparkle-star {
             position: absolute;
-            top: 72%;
-            left: 12%;
-            width: 38px;
-            height: 38px;
-            animation: smallPlanetFloat3 21s ease-in-out infinite alternate;
-            will-change: transform;
-            transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0);
+            width: 22px;
+            height: 22px;
             pointer-events: none;
             z-index: 2;
+            animation: sparkleTwinkle 4s ease-in-out infinite alternate;
         }
-        .celestial-small-planet-3 .small-sphere {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 30%, #ffeed1 0%, #e5a950 45%, #8a5716 80%, #291802 100%);
-            box-shadow: 0 0 18px rgba(229, 169, 80, 0.55), inset -3px -3px 8px rgba(0, 0, 0, 0.8);
+        .cosmic-sparkle-star::before,
+        .cosmic-sparkle-star::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(to bottom, transparent, #ffffff 45%, #ffffff 55%, transparent);
+            border-radius: 9999px;
         }
-        .celestial-small-planet-3 .small-ring {
+        .cosmic-sparkle-star::before {
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2.5px;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px rgba(255, 230, 150, 0.9), 0 0 20px rgba(255, 215, 64, 0.6);
+        }
+        .cosmic-sparkle-star::after {
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 2.5px;
+            transform: translateY(-50%);
+            background: linear-gradient(to right, transparent, #ffffff 45%, #ffffff 55%, transparent);
+            box-shadow: 0 0 10px rgba(255, 230, 150, 0.9), 0 0 20px rgba(255, 215, 64, 0.6);
+        }
+        .cosmic-sparkle-star .star-center-flare {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 66px;
-            height: 18px;
-            margin-left: -33px;
-            margin-top: -9px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
-            border: 2px solid rgba(245, 200, 66, 0.70);
-            box-shadow: 0 0 10px rgba(245, 200, 66, 0.4);
-            transform: rotate(-30deg);
-            pointer-events: none;
+            background: #ffffff;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 12px #ffffff, 0 0 24px rgba(255, 215, 64, 0.9), 0 0 40px rgba(255, 160, 50, 0.6);
         }
-        .celestial-small-planet-4 {
+
+        @keyframes sparkleTwinkle {
+            0%   { transform: scale(0.65) rotate(0deg); opacity: 0.4; }
+            50%  { transform: scale(1.3) rotate(15deg); opacity: 1.0; }
+            100% { transform: scale(0.8) rotate(-10deg); opacity: 0.55; }
+        }
+
+        /* Star positions */
+        .star-pos-1 { top: 4%; left: 24%; animation-duration: 3.5s; animation-delay: 0s; }
+        .star-pos-2 { top: 20%; right: 16%; animation-duration: 4.8s; animation-delay: -1.2s; }
+        .star-pos-3 { top: 42%; left: 8%; animation-duration: 5.2s; animation-delay: -2.5s; }
+        .star-pos-4 { top: 60%; right: 8%; animation-duration: 4.1s; animation-delay: -0.7s; }
+        .star-pos-5 { top: 76%; left: 18%; animation-duration: 5.8s; animation-delay: -3.1s; }
+        .star-pos-6 { top: 92%; right: 20%; animation-duration: 3.9s; animation-delay: -1.8s; }
+        .star-pos-7 { top: 30%; right: 28%; animation-duration: 6.2s; animation-delay: -2.2s; }
+        .star-pos-8 { top: 68%; left: 30%; animation-duration: 4.5s; animation-delay: -1.5s; }
+
+        .celestial-dwarf-star {
             position: absolute;
-            top: 14%;
-            right: 22%;
-            width: 32px;
-            height: 32px;
+            top: 48%;
+            left: 6%;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 30%, #cbf5f8 0%, #38bdf8 42%, #0369a1 78%, #082f49 100%);
-            box-shadow: 0 0 18px rgba(56, 189, 248, 0.6), inset -3px -3px 8px rgba(0, 0, 0, 0.85);
-            animation: smallPlanetFloat4 16s ease-in-out infinite alternate;
+            background: radial-gradient(circle, #fff3d1 20%, #e5a950 60%, transparent 80%);
+            box-shadow: 0 0 16px rgba(245, 200, 66, 0.9), 0 0 32px rgba(229, 169, 80, 0.5);
+            animation: starPulse 6s ease-in-out infinite alternate;
             will-change: transform;
-            transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0);
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * -15px), calc(var(--bg-mouse-y, 0) * -15px), 0);
             pointer-events: none;
             z-index: 2;
         }
-
-        @keyframes smallPlanetFloat1 {
-            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(0) rotate(0deg); }
-            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(-14px) rotate(2deg); }
-            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -22px), calc(var(--bg-mouse-y, 0) * -22px), 0) translateY(0) rotate(0deg); }
+        .celestial-dwarf-star-2 {
+            position: absolute;
+            top: 75%;
+            right: 12%;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 20%, #d97d64 65%, transparent 80%);
+            box-shadow: 0 0 14px rgba(217, 125, 100, 0.9);
+            animation: starPulse 8s ease-in-out infinite alternate-reverse;
+            will-change: transform;
+            transform: translate3d(calc(var(--bg-mouse-x, 0) * 20px), calc(var(--bg-mouse-y, 0) * 20px), 0);
+            pointer-events: none;
+            z-index: 2;
         }
-        @keyframes smallPlanetFloat2 {
-            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(0) rotate(0deg); }
-            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(16px) rotate(-2deg); }
-            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 28px), calc(var(--bg-mouse-y, 0) * 28px), 0) translateY(0) rotate(0deg); }
-        }
-        @keyframes smallPlanetFloat3 {
-            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0) translateY(0); }
-            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0) translateY(-12px); }
-            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * -18px), calc(var(--bg-mouse-y, 0) * -18px), 0) translateY(0); }
-        }
-        @keyframes smallPlanetFloat4 {
-            0% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0) translateY(0); }
-            50% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0) translateY(11px); }
-            100% { transform: translate3d(calc(var(--bg-mouse-x, 0) * 16px), calc(var(--bg-mouse-y, 0) * 16px), 0) translateY(0); }
+        @keyframes starPulse {
+            0% { transform: scale(0.85); opacity: 0.7; }
+            100% { transform: scale(1.3); opacity: 1; }
         }
 
         /* ========================================================================= */
@@ -653,31 +870,34 @@
         .quote-shimmer-text {
             background: linear-gradient(
                 110deg,
-                #ffffff 0%,
-                #fff3d1 18%,
-                #f5c842 38%,
-                #ffd89b 52%,
-                #f472b6 72%,
-                #fef3c7 88%,
-                #ffffff 100%
+                #fffde7 0%,
+                #fff3d1 15%,
+                #f5c842 30%,
+                #ffd89b 48%,
+                #ffe57a 62%,
+                #f5c842 75%,
+                #fef3c7 90%,
+                #fffde7 100%
             );
-            background-size: 240% 100%;
+            background-size: 280% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: quoteFontShimmer 8s ease-in-out infinite alternate;
-            filter: drop-shadow(0 2px 14px rgba(245, 200, 66, 0.40)) drop-shadow(0 0 28px rgba(244, 114, 182, 0.20));
-            letter-spacing: -0.01em;
+            background-clip: text;
+            animation: quoteFontShimmer 7s ease-in-out infinite alternate;
+            filter: drop-shadow(0 2px 16px rgba(245, 200, 66, 0.55)) drop-shadow(0 0 30px rgba(255, 213, 79, 0.25));
+            letter-spacing: 0.005em;
             transition: filter 0.4s ease;
             display: inline-block;
+            font-style: italic;
         }
         .quote-shimmer-text:hover {
-            filter: drop-shadow(0 2px 20px rgba(245, 200, 66, 0.70)) drop-shadow(0 0 36px rgba(244, 114, 182, 0.40));
+            filter: drop-shadow(0 2px 22px rgba(245, 200, 66, 0.85)) drop-shadow(0 0 40px rgba(255, 213, 79, 0.55));
             animation-duration: 4s;
         }
         @keyframes quoteFontShimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0%   { background-position: 0%   50%; }
+            40%  { background-position: 80%  50%; }
+            100% { background-position: 100% 50%; }
         }
 
         /* Pulsing Quotation Mark Glow */
@@ -969,35 +1189,127 @@
             border-color: rgba(229, 169, 80, 0.35);
         }
 
-        /* Kinetic Staggered Name Entrance */
+        /* ========================================================================= */
+        /* RADIANT LUMINOUS GLOWING NAME SYSTEM                                      */
+        /* ========================================================================= */
         .name-char {
             display: inline-block;
             opacity: 0;
             transform: translateY(30px) rotateX(60deg) scale(0.85);
             filter: blur(10px);
-            background: linear-gradient(135deg, #ffffff 0%, #fef08a 25%, #f5c842 50%, #f472b6 75%, #38bdf8 100%);
-            background-size: 250% 250%;
+            background: linear-gradient(
+                135deg,
+                #ffffff 0%,
+                #fff7d6 10%,
+                #ffe066 24%,
+                #ffc107 42%,
+                #ffa000 60%,
+                #ff7043 78%,
+                #ffd54f 90%,
+                #ffffff 100%
+            );
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: charPop 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards, nameGlowShift 8s ease infinite alternate;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+            background-clip: text;
+            animation: charPop 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+                       nameGoldShimmer 5s ease-in-out infinite alternate,
+                       nameLuminousGlowPulse 3.5s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 64, 0.95))
+                    drop-shadow(0 0 22px rgba(255, 170, 40, 0.85))
+                    drop-shadow(0 0 38px rgba(255, 110, 30, 0.65))
+                    drop-shadow(0 0 60px rgba(240, 70, 60, 0.45));
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
             cursor: default;
+            will-change: transform, filter;
         }
         @keyframes charPop {
             to {
                 opacity: 1;
                 transform: translateY(0px) rotateX(0deg) scale(1);
-                filter: blur(0px);
             }
         }
-        @keyframes nameGlowShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes nameGoldShimmer {
+            0%   { background-position: 0%   50%; }
+            33%  { background-position: 60%  80%; }
+            66%  { background-position: 100% 50%; }
+            100% { background-position: 20%  20%; }
+        }
+        @keyframes nameLuminousGlowPulse {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(255, 235, 130, 0.95))
+                        drop-shadow(0 0 20px rgba(255, 180, 50, 0.85))
+                        drop-shadow(0 0 36px rgba(255, 120, 35, 0.65))
+                        drop-shadow(0 0 55px rgba(240, 80, 60, 0.45));
+            }
+            50% {
+                filter: drop-shadow(0 0 18px rgba(255, 255, 230, 1.0))
+                        drop-shadow(0 0 32px rgba(255, 215, 70, 0.98))
+                        drop-shadow(0 0 54px rgba(255, 150, 50, 0.88))
+                        drop-shadow(0 0 90px rgba(255, 90, 80, 0.7));
+            }
+            100% {
+                filter: drop-shadow(0 0 10px rgba(255, 235, 130, 0.95))
+                        drop-shadow(0 0 20px rgba(255, 180, 50, 0.85))
+                        drop-shadow(0 0 36px rgba(255, 120, 35, 0.65))
+                        drop-shadow(0 0 55px rgba(240, 80, 60, 0.45));
+            }
         }
         .name-char:hover {
-            transform: translateY(-8px) scale(1.18) rotate(-3deg);
-            filter: drop-shadow(0 0 16px rgba(245, 200, 66, 0.9)) drop-shadow(0 0 25px rgba(244, 114, 182, 0.7));
+            transform: translateY(-10px) scale(1.24) rotate(-3deg);
+            filter: drop-shadow(0 0 22px rgba(255, 255, 255, 1.0))
+                    drop-shadow(0 0 45px rgba(255, 215, 64, 1.0))
+                    drop-shadow(0 0 80px rgba(255, 130, 40, 0.95))
+                    drop-shadow(0 0 115px rgba(255, 80, 120, 0.75));
+            animation-play-state: paused;
+        }
+
+        /* Profile Name Wrapper — Radiant Ambient Aura */
+        .profile-name-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .profile-name-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 215, 64, 0.1) 8%,
+                rgba(255, 215, 64, 0.9) 30%,
+                rgba(255, 255, 255, 1.0) 50%,
+                rgba(255, 215, 64, 0.9) 70%,
+                rgba(255, 215, 64, 0.1) 92%,
+                transparent 100%
+            );
+            border-radius: 9999px;
+            box-shadow: 0 0 16px rgba(255, 215, 64, 0.95), 0 0 32px rgba(255, 140, 50, 0.7);
+            animation: nameUnderlineGlow 4s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes nameUnderlineGlow {
+            0%   { opacity: 0.55; transform: scaleX(0.75); }
+            50%  { opacity: 1.0;  transform: scaleX(1.08); }
+            100% { opacity: 0.75; transform: scaleX(0.88); }
+        }
+
+        /* Ambient Radiant Halo Behind Profile Name */
+        .profile-name-halo {
+            position: absolute;
+            inset: -25px -40px;
+            background: radial-gradient(ellipse at center, rgba(255, 215, 64, 0.38) 0%, rgba(255, 150, 50, 0.22) 42%, rgba(220, 80, 110, 0.09) 68%, transparent 85%);
+            border-radius: 50%;
+            filter: blur(25px);
+            animation: nameHaloPulse 6s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: -1;
+        }
+        @keyframes nameHaloPulse {
+            0%   { opacity: 0.6; transform: scale(0.92); }
+            100% { opacity: 1.0; transform: scale(1.12); }
         }
 
         /* Shimmer Button */
@@ -1118,28 +1430,55 @@
         <div class="astrolabe-orbit astrolabe-orbit-1"></div>
         <div class="astrolabe-orbit astrolabe-orbit-2"></div>
 
-        <!-- Major Planet: Golden Ringed Celestial Giant (Kepler/Saturn-Class) -->
-        <div class="celestial-planet-ringed" id="planet-major">
-            <div class="planet-sphere-ringed"></div>
-            <div class="planet-rings"></div>
-            <div class="orbiting-moon-orbit">
-                <div class="orbiting-moon"></div>
+        <!-- 1. Major Kepler-Class Golden Saturn (Top-Right Giant) -->
+        <div class="saturn-planet saturn-gold" id="planet-major" title="Kepler Golden Ringed Saturn">
+            <div class="saturn-body"></div>
+            <div class="saturn-rings-disk"></div>
+            <div class="saturn-orbit-track">
+                <div class="saturn-orbit-moon"></div>
             </div>
         </div>
 
-        <!-- Secondary Planet: Warm Terracotta Crescent Exoplanet -->
-        <div class="celestial-planet-terrestrial" id="planet-minor">
-            <div class="planet-sphere-terrestrial"></div>
+        <!-- 2. Copper / Terracotta Mini Saturn (Mid-Left Floating) -->
+        <div class="saturn-planet saturn-copper" title="Sunset Copper Saturn">
+            <div class="saturn-body"></div>
+            <div class="saturn-rings-disk"></div>
         </div>
 
-        <!-- Small Background Celestial Planets & Exoplanet Moons -->
-        <div class="celestial-small-planet-1" title="Lunar Crescent Moonlet"></div>
-        <div class="celestial-small-planet-2" title="Rust Terrestrial Dwarf"></div>
-        <div class="celestial-small-planet-3" title="Golden Ringed Exoplanet">
-            <div class="small-sphere"></div>
-            <div class="small-ring"></div>
+        <!-- 3. Amethyst / Lilac Mini Saturn (Lower-Right) -->
+        <div class="saturn-planet saturn-violet" title="Cosmic Lilac Saturn">
+            <div class="saturn-body"></div>
+            <div class="saturn-rings-disk"></div>
         </div>
-        <div class="celestial-small-planet-4" title="Azure Crystal Exoplanet"></div>
+
+        <!-- 4. Aquamarine Ice Giant Saturn (Lower-Left) -->
+        <div class="saturn-planet saturn-cyan" title="Aquamarine Ice Giant Saturn">
+            <div class="saturn-body"></div>
+            <div class="saturn-rings-disk"></div>
+        </div>
+
+        <!-- 5. Petite Honey Saturn (Top-Left) -->
+        <div class="saturn-planet saturn-petite-gold" title="Petite Golden Saturn">
+            <div class="saturn-body"></div>
+            <div class="saturn-rings-disk"></div>
+        </div>
+
+        <!-- Terrestrial Cratered Exoplanet & Lunar Moons -->
+        <div class="celestial-planet-terrestrial" id="planet-minor" title="Warm Terracotta Planet">
+            <div class="planet-sphere-terrestrial"></div>
+        </div>
+        <div class="celestial-small-planet-1" title="Lunar Crescent Moonlet"></div>
+        <div class="celestial-small-planet-2" title="Rust Dwarf Exoplanet"></div>
+
+        <!-- 4-Pointed Luminous Cross Sparkle Stars -->
+        <div class="cosmic-sparkle-star star-pos-1"><div class="star-center-flare"></div></div>
+        <div class="cosmic-sparkle-star star-pos-2"><div class="star-center-flare"></div></div>
+        <div class="cosmic-sparkle-star star-pos-3"><div class="star-center-flare"></div></div>
+        <div class="cosmic-sparkle-star star-pos-4"><div class="star-center-flare"></div></div>
+        <div class="cosmic-sparkle-star star-pos-5"><div class="star-center-flare"></div></div>
+        <div class="cosmic-sparkle-star star-pos-6"><div class="star-center-flare"></div></div>
+        <div class="cosmic-sparkle-star star-pos-7"><div class="star-center-flare"></div></div>
+        <div class="cosmic-sparkle-star star-pos-8"><div class="star-center-flare"></div></div>
 
         <!-- Distant Pulsing Celestial Stars -->
         <div class="celestial-dwarf-star"></div>
@@ -1330,10 +1669,11 @@
                             <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
                         </div>
 
-                        <!-- Kinetic Staggered Name -->
-                        <div class="relative inline-block">
+                        <!-- Kinetic Staggered Name — Golden Celestial Shimmer -->
+                        <div class="relative inline-block profile-name-wrapper">
+                            <div class="profile-name-halo"></div>
                             <h1 id="profile-name" data-editable="name" class="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
-                                <!-- Kinetic characters rendered via JS -->
+                                <!-- Kinetic golden shimmer characters rendered via JS -->
                                 Nandhini Sivakumar
                             </h1>
                         </div>
@@ -2477,20 +2817,43 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 1.6 + 0.4;
-                this.baseAlpha = Math.random() * 0.65 + 0.25;
+                this.size = Math.random() * 2.2 + 0.5;
+                this.baseAlpha = Math.random() * 0.75 + 0.25;
                 this.twinkleSpeed = Math.random() * 0.04 + 0.012;
                 this.phase = Math.random() * Math.PI * 2;
+                this.isSparkle = Math.random() < 0.28; // 28% are 4-pointed sparkle stars
+                const hues = [
+                    'rgba(255, 248, 220, ',
+                    'rgba(255, 225, 120, ',
+                    'rgba(255, 190, 110, ',
+                    'rgba(210, 240, 255, ',
+                    'rgba(235, 210, 255, ',
+                    'rgba(255, 255, 255, '
+                ];
+                this.hue = hues[Math.floor(Math.random() * hues.length)];
             }
             update() {
                 this.phase += this.twinkleSpeed;
             }
             draw() {
-                const alpha = this.baseAlpha * (0.45 + 0.55 * Math.sin(this.phase));
-                ctx.fillStyle = `rgba(255, 245, 220, ${alpha})`;
+                const alpha = this.baseAlpha * (0.35 + 0.65 * Math.sin(this.phase));
+                const currentSize = this.size * (0.8 + 0.35 * Math.sin(this.phase));
+                ctx.fillStyle = this.hue + alpha + ')';
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.arc(this.x, this.y, Math.max(0.5, currentSize), 0, Math.PI * 2);
                 ctx.fill();
+
+                if (this.isSparkle && alpha > 0.45) {
+                    const spikeLen = currentSize * 4.2;
+                    ctx.strokeStyle = this.hue + (alpha * 0.8) + ')';
+                    ctx.lineWidth = 0.75;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x - spikeLen, this.y);
+                    ctx.lineTo(this.x + spikeLen, this.y);
+                    ctx.moveTo(this.x, this.y - spikeLen);
+                    ctx.lineTo(this.x, this.y + spikeLen);
+                    ctx.stroke();
+                }
             }
         }
 
@@ -2506,13 +2869,13 @@
             for (let i = 0; i < Math.min(count, 70); i++) {
                 particles.push(new Particle());
             }
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 5; i++) {
                 meteors.push(new Meteor());
             }
             for (let i = 0; i < 14; i++) {
                 bokehOrbs.push(new BokehOrb());
             }
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 95; i++) {
                 celestialStars.push(new TwinklingStar());
             }
         }
