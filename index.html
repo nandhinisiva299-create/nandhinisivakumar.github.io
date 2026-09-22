@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandhini Sivakumar — Innovation Engineer Trainee, Storyteller & Baker | Portfolio</title>
+    <title>Nandhini Sivakumar — Innovation Engineer Trainee, Blogger & Baker | Portfolio</title>
     <meta name="description" content="Personal portfolio of Nandhini Sivakumar — Innovation Engineer Trainee at PRICE ProtoSem, B.Com PA Scholar (CGPA 8.5), Blogger, Photographer, and Baker. Explore the 21-Week ProtoSem Innovation Roadmap, essays, and creative work.">
     
     <!-- Warm Editorial & Handwritten Google Fonts -->
@@ -174,10 +174,10 @@
             <!-- Brand Logo -->
             <a href="#home" class="group flex items-center gap-2">
                 <span class="font-editorial text-2xl font-bold tracking-tight text-espresso-900 group-hover:text-terracotta-600 transition-colors">
-                    Nandhini<span class="text-terracotta-500 font-serif italic text-3xl leading-none">.</span>
+                    Nandhini Sivakumar<span class="text-terracotta-500 font-serif italic text-3xl leading-none">.</span>
                 </span>
                 <span class="hidden md:inline-block font-hand text-lg text-sage-600 font-semibold tracking-wide transform -rotate-3 ml-1">
-                    innovation trainee & storyteller
+                    innovation engineer trainee & blogger
                 </span>
             </a>
 
@@ -247,7 +247,7 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 sm:space-y-32 py-10 sm:py-16">
 
         <!-- ========================================================================= -->
-        <!-- 1. HERO SECTION (SQUARE PROFILE, DEDICATED QUOTE, PROTOSEM BADGE)        -->
+        <!-- 1. HERO SECTION (SQUARE PROFILE, PHOTO EDIT, CAMERA POLAROID)            -->
         <!-- ========================================================================= -->
         <section id="home" class="relative pt-4 pb-8 sm:py-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -270,7 +270,7 @@
                     <div class="space-y-3">
                         <h1 class="font-editorial text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-espresso-900 leading-[1.08]">
                             Hi, I'm <span class="italic font-serif text-terracotta-600 relative inline-block">
-                                Nandhini.
+                                Nandhini Sivakumar.
                                 <svg class="absolute -bottom-2 left-0 w-full text-honey-400 opacity-60 pointer-events-none" viewBox="0 0 200 12" fill="none">
                                     <path d="M2 9C50 3 150 3 198 9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
                                 </svg>
@@ -283,7 +283,7 @@
 
                     <!-- Narrative Subtext -->
                     <p class="text-sm sm:text-base text-espresso-600 leading-relaxed font-normal max-w-xl">
-                        B.Com (Professional Accounting) scholar & Innovation Engineer Trainee at <strong>PRICE ProtoSem</strong>. Blending rigorous financial thinking with thoughtful storytelling, 35mm photography, and artisanal baking craft.
+                        B.Com (Professional Accounting) scholar & Innovation Engineer Trainee at <strong>PRICE ProtoSem</strong>. Blending rigorous financial thinking with thoughtful essays, 35mm film photography, and artisanal baking craft.
                     </p>
 
                     <!-- Dedicated Quote Placement (Square Scrapbook Card with Washi Tape) -->
@@ -327,26 +327,33 @@
                     <div class="absolute w-72 h-72 rounded-full bg-cream-200/80 blur-2xl -z-10"></div>
                     <div class="absolute -top-6 -right-6 w-48 h-48 rounded-full bg-honey-200/50 blur-2xl -z-10"></div>
 
-                    <!-- Central SQUARE Profile Picture (As requested) with Elegant Scrapbook Border -->
+                    <!-- Central SQUARE Profile Picture with Edit Option -->
                     <div class="relative z-10 w-64 sm:w-72 aspect-square rounded-2xl overflow-hidden shadow-polaroid-lg border-4 border-white transform hover:scale-102 transition-transform duration-500 bg-cream-200 group">
                         <!-- Washi tape at top of square picture -->
                         <div class="washi-tape washi-sage -top-2 left-1/2 -translate-x-1/2 transform -rotate-1"></div>
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Nandhini Sivakumar — Square Portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         
+                        <img id="profile-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Nandhini Sivakumar — Square Portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Interactive Edit Profile Photo Button -->
+                        <button onclick="openProfilePicModal()" class="absolute top-3 right-3 z-30 px-3 py-1.5 rounded-full bg-espresso-900/85 hover:bg-espresso-950 text-cream-50 text-xs font-mono font-semibold backdrop-blur-md border border-cream-200/30 shadow-lg flex items-center gap-1.5 transition-all cursor-pointer hover:scale-105" title="Change Profile Picture">
+                            <span>📷</span>
+                            <span class="text-[11px]">Edit Photo</span>
+                        </button>
+
                         <!-- Overlay Tag -->
                         <div class="absolute bottom-3 left-3 right-3 p-2.5 rounded-xl bg-white/95 backdrop-blur-sm border border-cream-300 shadow-sm">
                             <div class="font-hand text-xl text-espresso-800 font-bold">Nandhini Sivakumar ✦</div>
-                            <div class="text-[10px] font-mono text-terracotta-700 uppercase font-semibold">Innovation Trainee • Storyteller • Baker</div>
+                            <div class="text-[10px] font-mono text-terracotta-700 uppercase font-semibold">Innovation Trainee • Blogger • Baker</div>
                         </div>
                     </div>
 
-                    <!-- Scrapbook Polaroid 01: Photography (Top Right) -->
+                    <!-- Scrapbook Polaroid 01: Vintage 35mm Camera (Replacing golden hour light) -->
                     <div class="polaroid-card absolute -top-4 -right-2 sm:-right-6 p-2.5 pb-6 rounded-lg transform rotate-6 hover:rotate-0 z-20 w-40 sm:w-44 cursor-pointer group" onclick="scrollToSection('photography')">
                         <div class="washi-tape washi-terracotta -top-2.5 right-6 transform rotate-3"></div>
                         <div class="aspect-square rounded overflow-hidden mb-1.5 bg-cream-200">
-                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80" alt="Through My Lens" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+                            <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80" alt="Vintage 35mm Film Camera" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
                         </div>
-                        <p class="font-hand text-base text-espresso-800 text-center leading-tight">golden hour light 📸</p>
+                        <p class="font-hand text-base text-espresso-800 text-center leading-tight">my 35mm camera 📷</p>
                     </div>
 
                     <!-- Scrapbook Polaroid 02: Baking & Pastry (Bottom Left) -->
@@ -373,10 +380,10 @@
                     <span>✦ ABOUT ME</span>
                 </div>
                 <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
-                    A Student, Storyteller & Explorer
+                    A Student, Innovator & Explorer
                 </h2>
                 <p class="text-sm sm:text-base text-espresso-600 font-normal">
-                    Fusing analytical discipline with creative storytelling, visual composition, and hands-on innovation sprints.
+                    Fusing analytical discipline with creative blogging, visual composition, and hands-on innovation sprints.
                 </p>
             </div>
 
@@ -387,7 +394,7 @@
                     <div class="md:col-span-4 relative flex justify-center">
                         <div class="polaroid-card p-3 pb-8 rounded-xl transform -rotate-2 w-56 sm:w-64">
                             <div class="washi-tape washi-honey -top-3 left-14"></div>
-                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Nandhini with Camera" class="w-full aspect-square object-cover rounded mb-3">
+                            <img id="about-profile-img" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Nandhini with Camera" class="w-full aspect-square object-cover rounded mb-3">
                             <p class="font-hand text-xl text-center text-espresso-800">learning, creating & growing 🌱</p>
                         </div>
                     </div>
@@ -397,10 +404,10 @@
                             "Turning simple everyday moments into stories worth remembering."
                         </h3>
                         <p class="text-sm sm:text-base text-espresso-600 leading-relaxed font-normal">
-                            I am a college student pursuing <strong>Bachelor of Commerce (Professional Accounting)</strong> with an <strong>8.5 CGPA</strong>, alongside an innovation engineering fellowship at <strong>PRICE ProtoSem</strong>. Beyond spreadsheets and accounting rigor, my creative soul thrives in written essays, warm photographic frames, and pastry craft.
+                            I am a college student pursuing <strong>Bachelor of Commerce (Professional Accounting)</strong> with an <strong>8.5 CGPA</strong>, alongside an innovation engineering fellowship at <strong>PRICE ProtoSem</strong>. Beyond spreadsheets and accounting rigor, my creative soul thrives in written essays, analog camera frames, and pastry craft.
                         </p>
                         <p class="text-sm sm:text-base text-espresso-600 leading-relaxed font-normal">
-                            Whether I am documenting the transformative lessons of our 21-week innovation roadmap, waking up early to capture golden morning light, or baking a batch of browned-butter toffee sea salt cookies, I bring curiosity, discipline, and warmth to everything I build.
+                            Whether I am documenting the transformative lessons of our 21-week innovation roadmap, waking up early with my 35mm camera, or baking a batch of browned-butter toffee sea salt cookies, I bring curiosity, discipline, and warmth to everything I build.
                         </p>
                         
                         <div class="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-mono text-espresso-700">
@@ -436,7 +443,7 @@
                     <div class="font-mono text-xs font-bold text-sage-600 uppercase tracking-wider">02 • VISUAL COMPOSITION</div>
                     <h4 class="font-editorial text-xl font-bold text-espresso-900">Photography</h4>
                     <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                        Capturing unposed moments, warm golden hour tones, streetscapes, and culinary details.
+                        Capturing unposed moments, analog camera compositions, streetscapes, and culinary details.
                     </p>
                 </div>
 
@@ -718,13 +725,13 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-cream-300 pb-6 text-left">
                 <div class="space-y-2">
                     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-bold">
-                        <span>★ VISUAL STORIES</span>
+                        <span>★ VISUAL COMPOSITIONS</span>
                     </div>
                     <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
                         Through My Lens
                     </h2>
                     <p class="text-sm sm:text-base text-espresso-600 font-normal">
-                        Warm golden hour lighting, candid street compositions, macro textures, and still life.
+                        Atmospheric 35mm cameras, candid street compositions, macro textures, and natural light.
                     </p>
                 </div>
                 <div class="text-xs font-mono text-espresso-500">
@@ -937,6 +944,66 @@
     </main>
 
     <!-- ========================================================================= -->
+    <!-- PROFILE PICTURE EDIT MODAL (AS REQUESTED)                                  -->
+    <!-- ========================================================================= -->
+    <div id="profile-pic-modal" class="fixed inset-0 z-50 bg-espresso-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="closeProfilePicModal()">
+        <div class="bg-cream-50 max-w-md w-full rounded-3xl p-6 sm:p-8 border border-cream-300 shadow-2xl relative text-left" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">📷</span>
+                    <h3 class="font-editorial text-2xl font-bold text-espresso-900">Change Profile Photo</h3>
+                </div>
+                <button onclick="closeProfilePicModal()" class="text-espresso-400 hover:text-espresso-800 p-1.5 rounded-lg hover:bg-cream-200 transition-colors">✕</button>
+            </div>
+            
+            <p class="text-xs sm:text-sm text-espresso-600 mb-5 font-normal">
+                Upload your square photo from your device or paste an image link. Changes are saved automatically.
+            </p>
+
+            <div class="space-y-4">
+                <!-- Option 1: File Upload -->
+                <div class="p-3.5 rounded-2xl bg-cream-100 border border-cream-300 space-y-1.5">
+                    <label class="text-xs font-mono font-bold text-espresso-800 flex items-center gap-1.5">
+                        <span>📁</span>
+                        <span>OPTION 1: UPLOAD FROM DEVICE</span>
+                    </label>
+                    <input type="file" id="profile-file-input" accept="image/*" onchange="handleProfileFileUpload(event)" class="w-full text-xs text-espresso-700 file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-honey-500 file:text-espresso-900 hover:file:bg-honey-400 cursor-pointer">
+                </div>
+
+                <div class="relative flex items-center justify-center py-1">
+                    <div class="border-t border-cream-200 w-full"></div>
+                    <span class="bg-cream-50 px-3 text-[10px] font-mono text-espresso-400 absolute font-bold">OR</span>
+                </div>
+
+                <!-- Option 2: Image URL -->
+                <div class="p-3.5 rounded-2xl bg-cream-100 border border-cream-300 space-y-2">
+                    <label class="text-xs font-mono font-bold text-espresso-800 flex items-center gap-1.5">
+                        <span>🔗</span>
+                        <span>OPTION 2: PASTE IMAGE URL</span>
+                    </label>
+                    <div class="flex gap-2">
+                        <input type="url" id="profile-url-input" placeholder="https://example.com/photo.jpg" class="flex-1 px-3.5 py-2.5 rounded-xl bg-white border border-cream-300 text-espresso-900 focus:outline-none focus:border-terracotta-500 text-xs">
+                        <button onclick="saveProfilePicFromUrl()" class="px-4 py-2.5 rounded-xl bg-espresso-800 text-cream-50 font-semibold text-xs hover:bg-terracotta-600 transition-colors">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Actions: Reset & Close -->
+                <div class="pt-3 border-t border-cream-200 flex items-center justify-between">
+                    <button onclick="resetProfilePic()" class="text-xs font-mono text-terracotta-600 hover:underline flex items-center gap-1">
+                        <span>↺</span>
+                        <span>Reset to Default</span>
+                    </button>
+                    <button onclick="closeProfilePicModal()" class="px-5 py-2 rounded-full bg-cream-200 text-espresso-800 text-xs font-semibold hover:bg-cream-300 transition-colors">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
     <!-- PROTOSEM WEEK PREVIEW MODAL                                               -->
     <!-- ========================================================================= -->
     <div id="week-modal" class="fixed inset-0 z-50 bg-espresso-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="closeWeekModal()">
@@ -991,7 +1058,7 @@
             </div>
 
             <div class="p-4 bg-cream-100 border-t border-cream-200 flex items-center justify-between text-xs font-mono text-espresso-500">
-                <span>Story by Nandhini Sivakumar</span>
+                <span>Essay by Nandhini Sivakumar</span>
                 <button onclick="closeArticleModal()" class="px-4 py-2 rounded-full bg-espresso-800 text-cream-50 font-semibold hover:bg-terracotta-600 transition-colors">
                     Close Article
                 </button>
@@ -1078,7 +1145,7 @@
                     <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"Busyness is often the easiest excuse for avoiding what matters most."</p>
                     <p>There is a peculiar rhythm to college life. The morning bell sounds, hallways fill with the shuffle of sneakers and notebook leaves, and suddenly your planner is full before you have even had your first sip of coffee.</p>
                     <p>For months, I believed that taking on more commitments — more problem statements in ProtoSem, more student chapters, more spreadsheets — meant I was succeeding. But when every hour is accounted for, where does genuine curiosity go?</p>
-                    <p>Slow living is not about doing nothing. For me, it became the conscious decision to protect 45 minutes every evening with my camera, an unlined notebook, or a mixing bowl. That is where new ideas are born.</p>
+                    <p>Slow living is not about doing nothing. For me, it became the conscious decision to protect 45 minutes every evening with my 35mm camera, an unlined notebook, or a mixing bowl. That is where new ideas are born.</p>
                 `
             },
             {
@@ -1101,7 +1168,7 @@
                 category: "Personal Growth",
                 date: "Aug 29, 2026",
                 readTime: "3 min read",
-                image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80",
                 desc: "In an era of instant 4K smartphone bursts, shooting 36 frames on manual aperture forced me to look before I clicked.",
                 content: `
                     <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"When you only have 36 exposures, every click requires conviction."</p>
@@ -1152,10 +1219,10 @@
         ];
 
         // =========================================================================
-        // 3. PHOTOGRAPHY & BAKING GALLERIES
+        // 3. PHOTOGRAPHY & BAKING GALLERIES (VINTAGE CAMERA RESTORED)
         // =========================================================================
         const PHOTO_GALLERY = [
-            { id: 0, title: "Golden Hour Glow", category: "People", meta: "35mm • f/1.8 • 1/500s", img: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80", caption: "warm sunset highlights & candid laughter" },
+            { id: 0, title: "Vintage 35mm Rangefinder Camera", category: "Gear", meta: "35mm • Manual Focus • Analog Shutter", img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=800&q=80", caption: "my 35mm camera & analog lenses 📷" },
             { id: 1, title: "Old Heritage Archways", category: "Places", meta: "24mm • f/4.0 • 1/250s", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80", caption: "timeless textures in morning sandstone" },
             { id: 2, title: "Misty Mountain Peaks", category: "Travel", meta: "70mm • f/5.6 • 1/800s", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80", caption: "morning fog rising across tea plantations" },
             { id: 3, title: "Morning Ceramic Cup", category: "Food", meta: "50mm • f/1.4 • Natural Light", img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80", caption: "fresh dark roast & quiet desk moments" },
@@ -1336,7 +1403,63 @@
         }
 
         // =========================================================================
-        // 5. MODAL CONTROLS & INTERACTION
+        // 5. PROFILE PICTURE EDIT FUNCTIONS (PERSISTENCE VIA LOCALSTORAGE)
+        // =========================================================================
+        function openProfilePicModal() {
+            document.getElementById('profile-pic-modal').classList.remove('hidden');
+            playSynthSound('click');
+        }
+
+        function closeProfilePicModal() {
+            document.getElementById('profile-pic-modal').classList.add('hidden');
+        }
+
+        function handleProfileFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const dataUrl = e.target.result;
+                    updateProfilePic(dataUrl);
+                    localStorage.setItem('ns_custom_profile_pic', dataUrl);
+                    showToast('Profile photo updated from device! ✨', '📷');
+                    closeProfilePicModal();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function saveProfilePicFromUrl() {
+            const input = document.getElementById('profile-url-input');
+            const url = input.value.trim();
+            if (url) {
+                updateProfilePic(url);
+                localStorage.setItem('ns_custom_profile_pic', url);
+                showToast('Profile photo updated from URL! ✨', '📷');
+                input.value = '';
+                closeProfilePicModal();
+            } else {
+                showToast('Please enter a valid image link', '⚠️');
+            }
+        }
+
+        function resetProfilePic() {
+            const defaultUrl = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';
+            updateProfilePic(defaultUrl);
+            localStorage.removeItem('ns_custom_profile_pic');
+            showToast('Reset to default photo', '↺');
+            closeProfilePicModal();
+        }
+
+        function updateProfilePic(url) {
+            const img = document.getElementById('profile-img');
+            if (img) img.src = url;
+            const aboutImg = document.getElementById('about-profile-img');
+            if (aboutImg) aboutImg.src = url;
+        }
+
+        // =========================================================================
+        // 6. MODAL CONTROLS & INTERACTION
         // =========================================================================
         function openWeekModal(weekNumber) {
             const week = PROTOSEM_WEEKS.find(w => w.week === weekNumber);
@@ -1429,7 +1552,7 @@
         }
 
         // =========================================================================
-        // 6. WEB AUDIO SYNTHESIZER
+        // 7. WEB AUDIO SYNTHESIZER
         // =========================================================================
         let audioCtx = null;
         let soundEnabled = true;
@@ -1478,7 +1601,7 @@
         }
 
         // =========================================================================
-        // 7. SCROLL DYNAMICS & PROGRESS
+        // 8. SCROLL DYNAMICS & PROGRESS
         // =========================================================================
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
@@ -1506,6 +1629,12 @@
 
         // Initialize Everything on Load
         window.addEventListener('DOMContentLoaded', () => {
+            // Load custom profile picture if saved in localStorage
+            const savedPic = localStorage.getItem('ns_custom_profile_pic');
+            if (savedPic) {
+                updateProfilePic(savedPic);
+            }
+
             renderWeeks('all');
             renderBlogs('all');
             renderPhotos();
@@ -1516,6 +1645,7 @@
         // ESC key to close any open modal
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                closeProfilePicModal();
                 closeWeekModal();
                 closeArticleModal();
                 closePhotoModal();
