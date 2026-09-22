@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,11 +34,11 @@
                             950: '#050811'
                         },
                         brand: {
-                            gold: '#e2c785',
-                            indigo: '#6366f1',
-                            sky: '#38bdf8',
-                            emerald: '#10b981',
-                            dark: '#07090e'
+                            gold: '#b45309',
+                            indigo: '#4f46e5',
+                            sky: '#0284c7',
+                            emerald: '#059669',
+                            dark: '#0f172a'
                         }
                     },
                     fontFamily: {
@@ -60,12 +60,12 @@
         }
 
         body {
-            background: radial-gradient(1200px circle at 50% 0%, #111728 0%, #0a0d17 45%, #06080f 100%);
-            color: #f8fafc;
+            background: radial-gradient(1200px circle at 50% 0%, #ffffff 0%, #f8fafc 45%, #eef2f6 100%);
+            color: #0f172a;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            selection-background-color: #e2c785;
-            selection-color: #07090e;
+            selection-background-color: #fde68a;
+            selection-color: #0f172a;
         }
 
         /* Ambient Background */
@@ -80,34 +80,46 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(140px);
-            opacity: 0.22;
+            opacity: 0.35;
         }
         .aurora-1 {
             top: -10%; left: 15%;
             width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.4), rgba(226, 199, 133, 0.2), transparent 70%);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.25), rgba(99, 102, 241, 0.12), transparent 70%);
         }
         .aurora-2 {
             bottom: -10%; right: 10%;
             width: 45vw; height: 45vw;
-            background: radial-gradient(circle, rgba(226, 199, 133, 0.3), rgba(99, 102, 241, 0.15), transparent 70%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.18), rgba(212, 175, 55, 0.20), transparent 70%);
         }
 
         .dot-matrix {
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+            background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1.2px, transparent 1.2px);
             background-size: 26px 26px;
             pointer-events: none;
             z-index: 1;
         }
 
         .glass-panel {
-            background: rgba(13, 17, 26, 0.78);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(226, 199, 133, 0.16);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+
+        /* Light Mode High Contrast Text & Surfaces */
+        .text-gray-300 { color: #334155 !important; }
+        .text-gray-400 { color: #475569 !important; }
+        .text-gray-200 { color: #1e293b !important; }
+        .text-white { color: #0f172a !important; }
+        .border-white\/10, .border-white\/15, .border-white\/5 {
+            border-color: rgba(203, 213, 225, 0.7) !important;
+        }
+        .bg-white\/5, .bg-white\/[0.03] {
+            background-color: rgba(248, 250, 252, 0.9) !important;
         }
 
         /* ATS Print Optimization Styles */
@@ -165,8 +177,8 @@
             background-size: cover;
             background-position: center 25%;
             background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=2000&q=85');
-            opacity: 0.44;
-            filter: saturate(1.24) contrast(1.12) brightness(0.90) sepia(0.20);
+            opacity: 0.12;
+            filter: saturate(1.2) contrast(1.05) brightness(1.02);
             animation: slowPanPhoto 32s ease-in-out infinite alternate;
             transform: translate3d(calc(var(--bg-mouse-x, 0) * -30px), calc(var(--bg-mouse-y, 0) * -30px), 0);
             transition: opacity 0.8s ease, filter 0.8s ease, transform 0.15s ease-out;
@@ -181,8 +193,7 @@
         .backdrop-dark-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 25%, rgba(28, 15, 8, 0.50) 0%, rgba(18, 10, 5, 0.70) 50%, rgba(10, 5, 2, 0.86) 100%);
-            mix-blend-mode: multiply;
+            background: radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.70) 0%, rgba(248, 250, 252, 0.88) 50%, rgba(241, 245, 249, 0.96) 100%);
         }
 
         /* Warm Light Bloom & Ambient Sunbeam Flare */
@@ -641,28 +652,21 @@
         .star-pos-5 { top: 78%; left: 16%; animation-duration: 5.8s; }
         .star-pos-6 { top: 92%; right: 18%; animation-duration: 3.9s; }
 
-        /* Glowing Name Effect for Resume - Refined Subtle Glow */
+        /* Glowing Name Effect for Resume - Executive Light Mode Slate & Gold */
         .resume-glowing-name {
-            background: linear-gradient(135deg, #ffffff 0%, #fff7d6 15%, #ffe066 35%, #ffd54f 60%, #e5a950 85%, #ffffff 100%) !important;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #92400e 65%, #b45309 85%, #0f172a 100%) !important;
             background-size: 250% 250% !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
-            filter: drop-shadow(0 0 4px rgba(245, 200, 66, 0.35))
-                    drop-shadow(0 0 10px rgba(229, 169, 80, 0.18)) !important;
-            animation: resumeNameGlow 4s ease-in-out infinite alternate !important;
+            filter: drop-shadow(0 2px 8px rgba(180, 83, 9, 0.20)) !important;
+            animation: resumeNameGlow 6s ease-in-out infinite alternate !important;
         }
         @keyframes resumeNameGlow {
             0% {
-                filter: drop-shadow(0 0 3px rgba(245, 200, 66, 0.25))
-                        drop-shadow(0 0 8px rgba(229, 169, 80, 0.15));
-            }
-            50% {
-                filter: drop-shadow(0 0 5px rgba(255, 220, 100, 0.40))
-                        drop-shadow(0 0 12px rgba(245, 200, 66, 0.22));
+                background-position: 0% 50%;
             }
             100% {
-                filter: drop-shadow(0 0 3px rgba(245, 200, 66, 0.25))
-                        drop-shadow(0 0 8px rgba(229, 169, 80, 0.15));
+                background-position: 100% 50%;
             }
         }
 
