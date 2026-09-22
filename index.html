@@ -175,25 +175,37 @@
             100% { transform: translate(40px, -50px) scale(0.95); }
         }
 
-        /* Executive Grid & Cursor Spotlight */
+        /* Executive Grid & Cursor Spotlight (Luxury Architectural Mesh) */
         .executive-grid-pattern {
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1.2px, transparent 1.2px);
-            background-size: 28px 28px;
-            mask-image: radial-gradient(ellipse at 50% 25%, black 45%, transparent 85%);
-            -webkit-mask-image: radial-gradient(ellipse at 50% 25%, black 45%, transparent 85%);
+            background-image: 
+                linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+                radial-gradient(rgba(217, 119, 6, 0.12) 1.5px, transparent 1.5px);
+            background-size: 36px 36px, 36px 36px, 72px 72px;
+            mask-image: radial-gradient(ellipse at 50% 30%, black 55%, transparent 92%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 55%, transparent 92%);
             pointer-events: none;
             z-index: 0;
-            opacity: 0.85;
+            opacity: 0.90;
+        }
+        /* Archival Silk Grain Texture Overlay */
+        .executive-grain-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            mix-blend-mode: multiply;
         }
         .cursor-spotlight-beam {
             position: fixed;
             inset: 0;
             background: radial-gradient(
-                700px circle at var(--mouse-x, 50%) var(--mouse-y, 30%),
-                rgba(212, 175, 55, 0.08) 0%,
-                rgba(99, 102, 241, 0.035) 45%,
+                750px circle at var(--mouse-x, 50%) var(--mouse-y, 30%),
+                rgba(217, 119, 6, 0.09) 0%,
+                rgba(99, 102, 241, 0.04) 45%,
                 transparent 70%
             );
             pointer-events: none;
@@ -265,27 +277,20 @@
         /* PROFILE PICTURE SLIDE-IN ENTRANCE ON PAGE OPEN                            */
         /* ========================================================================= */
         .profile-avatar-slide-wrapper {
-            animation: profilePicSlideOpen 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.25s backwards;
+            animation: profilePicSlideOpen 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
             will-change: transform, opacity, filter;
         }
 
         @keyframes profilePicSlideOpen {
             0% {
                 opacity: 0;
-                transform: translate3d(90px, 0, 0) scale(0.78) rotate(9deg);
-                filter: blur(14px) brightness(0.6);
-            }
-            60% {
-                opacity: 1;
-                filter: blur(0px) brightness(1.15);
-            }
-            85% {
-                transform: translate3d(-6px, 0, 0) scale(1.02) rotate(-1deg);
+                transform: translate3d(-25px, 0, 0) scale(0.94);
+                filter: blur(8px);
             }
             100% {
                 opacity: 1;
-                transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
-                filter: blur(0px) brightness(1);
+                transform: translate3d(0, 0, 0) scale(1);
+                filter: blur(0px);
             }
         }
 
@@ -710,6 +715,7 @@
 
     <!-- Executive Architectural Backdrop Layers -->
     <div class="executive-grid-pattern"></div>
+    <div class="executive-grain-overlay"></div>
     <div class="cursor-spotlight-beam"></div>
 
     <!-- Ambient Subtle Luxury Aurora -->
@@ -804,117 +810,144 @@
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
 
                     <!-- ========================================================= -->
-                    <!-- LEFT SIDE: LEADERSHIP QUOTES, PHILOSOPHY & MANTRA         -->
+                    <!-- LEFT COLUMN: SQUARE AVATAR, NAME, BADGE & ACTION BUTTONS -->
                     <!-- ========================================================= -->
-                    <div class="md:col-span-6 lg:col-span-6 flex flex-col items-start text-left space-y-5 reveal-slide-left stagger-1">
+                    <div class="md:col-span-7 flex flex-col justify-between space-y-6 text-left reveal-slide-left stagger-1">
                         
-                        <!-- Guiding Philosophy Section Header -->
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-600/30 text-amber-900 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-                            <span class="w-2 h-2 rounded-full bg-amber-600 animate-ping"></span>
-                            <span>✦ GUIDING PHILOSOPHY & MINDSET</span>
-                        </div>
-
-                        <!-- Core Life Mantra Tagline -->
-                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/90 border border-amber-500/30 text-amber-900 text-sm sm:text-base font-serif italic shadow-sm hover:border-amber-600 transition-colors">
-                            <span class="text-amber-600 text-base">🌱</span>
-                            <span id="hero-mantra" data-editable="mantra" class="mantra-shimmer-text font-serif italic">"Growing through every experience"</span>
-                        </div>
-
-                        <!-- Inspiring Leadership Quote Card (Indra Nooyi) -->
-                        <div class="glass-panel p-5 sm:p-6 rounded-2xl border border-amber-500/30 relative overflow-hidden w-full text-left shadow-[0_15px_35px_rgba(15,23,42,0.06)] group hover:border-amber-500/70 transition-all">
-                            <!-- Large decorative ambient quotation mark with pulse glow -->
-                            <div class="absolute -top-6 -left-3 text-7xl font-serif select-none pointer-events-none quote-mark-glow">“</div>
-                            
-                            <div class="relative z-10 space-y-3">
-                                <div class="text-[10px] font-mono uppercase text-amber-800 tracking-widest font-bold flex items-center gap-1.5">
-                                    <span>LEADERSHIP ANCHOR</span>
-                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
-                                </div>
-                                
-                                <p id="hero-quote-text" data-editable="quote_text" class="text-lg sm:text-xl md:text-2xl font-bold font-serif quote-shimmer-text italic leading-snug">
-                                    "Whatever you do, throw yourself into it."
-                                </p>
-                                
-                                <div class="flex items-center gap-2 text-xs font-mono text-amber-800 font-semibold pt-2 border-t border-amber-500/20">
-                                    <span class="w-4 h-[1px] bg-amber-600"></span>
-                                    <span id="hero-quote-author" data-editable="quote_author" class="tracking-wider uppercase font-bold">Indra Nooyi</span>
-                                    <span class="text-slate-600 font-normal hidden sm:inline">• Global Leader & Mentor</span>
-                                </div>
+                        <!-- Top Dynamic Role Badge -->
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-900 text-xs sm:text-sm font-bold tracking-wide shadow-[0_2px_10px_rgba(217,119,6,0.12)]">
+                                <span class="w-2 h-2 rounded-full bg-amber-600 animate-ping"></span>
+                                <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
                             </div>
                         </div>
 
+                        <!-- Profile Header: Square Avatar + Grand Name & Credentials -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
+                            
+                            <!-- Executive Square Avatar with Architectural Gold Accents -->
+                            <div class="relative flex-shrink-0 group cursor-pointer profile-avatar-slide-wrapper" onclick="triggerAvatarUpload(event)" title="Click to Change Photo">
+                                <!-- Ambient backlight luxury aura -->
+                                <div class="absolute -inset-2.5 rounded-2xl bg-gradient-to-tr from-amber-400/40 via-amber-200/30 to-indigo-300/30 blur-lg group-hover:blur-xl opacity-75 transition-all duration-500"></div>
+
+                                <!-- Outer architectural luxury border frame -->
+                                <div class="absolute -inset-1.5 rounded-2xl border-2 border-amber-600/35 group-hover:border-amber-600/80 pointer-events-none transition-all"></div>
+
+                                <!-- Architectural vintage corner brackets -->
+                                <div class="absolute -top-2 -left-2 w-3.5 h-3.5 border-t-2 border-l-2 border-amber-600 z-20 pointer-events-none"></div>
+                                <div class="absolute -top-2 -right-2 w-3.5 h-3.5 border-t-2 border-r-2 border-amber-600 z-20 pointer-events-none"></div>
+                                <div class="absolute -bottom-2 -left-2 w-3.5 h-3.5 border-b-2 border-l-2 border-amber-600 z-20 pointer-events-none"></div>
+                                <div class="absolute -bottom-2 -right-2 w-3.5 h-3.5 border-b-2 border-r-2 border-amber-600 z-20 pointer-events-none"></div>
+
+                                <!-- Square Profile Image Box -->
+                                <div class="relative overflow-hidden rounded-xl shadow-2xl border-2 border-white aspect-square w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-slate-50">
+                                    <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=f8fafc&color=92400e&size=256&bold=true" alt="Nandhini Sivakumar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                    
+                                    <!-- Hover "Change Photo" Overlay -->
+                                    <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-mono font-bold z-10 backdrop-blur-[2px]">
+                                        <span class="text-base">📷</span>
+                                        <span>Change Photo</span>
+                                    </div>
+                                </div>
+
+                                <!-- Active Status Indicator Badge -->
+                                <div class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-emerald-600 text-white font-mono text-[9px] font-bold border-2 border-white shadow-md flex items-center gap-1 z-20">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                                    <span>FELLOW</span>
+                                </div>
+                            </div>
+
+                            <!-- Name & Positioning Block -->
+                            <div class="space-y-2">
+                                <div class="relative inline-block profile-name-wrapper">
+                                    <div class="profile-name-halo"></div>
+                                    <h1 id="profile-name" data-editable="name" class="font-display font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
+                                        Nandhini Sivakumar
+                                    </h1>
+                                </div>
+
+                                <div class="text-xs sm:text-sm text-amber-900 font-serif font-semibold flex items-center gap-2">
+                                    <span>B.Com (PA) Scholar</span>
+                                    <span class="text-amber-500">•</span>
+                                    <span>CGPA 8.5</span>
+                                    <span class="text-amber-500">•</span>
+                                    <span>PRICE ProtoSem Trainee</span>
+                                </div>
+
+                                <p class="text-xs text-slate-600 font-mono">
+                                    Financial Accounting • Phygital Prototyping • MSME Analytics
+                                </p>
+                            </div>
+
+                        </div>
+
                         <!-- Dynamic Typed Subtitle Stream -->
-                        <div class="w-full glass-panel-subtle p-3.5 rounded-xl border border-amber-500/20 flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 font-serif italic">
+                        <div class="w-full glass-panel-subtle p-3 rounded-xl border border-amber-500/25 flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 font-serif italic shadow-sm">
                             <span class="text-amber-600 text-base font-normal">✦</span>
                             <span id="typed"></span>
                         </div>
 
-                        <!-- Reflective Subtext Note -->
-                        <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                            Fusing classical commerce accounting discipline with creative visual storytelling and rapid phygital prototypes.
-                        </p>
-                    </div>
-
-                    <!-- ========================================================= -->
-                    <!-- RIGHT SIDE: PROFILE AVATAR, NAME, BADGE & ACTION BUTTONS   -->
-                    <!-- ========================================================= -->
-                    <div class="md:col-span-6 lg:col-span-6 flex flex-col items-center md:items-end text-center md:text-right space-y-5 reveal-slide-right stagger-2">
-                        
-                        <!-- Avatar with Executive Concentric Gold & Indigo Ring -->
-                        <div class="relative inline-block group cursor-pointer profile-avatar-slide-wrapper" onclick="triggerAvatarUpload(event)">
-                            <!-- Subtle Ambient Backlight Glow -->
-                            <div class="absolute -inset-3 rounded-full bg-gradient-to-r from-amber-400 via-indigo-300 to-sky-300 opacity-40 blur-xl group-hover:opacity-75 transition-all duration-500"></div>
-                            
-                            <!-- Executive Concentric Metallic Border -->
-                            <div class="absolute -inset-1.5 rounded-full border border-amber-500/50 pointer-events-none group-hover:scale-105 transition-transform"></div>
-
-                            <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=f1f5f9&color=9a7424&size=256&bold=true" alt="Nandhini Sivakumar" class="relative rounded-full w-28 h-28 sm:w-36 sm:h-36 object-cover shadow-2xl border-4 border-white transition-transform duration-300 group-hover:scale-105">
-                            
-                            <!-- Hover "Change Photo" Overlay -->
-                            <div class="absolute inset-0 rounded-full bg-slate-900/65 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-mono font-bold z-10 backdrop-blur-[2px]">
-                                <span class="text-base">📷</span>
-                                <span>Change Photo</span>
-                            </div>
-
-                            <!-- Active Status Indicator -->
-                            <div class="absolute bottom-1 right-1 w-6 h-6 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-[10px] text-white font-bold shadow-lg z-20" title="Active Fellow">
-                                ✓
-                            </div>
-                        </div>
-
-                        <!-- Top Dynamic Role Badge -->
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-900 text-xs sm:text-sm font-bold tracking-wide shadow-[0_2px_10px_rgba(217,119,6,0.12)]">
-                            <span class="w-2 h-2 rounded-full bg-amber-600 animate-ping"></span>
-                            <span id="profile-role-badge" data-editable="role_badge">✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
-                        </div>
-
-                        <!-- Kinetic Staggered Name — Golden Celestial Shimmer -->
-                        <div class="relative inline-block profile-name-wrapper">
-                            <div class="profile-name-halo"></div>
-                            <h1 id="profile-name" data-editable="name" class="font-display font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
-                                <!-- Kinetic golden shimmer characters rendered via JS -->
-                                Nandhini Sivakumar
-                            </h1>
-                        </div>
-
-                        <p class="text-xs sm:text-sm text-slate-700 font-mono font-medium">
-                            B.Com (PA) Scholar • Visual Photographer • PRICE ProtoSem Fellow
-                        </p>
-
                         <!-- Core Call to Action Buttons -->
-                        <div class="flex flex-wrap justify-center md:justify-end items-center gap-2.5 sm:gap-3 w-full pt-2">
+                        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-1">
                             <a href="#protosem" class="btn-shimmer px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 font-bold text-xs sm:text-sm shadow-[0_4px_20px_rgba(217,119,6,0.25)] hover:scale-105 hover:shadow-[0_4px_25px_rgba(217,119,6,0.4)] transition-all flex items-center gap-1.5">
-                                <span>⚡ Explore ProtoSem</span>
-                            </a>
-                            <a href="zero-week.html" class="btn-shimmer px-4 py-2.5 rounded-full glass-panel border border-amber-600/30 text-amber-900 font-bold text-xs sm:text-sm hover:bg-amber-50 transition-all flex items-center gap-1.5">
-                                <span>📖 Zero Week</span>
+                                <span>⚡ Explore ProtoSem (21 Wks)</span>
                             </a>
                             <a href="resume.html" class="px-4 py-2.5 rounded-full glass-panel border border-slate-300 text-slate-800 font-bold text-xs sm:text-sm hover:bg-slate-100 transition-all flex items-center gap-1">
                                 <span>📄 ATS Resume</span>
                             </a>
+                            <a href="zero-week.html" class="btn-shimmer px-4 py-2.5 rounded-full glass-panel border border-amber-600/30 text-amber-900 font-bold text-xs sm:text-sm hover:bg-amber-50 transition-all flex items-center gap-1.5">
+                                <span>📖 Zero Week</span>
+                            </a>
                             <a id="profile-email-btn" href="mailto:nandhinisiva299@gmail.com" class="px-4 py-2.5 rounded-full glass-panel border border-indigo-400/40 text-indigo-700 font-bold text-xs sm:text-sm hover:bg-indigo-50 transition-all flex items-center gap-1">
                                 <span>💬 Connect</span>
                             </a>
+                        </div>
+
+                    </div>
+
+                    <!-- ========================================================= -->
+                    <!-- RIGHT COLUMN: EXECUTIVE QUOTE & LEADERSHIP SHOWCASE CARD  -->
+                    <!-- ========================================================= -->
+                    <div class="md:col-span-5 flex flex-col reveal-slide-right stagger-2">
+                        
+                        <div class="glass-panel p-6 sm:p-7 rounded-3xl border border-amber-500/35 relative overflow-hidden flex flex-col justify-between h-full shadow-[0_20px_45px_rgba(15,23,42,0.06)] group hover:border-amber-500/70 transition-all">
+                            <!-- Large decorative ambient quotation mark with pulse glow -->
+                            <div class="absolute -top-5 -left-2 text-8xl font-serif select-none pointer-events-none quote-mark-glow opacity-25">“</div>
+                            
+                            <!-- Top Card Header -->
+                            <div class="relative z-10 flex items-center justify-between gap-2 mb-4 pb-3 border-b border-amber-500/20">
+                                <div class="text-[10px] font-mono uppercase text-amber-900 tracking-widest font-bold flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                                    <span>EXECUTIVE LEADERSHIP ANCHOR</span>
+                                </div>
+                                <span class="text-[10px] text-amber-700 font-mono font-bold">✦ MENTORSHIP</span>
+                            </div>
+
+                            <!-- Main Quote Body (Indra Nooyi) -->
+                            <div class="relative z-10 space-y-4 my-auto">
+                                <blockquote id="hero-quote-text" data-editable="quote_text" class="text-xl sm:text-2xl font-bold font-serif quote-shimmer-text italic leading-snug">
+                                    "Whatever you do, throw yourself into it."
+                                </blockquote>
+                                
+                                <div class="flex items-center gap-3 pt-3 border-t border-amber-500/20">
+                                    <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-600/40 flex items-center justify-center text-amber-900 font-serif font-black text-sm shadow-sm">
+                                        IN
+                                    </div>
+                                    <div>
+                                        <div id="hero-quote-author" data-editable="quote_author" class="font-mono text-xs font-bold text-amber-950 uppercase tracking-wider">Indra Nooyi</div>
+                                        <div class="text-[11px] text-slate-600 font-sans">Global Business Leader & Mentor</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Guiding Personal Life Mantra -->
+                            <div class="relative z-10 mt-5 pt-4 border-t border-amber-500/20 space-y-2">
+                                <div class="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-bold">Guiding Life Mantra</div>
+                                <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-950 text-xs sm:text-sm font-serif italic w-full">
+                                    <span class="text-amber-600 text-sm">🌱</span>
+                                    <span id="hero-mantra" data-editable="mantra" class="mantra-shimmer-text font-serif italic">"Growing through every experience"</span>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
