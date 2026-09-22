@@ -249,12 +249,56 @@
             50% { transform: translateY(-20px) rotate(10deg); }
             100% { transform: translateY(-40px) rotate(-8deg); }
         }
+        /* Authentic Editorial Scrapbook Image Background Layer */
+        .scrapbook-bg-layer {
+            position: fixed;
+            inset: 0;
+            background-image: url('scrapbook_bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            opacity: 0.17;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+            z-index: 1;
+            filter: contrast(1.08) saturate(1.15);
+        }
+
+        /* Subtle Notebook Blueprint Grid Pattern */
+        .notebook-grid {
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(82, 67, 59, 0.13) 0.85px, transparent 0.85px);
+            background-size: 26px 26px;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.35;
+        }
+
+        /* Vintage Postmark Stamp Design */
+        .vintage-stamp {
+            border: 2px dashed rgba(200, 125, 85, 0.45);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            user-select: none;
+            pointer-events: none;
+            transition: transform 0.5s ease;
+        }
     </style>
 </head>
 <body class="relative min-h-screen text-espresso-800 antialiased selection:bg-terracotta-200 selection:text-espresso-900">
 
     <!-- Paper Texture Overlay -->
     <div class="paper-grain"></div>
+
+    <!-- Authentic Editorial Scrapbook Image Background Layer -->
+    <div class="scrapbook-bg-layer"></div>
+
+    <!-- Notebook Grid Subtle Overlay -->
+    <div class="notebook-grid"></div>
 
     <!-- Dynamic Ambient Floating Orbs Layer -->
     <div class="ambient-canvas">
@@ -366,6 +410,17 @@
         <!-- 1. HERO SECTION (SQUARE PROFILE, PHOTO EDIT, CAMERA POLAROID)            -->
         <!-- ========================================================================= -->
         <section id="home" class="relative pt-4 pb-8 sm:py-12">
+            <!-- Vintage Postal Stamp Background Design -->
+            <div class="vintage-stamp w-32 h-32 absolute -top-4 right-10 transform -rotate-12 opacity-35 hidden xl:flex z-10 pointer-events-none">
+                <div class="w-28 h-28 rounded-full border border-terracotta-400/60 flex flex-col items-center justify-center font-mono text-[8px] text-terracotta-700 tracking-wider">
+                    <span class="font-bold text-[9px]">PRICE PROTOSEM</span>
+                    <span class="text-terracotta-500 my-0.5">★ AIR MAIL ★</span>
+                    <span class="text-[7px]">INNOVATION • 2026</span>
+                    <div class="w-10 h-0.5 bg-terracotta-400/40 my-1"></div>
+                    <span class="font-hand text-xs text-terracotta-800">Sprint Certified</span>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
                 <!-- Left Column: Copy & Narrative -->
@@ -593,8 +648,22 @@
         <!-- ========================================================================= -->
         <!-- 3. PROTOSEM 21-WEEK INTERACTIVE ROADMAP (WEEKS 00 TO 20)                  -->
         <!-- ========================================================================= -->
-        <section id="protosem" class="relative bg-cream-50 rounded-3xl p-6 sm:p-10 md:p-12 border-2 border-honey-400/50 shadow-scrapbook space-y-8 reveal-item">
+        <section id="protosem" class="relative bg-cream-50 rounded-3xl p-6 sm:p-10 md:p-12 border-2 border-honey-400/50 shadow-scrapbook space-y-8 reveal-item overflow-hidden">
             
+            <!-- Innovation Lab Postmark Watermark -->
+            <div class="absolute -bottom-8 -right-8 pointer-events-none opacity-20 transform rotate-12 hidden lg:block z-0">
+                <svg width="240" height="240" viewBox="0 0 200 200" fill="none" class="text-terracotta-600">
+                    <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 3"/>
+                    <circle cx="100" cy="100" r="76" stroke="currentColor" stroke-width="1.5"/>
+                    <path id="curve" d="M 30 100 A 70 70 0 0 1 170 100" fill="none"/>
+                    <text font-family="'Space Mono', monospace" font-size="10" font-weight="bold" fill="currentColor">
+                        <textPath href="#curve" startOffset="50%" text-anchor="middle">PRICE PROTOSEM • INNOVATION</textPath>
+                    </text>
+                    <text x="100" y="106" font-family="'Caveat', cursive" font-size="28" font-weight="bold" fill="currentColor" text-anchor="middle">21 Weeks</text>
+                    <text x="100" y="128" font-family="'Space Mono', monospace" font-size="9" fill="currentColor" text-anchor="middle">ROADMAP VERIFIED</text>
+                </svg>
+            </div>
+
             <!-- Washi tape on section card -->
             <div class="washi-tape washi-honey -top-2.5 left-12 transform -rotate-1"></div>
 
@@ -836,8 +905,15 @@
         <!-- ========================================================================= -->
         <!-- 6. PHOTOGRAPHY GALLERY ("THROUGH MY LENS")                                -->
         <!-- ========================================================================= -->
-        <section id="photography" class="space-y-10 reveal-item">
+        <section id="photography" class="relative space-y-10 reveal-item">
             
+            <!-- Analog 35mm Film Negative Watermark -->
+            <div class="absolute -top-6 right-4 pointer-events-none opacity-25 hidden xl:block z-0">
+                <div class="font-mono text-[9px] text-espresso-400 tracking-widest uppercase border border-espresso-300/40 px-3 py-1 rounded-full bg-cream-100">
+                    🎞️ KODAK PORTRA 400 • 35MM EXPOSURES • FRAME 24A • ISO 400
+                </div>
+            </div>
+
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-cream-300 pb-6 text-left">
                 <div class="space-y-2">
                     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-bold">
@@ -865,8 +941,15 @@
         <!-- ========================================================================= -->
         <!-- 7. BAKING SHOWCASE ("BAKED WITH LOVE")                                    -->
         <!-- ========================================================================= -->
-        <section id="baking" class="space-y-10 reveal-item">
+        <section id="baking" class="relative space-y-10 reveal-item">
             
+            <!-- Botanical Herbarium Stamp Watermark -->
+            <div class="absolute -top-6 right-4 pointer-events-none opacity-25 hidden xl:block z-0">
+                <div class="font-mono text-[9px] text-sage-700 tracking-widest uppercase border border-sage-400/40 px-3 py-1 rounded-full bg-sage-50">
+                    🌿 ARTISANAL HERBARIUM • TESTED KITCHEN RECIPES • EST. 2026
+                </div>
+            </div>
+
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-cream-300 pb-6 text-left">
                 <div class="space-y-2">
                     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-honey-100 text-honey-700 text-xs font-mono font-bold">
