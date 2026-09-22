@@ -19,26 +19,26 @@
             theme: {
                 extend: {
                     colors: {
-                        espresso: {
-                            50: '#faf5f0',
-                            100: '#f3e4d7',
-                            200: '#e2bda0',
-                            300: '#cd996e',
-                            400: '#aa7043',
-                            500: '#7d4d29',
-                            600: '#543118',
-                            700: '#3b2110',
-                            800: '#2a170b',
-                            850: '#201208',
-                            900: '#180d06',
-                            950: '#0d0703'
+                        obsidian: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#334155',
+                            700: '#1e293b',
+                            800: '#0f172a',
+                            850: '#0b1120',
+                            900: '#080d1a',
+                            950: '#050811'
                         },
                         brand: {
-                            gold: '#e5a950',
-                            pink: '#d97d64',
-                            sky: '#cd996e',
-                            emerald: '#7da06d',
-                            dark: '#0d0703'
+                            gold: '#e2c785',
+                            indigo: '#6366f1',
+                            sky: '#38bdf8',
+                            emerald: '#10b981',
+                            dark: '#07090e'
                         }
                     },
                     fontFamily: {
@@ -60,12 +60,12 @@
         }
 
         body {
-            background: radial-gradient(circle at 50% 15%, #2a170a 0%, #1a0e06 35%, #100803 70%, #080402 100%);
-            color: #fdfbf7;
+            background: radial-gradient(1200px circle at 50% 0%, #111728 0%, #0a0d17 45%, #06080f 100%);
+            color: #f8fafc;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            selection-background-color: #e5a950;
-            selection-color: #0d0703;
+            selection-background-color: #e2c785;
+            selection-color: #07090e;
         }
 
         /* Ambient Background */
@@ -79,35 +79,35 @@
         .aurora-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(130px);
-            opacity: 0.3;
+            filter: blur(140px);
+            opacity: 0.22;
         }
         .aurora-1 {
-            top: -10%; left: -10%;
+            top: -10%; left: 15%;
             width: 50vw; height: 50vw;
-            background: radial-gradient(circle, rgba(229, 169, 80, 0.65), transparent 70%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.4), rgba(226, 199, 133, 0.2), transparent 70%);
         }
         .aurora-2 {
-            bottom: -10%; right: -10%;
+            bottom: -10%; right: 10%;
             width: 45vw; height: 45vw;
-            background: radial-gradient(circle, rgba(217, 125, 100, 0.45), transparent 70%);
+            background: radial-gradient(circle, rgba(226, 199, 133, 0.3), rgba(99, 102, 241, 0.15), transparent 70%);
         }
 
         .dot-matrix {
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(rgba(229, 169, 80, 0.1) 1.2px, transparent 1.2px);
-            background-size: 24px 24px;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+            background-size: 26px 26px;
             pointer-events: none;
             z-index: 1;
         }
 
         .glass-panel {
-            background: rgba(24, 13, 7, 0.72);
+            background: rgba(13, 17, 26, 0.78);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(229, 169, 80, 0.14);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(245, 200, 150, 0.08);
+            border: 1px solid rgba(226, 199, 133, 0.16);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.06);
         }
 
         /* ATS Print Optimization Styles */
