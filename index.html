@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandhini — Storyteller, Photographer & Baker | Creative Portfolio</title>
-    <meta name="description" content="Personal portfolio of Nandhini — a college student and creative storyteller exploring blogging, photography, baking, content creation and creative ideas.">
+    <title>Nandhini Sivakumar — Innovation Engineer Trainee, Storyteller & Baker | Portfolio</title>
+    <meta name="description" content="Personal portfolio of Nandhini Sivakumar — Innovation Engineer Trainee at PRICE ProtoSem, B.Com PA Scholar (CGPA 8.5), Blogger, Photographer, and Baker. Explore the 21-Week ProtoSem Innovation Roadmap, essays, and creative work.">
     
-    <!-- Warm Editorial & Handwritten Fonts -->
+    <!-- Warm Editorial & Handwritten Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -58,20 +58,20 @@
                             200: '#FAECD0',
                             400: '#E5BA6A',
                             500: '#DDA15E',
-                            600: '#C98A44'
+                            600: '#C68B45'
                         }
                     },
                     fontFamily: {
+                        editorial: ['"Playfair Display"', 'Georgia', 'serif'],
+                        fraunces: ['"Fraunces"', 'serif'],
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
-                        editorial: ['"Fraunces"', 'serif'],
                         hand: ['"Caveat"', 'cursive'],
                         mono: ['"Space Mono"', 'monospace']
                     },
                     boxShadow: {
-                        'polaroid': '0 12px 30px -8px rgba(44, 34, 30, 0.12), 0 4px 10px -2px rgba(44, 34, 30, 0.05)',
-                        'polaroid-lg': '0 20px 40px -10px rgba(44, 34, 30, 0.18), 0 8px 16px -4px rgba(44, 34, 30, 0.08)',
-                        'scrapbook': '0 15px 35px -5px rgba(62, 50, 44, 0.08), 0 0 0 1px rgba(227, 216, 202, 0.5)'
+                        'scrapbook': '0 10px 30px -5px rgba(44, 34, 30, 0.08), 0 4px 12px -2px rgba(44, 34, 30, 0.04)',
+                        'polaroid': '0 14px 28px rgba(44, 34, 30, 0.12), 0 10px 10px rgba(44, 34, 30, 0.06)',
+                        'polaroid-lg': '0 20px 40px -10px rgba(44, 34, 30, 0.18), 0 12px 18px -4px rgba(44, 34, 30, 0.08)'
                     }
                 }
             }
@@ -79,83 +79,83 @@
     </script>
 
     <style>
-        /* Base page aesthetics */
         body {
             background-color: #FAF8F5;
             color: #2C221E;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            selection-background-color: #F1D6C8;
-            selection-color: #1F1612;
         }
 
-        /* Subtle archival paper grain overlay */
+        /* Subtle organic paper texture */
         .paper-grain {
+            background-image: radial-gradient(#3E322C 0.65px, transparent 0.65px), radial-gradient(#C87D55 0.65px, #FAF8F5 0.65px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            opacity: 0.035;
             position: fixed;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.035'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 1;
-            mix-blend-mode: multiply;
         }
 
-        /* Washi tape scrapbook effect */
+        /* Washi Tape styling */
         .washi-tape {
             position: absolute;
             height: 18px;
             width: 76px;
-            background-color: rgba(221, 161, 94, 0.55);
-            backdrop-filter: blur(2px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            border-left: 2px dashed rgba(255, 255, 255, 0.6);
-            border-right: 2px dashed rgba(255, 255, 255, 0.6);
-            z-index: 20;
-            pointer-events: none;
+            opacity: 0.88;
+            box-shadow: 0 1px 3px rgba(44, 34, 30, 0.15);
+            z-index: 25;
+            backdrop-filter: blur(1px);
         }
         .washi-sage {
-            background-color: rgba(110, 133, 112, 0.55);
+            background: repeating-linear-gradient(45deg, #D2DDD0, #D2DDD0 6px, #E8EDE7 6px, #E8EDE7 12px);
+            border-left: 2px dashed rgba(110, 133, 112, 0.4);
+            border-right: 2px dashed rgba(110, 133, 112, 0.4);
         }
         .washi-terracotta {
-            background-color: rgba(200, 125, 85, 0.55);
+            background: repeating-linear-gradient(-45deg, #F1D6C8, #F1D6C8 6px, #F9EDE7 6px, #F9EDE7 12px);
+            border-left: 2px dashed rgba(182, 103, 61, 0.4);
+            border-right: 2px dashed rgba(182, 103, 61, 0.4);
         }
         .washi-honey {
-            background-color: rgba(221, 161, 94, 0.65);
+            background: repeating-linear-gradient(45deg, #FAECD0, #FAECD0 6px, #FDF6E9 6px, #FDF6E9 12px);
+            border-left: 2px dashed rgba(221, 161, 94, 0.4);
+            border-right: 2px dashed rgba(221, 161, 94, 0.4);
         }
 
-        /* Polaroid Photo Card styling */
+        /* Polaroid Card */
         .polaroid-card {
             background: #FFFFFF;
-            border: 1px solid #EAE3D9;
-            box-shadow: 0 12px 30px -8px rgba(44, 34, 30, 0.12);
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+            box-shadow: 0 12px 24px -6px rgba(44, 34, 30, 0.12), 0 4px 8px -2px rgba(44, 34, 30, 0.05);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .polaroid-card:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 40px -10px rgba(44, 34, 30, 0.18);
+            transform: translateY(-5px) rotate(0deg) scale(1.02) !important;
+            box-shadow: 0 20px 35px -8px rgba(44, 34, 30, 0.2), 0 8px 12px -2px rgba(44, 34, 30, 0.08);
+            z-index: 30;
         }
 
-        /* Subtle scroll reveals */
+        /* Smooth scroll reveal */
         .reveal-item {
             opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(22px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal-item.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Custom warm scrollbar */
-        ::-webkit-scrollbar { width: 9px; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #FAF8F5; }
         ::-webkit-scrollbar-thumb {
             background: #D5C7B5;
             border-radius: 9999px;
             border: 2px solid #FAF8F5;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #B6673D;
-        }
+        ::-webkit-scrollbar-thumb:hover { background: #B6673D; }
     </style>
 </head>
 <body class="relative min-h-screen text-espresso-800 antialiased selection:bg-terracotta-200 selection:text-espresso-900">
@@ -170,40 +170,55 @@
     <!-- STICKY NAVIGATION BAR                                                     -->
     <!-- ========================================================================= -->
     <header class="sticky top-0 z-40 bg-cream-100/90 backdrop-blur-md border-b border-cream-300 transition-all duration-300" id="navbar">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="#home" class="group flex items-center gap-2">
                 <span class="font-editorial text-2xl font-bold tracking-tight text-espresso-900 group-hover:text-terracotta-600 transition-colors">
                     Nandhini<span class="text-terracotta-500 font-serif italic text-3xl leading-none">.</span>
                 </span>
                 <span class="hidden md:inline-block font-hand text-lg text-sage-600 font-semibold tracking-wide transform -rotate-3 ml-1">
-                    student & storyteller
+                    innovation trainee & storyteller
                 </span>
             </a>
 
-            <!-- Nav Links -->
-            <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-espresso-700">
-                <a href="#home" class="nav-link hover:text-terracotta-600 transition-colors py-1">Home</a>
-                <a href="#about" class="nav-link hover:text-terracotta-600 transition-colors py-1">About</a>
-                <a href="#blog" class="nav-link text-terracotta-600 font-semibold transition-colors py-1 flex items-center gap-1">
-                    <span>Blog</span>
-                    <span class="px-1.5 py-0.2 rounded-full bg-terracotta-100 text-terracotta-700 text-[10px] font-mono">PRIMARY</span>
+            <!-- Nav Links with ProtoSem and Academics Included -->
+            <nav class="hidden xl:flex items-center gap-5 text-xs font-semibold text-espresso-700 uppercase tracking-wider">
+                <a href="#home" class="hover:text-terracotta-600 transition-colors py-1">Home</a>
+                <a href="#about" class="hover:text-terracotta-600 transition-colors py-1">About</a>
+                <a href="#protosem" class="px-2.5 py-1 rounded-full bg-honey-200/80 text-espresso-900 border border-honey-400/50 hover:bg-honey-400/30 transition-all flex items-center gap-1">
+                    <span>⚡ ProtoSem (21 Wks)</span>
                 </a>
-                <a href="#photography" class="nav-link hover:text-terracotta-600 transition-colors py-1">Photography</a>
-                <a href="#baking" class="nav-link hover:text-terracotta-600 transition-colors py-1">Baking</a>
-                <a href="#projects" class="nav-link hover:text-terracotta-600 transition-colors py-1">Projects</a>
-                <a href="#skills" class="nav-link hover:text-terracotta-600 transition-colors py-1">Skills</a>
-                <a href="#achievements" class="nav-link hover:text-terracotta-600 transition-colors py-1">Achievements</a>
-                <a href="#contact" class="nav-link hover:text-terracotta-600 transition-colors py-1">Contact</a>
+                <a href="#academics" class="hover:text-terracotta-600 transition-colors py-1">Academics</a>
+                <a href="#blog" class="text-terracotta-600 font-bold transition-colors py-1 flex items-center gap-1">
+                    <span>Blog & Essays</span>
+                    <span class="px-1.5 py-0.2 rounded-full bg-terracotta-100 text-terracotta-700 text-[9px] font-mono">PRIMARY</span>
+                </a>
+                <a href="#photography" class="hover:text-terracotta-600 transition-colors py-1">Photography</a>
+                <a href="#baking" class="hover:text-terracotta-600 transition-colors py-1">Baking</a>
+                <a href="#skills" class="hover:text-terracotta-600 transition-colors py-1">Skills</a>
+                <a href="#contact" class="hover:text-terracotta-600 transition-colors py-1">Contact</a>
             </nav>
 
-            <!-- Quick Action Button & Mobile Toggle -->
-            <div class="flex items-center gap-3">
+            <!-- Quick Action Buttons -->
+            <div class="flex items-center gap-2.5">
+                <!-- Sound Toggle -->
+                <button onclick="toggleSound()" id="sound-btn" class="p-2 rounded-full border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all text-xs flex items-center gap-1" title="Toggle UI Sound Effects">
+                    <span id="sound-icon">🔊</span>
+                </button>
+
+                <!-- ATS Resume Link -->
+                <a href="resume.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-sage-500/40 text-sage-800 bg-sage-50 hover:bg-sage-100 text-xs font-semibold tracking-wide transition-all">
+                    <span>📄 ATS Resume</span>
+                </a>
+
+                <!-- Let's Connect CTA -->
                 <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-espresso-800 text-cream-50 hover:bg-terracotta-600 text-xs font-semibold tracking-wide transition-all shadow-sm hover:shadow">
-                    <span>Let's Connect</span>
+                    <span>Connect</span>
                     <span class="text-honey-400">✦</span>
                 </a>
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl border border-cream-300 text-espresso-800 hover:bg-cream-200 transition-colors" aria-label="Toggle Menu">
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-xl border border-cream-300 text-espresso-800 hover:bg-cream-200 transition-colors" aria-label="Toggle Menu">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -212,34 +227,43 @@
         </div>
 
         <!-- Mobile Drawer -->
-        <div id="mobile-drawer" class="lg:hidden hidden px-6 py-4 bg-cream-100 border-b border-cream-300 space-y-3 font-medium text-espresso-800">
+        <div id="mobile-drawer" class="xl:hidden hidden px-6 py-4 bg-cream-100 border-b border-cream-300 space-y-3 font-medium text-espresso-800">
             <a href="#home" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Home</a>
             <a href="#about" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">About</a>
-            <a href="#blog" onclick="toggleMobileMenu()" class="block py-1 text-terracotta-600 font-bold">Blog (Featured)</a>
+            <a href="#protosem" onclick="toggleMobileMenu()" class="block py-1 text-honey-600 font-bold">ProtoSem (21 Weeks)</a>
+            <a href="#academics" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Academics & Research</a>
+            <a href="#blog" onclick="toggleMobileMenu()" class="block py-1 text-terracotta-600 font-bold">Blog & Longform Stories</a>
             <a href="#photography" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Photography</a>
             <a href="#baking" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Baking</a>
-            <a href="#projects" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Projects</a>
             <a href="#skills" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Skills</a>
-            <a href="#achievements" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Achievements</a>
             <a href="#contact" onclick="toggleMobileMenu()" class="block py-1 hover:text-terracotta-600">Contact</a>
+            <div class="pt-2 border-t border-cream-200 flex gap-2">
+                <a href="resume.html" class="flex-1 text-center py-2 rounded-xl border border-sage-500 text-sage-800 text-xs font-bold">ATS Resume</a>
+                <a href="zero-week.html" class="flex-1 text-center py-2 rounded-xl bg-terracotta-600 text-white text-xs font-bold">Zero Week</a>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 sm:space-y-32 py-10 sm:py-16">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 sm:space-y-32 py-10 sm:py-16">
 
         <!-- ========================================================================= -->
-        <!-- 1. HERO SECTION (WARM EDITORIAL & MODERN SCRAPBOOK)                       -->
+        <!-- 1. HERO SECTION (SQUARE PROFILE, DEDICATED QUOTE, PROTOSEM BADGE)        -->
         <!-- ========================================================================= -->
         <section id="home" class="relative pt-4 pb-8 sm:py-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
                 <!-- Left Column: Copy & Narrative -->
-                <div class="lg:col-span-6 space-y-6 text-left reveal-item">
+                <div class="lg:col-span-7 space-y-6 text-left reveal-item">
                     
-                    <!-- Small Category Tagline -->
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-200 border border-cream-300 text-espresso-700 text-xs font-mono font-semibold tracking-wider">
-                        <span class="w-2 h-2 rounded-full bg-sage-600 animate-pulse"></span>
-                        <span>BLOGGING • PHOTOGRAPHY • BAKING • CREATIVE IDEAS</span>
+                    <!-- Role Badges & Tagline -->
+                    <div class="flex flex-wrap items-center gap-2">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-200 border border-cream-300 text-espresso-700 text-xs font-mono font-semibold tracking-wider">
+                            <span class="w-2 h-2 rounded-full bg-sage-600 animate-pulse"></span>
+                            <span>BLOGGING • PHOTOGRAPHY • BAKING • INNOVATION</span>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-honey-200/80 border border-honey-400 text-espresso-900 text-xs font-mono font-bold shadow-sm">
+                            <span>✨ Innovation Engineer Trainee • PRICE ProtoSem</span>
+                        </div>
                     </div>
 
                     <!-- Main Hero Heading -->
@@ -253,77 +277,85 @@
                             </span>
                         </h1>
                         <p class="font-editorial text-xl sm:text-2xl text-espresso-700 italic font-normal leading-snug">
-                            "A creative student who turns everyday moments, ideas and experiences into stories."
+                            "A creative student who turns everyday moments, ideas and experiences into stories, photos and recipes."
                         </p>
                     </div>
 
                     <!-- Narrative Subtext -->
                     <p class="text-sm sm:text-base text-espresso-600 leading-relaxed font-normal max-w-xl">
-                        Currently studying commerce & accounting while cultivating a lifelong passion for editorial writing, capturing warm golden-hour frames, and crafting artisanal bakery treats. Exploring internships, creative collaborations, and new ways to document the world.
+                        B.Com (Professional Accounting) scholar & Innovation Engineer Trainee at <strong>PRICE ProtoSem</strong>. Blending rigorous financial thinking with thoughtful storytelling, 35mm photography, and artisanal baking craft.
                     </p>
 
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <a href="#blog" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-espresso-800 text-cream-50 hover:bg-terracotta-600 font-semibold text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                            <span>Read My Blog</span>
-                            <span class="text-honey-400">→</span>
-                        </a>
-                        <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-cream-50 text-espresso-800 border border-cream-300 hover:bg-cream-200 font-semibold text-sm transition-all duration-300 shadow-sm hover:-translate-y-0.5">
-                            <span>Explore My Work</span>
-                        </a>
+                    <!-- Dedicated Quote Placement (Square Scrapbook Card with Washi Tape) -->
+                    <div class="relative bg-cream-50 p-5 rounded-2xl border border-cream-300 shadow-sm max-w-lg mt-2">
+                        <div class="washi-tape washi-honey -top-2.5 right-8 transform rotate-2"></div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-2xl text-honey-500">❝</span>
+                            <div>
+                                <p class="font-editorial italic text-base sm:text-lg text-espresso-800 font-semibold leading-snug">
+                                    "Whatever you do, throw yourself into it."
+                                </p>
+                                <div class="flex items-center justify-between gap-4 mt-2">
+                                    <span class="text-xs font-mono text-espresso-500 uppercase tracking-wider">— Indra Nooyi</span>
+                                    <span class="font-hand text-lg text-sage-700 font-bold">Mantra: Growing through every experience 🌱</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Mini Handwritten Note -->
-                    <div class="flex items-center gap-2 text-sage-700 font-hand text-xl pt-2">
-                        <span>✏️</span>
-                        <span>Welcome to my quiet corner on the internet — make yourself comfortable!</span>
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="#protosem" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-honey-500 text-espresso-900 hover:bg-honey-400 font-bold text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                            <span>⚡ Explore ProtoSem (21 Wks)</span>
+                            <span>→</span>
+                        </a>
+                        <a href="#blog" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-espresso-800 text-cream-50 hover:bg-terracotta-600 font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                            <span>Read My Blog</span>
+                            <span class="text-honey-400">✍️</span>
+                        </a>
+                        <a href="zero-week.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-cream-50 text-espresso-800 border border-cream-300 hover:bg-cream-200 font-semibold text-xs sm:text-sm transition-all duration-300 shadow-sm hover:-translate-y-0.5">
+                            <span>Zero Week Story</span>
+                        </a>
                     </div>
 
                 </div>
 
-                <!-- Right Column: Editorial Collage with Polaroids & Scrapbook Elements -->
-                <div class="lg:col-span-6 relative flex items-center justify-center min-h-[460px] sm:min-h-[520px] reveal-item">
+                <!-- Right Column: Square Profile Card & Scrapbook Polaroids -->
+                <div class="lg:col-span-5 relative flex items-center justify-center min-h-[460px] sm:min-h-[500px] reveal-item">
                     
                     <!-- Decorative background washi splash -->
                     <div class="absolute w-72 h-72 rounded-full bg-cream-200/80 blur-2xl -z-10"></div>
                     <div class="absolute -top-6 -right-6 w-48 h-48 rounded-full bg-honey-200/50 blur-2xl -z-10"></div>
 
-                    <!-- Central Editorial Image: Girl with Camera & Bakery Elements -->
-                    <div class="relative z-10 w-72 sm:w-84 aspect-[4/5] rounded-3xl overflow-hidden shadow-polaroid-lg border-4 border-white transform rotate-1 hover:rotate-0 transition-transform duration-500 bg-cream-200 group">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=85" alt="Creative Student with Camera and Journal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <!-- Central SQUARE Profile Picture (As requested) with Elegant Scrapbook Border -->
+                    <div class="relative z-10 w-64 sm:w-72 aspect-square rounded-2xl overflow-hidden shadow-polaroid-lg border-4 border-white transform hover:scale-102 transition-transform duration-500 bg-cream-200 group">
+                        <!-- Washi tape at top of square picture -->
+                        <div class="washi-tape washi-sage -top-2 left-1/2 -translate-x-1/2 transform -rotate-1"></div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Nandhini Sivakumar — Square Portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         
                         <!-- Overlay Tag -->
-                        <div class="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-white/90 backdrop-blur-sm border border-cream-300 shadow-sm">
-                            <div class="font-hand text-xl text-espresso-800 font-semibold">Nandhini Sivakumar ✦</div>
-                            <div class="text-[11px] font-mono text-sage-700 uppercase tracking-wider">Writer • Visual Storyteller • Baker</div>
+                        <div class="absolute bottom-3 left-3 right-3 p-2.5 rounded-xl bg-white/95 backdrop-blur-sm border border-cream-300 shadow-sm">
+                            <div class="font-hand text-xl text-espresso-800 font-bold">Nandhini Sivakumar ✦</div>
+                            <div class="text-[10px] font-mono text-terracotta-700 uppercase font-semibold">Innovation Trainee • Storyteller • Baker</div>
                         </div>
                     </div>
 
-                    <!-- Scrapbook Polaroid 01: Photography (Top Left) -->
-                    <div class="polaroid-card absolute -top-4 -left-4 sm:-left-8 p-3 pb-7 rounded-lg transform -rotate-6 hover:rotate-0 z-20 w-44 sm:w-50 cursor-pointer group" onclick="scrollToSection('photography')">
-                        <div class="washi-tape washi-sage -top-3 left-10 transform -rotate-3"></div>
-                        <div class="aspect-square rounded overflow-hidden mb-2 bg-cream-200">
+                    <!-- Scrapbook Polaroid 01: Photography (Top Right) -->
+                    <div class="polaroid-card absolute -top-4 -right-2 sm:-right-6 p-2.5 pb-6 rounded-lg transform rotate-6 hover:rotate-0 z-20 w-40 sm:w-44 cursor-pointer group" onclick="scrollToSection('photography')">
+                        <div class="washi-tape washi-terracotta -top-2.5 right-6 transform rotate-3"></div>
+                        <div class="aspect-square rounded overflow-hidden mb-1.5 bg-cream-200">
                             <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&q=80" alt="Through My Lens" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
                         </div>
-                        <p class="font-hand text-lg text-espresso-800 text-center leading-tight">golden hour light 📸</p>
+                        <p class="font-hand text-base text-espresso-800 text-center leading-tight">golden hour light 📸</p>
                     </div>
 
-                    <!-- Scrapbook Polaroid 02: Baking & Pastry (Bottom Right) -->
-                    <div class="polaroid-card absolute -bottom-6 -right-2 sm:-right-6 p-3 pb-7 rounded-lg transform rotate-6 hover:rotate-0 z-20 w-44 sm:w-52 cursor-pointer group" onclick="scrollToSection('baking')">
-                        <div class="washi-tape washi-terracotta -top-3 right-8 transform rotate-3"></div>
-                        <div class="aspect-square rounded overflow-hidden mb-2 bg-cream-200">
+                    <!-- Scrapbook Polaroid 02: Baking & Pastry (Bottom Left) -->
+                    <div class="polaroid-card absolute -bottom-6 -left-2 sm:-left-6 p-2.5 pb-6 rounded-lg transform -rotate-6 hover:rotate-0 z-20 w-40 sm:w-46 cursor-pointer group" onclick="scrollToSection('baking')">
+                        <div class="washi-tape washi-sage -top-2.5 left-6 transform -rotate-3"></div>
+                        <div class="aspect-square rounded overflow-hidden mb-1.5 bg-cream-200">
                             <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Baked With Love" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
                         </div>
-                        <p class="font-hand text-lg text-espresso-800 text-center leading-tight">fresh berry tarts 🧁</p>
-                    </div>
-
-                    <!-- Scrapbook Polaroid 03: Blogging (Bottom Left) -->
-                    <div class="polaroid-card absolute bottom-6 -left-2 sm:left-4 p-2.5 pb-6 rounded-lg transform -rotate-3 hover:rotate-0 z-20 w-36 sm:w-42 cursor-pointer group hidden sm:block" onclick="scrollToSection('blog')">
-                        <div class="washi-tape washi-honey -top-2.5 left-6 transform rotate-2"></div>
-                        <div class="aspect-[4/3] rounded overflow-hidden mb-1.5 bg-cream-200">
-                            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="My Blog Notebook" class="w-full h-full object-cover group-hover:scale-105 transition-transform">
-                        </div>
-                        <p class="font-hand text-base text-espresso-800 text-center leading-tight">morning thoughts ✍️</p>
+                        <p class="font-hand text-base text-espresso-800 text-center leading-tight">fresh berry tarts 🧁</p>
                     </div>
 
                 </div>
@@ -332,11 +364,10 @@
         </section>
 
         <!-- ========================================================================= -->
-        <!-- 2. ABOUT SECTION                                                          -->
+        <!-- 2. ABOUT ME & 4 CORE PILLARS                                              -->
         <!-- ========================================================================= -->
         <section id="about" class="space-y-12 reveal-item">
             
-            <!-- Section Header -->
             <div class="text-center max-w-2xl mx-auto space-y-3">
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-semibold">
                     <span>✦ ABOUT ME</span>
@@ -345,7 +376,7 @@
                     A Student, Storyteller & Explorer
                 </h2>
                 <p class="text-sm sm:text-base text-espresso-600 font-normal">
-                    Fusing analytical discipline with creative storytelling, visual composition, and hands-on experimentation.
+                    Fusing analytical discipline with creative storytelling, visual composition, and hands-on innovation sprints.
                 </p>
             </div>
 
@@ -355,8 +386,8 @@
                     
                     <div class="md:col-span-4 relative flex justify-center">
                         <div class="polaroid-card p-3 pb-8 rounded-xl transform -rotate-2 w-56 sm:w-64">
-                            <div class="washi-tape washi-sage -top-3 left-14"></div>
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Nandhini" class="w-full aspect-square object-cover rounded mb-3">
+                            <div class="washi-tape washi-honey -top-3 left-14"></div>
+                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Nandhini with Camera" class="w-full aspect-square object-cover rounded mb-3">
                             <p class="font-hand text-xl text-center text-espresso-800">learning, creating & growing 🌱</p>
                         </div>
                     </div>
@@ -366,35 +397,34 @@
                             "Turning simple everyday moments into stories worth remembering."
                         </h3>
                         <p class="text-sm sm:text-base text-espresso-600 leading-relaxed font-normal">
-                            I am a college student pursuing <strong>Bachelor of Commerce (Professional Accounting)</strong> with an <strong>8.5 CGPA</strong>, alongside an innovation fellowship at <strong>PRICE ProtoSem</strong>. But beyond spreadsheets and metrics, my heart thrives in words, lenses, and pastry craft.
+                            I am a college student pursuing <strong>Bachelor of Commerce (Professional Accounting)</strong> with an <strong>8.5 CGPA</strong>, alongside an innovation engineering fellowship at <strong>PRICE ProtoSem</strong>. Beyond spreadsheets and accounting rigor, my creative soul thrives in written essays, warm photographic frames, and pastry craft.
                         </p>
                         <p class="text-sm sm:text-base text-espresso-600 leading-relaxed font-normal">
-                            Whether I am documenting the unspoken lessons of student life on my blog, waking up early to capture morning shadows with my camera, or whisking a batch of sea-salt chocolate cookies, I approach every project with curiosity, discipline, and warm creative intent.
+                            Whether I am documenting the transformative lessons of our 21-week innovation roadmap, waking up early to capture golden morning light, or baking a batch of browned-butter toffee sea salt cookies, I bring curiosity, discipline, and warmth to everything I build.
                         </p>
                         
-                        <div class="flex flex-wrap items-center gap-3 pt-2">
-                            <span class="px-3.5 py-1.5 rounded-full bg-cream-200 text-espresso-700 text-xs font-mono font-medium">📍 Tamil Nadu, India</span>
-                            <span class="px-3.5 py-1.5 rounded-full bg-cream-200 text-espresso-700 text-xs font-mono font-medium">🎓 B.Com (PA) Scholar</span>
-                            <span class="px-3.5 py-1.5 rounded-full bg-cream-200 text-espresso-700 text-xs font-mono font-medium">✨ PRICE ProtoSem Fellow</span>
-                            <span class="px-3.5 py-1.5 rounded-full bg-cream-200 text-espresso-700 text-xs font-mono font-medium">☕ Coffee & Sourdough</span>
+                        <div class="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-mono text-espresso-700">
+                            <span class="px-3 py-1.5 rounded-full bg-cream-200 border border-cream-300">📍 Tamil Nadu, India</span>
+                            <span class="px-3 py-1.5 rounded-full bg-cream-200 border border-cream-300">🎓 B.Com (PA) Scholar • 8.5 CGPA</span>
+                            <span class="px-3 py-1.5 rounded-full bg-honey-200 border border-honey-300 font-bold">✨ PRICE ProtoSem Fellow (21 Wks)</span>
+                            <span class="px-3 py-1.5 rounded-full bg-cream-200 border border-cream-300">☕ Coffee & Sourdough</span>
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- The 4 Core Creative Pillars Specified in Prompt -->
+            <!-- The 4 Core Creative Pillars -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-                
                 <!-- Card 01: Blogging -->
                 <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-3 group">
                     <div class="w-12 h-12 rounded-xl bg-terracotta-100 flex items-center justify-center text-2xl text-terracotta-600 group-hover:scale-110 transition-transform">
                         ✍️
                     </div>
-                    <div class="font-mono text-xs font-bold text-terracotta-600 uppercase tracking-wider">01 • PRIMARY PASSION</div>
-                    <h4 class="font-editorial text-xl font-bold text-espresso-900">Blogging</h4>
+                    <div class="font-mono text-xs font-bold text-terracotta-600 uppercase tracking-wider">01 • PRIMARY IDENTITY</div>
+                    <h4 class="font-editorial text-xl font-bold text-espresso-900">Blogging & Essays</h4>
                     <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                        Sharing ideas, student life lessons, and personal reflections that resonate with real people.
+                        Sharing life lessons, student reflections, and field notes that resonate with honest human emotion.
                     </p>
                 </div>
 
@@ -403,10 +433,10 @@
                     <div class="w-12 h-12 rounded-xl bg-sage-100 flex items-center justify-center text-2xl text-sage-600 group-hover:scale-110 transition-transform">
                         📷
                     </div>
-                    <div class="font-mono text-xs font-bold text-sage-600 uppercase tracking-wider">02 • VISUAL STORYTELLING</div>
+                    <div class="font-mono text-xs font-bold text-sage-600 uppercase tracking-wider">02 • VISUAL COMPOSITION</div>
                     <h4 class="font-editorial text-xl font-bold text-espresso-900">Photography</h4>
                     <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                        Capturing unposed moments, warm natural lighting, street scenes, and food aesthetics.
+                        Capturing unposed moments, warm golden hour tones, streetscapes, and culinary details.
                     </p>
                 </div>
 
@@ -415,31 +445,209 @@
                     <div class="w-12 h-12 rounded-xl bg-honey-100 flex items-center justify-center text-2xl text-honey-600 group-hover:scale-110 transition-transform">
                         🧁
                     </div>
-                    <div class="font-mono text-xs font-bold text-honey-600 uppercase tracking-wider">03 • CULINARY CRAFT</div>
-                    <h4 class="font-editorial text-xl font-bold text-espresso-900">Baking</h4>
+                    <div class="font-mono text-xs font-bold text-honey-600 uppercase tracking-wider">03 • CULINARY ARTS</div>
+                    <h4 class="font-editorial text-xl font-bold text-espresso-900">Artisanal Baking</h4>
                     <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                        Creating delicious experiences through tested artisanal cakes, cookies, and pastry arts.
+                        Crafting delicious layered cakes, rustic sourdoughs, and flaky pastries with tested techniques.
                     </p>
                 </div>
 
-                <!-- Card 04: Creativity -->
+                <!-- Card 04: Innovation & ProtoSem -->
                 <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 space-y-3 group">
                     <div class="w-12 h-12 rounded-xl bg-cream-200 flex items-center justify-center text-2xl text-espresso-700 group-hover:scale-110 transition-transform">
                         💡
                     </div>
-                    <div class="font-mono text-xs font-bold text-espresso-700 uppercase tracking-wider">04 • INNOVATION</div>
-                    <h4 class="font-editorial text-xl font-bold text-espresso-900">Creativity</h4>
+                    <div class="font-mono text-xs font-bold text-espresso-700 uppercase tracking-wider">04 • PROTOSEM INNOVATION</div>
+                    <h4 class="font-editorial text-xl font-bold text-espresso-900">Creative Tech</h4>
                     <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                        Exploring new possibilities, design sprints, content experimentation, and phygital prototypes.
+                        Phygital retail systems, IoT microcontrollers, and AI data models bridging business with technology.
                     </p>
                 </div>
-
             </div>
 
         </section>
 
         <!-- ========================================================================= -->
-        <!-- 3. BLOG SECTION (PRIMARY IDENTITY)                                        -->
+        <!-- 3. PROTOSEM 21-WEEK INTERACTIVE ROADMAP (WEEKS 00 TO 20)                  -->
+        <!-- ========================================================================= -->
+        <section id="protosem" class="relative bg-cream-50 rounded-3xl p-6 sm:p-10 md:p-12 border-2 border-honey-400/50 shadow-scrapbook space-y-8 reveal-item">
+            
+            <!-- Washi tape on section card -->
+            <div class="washi-tape washi-honey -top-2.5 left-12 transform -rotate-1"></div>
+
+            <div class="relative z-10 space-y-6">
+                <!-- Section Badges & Header -->
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-honey-200 border border-honey-400 text-espresso-900 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-honey-600 animate-ping"></span>
+                        <span>PRICE PROTOSEM INNOVATION PROGRAMME</span>
+                    </div>
+                    <div class="text-xs font-mono text-espresso-500 font-semibold">
+                        ZERO WEEK + 4 PHASES • 21 WEEKS TOTAL
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <div>
+                        <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
+                            PRICE ProtoSem Journey
+                        </h2>
+                        <p class="text-sm sm:text-base text-honey-600 font-semibold mt-1">
+                            Innovation Engineer Trainee • <span class="text-espresso-600 font-normal">Industry-Integrated Innovation Immersion</span>
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2.5 flex-wrap">
+                        <a href="zero-week.html" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-honey-500 text-espresso-900 text-xs font-bold hover:bg-honey-400 transition-all shadow-sm">
+                            <span>📖 Read Zero Week (Week 00)</span>
+                            <span>→</span>
+                        </a>
+                        <a href="download.pdf" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-cream-100 border border-cream-300 text-espresso-800 text-xs font-semibold hover:bg-cream-200 transition-all">
+                            <span>📄 Curriculum PDF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Programme Summary Box -->
+                <div class="bg-cream-100 p-6 rounded-2xl border-l-4 border-honey-500 space-y-2">
+                    <p class="text-espresso-800 leading-relaxed text-sm sm:text-base font-medium">
+                        Selected for a prestigious <strong>21-week industry-integrated innovation programme</strong> starting from <strong>Zero Week</strong> (Foundation & Mindset Shift) through 20 structured weeks of problem exploration, AI analytics, IoT prototyping, and entrepreneurship.
+                    </p>
+                    <p class="text-xs sm:text-sm text-espresso-600 leading-relaxed font-normal">
+                        Bridging classroom commerce foundations with practical phygital retail systems and intelligent business prototypes.
+                    </p>
+                </div>
+
+                <!-- Discipline Focus Badges -->
+                <div>
+                    <div class="text-xs font-mono uppercase text-espresso-500 tracking-wider mb-2.5 font-bold">PROGRAMME DOMAINS & SPRINT DISCIPLINES:</div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">
+                            🌱 Zero Week Mindset & Collaboration
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-cream-200 border border-cream-300 text-xs font-semibold text-terracotta-700">
+                            🛍️ Phygital Retail & Connected Commerce
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-cream-200 border border-cream-300 text-xs font-semibold text-sage-800">
+                            ⚡ AI & Business Analytics
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">
+                            📡 Intelligent IoT & Micro-controllers
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-cream-200 border border-cream-300 text-xs font-semibold text-honey-600">
+                            🚀 Rapid Prototyping & Venture Building
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Phase Filter Navigation Tabs -->
+                <div class="flex flex-wrap items-center gap-2 p-1.5 bg-cream-200/80 rounded-2xl border border-cream-300">
+                    <button onclick="filterPhase('all')" id="phase-tab-all" class="phase-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-espresso-800 text-cream-50 transition-all">
+                        All 21 Weeks
+                    </button>
+                    <button onclick="filterPhase(0)" id="phase-tab-0" class="phase-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-espresso-800 hover:bg-cream-100 transition-all flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-honey-500 animate-pulse"></span>
+                        <span>Zero Week (Foundation)</span>
+                    </button>
+                    <button onclick="filterPhase(1)" id="phase-tab-1" class="phase-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-espresso-700 hover:bg-cream-100 transition-all">
+                        Phase 01 (W 01–05)
+                    </button>
+                    <button onclick="filterPhase(2)" id="phase-tab-2" class="phase-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-espresso-700 hover:bg-cream-100 transition-all">
+                        Phase 02 (W 06–10)
+                    </button>
+                    <button onclick="filterPhase(3)" id="phase-tab-3" class="phase-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-espresso-700 hover:bg-cream-100 transition-all">
+                        Phase 03 (W 11–15)
+                    </button>
+                    <button onclick="filterPhase(4)" id="phase-tab-4" class="phase-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium text-espresso-700 hover:bg-cream-100 transition-all">
+                        Phase 04 (W 16–20)
+                    </button>
+                </div>
+
+                <!-- Dynamic 21 Week Cards Grid Container -->
+                <div id="weeks-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:grid-cols-5 gap-3.5 sm:gap-4">
+                    <!-- Dynamically rendered via JavaScript -->
+                </div>
+
+                <!-- Bottom Progress Banner -->
+                <div class="pt-4 border-t border-cream-300 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-espresso-500 font-mono">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-honey-500 animate-ping"></span>
+                        <span>Click on any sprint card to view objectives, gate reviews & field notes.</span>
+                    </div>
+                    <span class="text-honey-600 font-bold">21 SPRINTS • ONE CONTINUOUS JOURNEY</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 4. ACADEMICS & RESEARCH BENTO SECTION                                      -->
+        <!-- ========================================================================= -->
+        <section id="academics" class="space-y-8 reveal-item">
+            
+            <div class="flex items-center justify-between flex-wrap gap-3 border-b border-cream-300 pb-5">
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl text-honey-500">🎓</span>
+                    <div>
+                        <h2 class="font-editorial text-2xl sm:text-4xl font-bold text-espresso-900">
+                            Academic Foundation & Research
+                        </h2>
+                        <p class="text-xs sm:text-sm text-espresso-600 font-normal">Rigorous accounting precision fused with digital market exploration</p>
+                    </div>
+                </div>
+                <span class="text-xs font-mono text-terracotta-700 border border-terracotta-300 px-3.5 py-1.5 rounded-full bg-terracotta-100 font-bold">
+                    B.Com (PA) • CGPA 8.5
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <!-- Academic Excellence Card -->
+                <div class="bg-cream-50 p-6 sm:p-8 rounded-3xl border border-cream-300 shadow-sm space-y-4 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-editorial text-xl font-bold text-espresso-900 flex items-center gap-2">
+                            <span>🏛️</span> Academic Excellence
+                        </h3>
+                        <span class="text-xs px-3 py-1 rounded-full bg-honey-100 text-honey-700 border border-honey-300 font-mono font-bold">
+                            8.5 CGPA
+                        </span>
+                    </div>
+                    <p class="text-espresso-700 leading-relaxed text-sm sm:text-base font-normal">
+                        Currently pursuing a <strong>Bachelor of Commerce (Professional Accounting)</strong> at <em>Bharathiyar University</em> (Kumaraguru College). Honored with the <strong>Mahatma Gandhi Merit Scholarship</strong> and achieved a <strong>Gold Medal of Excellence</strong> in the Commerce Olympiad with a perfect 100/100 in Class XI Commerce.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-3 border-t border-cream-200 text-xs font-mono text-espresso-600">
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300 text-honey-600 font-bold">#FinancialAccounting</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300">#MeritScholar</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300">#AuditingBasics</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300">#DirectTax</span>
+                    </div>
+                </div>
+
+                <!-- Research & Data Analysis Card -->
+                <div class="bg-cream-50 p-6 sm:p-8 rounded-3xl border border-cream-300 shadow-sm space-y-4 hover:shadow-md transition-shadow">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-editorial text-xl font-bold text-espresso-900 flex items-center gap-2">
+                            <span>📊</span> Research & MSME Analytics
+                        </h3>
+                        <span class="text-xs px-3 py-1 rounded-full bg-sage-100 text-sage-800 border border-sage-300 font-mono font-bold">
+                            4 Months
+                        </span>
+                    </div>
+                    <p class="text-espresso-700 leading-relaxed text-sm sm:text-base font-normal">
+                        Conducted comprehensive research analyzing <strong>MSME financial metrics & Udyam Portal statistics</strong> on AI-driven business models and digital platform entrepreneurship. Transforming raw structured datasets into actionable growth models, strategic graphs, and executive summaries.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-3 border-t border-cream-200 text-xs font-mono text-espresso-600">
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300 text-sage-700 font-bold">#DataAnalytics</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300">#MSMEGrowth</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300">#AIInBusiness</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-cream-200 border border-cream-300">#UdyamStats</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 5. BLOG SECTION (PRIMARY IDENTITY & ESSAY READER)                         -->
         <!-- ========================================================================= -->
         <section id="blog" class="space-y-10 reveal-item">
             
@@ -450,255 +658,177 @@
                         <span>★ PRIMARY SHOWCASE</span>
                     </div>
                     <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
-                        My Blog
+                        Blogging & Longform Stories
                     </h2>
-                    <p class="text-sm sm:text-base text-espresso-600 font-normal max-w-xl">
-                        Stories, quiet reflections, and practical lessons from college hallways, kitchen experiments, and creative life.
+                    <p class="text-sm sm:text-base text-espresso-600 font-normal">
+                        Reflective essays, college observations, ProtoSem field notes, and life lessons.
                     </p>
                 </div>
-
-                <!-- Quick Article Counter -->
-                <div class="text-right hidden sm:block">
-                    <div class="font-editorial text-3xl font-bold text-terracotta-600">8 Articles</div>
-                    <div class="text-xs font-mono text-espresso-500">Curated & Published</div>
+                <div class="text-xs font-mono text-espresso-500">
+                    6 ARTICLES • FULL ESSAYS IN MODAL
                 </div>
             </div>
 
-            <!-- Category Filter Tabs (Specified in Prompt) -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs sm:text-sm font-medium">
-                <button onclick="filterBlog('all')" class="blog-tab active px-4 py-2 rounded-full bg-espresso-800 text-cream-50 transition-all">All Stories</button>
-                <button onclick="filterBlog('Student Life')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Student Life</button>
-                <button onclick="filterBlog('Personal Development')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Personal Development</button>
-                <button onclick="filterBlog('Photography')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Photography</button>
-                <button onclick="filterBlog('Baking & Recipes')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Baking & Recipes</button>
-                <button onclick="filterBlog('College Experiences')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">College Experiences</button>
-                <button onclick="filterBlog('Creative Ideas')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Creative Ideas</button>
-                <button onclick="filterBlog('Lifestyle')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Lifestyle</button>
-                <button onclick="filterBlog('Career & Learning')" class="blog-tab px-4 py-2 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Career & Learning</button>
-            </div>
-
-            <!-- Featured Article (Prominent Magazine Banner) -->
-            <div class="bg-cream-50 rounded-3xl border border-cream-300 overflow-hidden shadow-scrapbook group hover:border-terracotta-300 transition-all duration-300">
-                <div class="grid grid-cols-1 lg:grid-cols-12">
-                    <div class="lg:col-span-7 aspect-[16/10] lg:aspect-auto overflow-hidden bg-cream-200">
-                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=85" alt="Featured Article" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <!-- Zero Week Inaugural Essay Spotlight Card -->
+            <a href="zero-week.html" class="block bg-cream-50 p-6 sm:p-8 rounded-3xl border-2 border-honey-400 shadow-scrapbook hover:border-terracotta-400 transition-all duration-300 group no-underline text-left">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-honey-100 border border-honey-300 text-espresso-900 text-xs font-mono font-bold">
+                        <span class="w-2 h-2 rounded-full bg-honey-600 animate-ping"></span>
+                        <span>ZERO WEEK • INAUGURAL PROTOSEM ESSAY</span>
                     </div>
-                    <div class="lg:col-span-5 p-6 sm:p-10 flex flex-col justify-between text-left space-y-6">
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-2">
-                                <span class="px-3 py-1 rounded-full bg-terracotta-100 text-terracotta-700 font-mono text-xs font-bold">FEATURED STORY</span>
-                                <span class="text-xs font-mono text-espresso-500">Student Life • 5 Min Read</span>
-                            </div>
-                            <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-espresso-900 leading-snug group-hover:text-terracotta-600 transition-colors">
-                                Finding My Voice: How Starting a College Blog Redefined My Perspective
-                            </h3>
-                            <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                                Between financial accounting formulas, morning commutes, and flour-dusted kitchen counters, I found that documenting the quiet in-between moments taught me more about discipline, courage, and genuine connection than any textbook.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-cream-300 flex items-center justify-between">
-                            <span class="text-xs font-mono text-sage-700 font-semibold">By Nandhini • Sep 2026</span>
-                            <button onclick="openArticleModal(0)" class="inline-flex items-center gap-1.5 font-semibold text-sm text-terracotta-600 hover:text-terracotta-700 transition-colors group-hover:translate-x-1 duration-200">
-                                <span>Read Full Story</span>
-                                <span>→</span>
-                            </button>
-                        </div>
-                    </div>
+                    <span class="text-xs font-mono text-espresso-500">5-DAY INTENSIVE IMMERSION • READ COMPLETE STORY →</span>
                 </div>
+                <h3 class="font-editorial text-2xl sm:text-3xl font-bold text-espresso-900 group-hover:text-terracotta-600 transition-colors mb-2">
+                    Zero Week — Where the Prototype Began
+                </h3>
+                <p class="text-sm sm:text-base text-espresso-600 leading-relaxed font-normal mb-4">
+                    Five days. New faces. Unfamiliar challenges. A mindset quietly taking shape. Every beginning carries a certain uncertainty. For us, PRICE ProtoSem began exactly there...
+                </p>
+                <div class="flex items-center justify-between text-xs font-mono text-espresso-500 pt-3 border-t border-cream-200">
+                    <span>PRICE PROTOSEM · 5-DAY IMMERSION</span>
+                    <span class="text-terracotta-600 font-bold group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                        READ ZERO WEEK ESSAY <span>→</span>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap items-center gap-2 border-b border-cream-200 pb-4">
+                <button onclick="filterBlog('all')" class="blog-tab active px-4 py-2 rounded-full text-xs font-semibold bg-espresso-800 text-cream-50 transition-colors">All Stories</button>
+                <button onclick="filterBlog('College Life')" class="blog-tab px-4 py-2 rounded-full text-xs font-semibold bg-cream-50 text-espresso-700 hover:bg-cream-200 transition-colors">College Life</button>
+                <button onclick="filterBlog('Creativity')" class="blog-tab px-4 py-2 rounded-full text-xs font-semibold bg-cream-50 text-espresso-700 hover:bg-cream-200 transition-colors">Creativity</button>
+                <button onclick="filterBlog('Personal Growth')" class="blog-tab px-4 py-2 rounded-full text-xs font-semibold bg-cream-50 text-espresso-700 hover:bg-cream-200 transition-colors">Personal Growth</button>
+                <button onclick="filterBlog('Books & Literature')" class="blog-tab px-4 py-2 rounded-full text-xs font-semibold bg-cream-50 text-espresso-700 hover:bg-cream-200 transition-colors">Books & Literature</button>
+                <button onclick="filterBlog('Travel Diaries')" class="blog-tab px-4 py-2 rounded-full text-xs font-semibold bg-cream-50 text-espresso-700 hover:bg-cream-200 transition-colors">Travel Diaries</button>
+                <button onclick="filterBlog('Recipes & Food')" class="blog-tab px-4 py-2 rounded-full text-xs font-semibold bg-cream-50 text-espresso-700 hover:bg-cream-200 transition-colors">Recipes & Food</button>
             </div>
 
-            <!-- Blog Articles Grid -->
+            <!-- Blog Grid (Dynamically Populated) -->
             <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                <!-- Injected via JavaScript -->
+                <!-- Populated via renderBlogs() -->
             </div>
 
         </section>
 
         <!-- ========================================================================= -->
-        <!-- 4. PHOTOGRAPHY SECTION ("THROUGH MY LENS")                                -->
+        <!-- 6. PHOTOGRAPHY GALLERY ("THROUGH MY LENS")                                -->
         <!-- ========================================================================= -->
         <section id="photography" class="space-y-10 reveal-item">
             
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-cream-300 pb-6 text-left">
                 <div class="space-y-2">
                     <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-bold">
-                        <span>✦ VISUAL GALLERY</span>
+                        <span>★ VISUAL STORIES</span>
                     </div>
                     <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
                         Through My Lens
                     </h2>
-                    <p class="text-sm sm:text-base text-espresso-600 font-normal max-w-xl">
-                        Moments of golden-hour serenity, authentic human expressions, and the textural beauty of everyday spaces.
+                    <p class="text-sm sm:text-base text-espresso-600 font-normal">
+                        Warm golden hour lighting, candid street compositions, macro textures, and still life.
                     </p>
                 </div>
-
-                <!-- Gallery Category Tabs -->
-                <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-medium">
-                    <button onclick="filterPhoto('all')" class="photo-tab active px-3.5 py-1.5 rounded-full bg-espresso-800 text-cream-50 transition-all">All</button>
-                    <button onclick="filterPhoto('People')" class="photo-tab px-3.5 py-1.5 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">People</button>
-                    <button onclick="filterPhoto('Places')" class="photo-tab px-3.5 py-1.5 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Places</button>
-                    <button onclick="filterPhoto('Travel')" class="photo-tab px-3.5 py-1.5 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Travel</button>
-                    <button onclick="filterPhoto('Food')" class="photo-tab px-3.5 py-1.5 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Food</button>
-                    <button onclick="filterPhoto('Lifestyle')" class="photo-tab px-3.5 py-1.5 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Lifestyle</button>
-                    <button onclick="filterPhoto('Nature')" class="photo-tab px-3.5 py-1.5 rounded-full bg-cream-50 border border-cream-300 text-espresso-700 hover:bg-cream-200 transition-all">Nature</button>
+                <div class="text-xs font-mono text-espresso-500">
+                    CLICK ANY POLAROID TO ENLARGE
                 </div>
             </div>
 
-            <!-- Gallery Grid with Polaroid Feel & Lightbox Triggers -->
+            <!-- Photography Grid -->
             <div id="photo-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Injected via JS -->
-            </div>
-
-            <!-- View Full Gallery Banner -->
-            <div class="p-8 rounded-3xl bg-cream-50 border border-cream-300 text-center space-y-4 shadow-sm">
-                <p class="font-hand text-2xl text-espresso-800">
-                    "A photograph is a quiet pause in the rush of life."
-                </p>
-                <div>
-                    <button onclick="openPhotoLightbox(0)" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sage-600 text-white hover:bg-sage-700 text-xs font-semibold tracking-wider uppercase transition-all shadow-sm">
-                        <span>View Gallery Lightbox →</span>
-                    </button>
-                </div>
+                <!-- Populated via renderPhotos() -->
             </div>
 
         </section>
 
         <!-- ========================================================================= -->
-        <!-- 5. BAKING SECTION ("BAKED WITH LOVE")                                     -->
+        <!-- 7. BAKING SHOWCASE ("BAKED WITH LOVE")                                    -->
         <!-- ========================================================================= -->
         <section id="baking" class="space-y-10 reveal-item">
             
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-cream-300 pb-6 text-left">
                 <div class="space-y-2">
-                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-honey-100 text-honey-600 text-xs font-mono font-bold">
-                        <span>✦ ARTISANAL PASTRY & KITCHEN</span>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-honey-100 text-honey-700 text-xs font-mono font-bold">
+                        <span>★ CULINARY EXPERIENCES</span>
                     </div>
                     <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
                         Baked With Love
                     </h2>
-                    <p class="text-sm sm:text-base text-espresso-600 font-normal max-w-xl">
-                        Handcrafted cakes, warm cookies, and seasonal pastries. Baking is my laboratory of patience, precision, and joy.
+                    <p class="text-sm sm:text-base text-espresso-600 font-normal">
+                        Cakes, cupcakes, cookies, desserts, tested recipes, and food styling.
                     </p>
                 </div>
-
-                <div class="font-hand text-xl text-terracotta-600 text-right hidden sm:block">
-                    flour, butter, sugar & quiet patience 🥐
+                <div class="text-xs font-mono text-espresso-500">
+                    TESTED RECIPES & FLAVOR NOTES
                 </div>
             </div>
 
-            <!-- Baking Grid with Polaroid Aesthetic -->
+            <!-- Baking Grid -->
             <div id="baking-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                <!-- Injected via JS -->
+                <!-- Populated via renderBaking() -->
             </div>
 
         </section>
 
         <!-- ========================================================================= -->
-        <!-- 6. PROJECTS SECTION ("CREATIVE PROJECTS")                                 -->
+        <!-- 8. SKILLS & COMPETENCIES (INTERDISCIPLINARY MATRIX)                       -->
         <!-- ========================================================================= -->
-        <section id="projects" class="space-y-10 reveal-item">
+        <section id="skills" class="space-y-8 reveal-item">
             
-            <div class="text-left space-y-2 border-b border-cream-300 pb-6">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cream-200 text-espresso-700 text-xs font-mono font-bold">
-                    <span>✦ PORTFOLIO WORK</span>
+            <div class="flex items-center justify-between flex-wrap gap-3 border-b border-cream-300 pb-5">
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl text-terracotta-500">⚡</span>
+                    <div>
+                        <h2 class="font-editorial text-2xl sm:text-4xl font-bold text-espresso-900">
+                            Skills & Capabilities
+                        </h2>
+                        <p class="text-xs sm:text-sm text-espresso-600 font-normal">Interdisciplinary toolkit uniting accounting rigor, design aesthetics, and tech prototyping</p>
+                    </div>
                 </div>
-                <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
-                    Creative Projects
-                </h2>
-                <p class="text-sm sm:text-base text-espresso-600 font-normal max-w-2xl">
-                    Initiatives bridging content creation, digital design, academic research, and creative storytelling.
-                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                 
-                <!-- Project 01: Blog Website -->
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-scrapbook space-y-4 flex flex-col justify-between hover:border-terracotta-300 transition-all duration-300">
-                    <div class="space-y-3">
-                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-terracotta-100 text-terracotta-700 font-semibold">WRITING & DESIGN</span>
-                        <h3 class="font-editorial text-xl font-bold text-espresso-900">Personal Blog Platform</h3>
-                        <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                            Designed and authored a dedicated digital home for essays, student reflections, and cultural reviews with warm editorial typography.
-                        </p>
+                <!-- Group 1: Business & Accounting -->
+                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl">📊</span>
+                        <h3 class="font-editorial text-xl font-bold text-espresso-900">Commerce & Finance</h3>
                     </div>
-                    <div class="pt-4 border-t border-cream-300 flex items-center justify-between text-xs font-mono text-espresso-500">
-                        <span>Editorial Storytelling</span>
-                        <a href="#blog" class="text-terracotta-600 font-bold hover:underline">Explore Blog →</a>
-                    </div>
-                </div>
-
-                <!-- Project 02: Photography Portfolio -->
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-scrapbook space-y-4 flex flex-col justify-between hover:border-sage-300 transition-all duration-300">
-                    <div class="space-y-3">
-                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-sage-100 text-sage-800 font-semibold">VISUAL ARTS</span>
-                        <h3 class="font-editorial text-xl font-bold text-espresso-900">Atmospheric Photography Series</h3>
-                        <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                            Curated visual collection capturing local street light, architecture, culinary stills, and authentic unposed portraiture.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-cream-300 flex items-center justify-between text-xs font-mono text-espresso-500">
-                        <span>35mm & Digital</span>
-                        <a href="#photography" class="text-sage-700 font-bold hover:underline">View Frames →</a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Financial Accounting</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Bookkeeping</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Auditing Basics</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">MSME Data Analytics</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Unit Economics</span>
                     </div>
                 </div>
 
-                <!-- Project 03: Recipe Collection -->
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-scrapbook space-y-4 flex flex-col justify-between hover:border-honey-300 transition-all duration-300">
-                    <div class="space-y-3">
-                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-honey-100 text-honey-700 font-semibold">RECIPE DEVELOPER</span>
-                        <h3 class="font-editorial text-xl font-bold text-espresso-900">Artisanal Bakery Book</h3>
-                        <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                            Formulated and documented tested recipes for sourdough loaves, celebration cakes, and small-batch tea pastries.
-                        </p>
+                <!-- Group 2: Tech & Prototyping -->
+                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl">📡</span>
+                        <h3 class="font-editorial text-xl font-bold text-espresso-900">Tech & ProtoSem</h3>
                     </div>
-                    <div class="pt-4 border-t border-cream-300 flex items-center justify-between text-xs font-mono text-espresso-500">
-                        <span>Baking Science</span>
-                        <a href="#baking" class="text-honey-600 font-bold hover:underline">See Recipes →</a>
-                    </div>
-                </div>
-
-                <!-- Project 04: Content Creation -->
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-scrapbook space-y-4 flex flex-col justify-between hover:border-terracotta-300 transition-all duration-300">
-                    <div class="space-y-3">
-                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-terracotta-100 text-terracotta-700 font-semibold">DIGITAL MEDIA</span>
-                        <h3 class="font-editorial text-xl font-bold text-espresso-900">Social Storytelling & Reels</h3>
-                        <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                            Created aesthetic micro-vlogs, step-by-step baking stories, and photography carousels engaging community audiences.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-cream-300 flex items-center justify-between text-xs font-mono text-espresso-500">
-                        <span>Visual Storytelling</span>
-                        <span class="text-espresso-700 font-bold">Active Stream</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-honey-600 font-bold">ProtoSem Sprints</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">AI in Business</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">IoT Sensors & Hardware</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Phygital Commerce</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Rapid Prototyping</span>
                     </div>
                 </div>
 
-                <!-- Project 05: Student Projects (MSME Research) -->
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-scrapbook space-y-4 flex flex-col justify-between hover:border-cream-400 transition-all duration-300">
-                    <div class="space-y-3">
-                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-cream-200 text-espresso-800 font-semibold">RESEARCH & ANALYTICS</span>
-                        <h3 class="font-editorial text-xl font-bold text-espresso-900">MSME & AI Enterprise Study</h3>
-                        <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                            4-month descriptive study analyzing Udyam Portal datasets to evaluate how artificial intelligence transforms digital platform entrepreneurship.
-                        </p>
+                <!-- Group 3: Creative & Culinary -->
+                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl">🎨</span>
+                        <h3 class="font-editorial text-xl font-bold text-espresso-900">Creative & Culinary</h3>
                     </div>
-                    <div class="pt-4 border-t border-cream-300 flex items-center justify-between text-xs font-mono text-espresso-500">
-                        <span>Bharathiyar Univ</span>
-                        <a href="resume.html" class="text-espresso-800 font-bold hover:underline">Academic Details →</a>
-                    </div>
-                </div>
-
-                <!-- Project 06: Digital Ideas (ProtoSem) -->
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-scrapbook space-y-4 flex flex-col justify-between hover:border-sage-300 transition-all duration-300">
-                    <div class="space-y-3">
-                        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-sage-100 text-sage-800 font-semibold">INNOVATION TRAINEE</span>
-                        <h3 class="font-editorial text-xl font-bold text-espresso-900">PRICE ProtoSem Fellowship</h3>
-                        <p class="text-sm text-espresso-600 font-normal leading-relaxed">
-                            21-week intensive industry immersion prototyping phygital retail solutions uniting commercial logic with hardware and telemetry.
-                        </p>
-                    </div>
-                    <div class="pt-4 border-t border-cream-300 flex items-center justify-between text-xs font-mono text-espresso-500">
-                        <span>Zero Week to Launch</span>
-                        <a href="zero-week.html" class="text-sage-700 font-bold hover:underline">Zero Week Story →</a>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-terracotta-700 font-bold">Editorial Blogging</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">NPTEL Graphic Design</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">35mm Photography</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Artisanal Baking</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-cream-200 border border-cream-300 text-xs font-semibold text-espresso-800">Food Styling</span>
                     </div>
                 </div>
 
@@ -707,579 +837,397 @@
         </section>
 
         <!-- ========================================================================= -->
-        <!-- 7. SKILLS SECTION ("WHAT I DO BEST")                                      -->
+        <!-- 9. CONTACT & FOOTER                                                       -->
         <!-- ========================================================================= -->
-        <section id="skills" class="space-y-10 reveal-item">
+        <section id="contact" class="bg-cream-50 rounded-3xl p-8 sm:p-12 border border-cream-300 shadow-scrapbook text-left space-y-8 reveal-item">
             
-            <div class="text-center max-w-2xl mx-auto space-y-3">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-semibold">
-                    <span>✦ SKILLS & CAPABILITIES</span>
+            <div class="max-w-2xl space-y-3">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-bold">
+                    <span>✦ GET IN TOUCH</span>
                 </div>
                 <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
-                    What I Do Best
+                    Let's Create Something.
                 </h2>
                 <p class="text-sm sm:text-base text-espresso-600 font-normal">
-                    A versatile blend of creative storytelling, visual content design, and analytical research rigor.
+                    Whether you want to discuss a collaborative writing project, discuss ProtoSem innovation sprints, or share a bakery recipe — I'd love to hear from you.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">✍️</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Blogging & Editorial</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Narrative structuring, blog formatting, tone development, personal essay composition.</p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">📝</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Content Writing</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Creative copy, descriptive articles, social posts, audience engagement & clarity.</p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">📷</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Photography</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Visual composition, lighting control, Lightroom color grading, food & portrait styling.</p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">🥐</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Baking & Recipes</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Artisanal cake craft, flavor pairings, bread formulation, temperature precision.</p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">🎨</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Canva & Visual Design</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Layout design, brand identity assets, mood boards, editorial aesthetic curation.</p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">📊</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Research & Planning</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Data synthesis, descriptive academic research, structured project milestones.</p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">📱</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Social Media Content</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Visual carousel development, aesthetic reels, community conversations.</p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 space-y-2">
-                    <div class="text-2xl">💼</div>
-                    <h4 class="font-editorial text-lg font-bold text-espresso-900">Financial Accounting</h4>
-                    <p class="text-xs text-espresso-600 font-normal">Commercial principles, bookkeeping, quantitative analysis, MSME economics.</p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ========================================================================= -->
-        <!-- 8. ACHIEVEMENTS SECTION ("MILESTONES & HONOURS")                           -->
-        <!-- ========================================================================= -->
-        <section id="achievements" class="space-y-10 reveal-item">
-            
-            <div class="text-left space-y-2 border-b border-cream-300 pb-6">
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-honey-100 text-honey-600 text-xs font-mono font-bold">
-                    <span>✦ ACADEMIC & MERIT RECORD</span>
-                </div>
-                <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900">
-                    Honours & Milestones
-                </h2>
-                <p class="text-sm sm:text-base text-espresso-600 font-normal max-w-xl">
-                    Recognitions earned through academic commitment, structured research, and creative discipline.
-                </p>
-            </div>
-
-            <!-- Timeline / Cards Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-                
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-3">
-                    <div class="flex items-center justify-between text-xs font-mono text-terracotta-600 font-bold">
-                        <span>SCHOLASTIC RECORD</span>
-                        <span>CGPA 8.5 / 10.0</span>
-                    </div>
-                    <h3 class="font-editorial text-xl font-bold text-espresso-900">B.Com Professional Accounting</h3>
-                    <p class="text-xs text-espresso-600 font-normal leading-relaxed">
-                        Currently pursuing at Kumaraguru College of Liberal Arts & Science (Bharathiyar University) with continuous academic excellence.
-                    </p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-3">
-                    <div class="flex items-center justify-between text-xs font-mono text-sage-700 font-bold">
-                        <span>INNOVATION FELLOW</span>
-                        <span>21 WEEKS</span>
-                    </div>
-                    <h3 class="font-editorial text-xl font-bold text-espresso-900">PRICE ProtoSem Trainee</h3>
-                    <p class="text-xs text-espresso-600 font-normal leading-relaxed">
-                        Selected for a competitive industry-integrated innovation fellowship focusing on problem validation, hardware IoT, and venture launch.
-                    </p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-3">
-                    <div class="flex items-center justify-between text-xs font-mono text-honey-600 font-bold">
-                        <span>OLYMPIAD HONOUR</span>
-                        <span>100 / 100</span>
-                    </div>
-                    <h3 class="font-editorial text-xl font-bold text-espresso-900">Commerce Distinction Award</h3>
-                    <p class="text-xs text-espresso-600 font-normal leading-relaxed">
-                        Achieved a perfect score in Higher Secondary Commerce examination with Gold Medal distinction for analytical accuracy.
-                    </p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-3">
-                    <div class="flex items-center justify-between text-xs font-mono text-espresso-600 font-bold">
-                        <span>MERIT SCHOLARSHIP</span>
-                        <span>INSTITUTIONAL</span>
-                    </div>
-                    <h3 class="font-editorial text-xl font-bold text-espresso-900">Mahatma Gandhi Scholarship</h3>
-                    <p class="text-xs text-espresso-600 font-normal leading-relaxed">
-                        Awarded prestigious merit-based institutional scholarship for exemplary academic performance and civic contribution.
-                    </p>
-                </div>
-
-                <div class="bg-cream-50 p-6 rounded-3xl border border-cream-300 shadow-sm space-y-3 md:col-span-2">
-                    <div class="flex items-center justify-between text-xs font-mono text-terracotta-600 font-bold">
-                        <span>RESEARCH AUTHORSHIP</span>
-                        <span>4 MONTHS STUDY</span>
-                    </div>
-                    <h3 class="font-editorial text-xl font-bold text-espresso-900">Digital Entrepreneurship in the Era of AI</h3>
-                    <p class="text-xs text-espresso-600 font-normal leading-relaxed">
-                        Conducted descriptive quantitative research analyzing Udyam Portal and MSME economic metrics to assess digital adoption patterns among micro-enterprises in India.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ========================================================================= -->
-        <!-- 9. CONTACT SECTION ("LET'S CREATE SOMETHING.")                             -->
-        <!-- ========================================================================= -->
-        <section id="contact" class="space-y-10 reveal-item text-left">
-            
-            <div class="bg-cream-50 p-8 sm:p-12 lg:p-16 rounded-3xl border border-cream-300 shadow-scrapbook relative overflow-hidden">
-                
-                <div class="washi-tape washi-honey -top-2 left-1/2 transform -translate-x-1/2 rotate-1"></div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    
-                    <div class="lg:col-span-6 space-y-6">
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-terracotta-100 text-terracotta-700 text-xs font-mono font-bold">
-                            <span>✦ OPEN FOR INTERNSHIPS & COLLABORATIONS</span>
-                        </div>
-                        
-                        <h2 class="font-editorial text-3xl sm:text-5xl font-bold text-espresso-900 leading-tight">
-                            Let's Create Something.
-                        </h2>
-                        
-                        <p class="text-sm sm:text-base text-espresso-600 font-normal leading-relaxed max-w-md">
-                            Have an idea, collaboration or project in mind? Whether it's an internship opportunity, editorial writing, photography assignment or just exchanging recipes — let's connect.
-                        </p>
-
-                        <!-- Direct Social & Email Links -->
-                        <div class="space-y-3 pt-2">
-                            <a href="mailto:nandhinisiva299@gmail.com" class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-cream-300 hover:border-terracotta-500 transition-colors group">
-                                <div class="w-10 h-10 rounded-xl bg-terracotta-100 text-terracotta-600 flex items-center justify-center text-lg">✉️</div>
-                                <div>
-                                    <div class="text-xs font-mono text-espresso-500">EMAIL ME DIRECTLY</div>
-                                    <div class="text-sm font-semibold text-espresso-900 group-hover:text-terracotta-600 transition-colors">nandhinisiva299@gmail.com</div>
-                                </div>
+                <!-- Contact Info & Quick Direct Links -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-2xl bg-cream-100 border border-cream-300 space-y-1">
+                            <div class="text-xs font-mono text-espresso-500">DIRECT EMAIL</div>
+                            <a href="mailto:nandhinisiva299@gmail.com" class="text-sm sm:text-base font-bold text-espresso-900 hover:text-terracotta-600 transition-colors">
+                                nandhinisiva299@gmail.com
                             </a>
-
-                            <a href="https://linkedin.com/in/nandhini-sivakumar-1a2406321" target="_blank" class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-cream-300 hover:border-sage-500 transition-colors group">
-                                <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center text-lg">🔗</div>
-                                <div>
-                                    <div class="text-xs font-mono text-espresso-500">PROFESSIONAL NETWORK</div>
-                                    <div class="text-sm font-semibold text-espresso-900 group-hover:text-sage-700 transition-colors">linkedin.com/in/nandhini-sivakumar</div>
-                                </div>
-                            </a>
-
-                            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white border border-cream-300">
-                                <div class="w-10 h-10 rounded-xl bg-honey-100 text-honey-600 flex items-center justify-center text-lg">📷</div>
-                                <div>
-                                    <div class="text-xs font-mono text-espresso-500">INSTAGRAM STORIES</div>
-                                    <div class="text-sm font-semibold text-espresso-900">@nandhini_stories (Creative Journal)</div>
-                                </div>
-                            </div>
                         </div>
-
+                        <div class="p-4 rounded-2xl bg-cream-100 border border-cream-300 space-y-1">
+                            <div class="text-xs font-mono text-espresso-500">LINKEDIN PROFILE</div>
+                            <a href="https://linkedin.com/in/nandhini-sivakumar-1a2406321" target="_blank" class="text-sm sm:text-base font-bold text-espresso-900 hover:text-terracotta-600 transition-colors">
+                                linkedin.com/in/nandhini-sivakumar-1a2406321
+                            </a>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-cream-100 border border-cream-300 space-y-1">
+                            <div class="text-xs font-mono text-espresso-500">INNOVATION FELLOWSHIP</div>
+                            <div class="text-sm font-bold text-espresso-900">PRICE ProtoSem 21-Week Immersion</div>
+                        </div>
                     </div>
 
-                    <!-- Interactive Quick Note Form -->
-                    <div class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-cream-300 shadow-sm space-y-4">
-                        <div class="font-editorial text-xl font-bold text-espresso-900">Send a Note</div>
-                        <p class="text-xs text-espresso-600 font-normal">Leave your name and a brief note — I typically respond within 24 hours.</p>
-
-                        <form onsubmit="handleContactSubmit(event)" class="space-y-4 text-left">
-                            <div>
-                                <label class="block text-xs font-mono text-espresso-700 uppercase font-bold mb-1">Your Name</label>
-                                <input type="text" id="contact-name" required placeholder="e.g. Maya Chen" class="w-full px-4 py-2.5 rounded-xl border border-cream-300 text-sm focus:outline-none focus:border-terracotta-500 bg-cream-50/50">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-mono text-espresso-700 uppercase font-bold mb-1">Your Email</label>
-                                <input type="email" id="contact-email" required placeholder="maya@example.com" class="w-full px-4 py-2.5 rounded-xl border border-cream-300 text-sm focus:outline-none focus:border-terracotta-500 bg-cream-50/50">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-mono text-espresso-700 uppercase font-bold mb-1">Subject / Interest</label>
-                                <select id="contact-subject" class="w-full px-4 py-2.5 rounded-xl border border-cream-300 text-sm focus:outline-none focus:border-terracotta-500 bg-cream-50/50 text-espresso-800">
-                                    <option>Internship / Career Opportunity</option>
-                                    <option>Blogging / Writing Collaboration</option>
-                                    <option>Photography Project</option>
-                                    <option>Baking & Recipe Request</option>
-                                    <option>Just Saying Hi!</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-mono text-espresso-700 uppercase font-bold mb-1">Your Message</label>
-                                <textarea id="contact-message" rows="3" required placeholder="Tell me a bit about what you have in mind..." class="w-full px-4 py-2.5 rounded-xl border border-cream-300 text-sm focus:outline-none focus:border-terracotta-500 bg-cream-50/50"></textarea>
-                            </div>
-                            <button type="submit" class="w-full py-3 rounded-full bg-espresso-800 text-cream-50 hover:bg-terracotta-600 font-semibold text-xs tracking-wider uppercase transition-all shadow-sm">
-                                Send Message ✦
-                            </button>
-                        </form>
+                    <div class="p-4 rounded-2xl bg-honey-100 border border-honey-300 text-xs font-mono text-espresso-800 space-y-1">
+                        <div class="font-bold">✨ RESUME & GUIDE ASSETS</div>
+                        <div class="flex gap-3 pt-1">
+                            <a href="resume.html" class="underline text-espresso-900 font-bold hover:text-terracotta-600">ATS Resume</a>
+                            <span>•</span>
+                            <a href="zero-week.html" class="underline text-espresso-900 font-bold hover:text-terracotta-600">Zero Week Story</a>
+                            <span>•</span>
+                            <a href="download.pdf" target="_blank" class="underline text-espresso-900 font-bold hover:text-terracotta-600">Curriculum PDF</a>
+                        </div>
                     </div>
-
                 </div>
+
+                <!-- Contact Form -->
+                <form onsubmit="handleContactSubmit(event)" class="lg:col-span-7 space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-mono text-espresso-600">YOUR NAME</label>
+                            <input type="text" required placeholder="Elena Vance" class="w-full px-4 py-3 rounded-xl bg-cream-100 border border-cream-300 text-espresso-900 focus:outline-none focus:border-terracotta-500 text-sm">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-mono text-espresso-600">YOUR EMAIL</label>
+                            <input type="email" required placeholder="elena@example.com" class="w-full px-4 py-3 rounded-xl bg-cream-100 border border-cream-300 text-espresso-900 focus:outline-none focus:border-terracotta-500 text-sm">
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-mono text-espresso-600">SUBJECT</label>
+                        <input type="text" required placeholder="Collaborative Project or Question" class="w-full px-4 py-3 rounded-xl bg-cream-100 border border-cream-300 text-espresso-900 focus:outline-none focus:border-terracotta-500 text-sm">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-mono text-espresso-600">MESSAGE</label>
+                        <textarea rows="4" required placeholder="Write your note here..." class="w-full px-4 py-3 rounded-xl bg-cream-100 border border-cream-300 text-espresso-900 focus:outline-none focus:border-terracotta-500 text-sm"></textarea>
+                    </div>
+                    <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 text-cream-50 hover:bg-terracotta-600 font-semibold text-sm transition-all shadow-md">
+                        Send Message ✦
+                    </button>
+                </form>
 
             </div>
 
         </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-espresso-500 py-10 border-t border-cream-300 space-y-4">
+            <div class="flex justify-center flex-wrap gap-5 text-sm font-medium">
+                <a href="#home" class="hover:text-terracotta-600 transition-colors">Home</a>
+                <a href="#about" class="hover:text-terracotta-600 transition-colors">About</a>
+                <a href="#protosem" class="hover:text-terracotta-600 transition-colors font-bold">ProtoSem (21 Wks)</a>
+                <a href="#academics" class="hover:text-terracotta-600 transition-colors">Academics</a>
+                <a href="#blog" class="hover:text-terracotta-600 transition-colors">Blog</a>
+                <a href="zero-week.html" class="hover:text-terracotta-600 transition-colors">Zero Week</a>
+                <a href="resume.html" class="hover:text-terracotta-600 transition-colors">ATS Resume</a>
+                <a href="download.pdf" target="_blank" class="hover:text-terracotta-600 transition-colors">PDF Guide</a>
+            </div>
+            <p class="text-xs sm:text-sm text-espresso-400 font-mono">
+                &copy; 2026 Nandhini Sivakumar • Innovation Engineer Trainee • Powered by PRICE ProtoSem
+            </p>
+        </footer>
 
     </main>
 
     <!-- ========================================================================= -->
-    <!-- 10. FOOTER                                                                -->
+    <!-- PROTOSEM WEEK PREVIEW MODAL                                               -->
     <!-- ========================================================================= -->
-    <footer class="bg-cream-150 border-t border-cream-300 py-12 text-center text-espresso-700">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            
-            <div class="space-y-1">
-                <h3 class="font-editorial text-3xl font-bold tracking-tight text-espresso-900">
-                    NANDHINI
-                </h3>
-                <p class="font-mono text-xs tracking-widest text-espresso-600 uppercase font-bold">
-                    BLOGGING • PHOTOGRAPHY • BAKING • IDEAS
-                </p>
+    <div id="week-modal" class="fixed inset-0 z-50 bg-espresso-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="closeWeekModal()">
+        <div class="bg-cream-50 max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-honey-400 shadow-2xl relative text-left" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between mb-3">
+                <span id="modal-phase" class="text-xs font-mono uppercase text-honey-600 font-bold tracking-wider">PHASE 00 • ZERO WEEK</span>
+                <button onclick="closeWeekModal()" class="text-espresso-400 hover:text-espresso-800 p-1 rounded-lg hover:bg-cream-200">✕</button>
             </div>
-
-            <p class="text-xs text-espresso-500 font-normal max-w-md mx-auto leading-relaxed">
-                Handcrafted with warmth, elegant serif typography, and a modern scrapbook spirit. Designed for academic and creative opportunities.
+            <h3 id="modal-week" class="font-editorial text-2xl sm:text-3xl font-bold text-espresso-900 mb-2">
+                ZERO WEEK
+            </h3>
+            <div id="modal-title" class="text-sm font-semibold text-terracotta-600 mb-3">
+                Where the Prototype Began
+            </div>
+            <p id="modal-desc" class="text-espresso-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+                Sprint description loads here.
             </p>
-
-            <div class="flex items-center justify-center gap-6 text-xs font-medium text-espresso-600">
-                <a href="resume.html" class="hover:text-terracotta-600 transition-colors">ATS Resume</a>
-                <span>•</span>
-                <a href="zero-week.html" class="hover:text-terracotta-600 transition-colors">Zero Week Narrative</a>
-                <span>•</span>
-                <a href="#home" class="hover:text-terracotta-600 transition-colors">Back to Top ↑</a>
+            <div class="flex items-center justify-between pt-4 border-t border-cream-200">
+                <span id="modal-status" class="text-xs font-mono px-3 py-1 rounded-full bg-cream-200 text-espresso-700 font-bold">
+                    STATUS
+                </span>
+                <a id="modal-action-btn" href="#" class="px-5 py-2 rounded-full bg-honey-500 text-espresso-900 font-bold text-xs hover:bg-honey-400 transition-colors">
+                    Read Story →
+                </a>
             </div>
-
-            <div class="text-[11px] font-mono text-espresso-400 pt-4 border-t border-cream-300">
-                © 2026 Nandhini Sivakumar. All rights reserved.
-            </div>
-
         </div>
-    </footer>
+    </div>
 
-    <!-- Floating Scroll-to-Top Button -->
-    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-white border border-cream-300 shadow-polaroid hover:bg-terracotta-500 hover:text-white text-espresso-800 transition-all opacity-0 pointer-events-none duration-300" title="Back to Top">
+    <!-- ========================================================================= -->
+    <!-- BLOG ARTICLE READER MODAL                                                 -->
+    <!-- ========================================================================= -->
+    <div id="article-modal" class="fixed inset-0 z-50 bg-espresso-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="closeArticleModal()">
+        <div class="bg-cream-50 max-w-3xl w-full max-h-[90vh] rounded-3xl border border-cream-300 shadow-2xl flex flex-col overflow-hidden text-left relative" onclick="event.stopPropagation()">
+            
+            <div class="p-6 sm:p-8 border-b border-cream-200 flex items-center justify-between bg-cream-100">
+                <div class="space-y-1">
+                    <span id="modal-article-category" class="px-3 py-1 rounded-full bg-terracotta-100 text-terracotta-700 font-mono text-xs font-bold">CATEGORY</span>
+                    <span id="modal-article-meta" class="text-xs font-mono text-espresso-500 ml-2">READ TIME</span>
+                </div>
+                <button onclick="closeArticleModal()" class="w-8 h-8 rounded-full bg-cream-200 text-espresso-800 hover:bg-terracotta-500 hover:text-white flex items-center justify-center transition-colors">
+                    ✕
+                </button>
+            </div>
+
+            <div class="p-6 sm:p-10 overflow-y-auto space-y-6 leading-relaxed text-espresso-800">
+                <h3 id="modal-article-title" class="font-editorial text-2xl sm:text-4xl font-bold text-espresso-900">
+                    Article Title
+                </h3>
+                <div id="modal-article-content" class="space-y-4 text-sm sm:text-base font-normal text-espresso-700 leading-relaxed">
+                    <!-- Populated via openArticleModal() -->
+                </div>
+            </div>
+
+            <div class="p-4 bg-cream-100 border-t border-cream-200 flex items-center justify-between text-xs font-mono text-espresso-500">
+                <span>Story by Nandhini Sivakumar</span>
+                <button onclick="closeArticleModal()" class="px-4 py-2 rounded-full bg-espresso-800 text-cream-50 font-semibold hover:bg-terracotta-600 transition-colors">
+                    Close Article
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PHOTOGRAPHY LIGHTBOX MODAL                                                -->
+    <!-- ========================================================================= -->
+    <div id="photo-modal" class="fixed inset-0 z-50 bg-espresso-950/85 backdrop-blur-md flex items-center justify-center p-4 hidden" onclick="closePhotoModal()">
+        <div class="max-w-4xl w-full bg-cream-50 rounded-3xl p-4 sm:p-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="closePhotoModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-espresso-800 text-white flex items-center justify-center hover:bg-terracotta-600 transition-colors">
+                ✕
+            </button>
+            <div class="rounded-2xl overflow-hidden bg-espresso-900 max-h-[72vh] flex items-center justify-center">
+                <img id="lightbox-img" src="" alt="Enlarged photo" class="max-h-[72vh] w-auto object-contain">
+            </div>
+            <div class="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-left">
+                <div>
+                    <h4 id="lightbox-title" class="font-editorial text-xl font-bold text-espresso-900">Title</h4>
+                    <p id="lightbox-caption" class="font-hand text-lg text-sage-700">Caption</p>
+                </div>
+                <span id="lightbox-meta" class="text-xs font-mono text-espresso-500">Metadata</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-espresso-800 text-cream-50 px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300">
+        <span id="toast-icon">✨</span>
+        <span id="toast-msg" class="text-xs sm:text-sm font-medium">Notification message</span>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-cream-50 border border-cream-300 shadow-md text-espresso-800 hover:bg-cream-200 opacity-0 pointer-events-none transition-all duration-300" title="Back to top">
         ↑
     </button>
 
     <!-- ========================================================================= -->
-    <!-- ARTICLE READER MODAL (FULL BLOG CONTENT)                                  -->
-    <!-- ========================================================================= -->
-    <div id="article-modal" class="fixed inset-0 z-50 bg-espresso-900/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="closeArticleModal()">
-        <div class="bg-cream-100 max-w-3xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-10 border border-cream-300 shadow-2xl relative text-left" onclick="event.stopPropagation()">
-            
-            <button onclick="closeArticleModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-cream-200 text-espresso-700 hover:bg-cream-300 flex items-center justify-center font-mono font-bold">
-                ✕
-            </button>
-
-            <div class="space-y-6">
-                <div class="space-y-2">
-                    <span id="modal-category" class="px-3 py-1 rounded-full bg-terracotta-100 text-terracotta-700 text-xs font-mono font-bold">
-                        Category
-                    </span>
-                    <h2 id="modal-title" class="font-editorial text-2xl sm:text-4xl font-bold text-espresso-900 leading-tight">
-                        Article Title
-                    </h2>
-                    <div id="modal-meta" class="text-xs font-mono text-espresso-500">
-                        Date & Reading Time
-                    </div>
-                </div>
-
-                <div class="aspect-[16/9] rounded-2xl overflow-hidden bg-cream-200">
-                    <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
-                </div>
-
-                <div id="modal-content" class="text-espresso-700 text-sm sm:text-base leading-relaxed space-y-4 font-normal">
-                    <!-- Dynamic rich content injected via JS -->
-                </div>
-
-                <div class="pt-6 border-t border-cream-300 flex items-center justify-between">
-                    <div class="font-hand text-lg text-sage-700">Thank you for reading! — Nandhini ✦</div>
-                    <button onclick="closeArticleModal()" class="px-5 py-2 rounded-full bg-espresso-800 text-cream-50 text-xs font-semibold hover:bg-terracotta-600 transition-colors">
-                        Close Article
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- ========================================================================= -->
-    <!-- PHOTO LIGHTBOX MODAL                                                      -->
-    <!-- ========================================================================= -->
-    <div id="photo-modal" class="fixed inset-0 z-50 bg-espresso-900/85 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="closePhotoModal()">
-        <div class="max-w-4xl w-full bg-white p-4 sm:p-6 pb-8 rounded-2xl shadow-2xl relative text-left" onclick="event.stopPropagation()">
-            <button onclick="closePhotoModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-cream-200 text-espresso-800 hover:bg-cream-300 flex items-center justify-center font-bold z-10">✕</button>
-            <div class="aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-xl bg-cream-100 mb-4">
-                <img id="lightbox-img" src="" alt="" class="w-full h-full object-cover">
-            </div>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <div>
-                    <h3 id="lightbox-title" class="font-editorial text-xl font-bold text-espresso-900">Photo Title</h3>
-                    <p id="lightbox-meta" class="text-xs font-mono text-espresso-500">Camera settings & location</p>
-                </div>
-                <div id="lightbox-tag" class="text-xs font-mono px-3 py-1 rounded-full bg-sage-100 text-sage-800 font-bold self-start sm:self-auto">
-                    Category
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-full bg-espresso-800 text-cream-50 text-xs font-mono shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-y-4 flex items-center gap-2">
-        <span id="toast-icon">✨</span>
-        <span id="toast-text">Message</span>
-    </div>
-
-    <!-- ========================================================================= -->
-    <!-- SCRIPTS: INTERACTIVE BLOGS, GALLERIES, MODALS & SCROLL                    -->
+    <!-- JAVASCRIPT DATA & LOGIC                                                   -->
     <!-- ========================================================================= -->
     <script>
         // =========================================================================
-        // DATA ARRAYS: BLOGS, PHOTOGRAPHY, BAKING
+        // 1. PROTOSEM 21 WEEKS DATA (WEEKS 00 TO 20)
+        // =========================================================================
+        const PROTOSEM_WEEKS = [
+            { week: 0, phase: 0, label: "ZERO WEEK", title: "Where the Prototype Began", status: "STORY PUBLISHED", slug: "zero-week.html", desc: "Five days of immersive team formation, design thinking mindset calibration, AI prompting, and industry inspiration.", isPublished: true },
+            { week: 1, phase: 1, label: "WEEK 01", title: "Empathy & Immersion", status: "FIELD NOTES IN PROGRESS", slug: "week-01", desc: "User research, stakeholder interview protocols, and immersion into modern retail challenges.", isPublished: false },
+            { week: 2, phase: 1, label: "WEEK 02", title: "Problem Definition", status: "FIELD NOTES IN PROGRESS", slug: "week-02", desc: "Mapping friction points, user journey synthesis, and identifying root financial inefficiencies.", isPublished: false },
+            { week: 3, phase: 1, label: "WEEK 03", title: "Ideation & Synthesis", status: "FIELD NOTES IN PROGRESS", slug: "week-03", desc: "Divergent ideation sprints, Crazy Eights sketches, and value proposition design.", isPublished: false },
+            { week: 4, phase: 1, label: "WEEK 04", title: "Low-Fidelity Prototyping", status: "FIELD NOTES IN PROGRESS", slug: "week-04", desc: "Paper prototypes, wireflows, and early user testing loops for connected store experiences.", isPublished: false },
+            { week: 5, phase: 1, label: "WEEK 05", title: "Phase 1 Gate Review", status: "FIELD NOTES IN PROGRESS", slug: "week-05", desc: "Milestone presentation to industry mentors, feedback integration, and sprint pivot.", isPublished: false },
+            { week: 6, phase: 2, label: "WEEK 06", title: "Architecture & Data Flows", status: "FIELD NOTES IN PROGRESS", slug: "week-06", desc: "System architecture diagrams, data pipelines, and commerce database schemas.", isPublished: false },
+            { week: 7, phase: 2, label: "WEEK 07", title: "AI Analytics Integration", status: "FIELD NOTES IN PROGRESS", slug: "week-07", desc: "Embedding AI prediction models, customer basket analysis, and automated bookkeeping rules.", isPublished: false },
+            { week: 8, phase: 2, label: "WEEK 08", title: "Intelligent Systems & Sensors", status: "FIELD NOTES IN PROGRESS", slug: "week-08", desc: "Hardware sensor integration, RFID / camera tracking tests, and IoT telemetry setups.", isPublished: false },
+            { week: 9, phase: 2, label: "WEEK 09", title: "Embedded Firmware Sprints", status: "FIELD NOTES IN PROGRESS", slug: "week-09", desc: "Micro-controller programming, edge intelligence, and device-to-cloud communications.", isPublished: false },
+            { week: 10, phase: 2, label: "WEEK 10", title: "Phase 2 Gate Review", status: "FIELD NOTES IN PROGRESS", slug: "week-10", desc: "Technical system walkthrough and proof-of-concept hardware demonstration.", isPublished: false },
+            { week: 11, phase: 3, label: "WEEK 11", title: "Phygital Prototyping Alpha", status: "FIELD NOTES IN PROGRESS", slug: "week-11", desc: "Constructing physical kiosk housing, digital screen interactions, and sensor mounts.", isPublished: false },
+            { week: 12, phase: 3, label: "WEEK 12", title: "UX Refinement & Testing", status: "FIELD NOTES IN PROGRESS", slug: "week-12", desc: "Observational retail user tests, UI micro-interactions, and frictionless checkout flows.", isPublished: false },
+            { week: 13, phase: 3, label: "WEEK 13", title: "Security & Cloud Telemetry", status: "FIELD NOTES IN PROGRESS", slug: "week-13", desc: "Transaction encryption, cloud dashboard telemetry, and real-time inventory sync.", isPublished: false },
+            { week: 14, phase: 3, label: "WEEK 14", title: "Stress Testing & Optimization", status: "FIELD NOTES IN PROGRESS", slug: "week-14", desc: "Load testing, power optimization, edge latency reduction, and error recovery states.", isPublished: false },
+            { week: 15, phase: 3, label: "WEEK 15", title: "Phase 3 Gate Review", status: "FIELD NOTES IN PROGRESS", slug: "week-15", desc: "End-to-end alpha pilot review with PRICE innovation council.", isPublished: false },
+            { week: 16, phase: 4, label: "WEEK 16", title: "Field Pilot & Deployment", status: "FIELD NOTES IN PROGRESS", slug: "week-16", desc: "Live retail environment deployment, metric collection, and real user adoption tracking.", isPublished: false },
+            { week: 17, phase: 4, label: "WEEK 17", title: "Financial & Unit Economics", status: "FIELD NOTES IN PROGRESS", slug: "week-17", desc: "BOM calculation, unit economics modeling, ROI projections, and business feasibility.", isPublished: false },
+            { week: 18, phase: 4, label: "WEEK 18", title: "Product Polish & Packaging", status: "FIELD NOTES IN PROGRESS", slug: "week-18", desc: "Industrial finish, brand guidelines, onboarding documentation, and demo packaging.", isPublished: false },
+            { week: 19, phase: 4, label: "WEEK 19", title: "Pitch Deck & Venture Demo", status: "FIELD NOTES IN PROGRESS", slug: "week-19", desc: "Crafting investor deck, financial forecasting slides, and live product demo script.", isPublished: false },
+            { week: 20, phase: 4, label: "WEEK 20", title: "Grand Demo Day & Launch", status: "FIELD NOTES IN PROGRESS", slug: "week-20", desc: "Final graduation showcase, venture exhibition, and ProtoSem certification.", isPublished: false }
+        ];
+
+        // =========================================================================
+        // 2. BLOG ESSAYS DATA (WITH FULL STORIES)
         // =========================================================================
         const BLOG_POSTS = [
             {
                 id: 0,
-                category: "Student Life",
-                title: "Finding My Voice: How Starting a College Blog Redefined My Perspective",
-                desc: "Between financial accounting formulas and kitchen experiments, I discovered that documenting the quiet in-between moments taught me more about discipline and courage than any lecture.",
-                image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
-                date: "Sep 2026",
-                readTime: "5 min read",
+                title: "Finding Quiet Corners: Slow Living in a Fast-Paced College World",
+                category: "College Life",
+                date: "Sep 18, 2026",
+                readTime: "4 min read",
+                image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+                desc: "Between accounting ledgers and fast-approaching deadlines, I learned that busyness isn't a badge of honor. A personal reflection on pausing, journaling, and observing.",
                 content: `
-                    <p>When you enter college as a commerce student, your days quickly fill with balancing sheets, ratios, and academic benchmarks. But alongside the numbers, my thoughts were constantly brimming with quiet observations about everyday human interactions, the subtle change of morning light in the classroom, and the discipline required to master an unfamiliar craft.</p>
-                    <p>Starting this blog wasn't about building an audience—it was an honest commitment to pay attention to my own life. Writing has become my method for reflecting on challenges, celebrating small victories, and synthesizing disparate fields like financial logic and creative photography.</p>
-                    <p class="font-editorial text-lg italic text-terracotta-600 pl-4 border-l-2 border-terracotta-500 my-4">"Writing is not what happens after you think; writing is how you think clearly."</p>
-                    <p>To any fellow student wondering if they should start writing or sharing their creative explorations: do not wait until you feel 'qualified'. Begin right where you are, with all the imperfect drafts and raw curiosity you have today.</p>
+                    <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"Busyness is often the easiest excuse for avoiding what matters most."</p>
+                    <p>There is a peculiar rhythm to college life. The morning bell sounds, hallways fill with the shuffle of sneakers and notebook leaves, and suddenly your planner is full before you have even had your first sip of coffee.</p>
+                    <p>For months, I believed that taking on more commitments — more problem statements in ProtoSem, more student chapters, more spreadsheets — meant I was succeeding. But when every hour is accounted for, where does genuine curiosity go?</p>
+                    <p>Slow living is not about doing nothing. For me, it became the conscious decision to protect 45 minutes every evening with my camera, an unlined notebook, or a mixing bowl. That is where new ideas are born.</p>
                 `
             },
             {
                 id: 1,
-                category: "Personal Development",
-                title: "The Art of Slow Progress: Lessons from Sourdough and Studies",
-                desc: "Why the most rewarding outcomes in education and baking cannot be rushed by quick hacks or shortcuts.",
-                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
-                date: "Aug 2026",
-                readTime: "4 min read",
+                title: "The Art of Getting Stuck: Why Creative Roadblocks are Necessary",
+                category: "Creativity",
+                date: "Sep 12, 2026",
+                readTime: "5 min read",
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+                desc: "Every writer fears the blinking cursor. Here is how I reframe creative burnout into a natural pause for gathering new inspiration.",
                 content: `
-                    <p>A sourdough starter requires seven days of persistent feeding before it produces a single rise. There is no algorithm or hack to shorten the fermentation process without sacrificing the flavor and structure of the loaf.</p>
-                    <p>As students, we are frequently inundated with 'productivity hacks' and promises of rapid mastery. Yet my highest academic marks and most delicious pastry bakes all share one quiet constant: unhurried, daily repetition.</p>
-                    <p>Embracing patience doesn't mean moving without urgency; it means respecting the natural incubation time required for real skills to mature.</p>
+                    <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"A blocked mind is usually just an empty well asking to be refilled."</p>
+                    <p>Whenever I stare at an empty document trying to articulate a problem statement or draft a personal essay, frustration used to be my default state. I wanted flow on command.</p>
+                    <p>Over the past year, I changed my mindset. When words stop flowing, it usually means I need more sensory input: a walk through the local botanical park, listening to a conversation at a tea stall, or baking a batch of bread.</p>
                 `
             },
             {
                 id: 2,
-                category: "Photography",
-                title: "Chasing Shadows: What Golden Hour Taught Me About Composition",
-                desc: "Notes on seeing the world through a 35mm focal lens and looking for stories rather than pretty shots.",
-                image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=80",
-                date: "Jul 2026",
+                title: "35mm Nostalgia: What Film Photography Taught Me About Patience",
+                category: "Personal Growth",
+                date: "Aug 29, 2026",
                 readTime: "3 min read",
+                image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80",
+                desc: "In an era of instant 4K smartphone bursts, shooting 36 frames on manual aperture forced me to look before I clicked.",
                 content: `
-                    <p>Photography is less about the camera in your hands and more about your willingness to stand still while everything around you rushes past.</p>
-                    <p>During my weekend photowalks across Tamil Nadu, I began paying attention to the harsh midday shadows transforming into warm amber silhouettes. Framing everyday people—a vendor arranging flowers, a child running along the temple corridor—reminded me that beauty exists in authenticity, not staged perfection.</p>
+                    <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"When you only have 36 exposures, every click requires conviction."</p>
+                    <p>Digital cameras let us take 200 shots of the same doorway and pick the best one later. But when you load a roll of film, you must think about the light, the composition, and the shadows before your finger touches the shutter.</p>
+                    <p>That deliberate patience spilled over into my writing and accounting studies: quality is always the consequence of attention, not speed.</p>
                 `
             },
             {
                 id: 3,
-                category: "Baking & Recipes",
-                title: "The Chemistry of Comfort: Why I Bake on Sunday Evenings",
-                desc: "A reflection on measurement precision, sensory joy, and the ritual of sharing fresh bakes with friends.",
-                image: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80",
-                date: "Jun 2026",
-                readTime: "4 min read",
+                title: "Books That Shifted My Perspective During My First Two College Years",
+                category: "Books & Literature",
+                date: "Aug 15, 2026",
+                readTime: "6 min read",
+                image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+                desc: "A hand-annotated collection of five essays and novels that redefined how I view ambition, empathy, and creative independence.",
                 content: `
-                    <p>Sunday evenings have a distinct weight to them. The upcoming week of lectures, assignments, and ProtoSem deliverables begins to cast its shadow. My ritual to anchor myself has always been simple: flour, butter, sugar, and heat.</p>
-                    <p>Baking demands complete focus. A variation of ten grams in hydration or five minutes in the oven alters the crumb structure entirely. In that focused attention, everyday anxiety melts into sweet aromas.</p>
+                    <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"Reading gives you a thousand lifetimes before you live your own."</p>
+                    <p>From Virginia Woolf's reflections on independent creative space to modern design thinking manifestos, books have been my most steadfast mentors throughout college.</p>
+                    <p>Here are the passages I underlined three times in red pen, and what they taught me about balancing career ambitions with genuine human connection.</p>
                 `
             },
             {
                 id: 4,
-                category: "College Experiences",
-                title: "Balancing Balance Sheets with Creative Ambition",
-                desc: "Navigating a rigorous B.Com Professional Accounting degree while keeping my creative flame alive.",
-                image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
-                date: "May 2026",
+                title: "Solo Train Rides & Rain: Field Notes from My Journey to the Hills",
+                category: "Travel Diaries",
+                date: "Jul 28, 2026",
                 readTime: "4 min read",
+                image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
+                desc: "Window seats, misty tea plantations, and the beauty of traveling with nothing but a notebook and a prime lens.",
                 content: `
-                    <p>People often ask me if commerce and creativity are opposites. They view accounting as rigid boxes of debits and credits, and arts as freeform expression.</p>
-                    <p>In reality, they nourish each other. Financial discipline gives me the analytical rigor to manage time, budget creative projects, and evaluate data objectively. Meanwhile, photography and baking prevent burnout and keep my mind playful and agile.</p>
+                    <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"The world looks softer through rain-streaked train glass."</p>
+                    <p>Boarding the early morning train up into the Nilgiris was an impulse decision on a three-day weekend. With cold mountain air blowing through the window bars and chai steam curling toward the ceiling, I remembered why travel will always be the antidote to monotony.</p>
                 `
             },
             {
                 id: 5,
-                category: "Creative Ideas",
-                title: "The Power of the Morning Scrapbook Journal",
-                desc: "How five minutes of scribbling, polaroids, and notes before breakfast sparks clarity for the entire day.",
-                image: "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80",
-                date: "Apr 2026",
-                readTime: "3 min read",
-                content: `
-                    <p>My morning scrapbook journal isn't an artistic masterpiece; it's a messy, honest container for rough thoughts, pasted receipt scraps, and quick sketches.</p>
-                    <p>Externalizing thoughts onto physical paper creates psychological breathing room. Before checking emails or phone notifications, I spend five quiet minutes grounded in my own head.</p>
-                `
-            },
-            {
-                id: 6,
-                category: "Lifestyle",
-                title: "Creating a Peaceful Study Corner in a Busy Dorm Room",
-                desc: "Simple aesthetic adjustments that turn a small college desk into a sanctuary of focus and calm.",
-                image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=80",
-                date: "Mar 2026",
-                readTime: "3 min read",
-                content: `
-                    <p>Living in student accommodations often means working in cramped spaces. But small intentional details—a warm desk lamp, a tiny green potted succulent, and keeping physical clutter at bay—transform your psychological relationship with study time.</p>
-                `
-            },
-            {
-                id: 7,
-                category: "Career & Learning",
-                title: "What My ProtoSem Innovation Fellowship Taught Me About Teamwork",
-                desc: "21 weeks of building phygital retail prototypes, failing fast, and learning to communicate across disciplines.",
-                image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-                date: "Feb 2026",
+                title: "Sourdough Science: How Yeast & Patience Mirror Innovation Sprints",
+                category: "Recipes & Food",
+                date: "Jul 10, 2026",
                 readTime: "5 min read",
+                image: "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=800&q=80",
+                desc: "Why fermentation, hydration percentages, and stretch-and-folds taught me more about iterative prototyping than any textbook.",
                 content: `
-                    <p>At PRICE ProtoSem, our teams bring together engineers, coders, and commerce specialists. The biggest challenge is rarely the technology itself; it is learning to translate technical jargon into tangible human value.</p>
-                    <p>This experience taught me that innovation is fundamentally an act of empathy: understanding what a user genuinely needs before writing a single line of code or soldering a sensor.</p>
+                    <p class="font-editorial text-lg italic text-terracotta-600 mb-4">"You cannot rush fermentation, just like you cannot rush a good idea."</p>
+                    <p>A loaf of country sourdough has four ingredients: flour, water, salt, and wild yeast. Yet small changes in temperature, time, or hydration produce radically different results. That same iterative curiosity is what makes prototyping so rewarding.</p>
                 `
             }
         ];
 
+        // =========================================================================
+        // 3. PHOTOGRAPHY & BAKING GALLERIES
+        // =========================================================================
         const PHOTO_GALLERY = [
-            {
-                id: 0,
-                title: "Portrait of Contemplation",
-                category: "People",
-                meta: "35mm • f/1.8 • Golden Hour • Tamil Nadu",
-                img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-                caption: "natural portraits in ambient afternoon light"
-            },
-            {
-                id: 1,
-                title: "Quiet Steps & Heritage Stone",
-                category: "Places",
-                meta: "24mm • f/4.0 • Architectural Study",
-                img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-                caption: "geometry of historical corridors"
-            },
-            {
-                id: 2,
-                title: "Mountain Mist at Dawn",
-                category: "Travel",
-                meta: "50mm • f/2.8 • Western Ghats",
-                img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
-                caption: "morning fog rising across tea plantations"
-            },
-            {
-                id: 3,
-                title: "Morning Pour & Ceramic Cup",
-                category: "Food",
-                meta: "50mm • f/1.4 • Natural Window Light",
-                img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-                caption: "fresh dark roast & quiet mornings"
-            },
-            {
-                id: 4,
-                title: "Open Notebook & Dried Flora",
-                category: "Lifestyle",
-                meta: "35mm • f/2.0 • Editorial Still Life",
-                img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
-                caption: "desk details & drafted thoughts"
-            },
-            {
-                id: 5,
-                title: "Verdant Leaves After Rain",
-                category: "Nature",
-                meta: "85mm • f/2.8 • Macro Focus",
-                img: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
-                caption: "emerald water droplets on wild foliage"
-            }
+            { id: 0, title: "Golden Hour Glow", category: "People", meta: "35mm • f/1.8 • 1/500s", img: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80", caption: "warm sunset highlights & candid laughter" },
+            { id: 1, title: "Old Heritage Archways", category: "Places", meta: "24mm • f/4.0 • 1/250s", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80", caption: "timeless textures in morning sandstone" },
+            { id: 2, title: "Misty Mountain Peaks", category: "Travel", meta: "70mm • f/5.6 • 1/800s", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80", caption: "morning fog rising across tea plantations" },
+            { id: 3, title: "Morning Ceramic Cup", category: "Food", meta: "50mm • f/1.4 • Natural Light", img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80", caption: "fresh dark roast & quiet desk moments" },
+            { id: 4, title: "Open Journal & Flora", category: "Lifestyle", meta: "35mm • f/2.0 • Still Life", img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80", caption: "drafted essays & botanical pressings" },
+            { id: 5, title: "Wild Leaves After Rain", category: "Nature", meta: "85mm • f/2.8 • Macro Focus", img: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80", caption: "emerald water droplets on wild foliage" }
         ];
 
         const BAKING_GALLERY = [
-            {
-                id: 0,
-                title: "Earl Grey Vanilla Berry Cake",
-                category: "Cakes",
-                desc: "Infused with organic loose leaf tea, mascarpone frosting, and hand-picked raspberries.",
-                img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
-                notes: "Tasting notes: Bergamot, sweet cream, tart fruit"
-            },
-            {
-                id: 1,
-                title: "Salted Caramel Honeycomb Cupcakes",
-                category: "Cupcakes",
-                desc: "Fluffy Madagascar vanilla sponge topped with burnt caramel drizzle and golden honeycomb shards.",
-                img: "https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=800&q=80",
-                notes: "Tasting notes: Toffee crunch, flaky sea salt, vanilla"
-            },
-            {
-                id: 2,
-                title: "Brown Butter Toffee Sea Salt Cookies",
-                category: "Cookies",
-                desc: "Crispy rimmed, gooey centered cookies baked with deeply browned cultured butter.",
-                img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80",
-                notes: "Tasting notes: Nutty aroma, 70% dark chocolate"
-            },
-            {
-                id: 3,
-                title: "Cardamom Rose Pistachio Tart",
-                category: "Desserts",
-                desc: "Flaky pâte sablée filled with spiced pistachio frangipane and fresh rosewater glaze.",
-                img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
-                notes: "Tasting notes: Floral warmth, ground cardamom"
-            },
-            {
-                id: 4,
-                title: "Artisanal Country Sourdough Loaf",
-                category: "Recipes",
-                desc: "Naturally leavened with wild starter, 80% hydration, baked in a cast iron dutch oven.",
-                img: "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=800&q=80",
-                notes: "Tasting notes: Open airy crumb, blistered crust"
-            },
-            {
-                id: 5,
-                title: "Rustic Fruit Galettes",
-                category: "Food Photography",
-                desc: "Freeform pastry folded over spiced seasonal stone fruits and finished with turbinado sugar.",
-                img: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80",
-                notes: "Tasting notes: Cinnamon sugar, golden flaky crust"
-            }
+            { id: 0, title: "Earl Grey Vanilla Berry Cake", category: "Cakes", desc: "Infused with organic loose leaf tea, mascarpone frosting, and hand-picked raspberries.", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80", notes: "Tasting notes: Bergamot, sweet cream, tart fruit" },
+            { id: 1, title: "Salted Caramel Honeycomb Cupcakes", category: "Cupcakes", desc: "Fluffy Madagascar vanilla sponge topped with burnt caramel drizzle and golden honeycomb shards.", img: "https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=800&q=80", notes: "Tasting notes: Toffee crunch, flaky sea salt, vanilla" },
+            { id: 2, title: "Brown Butter Toffee Sea Salt Cookies", category: "Cookies", desc: "Crispy rimmed, gooey centered cookies baked with deeply browned cultured butter.", img: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80", notes: "Tasting notes: Nutty aroma, 70% dark chocolate" },
+            { id: 3, title: "Cardamom Rose Pistachio Tart", category: "Desserts", desc: "Flaky pâte sablée filled with spiced pistachio frangipane and fresh rosewater glaze.", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80", notes: "Tasting notes: Floral warmth, ground cardamom" },
+            { id: 4, title: "Artisanal Country Sourdough Loaf", category: "Recipes", desc: "Naturally leavened with wild starter, 80% hydration, baked in a cast iron dutch oven.", img: "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=800&q=80", notes: "Tasting notes: Open airy crumb, blistered crust" },
+            { id: 5, title: "Rustic Stonefruit Galettes", category: "Pastry", desc: "Freeform pastry folded over spiced seasonal stone fruits and finished with turbinado sugar.", img: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80", notes: "Tasting notes: Cinnamon sugar, golden flaky crust" }
         ];
 
         // =========================================================================
-        // RENDERING FUNCTIONS
+        // 4. RENDERING FUNCTIONS
         // =========================================================================
+        function renderWeeks(phaseFilter = 'all') {
+            const container = document.getElementById('weeks-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const filtered = PROTOSEM_WEEKS.filter(w => {
+                if (phaseFilter === 'all') return true;
+                return w.phase === parseInt(phaseFilter);
+            });
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = `p-3.5 sm:p-4 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between group ${
+                    item.isPublished 
+                        ? 'bg-cream-100 border-honey-400 hover:border-honey-500 shadow-sm' 
+                        : 'bg-cream-50 border-cream-200 hover:border-cream-300'
+                }`;
+                card.onclick = () => openWeekModal(item.week);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between text-[10px] font-mono mb-2">
+                            <span class="font-bold ${item.isPublished ? 'text-honey-600' : 'text-espresso-400'}">${item.label}</span>
+                            <span class="px-1.5 py-0.5 rounded text-[9px] ${item.isPublished ? 'bg-honey-200 text-espresso-900 font-bold' : 'bg-cream-200 text-espresso-500'}">
+                                ${item.isPublished ? 'STORY' : 'P' + item.phase}
+                            </span>
+                        </div>
+                        <h4 class="font-editorial text-xs sm:text-sm font-bold text-espresso-900 group-hover:text-terracotta-600 transition-colors line-clamp-2">
+                            ${item.title}
+                        </h4>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-cream-200 flex items-center justify-between text-[10px] font-mono text-espresso-500">
+                        <span>${item.isPublished ? 'Read Essay →' : 'Sprint Details'}</span>
+                        <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterPhase(phase) {
+            document.querySelectorAll('.phase-tab').forEach(btn => {
+                btn.classList.remove('bg-espresso-800', 'text-cream-50', 'active');
+                btn.classList.add('text-espresso-700');
+            });
+            const activeBtn = document.getElementById(`phase-tab-${phase}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-espresso-800', 'text-cream-50', 'active');
+                activeBtn.classList.remove('text-espresso-700');
+            }
+            renderWeeks(phase);
+        }
+
         function renderBlogs(filterCategory = 'all') {
             const grid = document.getElementById('blog-grid');
             if (!grid) return;
@@ -1333,45 +1281,27 @@
             renderBlogs(category);
         }
 
-        function renderPhotos(filterCategory = 'all') {
+        function renderPhotos() {
             const grid = document.getElementById('photo-grid');
             if (!grid) return;
             grid.innerHTML = '';
 
-            const filtered = PHOTO_GALLERY.filter(item => {
-                if (filterCategory === 'all') return true;
-                return item.category === filterCategory;
-            });
-
-            filtered.forEach(photo => {
+            PHOTO_GALLERY.forEach(photo => {
                 const card = document.createElement('div');
-                card.className = 'polaroid-card p-3.5 pb-8 rounded-xl cursor-pointer group';
+                card.className = 'polaroid-card p-3.5 pb-8 rounded-xl cursor-pointer group text-left';
                 card.onclick = () => openPhotoLightbox(photo.id);
                 card.innerHTML = `
-                    <div class="aspect-[4/3] rounded-lg overflow-hidden bg-cream-200 mb-3">
+                    <div class="washi-tape washi-sage -top-2.5 left-10"></div>
+                    <div class="aspect-square rounded overflow-hidden mb-3 bg-cream-200">
                         <img src="${photo.img}" alt="${photo.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
-                    <div class="space-y-1 text-left px-1">
-                        <div class="flex items-center justify-between text-[11px] font-mono text-espresso-500">
-                            <span>${photo.category}</span>
-                            <span>${photo.meta.split('•')[0]}</span>
-                        </div>
-                        <h4 class="font-editorial text-base font-bold text-espresso-900 group-hover:text-sage-700 transition-colors">${photo.title}</h4>
-                        <p class="font-hand text-lg text-sage-700 pt-1 leading-none">${photo.caption}</p>
+                    <div class="px-1 flex items-center justify-between">
+                        <p class="font-hand text-xl text-espresso-900">${photo.caption}</p>
+                        <span class="text-[10px] font-mono text-espresso-400 uppercase">${photo.category}</span>
                     </div>
                 `;
                 grid.appendChild(card);
             });
-        }
-
-        function filterPhoto(category) {
-            document.querySelectorAll('.photo-tab').forEach(t => {
-                t.classList.remove('bg-espresso-800', 'text-cream-50', 'active');
-                t.classList.add('bg-cream-50', 'text-espresso-700');
-            });
-            event.target.classList.add('bg-espresso-800', 'text-cream-50', 'active');
-            event.target.classList.remove('bg-cream-50', 'text-espresso-700');
-            renderPhotos(category);
         }
 
         function renderBaking() {
@@ -1381,16 +1311,24 @@
 
             BAKING_GALLERY.forEach(item => {
                 const card = document.createElement('div');
-                card.className = 'polaroid-card p-4 pb-8 rounded-2xl group space-y-3';
+                card.className = 'bg-cream-50 rounded-3xl border border-cream-300 overflow-hidden shadow-scrapbook hover:border-honey-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group';
                 card.innerHTML = `
-                    <div class="aspect-square rounded-xl overflow-hidden bg-cream-200">
-                        <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div>
+                        <div class="aspect-[4/3] overflow-hidden bg-cream-200">
+                            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <span class="px-2.5 py-0.5 rounded-full bg-honey-100 text-honey-700 font-mono text-[11px] font-semibold">${item.category}</span>
+                            <h4 class="font-editorial text-xl font-bold text-espresso-900 group-hover:text-honey-600 transition-colors">
+                                ${item.title}
+                            </h4>
+                            <p class="text-xs sm:text-sm text-espresso-600 font-normal leading-relaxed">
+                                ${item.desc}
+                            </p>
+                        </div>
                     </div>
-                    <div class="space-y-1.5 text-left px-1">
-                        <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-honey-100 text-honey-600 font-bold uppercase">${item.category}</span>
-                        <h4 class="font-editorial text-lg font-bold text-espresso-900 group-hover:text-honey-600 transition-colors">${item.title}</h4>
-                        <p class="text-xs text-espresso-600 font-normal leading-relaxed">${item.desc}</p>
-                        <p class="font-hand text-base text-honey-600 pt-1">${item.notes}</p>
+                    <div class="px-6 pb-6 pt-2 border-t border-cream-200 font-hand text-base text-sage-700">
+                        ${item.notes}
                     </div>
                 `;
                 grid.appendChild(card);
@@ -1398,38 +1336,69 @@
         }
 
         // =========================================================================
-        // MODALS: ARTICLE READER & LIGHTBOX
+        // 5. MODAL CONTROLS & INTERACTION
         // =========================================================================
+        function openWeekModal(weekNumber) {
+            const week = PROTOSEM_WEEKS.find(w => w.week === weekNumber);
+            if (!week) return;
+
+            document.getElementById('modal-phase').innerText = `PHASE 0${week.phase} • SPRINT ${week.week}`;
+            document.getElementById('modal-week').innerText = week.label;
+            document.getElementById('modal-title').innerText = week.title;
+            document.getElementById('modal-desc').innerText = week.desc;
+            document.getElementById('modal-status').innerText = week.status;
+
+            const actionBtn = document.getElementById('modal-action-btn');
+            if (week.slug === 'zero-week.html') {
+                actionBtn.href = 'zero-week.html';
+                actionBtn.innerText = 'Read Zero Week Essay →';
+                actionBtn.classList.remove('hidden');
+            } else {
+                actionBtn.href = '#';
+                actionBtn.innerText = 'Sprint Logged';
+                actionBtn.classList.add('hidden');
+            }
+
+            document.getElementById('week-modal').classList.remove('hidden');
+            playSynthSound('click');
+        }
+
+        function closeWeekModal() {
+            document.getElementById('week-modal').classList.add('hidden');
+        }
+
         function openArticleModal(id) {
             const post = BLOG_POSTS.find(p => p.id === id);
             if (!post) return;
-            document.getElementById('modal-category').innerText = post.category.toUpperCase();
-            document.getElementById('modal-title').innerText = post.title;
-            document.getElementById('modal-meta').innerText = `${post.date} • ${post.readTime} • By Nandhini`;
-            document.getElementById('modal-image').src = post.image;
-            document.getElementById('modal-content').innerHTML = post.content;
+
+            document.getElementById('modal-article-category').innerText = post.category;
+            document.getElementById('modal-article-meta').innerText = `${post.date} • ${post.readTime}`;
+            document.getElementById('modal-article-title').innerText = post.title;
+            document.getElementById('modal-article-content').innerHTML = post.content;
+
             document.getElementById('article-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+            playSynthSound('click');
         }
 
         function closeArticleModal() {
             document.getElementById('article-modal').classList.add('hidden');
-            document.body.style.overflow = '';
         }
 
         function openPhotoLightbox(id) {
-            const photo = PHOTO_GALLERY.find(p => p.id === id) || PHOTO_GALLERY[0];
+            const photo = PHOTO_GALLERY.find(p => p.id === id);
+            if (!photo) return;
+
             document.getElementById('lightbox-img').src = photo.img;
             document.getElementById('lightbox-title').innerText = photo.title;
+            document.getElementById('lightbox-caption').innerText = photo.caption;
             document.getElementById('lightbox-meta').innerText = photo.meta;
-            document.getElementById('lightbox-tag').innerText = photo.category;
+
             document.getElementById('photo-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+            playSynthSound('click');
         }
 
         function closePhotoModal() {
             document.getElementById('photo-modal').classList.add('hidden');
-            document.body.style.overflow = '';
         }
 
         function toggleMobileMenu() {
@@ -1442,25 +1411,74 @@
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function showToast(text, icon = '✨') {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-text').innerText = text;
-            document.getElementById('toast-icon').innerText = icon;
-            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-            }, 3200);
-        }
-
         function handleContactSubmit(e) {
             e.preventDefault();
-            const name = document.getElementById('contact-name').value;
-            showToast(`Thank you, ${name}! Your note was received.`, '💌');
+            playSynthSound('success');
+            showToast('Message sent warmly! I will reply soon. ✦', '💌');
             e.target.reset();
         }
 
+        function showToast(msg, icon = '✨') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            document.getElementById('toast-icon').innerText = icon;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+
         // =========================================================================
-        // SCROLL DYNAMICS & PROGRESS
+        // 6. WEB AUDIO SYNTHESIZER
+        // =========================================================================
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+
+        function playSynthSound(type = 'click') {
+            if (!soundEnabled) return;
+            try {
+                initAudio();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(550, now);
+                    osc.frequency.exponentialRampToValueAtTime(750, now + 0.04);
+                    gain.gain.setValueAtTime(0.04, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+                    osc.start(now);
+                    osc.stop(now + 0.04);
+                } else if (type === 'success') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.08);
+                    osc.frequency.setValueAtTime(783.99, now + 0.16);
+                    gain.gain.setValueAtTime(0.05, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                }
+            } catch (e) {}
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('sound-icon').innerText = soundEnabled ? '🔊' : '🔇';
+            showToast(soundEnabled ? 'UI Sound Effects Enabled' : 'UI Sound Effects Muted', soundEnabled ? '🔊' : '🔇');
+            if (soundEnabled) playSynthSound('success');
+        }
+
+        // =========================================================================
+        // 7. SCROLL DYNAMICS & PROGRESS
         // =========================================================================
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
@@ -1480,19 +1498,17 @@
             }
         });
 
-        // Intersection Observer for graceful scroll reveals
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         // Initialize Everything on Load
         window.addEventListener('DOMContentLoaded', () => {
+            renderWeeks('all');
             renderBlogs('all');
-            renderPhotos('all');
+            renderPhotos();
             renderBaking();
             document.querySelectorAll('.reveal-item').forEach(el => revealObserver.observe(el));
         });
@@ -1500,6 +1516,7 @@
         // ESC key to close any open modal
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                closeWeekModal();
                 closeArticleModal();
                 closePhotoModal();
             }
