@@ -755,21 +755,21 @@
     </div>
 
     <!-- Floating Glass Island Navbar -->
-    <nav class="sticky top-4 z-40 glass-panel rounded-full px-5 py-3 mb-8 flex items-center justify-between gap-3 max-w-4xl w-full border border-amber-600/20 shadow-[0_10px_35px_rgba(15,23,42,0.08)]">
+    <nav id="main-nav" class="sticky top-4 z-40 glass-panel rounded-full px-5 py-3 mb-8 flex items-center justify-between gap-3 max-w-4xl w-full border border-amber-600/20 shadow-[0_10px_35px_rgba(15,23,42,0.08)] transition-all duration-300">
         <!-- Logo -->
         <a href="#" class="font-display font-extrabold text-xl tracking-tight bg-gradient-to-r from-amber-700 via-slate-900 to-amber-700 text-transparent bg-clip-text hover:scale-105 transition-transform flex items-center gap-1.5">
             <span class="text-amber-600 text-lg">✦</span> NS.
         </a>
 
-        <!-- Nav Links -->
-        <div class="flex items-center gap-1.5 sm:gap-4 text-xs sm:text-sm font-medium">
-            <a href="#about" class="px-2.5 py-1 text-slate-700 hover:text-amber-700 font-semibold transition-colors">About</a>
-            <a href="#academics" class="px-2.5 py-1 text-slate-700 hover:text-amber-700 font-semibold transition-colors hidden sm:inline-block">Academics</a>
-            <a href="#protosem" class="px-3.5 py-1.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-500/40 hover:bg-amber-500/25 transition-all font-semibold flex items-center gap-1.5 shadow-[0_2px_10px_rgba(217,119,6,0.12)]">
+        <!-- Nav Links with Scrollspy hooks -->
+        <div class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
+            <a href="#about" class="nav-spy-link px-3 py-1 rounded-full text-slate-700 hover:text-amber-800 font-semibold transition-all" data-section="about">About</a>
+            <a href="#academics" class="nav-spy-link px-3 py-1 rounded-full text-slate-700 hover:text-amber-800 font-semibold transition-all hidden sm:inline-block" data-section="academics">Academics</a>
+            <a href="#protosem" class="nav-spy-link px-3.5 py-1.5 rounded-full bg-amber-500/15 text-amber-900 border border-amber-500/40 hover:bg-amber-500/25 transition-all font-semibold flex items-center gap-1.5 shadow-[0_2px_10px_rgba(217,119,6,0.12)]" data-section="protosem">
                 <span class="w-2 h-2 rounded-full bg-amber-600 animate-ping"></span>
                 <span>ProtoSem (21 Wks)</span>
             </a>
-            <a href="#skills" class="px-2.5 py-1 text-slate-700 hover:text-amber-700 font-semibold transition-colors hidden md:inline-block">Skills</a>
+            <a href="#skills" class="nav-spy-link px-3 py-1 rounded-full text-slate-700 hover:text-amber-800 font-semibold transition-all hidden md:inline-block" data-section="skills">Skills</a>
             <a href="resume.html" class="px-2.5 py-1 text-indigo-700 hover:text-indigo-900 transition-colors font-mono text-xs font-semibold">Resume</a>
         </div>
 
@@ -825,34 +825,34 @@
                         <!-- Profile Header: Square Avatar + Grand Name & Credentials -->
                         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
                             
-                            <!-- Executive Square Avatar with Architectural Gold Accents -->
+                            <!-- Executive Sharp Square Avatar with Architectural Gold Accents -->
                             <div class="relative flex-shrink-0 group cursor-pointer profile-avatar-slide-wrapper" onclick="triggerAvatarUpload(event)" title="Click to Change Photo">
                                 <!-- Ambient backlight luxury aura -->
-                                <div class="absolute -inset-2.5 rounded-2xl bg-gradient-to-tr from-amber-400/40 via-amber-200/30 to-indigo-300/30 blur-lg group-hover:blur-xl opacity-75 transition-all duration-500"></div>
+                                <div class="absolute -inset-3 bg-gradient-to-tr from-amber-400/40 via-amber-200/30 to-indigo-300/30 blur-lg group-hover:blur-xl opacity-75 transition-all duration-500"></div>
 
-                                <!-- Outer architectural luxury border frame -->
-                                <div class="absolute -inset-1.5 rounded-2xl border-2 border-amber-600/35 group-hover:border-amber-600/80 pointer-events-none transition-all"></div>
+                                <!-- Outer architectural luxury border frame (PURE SHARP SQUARE) -->
+                                <div class="absolute -inset-1.5 border-2 border-amber-600/40 group-hover:border-amber-600/90 pointer-events-none transition-all"></div>
 
-                                <!-- Architectural vintage corner brackets -->
-                                <div class="absolute -top-2 -left-2 w-3.5 h-3.5 border-t-2 border-l-2 border-amber-600 z-20 pointer-events-none"></div>
-                                <div class="absolute -top-2 -right-2 w-3.5 h-3.5 border-t-2 border-r-2 border-amber-600 z-20 pointer-events-none"></div>
-                                <div class="absolute -bottom-2 -left-2 w-3.5 h-3.5 border-b-2 border-l-2 border-amber-600 z-20 pointer-events-none"></div>
-                                <div class="absolute -bottom-2 -right-2 w-3.5 h-3.5 border-b-2 border-r-2 border-amber-600 z-20 pointer-events-none"></div>
+                                <!-- Architectural vintage corner brackets (SHARP 90° CORNERS) -->
+                                <div class="absolute -top-2.5 -left-2.5 w-4 h-4 border-t-2 border-l-2 border-amber-600 z-20 pointer-events-none"></div>
+                                <div class="absolute -top-2.5 -right-2.5 w-4 h-4 border-t-2 border-r-2 border-amber-600 z-20 pointer-events-none"></div>
+                                <div class="absolute -bottom-2.5 -left-2.5 w-4 h-4 border-b-2 border-l-2 border-amber-600 z-20 pointer-events-none"></div>
+                                <div class="absolute -bottom-2.5 -right-2.5 w-4 h-4 border-b-2 border-r-2 border-amber-600 z-20 pointer-events-none"></div>
 
-                                <!-- Square Profile Image Box -->
-                                <div class="relative overflow-hidden rounded-xl shadow-2xl border-2 border-white aspect-square w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-slate-50">
+                                <!-- Square Profile Image Box (PURE SHARP SQUARE) -->
+                                <div class="relative overflow-hidden shadow-2xl border-2 border-white aspect-square w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 bg-slate-50">
                                     <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Nandhini+Sivakumar&background=f8fafc&color=92400e&size=256&bold=true" alt="Nandhini Sivakumar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                                     
                                     <!-- Hover "Change Photo" Overlay -->
-                                    <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-mono font-bold z-10 backdrop-blur-[2px]">
+                                    <div class="absolute inset-0 bg-slate-900/65 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-[11px] font-mono font-bold z-10 backdrop-blur-[2px]">
                                         <span class="text-base">📷</span>
                                         <span>Change Photo</span>
                                     </div>
                                 </div>
 
-                                <!-- Active Status Indicator Badge -->
-                                <div class="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-emerald-600 text-white font-mono text-[9px] font-bold border-2 border-white shadow-md flex items-center gap-1 z-20">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                                <!-- Active Status Indicator Badge (Crisp Square Badge) -->
+                                <div class="absolute -bottom-2 -right-2 px-2 py-0.5 bg-emerald-600 text-white font-mono text-[9px] font-bold border border-white shadow-md flex items-center gap-1 z-20">
+                                    <span class="w-1.5 h-1.5 bg-white animate-pulse"></span>
                                     <span>FELLOW</span>
                                 </div>
                             </div>
@@ -1314,11 +1314,13 @@
         </button>
     </div>
 
-    <!-- Scroll to Top Circular Button -->
-    <div id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-40 cursor-pointer glass-panel rounded-full p-3.5 border border-brand-pink/50 shadow-[0_0_20px_rgba(244,114,182,0.4)] hover:scale-110 opacity-0 pointer-events-none transition-all duration-300">
-        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    <!-- Scroll to Top Circular Button with Live Progress Ring -->
+    <div id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-40 cursor-pointer glass-panel rounded-full p-2 border border-amber-500/40 shadow-[0_10px_25px_rgba(217,119,6,0.25)] hover:scale-110 opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center group" title="Back to Top">
+        <svg class="w-10 h-10 transform -rotate-90" viewBox="0 0 36 36">
+            <path class="text-amber-200/60" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path id="scroll-circle-progress" class="text-amber-600" stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
         </svg>
+        <span class="absolute text-sm text-amber-900 font-bold group-hover:-translate-y-0.5 transition-transform">↑</span>
     </div>
 
     <!-- ========================================================================= -->
@@ -2211,22 +2213,96 @@
             window.revealObserver = revealObserver;
         }
 
-        // Scroll Progress & Top Button
+        // =========================================================================
+        // EXECUTIVE SCROLL DYNAMICS & SCROLLSPY ENGINE
+        // =========================================================================
         const scrollBar = document.getElementById('scroll-progress-bar');
         const scrollTopBtn = document.getElementById('scroll-to-top');
+        const scrollCircleProgress = document.getElementById('scroll-circle-progress');
+        const mainNav = document.getElementById('main-nav');
+        const navSpyLinks = document.querySelectorAll('.nav-spy-link');
+        const sections = ['about', 'academics', 'protosem', 'skills', 'blog'].map(id => document.getElementById(id)).filter(Boolean);
+
+        const aurora1 = document.querySelector('.aurora-1');
+        const aurora2 = document.querySelector('.aurora-2');
+        const profileAvatarWrapper = document.querySelector('.profile-avatar-slide-wrapper');
+
+        let lastKnownScrollPosition = 0;
+        let ticking = false;
+
+        function onScrollUpdate(scrollTop) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = Math.min(Math.max((scrollTop / docHeight) * 100, 0), 100);
+            
+            // 1. Top linear progress bar
+            if (scrollBar) scrollBar.style.width = `${progress}%`;
+            
+            // 2. Circular progress ring on back-to-top button
+            if (scrollCircleProgress) {
+                scrollCircleProgress.setAttribute('stroke-dasharray', `${progress}, 100`);
+            }
+
+            // 3. Back to top button visibility
+            if (scrollTopBtn) {
+                if (scrollTop > 350) {
+                    scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+
+            // 4. Floating Navbar Dynamic Morph & Glass Shrink
+            if (mainNav) {
+                if (scrollTop > 60) {
+                    mainNav.classList.remove('py-3');
+                    mainNav.classList.add('py-2', 'shadow-[0_15px_35px_rgba(15,23,42,0.12)]', 'border-amber-600/40', 'bg-white/95');
+                } else {
+                    mainNav.classList.add('py-3');
+                    mainNav.classList.remove('py-2', 'shadow-[0_15px_35px_rgba(15,23,42,0.12)]', 'border-amber-600/40', 'bg-white/95');
+                }
+            }
+
+            // 5. Parallax Multi-Depth Shifts
+            if (aurora1) aurora1.style.transform = `translate3d(0, ${scrollTop * 0.12}px, 0)`;
+            if (aurora2) aurora2.style.transform = `translate3d(0, ${scrollTop * -0.08}px, 0)`;
+            if (profileAvatarWrapper && scrollTop < 600) {
+                profileAvatarWrapper.style.transform = `translate3d(0, ${scrollTop * 0.05}px, 0)`;
+            }
+
+            // 6. Real-Time ScrollSpy Active Section Highlight
+            let currentSectionId = '';
+            const scrollMiddle = scrollTop + window.innerHeight * 0.35;
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const sec = sections[i];
+                if (sec && sec.offsetTop <= scrollMiddle) {
+                    currentSectionId = sec.id;
+                    break;
+                }
+            }
+            if (currentSectionId) {
+                navSpyLinks.forEach(link => {
+                    const targetSec = link.getAttribute('data-section');
+                    if (targetSec === currentSectionId) {
+                        link.classList.add('bg-amber-500/20', 'text-amber-950', 'border-amber-600/40');
+                        link.classList.remove('text-slate-700');
+                    } else if (targetSec !== 'protosem') {
+                        link.classList.remove('bg-amber-500/20', 'text-amber-950', 'border-amber-600/40');
+                        link.classList.add('text-slate-700');
+                    }
+                });
+            }
+        }
 
         window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (scrollTop / docHeight) * 100;
-            scrollBar.style.width = `${progress}%`;
-
-            if (scrollTop > 400) {
-                scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            lastKnownScrollPosition = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    onScrollUpdate(lastKnownScrollPosition);
+                    ticking = false;
+                });
+                ticking = true;
             }
-        });
+        }, { passive: true });
 
         // =========================================================================
         // 5. 3D CREATIVE SHOWCASE LIGHTBOX
