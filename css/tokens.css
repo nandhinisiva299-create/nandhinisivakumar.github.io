@@ -1,0 +1,115 @@
+/**
+ * CSS Design Tokens & Animation Variables
+ * Provides design constants, custom properties, and standardized easing curves.
+ */
+
+:root {
+  /* Color Palette - Vibrant Dark Theme with Neon Accents */
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f293d;
+  --bg-card: rgba(22, 30, 49, 0.75);
+  --bg-card-hover: rgba(30, 41, 67, 0.85);
+  --bg-glass: rgba(15, 23, 42, 0.65);
+  --bg-glass-border: rgba(255, 255, 255, 0.1);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #090d16;
+
+  /* Vibrant Accent Colors */
+  --accent-purple: #8b5cf6;
+  --accent-purple-glow: rgba(139, 92, 246, 0.4);
+  --accent-cyan: #06b6d4;
+  --accent-cyan-glow: rgba(6, 182, 212, 0.4);
+  --accent-pink: #ec4899;
+  --accent-pink-glow: rgba(236, 72, 153, 0.4);
+  --accent-orange: #f97316;
+  --accent-orange-glow: rgba(249, 115, 22, 0.4);
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.4);
+  --accent-amber: #f59e0b;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f97316 100%);
+  --grad-neon: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+  --grad-fire: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  --grad-emerald: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  --grad-dark-card: linear-gradient(180deg, rgba(30, 41, 67, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+
+  /* Animation Easing Curves */
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* Timing Standards */
+  --time-fast: 150ms;
+  --time-normal: 300ms;
+  --time-slow: 500ms;
+  --time-slower: 800ms;
+
+  /* Global Speed Multiplier (controlled via playground slider) */
+  --speed-multiplier: 1;
+
+  /* Shadows and Glows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --shadow-glow-purple: 0 0 25px rgba(139, 92, 246, 0.35);
+  --shadow-glow-cyan: 0 0 25px rgba(6, 182, 212, 0.35);
+  --shadow-glow-orange: 0 0 25px rgba(249, 115, 22, 0.35);
+
+  /* Borders & Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', Consolas, monospace;
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e2e8f0;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --bg-glass-border: rgba(0, 0, 0, 0.08);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #f8fafc;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+  --grad-dark-card: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%);
+}
+
+/* Cyberpunk / High-Tech Theme Variables */
+[data-theme="cyberpunk"] {
+  --bg-primary: #05050d;
+  --bg-secondary: #0d0f1e;
+  --bg-tertiary: #191b35;
+  --bg-card: rgba(17, 19, 41, 0.85);
+  --bg-card-hover: rgba(29, 32, 68, 0.95);
+  --bg-glass: rgba(13, 15, 30, 0.8);
+  --bg-glass-border: rgba(0, 240, 255, 0.25);
+
+  --accent-purple: #bf00ff;
+  --accent-cyan: #00f0ff;
+  --accent-pink: #ff007f;
+  --accent-orange: #ffe600;
+
+  --shadow-glow-purple: 0 0 30px rgba(191, 0, 255, 0.5);
+  --shadow-glow-cyan: 0 0 30px rgba(0, 240, 255, 0.5);
+}
