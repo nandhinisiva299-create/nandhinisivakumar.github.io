@@ -1,0 +1,337 @@
+/**
+ * Keyframe Animations & Micro-Interactions Library
+ * GPU-accelerated CSS animations using transform, opacity, and filter.
+ */
+
+/* 1. Shimmer Effect (used in progress bars, skeleton loaders, and discount badges) */
+@keyframes shimmerWave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.anim-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.anim-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmerWave calc(2s * var(--speed-multiplier, 1)) infinite ease-in-out;
+}
+
+/* 2. Urgent Flame Flicker & Sparkle */
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.8));
+  }
+  25% {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 0 14px rgba(239, 68, 68, 0.9));
+  }
+  50% {
+    transform: scale(0.95) rotate(-2deg);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.85));
+  }
+  75% {
+    transform: scale(1.05) rotate(1deg);
+    filter: drop-shadow(0 0 16px rgba(249, 115, 22, 1));
+  }
+}
+
+.anim-flame {
+  display: inline-block;
+  animation: flameFlicker calc(1.5s * var(--speed-multiplier, 1)) infinite ease-in-out;
+  transform-origin: center bottom;
+}
+
+/* 3. Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3), inset 0 0 10px rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.7), inset 0 0 15px rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.8);
+  }
+}
+
+.anim-pulse-glow {
+  animation: pulseGlow calc(2s * var(--speed-multiplier, 1)) infinite ease-in-out;
+}
+
+/* 4. Radar Ping (Urgent live indicators & notification badges) */
+@keyframes radarPing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.anim-radar-ping {
+  position: relative;
+}
+
+.anim-radar-ping::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background-color: inherit;
+  animation: radarPing calc(1.6s * var(--speed-multiplier, 1)) cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: -1;
+}
+
+/* 5. Heart Burst / Like Animation */
+@keyframes heartBurstAnim {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.75);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.anim-heart-burst {
+  animation: heartBurstAnim calc(0.45s * var(--speed-multiplier, 1)) var(--ease-spring);
+}
+
+/* 6. Notification Bell Shake */
+@keyframes bellShake {
+  0%, 100% { transform: rotate(0); }
+  10%, 30%, 50%, 70%, 90% { transform: rotate(12deg); }
+  20%, 40%, 60%, 80% { transform: rotate(-12deg); }
+}
+
+.anim-bell-shake {
+  animation: bellShake calc(0.8s * var(--speed-multiplier, 1)) ease-in-out;
+  transform-origin: top center;
+}
+
+/* 7. Cart Bounce Pop */
+@keyframes badgePop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.anim-badge-pop {
+  animation: badgePop calc(0.4s * var(--speed-multiplier, 1)) var(--ease-spring);
+}
+
+/* 8. Countdown Digit Flip / Pulse */
+@keyframes digitPulse {
+  0% {
+    transform: translateY(-8px) scale(0.95);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(2px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.anim-digit-change {
+  animation: digitPulse calc(0.35s * var(--speed-multiplier, 1)) var(--ease-out-back);
+}
+
+/* 9. Floating / Levitating Elements */
+@keyframes floatingSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.anim-float {
+  animation: floatingSlow calc(4s * var(--speed-multiplier, 1)) infinite ease-in-out;
+}
+
+/* 10. Neon Gradient Border Rotation */
+@keyframes neonRotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.anim-neon-border {
+  position: relative;
+}
+
+.anim-neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--grad-primary);
+  border-radius: inherit;
+  z-index: -1;
+  animation: neonRotate calc(6s * var(--speed-multiplier, 1)) linear infinite;
+}
+
+/* 11. Ripple Effect on Click */
+@keyframes rippleExpand {
+  0% {
+    transform: scale(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: rippleExpand calc(0.6s * var(--speed-multiplier, 1)) ease-out forwards;
+  pointer-events: none;
+}
+
+/* 12. Skeleton Loading Wave */
+@keyframes skeletonWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.12) 37%,
+    rgba(255, 255, 255, 0.04) 63%
+  ) !important;
+  background-size: 400% 100% !important;
+  animation: skeletonWave calc(1.6s * var(--speed-multiplier, 1)) ease-in-out infinite !important;
+  color: transparent !important;
+  border-color: transparent !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+.skeleton-loading * {
+  visibility: hidden;
+}
+
+/* 13. Fly To Cart Particle (dynamically created by JS) */
+.fly-to-cart-item {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 8px 16px rgba(0, 0, 0, 0.5);
+  border: 2px solid #fff;
+  transition: all calc(0.75s * var(--speed-multiplier, 1)) cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 14. Pop In Scale Animation */
+@keyframes popInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.anim-pop-in {
+  animation: popInScale calc(0.4s * var(--speed-multiplier, 1)) var(--ease-out-back) forwards;
+}
+
+/* 15. Group Deals Progress Liquid Wave */
+@keyframes fluidWaveMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.anim-fluid-progress {
+  background: linear-gradient(90deg, #8b5cf6, #ec4899, #f97316, #06b6d4, #8b5cf6);
+  background-size: 300% 100%;
+  animation: fluidWaveMove calc(4s * var(--speed-multiplier, 1)) ease infinite;
+}
+
+/* Reduced Motion Preference Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.motion-reduced *, .motion-reduced ::before, .motion-reduced ::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
